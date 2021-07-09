@@ -86,7 +86,7 @@ author:
   location         : "Texas, USA"
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : #"http://yourfullgooglescholarurl.com"
+  googlescholar    : "https://public.tableau.com/profile/ycheng#!/"
   email            :
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
@@ -112,7 +112,7 @@ author:
   twitter          : #"replacethistwitterhandle"
   vine             :
   weibo            :
-  Tableau          : "https://public.tableau.com/profile/ycheng#!/"
+  Tableau          : "https://public.tableau.com/profile/ycheng#!/" #??????
   youtube          :
   wikipedia        :
 
