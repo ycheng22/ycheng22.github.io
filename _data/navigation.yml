@@ -11,14 +11,17 @@ main:
     
   # - title: "Portfolio"
   #   url: /portfolio/
-        
+ 
+  - title: "About me"
+    url: /aboutme/
+
   - title: "Blogs"
     url: /year-archive/
     
-  - title: "CV"
-    url: /cv/
+  # - title: "CV"
+  #   url: /cv/
     
-  - title: "Guide"
+  - title: "Memo"
     url: /markdown/
 
   # - title: "About"
