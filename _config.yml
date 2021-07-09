@@ -81,7 +81,7 @@ analytics:
 # Site Author
 author:
   name             : "Yunpeng Cheng"
-  avatar           : "Yunpeng.jpg" #"profile.png"
+  avatar           : "profile.png" #"Yunpeng.jpg" #"profile.png"
   bio              : "A PHD candidate of physics"
   location         : "Texas, USA"
   employer         :
