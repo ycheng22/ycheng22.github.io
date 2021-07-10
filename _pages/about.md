@@ -15,7 +15,7 @@ I am a PhD candidate of physics. I am also a CFA level II candidate.
 
 I received my bachelor degree in Geophysics(major) and Accounting(minor) from China University of Petroleum-Beijing. 
 
-I plan to be a data analyst | data scientist | quantitative researcher. 
+I plan to be a data analyst / data scientist / quantitative researcher. 
 
 Research
 ======
