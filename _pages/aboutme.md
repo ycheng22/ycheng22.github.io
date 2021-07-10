@@ -17,24 +17,34 @@ Education
 
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* University of University: Research Assistant, May 2017 - Present
+  * Developed MATLAB code to solve phase problems using the iterative direct phasing method
+  * Programmed script to run code on cluster, improved convergence rate by employing data weighting
+  * Extended this method to proteins with low solvent (<65%) by employing non-crystallographic symmetry (NCS)
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* Accenture: Research Intern, Mar 2016 - Jun 2016
+  * Assisted manager to develop python code to simulate and assess system security risk
+  * Applied Monte Carlo simulation and calculated power flow by PSS/E API iteratively to get security index
   
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Python
+* Matlab
+* R
+* C++
+* SQL
+* Frameworks/packages
+  * Numpy
+  * Pandas
+  * Scikit-learn
+  * Tensorflow
+  * PyTorch
+* JavaScript
+* Visualization
+  * Excel
+  * Tableau
+  * Power BI
+  * matplotlib
 
 <!-- Publications
 ======
