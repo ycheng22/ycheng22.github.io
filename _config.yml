@@ -112,7 +112,7 @@ author:
   twitter          : #"replacethistwitterhandle"
   vine             :
   weibo            :
-  Tableau          : #"https://public.tableau.com/profile/ycheng#!/" #??????
+  Tableau          : "ycheng" #"https://public.tableau.com/profile/ycheng#!/" #??????
   youtube          :
   wikipedia        :
 
