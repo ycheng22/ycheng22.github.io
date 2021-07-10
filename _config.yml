@@ -84,10 +84,10 @@ author:
   avatar           : "Yunpeng.jpg" #"profile.png"
   bio              : "A PhD candidate of physics"
   location         : "Texas, USA"
-  employer         :
+  employer         : "University of Houston"
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : #"https://scholar.google.com/citations?hl=en&user=IAJpTqYAAAAJ"
-  email            : "ycheng22@hotmail.com"
+  email            : #"ycheng22@hotmail.com"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
