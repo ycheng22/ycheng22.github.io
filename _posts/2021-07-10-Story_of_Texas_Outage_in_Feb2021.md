@@ -1,5 +1,5 @@
 ---
-title: '20210710 Story of Texas Outage in Feb 2021'
+title: '[20210710] Story of Texas Outage in Feb 2021'
 date: 2021-07-10
 permalink: /posts/2021/07/blog-demo/
 tags:
