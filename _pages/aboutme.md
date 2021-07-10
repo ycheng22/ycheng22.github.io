@@ -33,13 +33,13 @@ Skills
 * R
 * C++
 * SQL
+* JavaScript
 * Frameworks/packages
   * Numpy
   * Pandas
   * Scikit-learn
   * Tensorflow
   * PyTorch
-* JavaScript
 * Visualization
   * Excel
   * Tableau
