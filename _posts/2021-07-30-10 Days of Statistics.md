@@ -1,11 +1,18 @@
 ---
-title: '[20210730] 10 Days of Statistics'
+title: '10 Days of Statistics'
 date: 2021-07-30
-permalink: /posts/2021/07/10_Days_of_Statistics/
+header:
+#   image: "/images/foo-bar-identity.jpg"
+#   caption: "A beautiful photo"
+  # teaser: "/images/20210805_blog_pymol/show_session.png"
 tags:
   - Statistics
   - HackerRank
   - Python
+# toc: true
+# toc_label: "Contents"
+# toc_icon: "cog"
+classes: wide
 ---
 
 Summary: solving some problems about statistics in 10 days. The problems are on [HackerRank](https://www.hackerrank.com/domains/tutorials/10-days-of-statistics).

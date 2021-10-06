@@ -1,11 +1,18 @@
 ---
-title: '[20210720] SQL on LeetCode'
+title: 'SQL on LeetCode'
 date: 2021-07-20
-permalink: /posts/2021/07/SQL_on_LeetCode/
+header:
+#   image: "/images/foo-bar-identity.jpg"
+#   caption: "A beautiful photo"
+  # teaser: "/images/20210805_blog_pymol/show_session.png"
 tags:
   - SQL
   - LeetCode
   - MySQL
+# toc: true
+# toc_label: "Contents"
+# toc_icon: "cog"
+classes: wide
 ---
 
 Summary: solving the SQL problems on LeetCode.

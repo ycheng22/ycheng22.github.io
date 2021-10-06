@@ -1,11 +1,18 @@
 ---
-title: '[20210818] Deploy_web_app_on_Heroku'
+title: 'Deploy_web_app_on_Heroku'
 date: 2021-08-20
-permalink: /posts/2021/08/Deploy_web_app_on_Heroku/
+header:
+#   image: "/images/foo-bar-identity.jpg"
+#   caption: "A beautiful photo"
+  # teaser: "/images/20210805_blog_pymol/show_session.png"
 tags:
 - Bokeh
 - Heroku
 - Python
+# toc: true
+# toc_label: "Contents"
+# toc_icon: "cog"
+classes: wide
 ---
 
 Summary: deploy web app on Heroku.
@@ -30,10 +37,10 @@ Check below code through the link:
 <script src="https://github.com/ycheng22/Build_10_Real_World_Applicatoins/blob/main/Sec21_App4_Personal_Web/Mysite/Demo/script1.py"></script>
 
 **Web**
-![name](../images/heroku_blogs/home_page.png)
+![name](/images/heroku_blogs/home_page.png)
 fig 1: Home Page
 
-![name](../images/heroku_blogs/about_page.png)
+![name](/images/heroku_blogs/about_page.png)
 fig 2: About Page
 
 ## Create virtual environment

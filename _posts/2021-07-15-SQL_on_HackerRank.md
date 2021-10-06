@@ -1,11 +1,20 @@
 ---
-title: '[20210715] SQL on HackerRank'
+title: 'SQL on HackerRank'
 date: 2021-07-15
-permalink: /posts/2021/07/SQL_on_HackerRank/
+header:
+#   image: "/images/foo-bar-identity.jpg"
+#   caption: "A beautiful photo"
+  # teaser: "/images/20210805_blog_pymol/show_session.png"
+categories:
+  - blog
 tags:
   - SQL
   - HackerRank
   - MySQL
+# toc: true
+# toc_label: "Contents"
+# toc_icon: "cog"
+classes: wide
 ---
 
 Summary: solving the SQL problems on HackerRank.

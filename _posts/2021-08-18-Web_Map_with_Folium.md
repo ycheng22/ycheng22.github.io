@@ -1,11 +1,18 @@
 ---
-title: '[20210818] Web_Map_with_Folium'
+title: 'Web_Map_with_Folium'
 date: 2021-08-18
-permalink: /posts/2021/08/Web_Map_with_Folium/
+header:
+#   image: "/images/foo-bar-identity.jpg"
+#   caption: "A beautiful photo"
+  # teaser: "/images/20210805_blog_pymol/show_session.png"
 tags:
   - Web Map
   - Folium
   - Python
+# toc: true
+# toc_label: "Contents"
+# toc_icon: "cog"
+classes: wide
 ---
 
 Build a web map with Folium.
