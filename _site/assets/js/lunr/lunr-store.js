@@ -48,7 +48,7 @@ var store = [{
         "teaser": "/images/20210805_blog_pymol/show_session.png"
       },{
         "title": "Web_Map_with_Folium",
-        "excerpt":"Build a web map with Folium.   Find the notebook.  ","categories": [],
+        "excerpt":"Summary: Build a web map with Folium.   Find the notebook.   Contents:   Create a map   mp = folium.Map(location=[38.58, -99.09], zoom_start=6, tiles=\"Stamen Terrain\") mp.save(\"Map1.html\") mp              ","categories": [],
         "tags": ["Web Map","Folium","Python"],
         "url": "/Web_Map_with_Folium/",
         "teaser": null
@@ -65,15 +65,15 @@ var store = [{
         "url": "/2020_Houston_flights_delay_dashboard/",
         "teaser": "/images/Hou_flights_delay/flight_map.png"
       },{
-        "title": "Switch My Web Theme to Minimal Mistake",
-        "excerpt":"Summary: switch my web theme to Minimal Mistake   The theme is forked from here.   Update settings in _config.yml and _pages. The setting is similar to this blog : Set up web on Github (academicpages template).   Run server locally:   bundle install   bundle exec jekyll serve   Address: http://127.0.0.1:4000  ","categories": [],
-        "tags": ["Github Pages","Minimal Mistake","Web","Jekyll"],
-        "url": "/Switch_my_web_theme_to_Minimal_Mistake/",
-        "teaser": "/images/mm_image.png"
-      },{
         "title": "Deploy Bokeh Server App on Heroku",
         "excerpt":"Summary: deploy Bokeh server app on Heroku. Check this blog on github. App web: https://yc-bokeh-server.herokuapp.com/ Contents: 1. Introduction 2. python scripts 3. Create virtual environment 4. Deploy the app to Heroku 1. Introduction According to Bokeh’s introduction on widgets: There are two ways to use a widget’s functionality: A CustomJS...","categories": [],
         "tags": ["Bokeh","Heroku","Python"],
         "url": "/Deploy_Bokeh_Server_App_on_Heroku/",
         "teaser": "/images/Hou_flights_delay/bokeh_serve_image.svg"
+      },{
+        "title": "Switch My Web Theme to Minimal Mistake",
+        "excerpt":"Summary: switch my web theme to Minimal Mistake   The theme is forked from here.   Update settings in _config.yml and _pages. The setting is similar to this blog : Set up web on Github (academicpages template).   Run server locally:   bundle install   bundle exec jekyll serve   Address: http://127.0.0.1:4000  ","categories": [],
+        "tags": ["Github Pages","Minimal Mistake","Web","Jekyll"],
+        "url": "/Switch_my_web_theme_to_Minimal_Mistake/",
+        "teaser": "/images/mm_image.png"
       }]

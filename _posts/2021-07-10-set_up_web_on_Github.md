@@ -93,6 +93,12 @@ Go to the repo in your Github, rename the repo's name to ``[your_name].github.io
         [Download the file](http://ycheng22.github.io/files/paper1.pdf)
         ```
 
- 
+Run server locally:
+
+`bundle install`
+
+`bundle exec jekyll serve`
+
+Address: <http://127.0.0.1:4000>
 
 

@@ -1,6 +1,6 @@
 ---
 title: 'Deploy Bokeh Server App on Heroku'
-date: 2021-10-05
+date: 2021-10-01
 header:
 #   image: "/images/foo-bar-identity.jpg"
 #   caption: "A beautiful photo"
