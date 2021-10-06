@@ -1,7 +1,7 @@
 ---
 title: "Life"
 permalink: /life/
-author_profile: true
+author_profile: false
 categories:
   - life
 classes: wide
