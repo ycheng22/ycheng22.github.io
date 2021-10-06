@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://ycheng22.github.io/</loc>
+  <lastmod>2021-10-06T21:02:45+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://ycheng22.github.io/about/</loc>
+  <lastmod>2021-10-06T21:02:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ycheng22.github.io/posts/</loc>
+  <lastmod>2021-10-06T21:02:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ycheng22.github.io/categories/</loc>
+  <lastmod>2021-10-06T21:02:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ycheng22.github.io/tags/</loc>
+  <lastmod>2021-10-06T21:02:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ycheng22.github.io/life/</loc>
+  <lastmod>2021-10-06T21:02:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ycheng22.github.io/Switch_my_web_theme_to_Minimal_Mistake/</loc>
+  <lastmod>2021-10-06T21:02:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ycheng22.github.io/Deploy_Bokeh_Server_App_on_Heroku/</loc>
+  <lastmod>2021-10-06T21:02:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ycheng22.github.io/2020_Houston_flights_delay_dashboard/</loc>
+  <lastmod>2021-10-06T21:02:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ycheng22.github.io/Deploy_web_app_on_Heroku/</loc>
+  <lastmod>2021-10-06T21:02:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ycheng22.github.io/Web_Map_with_Folium/</loc>
+  <lastmod>2021-10-06T21:02:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ycheng22.github.io/blog/create_xyz_for_PyMol/</loc>
+  <lastmod>2021-10-06T21:02:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ycheng22.github.io/10-Days-of-Statistics/</loc>
+  <lastmod>2021-10-06T21:02:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ycheng22.github.io/SQL_on_LeetCode/</loc>
+  <lastmod>2021-10-06T21:02:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ycheng22.github.io/blog/SQL_on_HackerRank/</loc>
+  <lastmod>2021-10-06T21:02:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ycheng22.github.io/blog/set_up_web_on_Github/</loc>
+  <lastmod>2021-10-06T21:02:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ycheng22.github.io/blog/Story_of_Texas_Outage_in_Feb2021/</loc>
+  <lastmod>2021-10-06T21:02:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ycheng22.github.io/blog/Install_Intel_Parallel_Studio_on_Linux_Windows/</loc>
+  <lastmod>2021-10-06T21:02:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ycheng22.github.io/blog/welcome-to-jekyll/</loc>
+  <lastmod>2021-10-06T21:02:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
+</urlset>
