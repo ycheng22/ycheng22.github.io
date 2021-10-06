@@ -48,10 +48,10 @@ var store = [{
         "teaser": "/images/20210805_blog_pymol/show_session.png"
       },{
         "title": "Web_Map_with_Folium",
-        "excerpt":"Summary: Build a web map with Folium.   Find the notebook.   Contents:   Create a map   mp = folium.Map(location=[38.58, -99.09], zoom_start=6, tiles=\"Stamen Terrain\") mp.save(\"Map1.html\") mp              ","categories": [],
+        "excerpt":"Summary: Build a web map with Folium. Find the notebook. Contents: 1. Create a map 2. Add marker 2.1 Add single marker 2.2 Add multiple markers from file 2.3 Add elevation to popup 2.4 Color generate function for markers 2.5 Circle markers 3. Add population layer with json data 3.1...","categories": [],
         "tags": ["Web Map","Folium","Python"],
         "url": "/Web_Map_with_Folium/",
-        "teaser": null
+        "teaser": "/images/20210710_web_map_Folium/map24.png"
       },{
         "title": "Deploy Web App on Heroku",
         "excerpt":"Summary: deploy web app on Heroku. Check this blog on github. App web: https://yc-web1.herokuapp.com/ Contents: 1. Simple web 2. Create virtual environment 3. Deploy app to Heroku 1. Simple web Check below code through the link: https://github.com/ycheng22/Build_10_Real_World_Applicatoins/tree/main/Sec21_App4_Personal_Web/Mysite/Demo script1.py #run in cmd: python .\\script1.py from flask import Flask, render_template app =...","categories": [],

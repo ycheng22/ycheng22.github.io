@@ -30,6 +30,8 @@
 
 
 
+  <meta property="og:image" content="http://localhost:4000/images/20210710_web_map_Folium/map24.png">
+
 
 
 
@@ -299,7 +301,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          less than 1 minute read
+          3 minute read
         
       </span>
     
@@ -316,25 +318,304 @@
 <p>Find the <a href="https://github.com/ycheng22/Build_10_Real_World_Applicatoins/blob/main/App2_Web_Map_with_Volcanoes_Population/Web_Map.ipynb">notebook</a>.</p>
 
 <p><strong>Contents:</strong></p>
+<ul>
+  <li><a href="#1-create-a-map">1. Create a map</a></li>
+  <li><a href="#2-add-marker">2. Add marker</a>
+    <ul>
+      <li><a href="#21-add-single-marker">2.1 Add single marker</a></li>
+      <li><a href="#22-add-multiple-markers-from-file">2.2 Add multiple markers from file</a></li>
+      <li><a href="#23-add-elevation-to-popup">2.3 Add elevation to popup</a></li>
+      <li><a href="#24-color-generate-function-for-markers">2.4 Color generate function for markers</a></li>
+      <li><a href="#25-circle-markers">2.5 Circle markers</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-add-population-layer-with-json-data">3. Add population layer with json data</a>
+    <ul>
+      <li><a href="#31-add-population-layer">3.1 Add population layer</a></li>
+      <li><a href="#32-stylize-the-population-layer">3.2 Stylize the population layer</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-add-layer-control-panel">4 Add layer control panel</a></li>
+</ul>
 
-<h2 id="create-a-map">Create a map</h2>
+<h2 id="1-create-a-map">1. Create a map</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#import packages
+</span><span class="kn">import</span> <span class="nn">folium</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+</code></pre></div></div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mp</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">38.58</span><span class="p">,</span> <span class="o">-</span><span class="mf">99.09</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s">"Stamen Terrain"</span><span class="p">)</span>
 <span class="n">mp</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="s">"Map1.html"</span><span class="p">)</span>
 <span class="n">mp</span>
 </code></pre></div></div>
+<p><img src="/images/20210710_web_map_Folium/map1.png" alt="name" /></p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-</code></pre></div></div>
+<h2 id="2-add-marker">2. Add marker</h2>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<h3 id="21-add-single-marker">2.1 Add single marker</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mp</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">38.58</span><span class="p">,</span> <span class="o">-</span><span class="mf">99.09</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s">"Stamen Terrain"</span><span class="p">)</span>
+<span class="n">fg</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">FeatureGroup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"My map"</span><span class="p">)</span>
+<span class="n">fg</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="p">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">38.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">99.1</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="s">"I am a marker"</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s">"click me"</span><span class="p">,</span> <span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="p">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">"green"</span><span class="p">)))</span>
+<span class="n">mp</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">fg</span><span class="p">)</span>
+<span class="n">mp</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="s">"Map1.html"</span><span class="p">)</span>
+<span class="n">mp</span>
 </code></pre></div></div>
+<p><img src="/images/20210710_web_map_Folium/map21.png" alt="name" /></p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-</code></pre></div></div>
+<h3 id="22-add-multiple-markers-from-file">2.2 Add multiple markers from file</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"Volcanoes.txt"</span><span class="p">)</span>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">#data = pd.read_csv("Volcanoes.txt")
+</span><span class="n">lat</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"LAT"</span><span class="p">])</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"LON"</span><span class="p">])</span>
+
+<span class="n">mp</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">38.58</span><span class="p">,</span> <span class="o">-</span><span class="mf">99.09</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s">"Stamen Terrain"</span><span class="p">)</span>
+
+<span class="n">fg</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">FeatureGroup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"My map"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">lt</span><span class="p">,</span> <span class="n">ln</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">):</span>
+    <span class="n">fg</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="p">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">lt</span><span class="p">,</span> <span class="n">ln</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="s">"I am a marker"</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s">"click me"</span><span class="p">,</span> 
+                              <span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="p">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">"green"</span><span class="p">)))</span>
+
+<span class="n">mp</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">fg</span><span class="p">)</span>
+<span class="n">mp</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="s">"Map1.html"</span><span class="p">)</span>
+<span class="n">mp</span>
 </code></pre></div></div>
+<p><img src="/images/20210710_web_map_Folium/map22.png" alt="name" /></p>
+
+<h3 id="23-add-elevation-to-popup">2.3 Add elevation to popup</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#data = pd.read_csv("Volcanoes.txt")
+</span><span class="n">lat</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"LAT"</span><span class="p">])</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"LON"</span><span class="p">])</span>
+<span class="n">elev</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"ELEV"</span><span class="p">])</span>
+
+<span class="n">mp</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">38.58</span><span class="p">,</span> <span class="o">-</span><span class="mf">99.09</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s">"Stamen Terrain"</span><span class="p">)</span>
+
+<span class="n">fg</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">FeatureGroup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"My map"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">lt</span><span class="p">,</span> <span class="n">ln</span><span class="p">,</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">elev</span><span class="p">):</span>
+    <span class="n">fg</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="p">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">lt</span><span class="p">,</span> <span class="n">ln</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">el</span><span class="p">)</span><span class="o">+</span><span class="s">" m"</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s">"click me"</span><span class="p">,</span> 
+                              <span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="p">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">"green"</span><span class="p">)))</span>
+
+<span class="n">mp</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">fg</span><span class="p">)</span>
+<span class="n">mp</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="s">"Map1.html"</span><span class="p">)</span>
+<span class="n">mp</span>
+</code></pre></div></div>
+<p><img src="/images/20210710_web_map_Folium/map23.png" alt="name" /></p>
+
+<h3 id="24-color-generate-function-for-markers">2.4 Color generate function for markers</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#data = pd.read_csv("Volcanoes.txt")
+</span><span class="n">lat</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"LAT"</span><span class="p">])</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"LON"</span><span class="p">])</span>
+<span class="n">elev</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"ELEV"</span><span class="p">])</span>
+
+<span class="c1">#color markers by elevation
+</span><span class="k">def</span> <span class="nf">color_producer</span><span class="p">(</span><span class="n">elevation</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">elevation</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">"green"</span>
+    <span class="k">elif</span> <span class="mi">1000</span> <span class="o">&lt;=</span> <span class="n">elevation</span> <span class="o">&lt;</span> <span class="mi">3000</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">"orange"</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">"red"</span>
+    
+<span class="n">mp</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">38.58</span><span class="p">,</span> <span class="o">-</span><span class="mf">99.09</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s">"Stamen Terrain"</span><span class="p">)</span>
+
+<span class="n">fg</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">FeatureGroup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"My map"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">lt</span><span class="p">,</span> <span class="n">ln</span><span class="p">,</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">elev</span><span class="p">):</span>
+    <span class="n">fg</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="p">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">lt</span><span class="p">,</span> <span class="n">ln</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">el</span><span class="p">)</span><span class="o">+</span><span class="s">" m"</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s">"click me"</span><span class="p">,</span> 
+                              <span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="p">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color_producer</span><span class="p">(</span><span class="n">el</span><span class="p">))))</span>
+
+<span class="n">mp</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">fg</span><span class="p">)</span>
+<span class="n">mp</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="s">"Map1.html"</span><span class="p">)</span>
+<span class="n">mp</span>
+</code></pre></div></div>
+<p><img src="/images/20210710_web_map_Folium/map24.png" alt="name" /></p>
+
+<h3 id="25-circle-markers">2.5 Circle markers</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#data = pd.read_csv("Volcanoes.txt")
+</span><span class="n">lat</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"LAT"</span><span class="p">])</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"LON"</span><span class="p">])</span>
+<span class="n">elev</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"ELEV"</span><span class="p">])</span>
+
+<span class="c1">#color markers by elevation
+</span><span class="k">def</span> <span class="nf">color_producer</span><span class="p">(</span><span class="n">elevation</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">elevation</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">"green"</span>
+    <span class="k">elif</span> <span class="mi">1000</span> <span class="o">&lt;=</span> <span class="n">elevation</span> <span class="o">&lt;</span> <span class="mi">3000</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">"orange"</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">"red"</span>
+    
+<span class="n">mp</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">38.58</span><span class="p">,</span> <span class="o">-</span><span class="mf">99.09</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s">"Stamen Terrain"</span><span class="p">)</span>
+
+<span class="n">fg</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">FeatureGroup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"My map"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">lt</span><span class="p">,</span> <span class="n">ln</span><span class="p">,</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">elev</span><span class="p">):</span>
+    <span class="n">fg</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="p">.</span><span class="n">CircleMarker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">lt</span><span class="p">,</span> <span class="n">ln</span><span class="p">],</span> <span class="n">radius</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">popup</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">el</span><span class="p">)</span><span class="o">+</span><span class="s">" m"</span><span class="p">,</span> 
+                <span class="n">fill_color</span><span class="o">=</span><span class="n">color_producer</span><span class="p">(</span><span class="n">el</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s">"grey"</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">fill_opacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">))</span>
+
+<span class="n">mp</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">fg</span><span class="p">)</span>
+<span class="n">mp</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="s">"Map1.html"</span><span class="p">)</span>
+<span class="n">mp</span>
+</code></pre></div></div>
+<p><img src="/images/20210710_web_map_Folium/map25.png" alt="name" /></p>
+
+<h2 id="3-add-population-layer-with-json-data">3. Add population layer with json data</h2>
+<h3 id="31-add-population-layer">3.1 Add population layer</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#data = pd.read_csv("Volcanoes.txt")
+</span><span class="n">lat</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"LAT"</span><span class="p">])</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"LON"</span><span class="p">])</span>
+<span class="n">elev</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"ELEV"</span><span class="p">])</span>
+
+<span class="c1">#color markers by elevation
+</span><span class="k">def</span> <span class="nf">color_producer</span><span class="p">(</span><span class="n">elevation</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">elevation</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">"green"</span>
+    <span class="k">elif</span> <span class="mi">1000</span> <span class="o">&lt;=</span> <span class="n">elevation</span> <span class="o">&lt;</span> <span class="mi">3000</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">"orange"</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">"red"</span>
+    
+<span class="n">mp</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">38.58</span><span class="p">,</span> <span class="o">-</span><span class="mf">99.09</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s">"Stamen Terrain"</span><span class="p">)</span>
+
+<span class="n">fg</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">FeatureGroup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"My map"</span><span class="p">)</span>
+
+<span class="c1">#use circle marker
+</span><span class="k">for</span> <span class="n">lt</span><span class="p">,</span> <span class="n">ln</span><span class="p">,</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">elev</span><span class="p">):</span>
+    <span class="n">fg</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="p">.</span><span class="n">CircleMarker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">lt</span><span class="p">,</span> <span class="n">ln</span><span class="p">],</span> <span class="n">radius</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">popup</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">el</span><span class="p">)</span><span class="o">+</span><span class="s">" m"</span><span class="p">,</span> 
+                <span class="n">fill_color</span><span class="o">=</span><span class="n">color_producer</span><span class="p">(</span><span class="n">el</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s">"grey"</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">fill_opacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">))</span>
+
+    <span class="c1">#add world layer
+</span><span class="n">fg</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="p">.</span><span class="n">GeoJson</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s">"world.json"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf-8-sig"</span><span class="p">).</span><span class="n">read</span><span class="p">()))</span> 
+
+<span class="n">mp</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">fg</span><span class="p">)</span>
+<span class="n">mp</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="s">"Map1.html"</span><span class="p">)</span>
+<span class="n">mp</span>
+</code></pre></div></div>
+<p><img src="/images/20210710_web_map_Folium/map31.png" alt="name" /></p>
+
+<h3 id="32-stylize-the-population-layer">3.2 Stylize the population layer</h3>
+<p>Color the country by its population.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#data = pd.read_csv("Volcanoes.txt")
+</span><span class="n">lat</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"LAT"</span><span class="p">])</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"LON"</span><span class="p">])</span>
+<span class="n">elev</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"ELEV"</span><span class="p">])</span>
+
+<span class="c1">#color markers by elevation
+</span><span class="k">def</span> <span class="nf">color_producer</span><span class="p">(</span><span class="n">elevation</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">elevation</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">"green"</span>
+    <span class="k">elif</span> <span class="mi">1000</span> <span class="o">&lt;=</span> <span class="n">elevation</span> <span class="o">&lt;</span> <span class="mi">3000</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">"orange"</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">"red"</span>
+    
+<span class="n">mp</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">38.58</span><span class="p">,</span> <span class="o">-</span><span class="mf">99.09</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s">"Stamen Terrain"</span><span class="p">)</span>
+
+<span class="n">fg</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">FeatureGroup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"My map"</span><span class="p">)</span>
+
+<span class="c1">#use circle marker
+</span><span class="k">for</span> <span class="n">lt</span><span class="p">,</span> <span class="n">ln</span><span class="p">,</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">elev</span><span class="p">):</span>
+    <span class="n">fg</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="p">.</span><span class="n">CircleMarker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">lt</span><span class="p">,</span> <span class="n">ln</span><span class="p">],</span> <span class="n">radius</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">popup</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">el</span><span class="p">)</span><span class="o">+</span><span class="s">" m"</span><span class="p">,</span> 
+                <span class="n">fill_color</span><span class="o">=</span><span class="n">color_producer</span><span class="p">(</span><span class="n">el</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s">"grey"</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">fill_opacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">))</span>
+
+<span class="c1">#add world layer
+</span><span class="n">fg</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="p">.</span><span class="n">GeoJson</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s">"world.json"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf-8-sig"</span><span class="p">).</span><span class="n">read</span><span class="p">(),</span>
+    <span class="n">style_function</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">{</span><span class="s">"fillColor"</span><span class="p">:</span><span class="s">"yellow"</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s">"properties"</span><span class="p">][</span><span class="s">"POP2005"</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">10000000</span>
+    <span class="k">else</span> <span class="s">"orange"</span> <span class="k">if</span> <span class="mi">10000000</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">[</span><span class="s">"properties"</span><span class="p">][</span><span class="s">"POP2005"</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">20000000</span> <span class="k">else</span> <span class="s">"red"</span> <span class="p">}))</span> 
+
+<span class="n">mp</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">fg</span><span class="p">)</span>
+<span class="n">mp</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="s">"Map1.html"</span><span class="p">)</span>
+<span class="n">mp</span>
+</code></pre></div></div>
+<p><img src="/images/20210710_web_map_Folium/map32.png" alt="name" /></p>
+
+<h2 id="4-add-layer-control-panel">4 Add layer control panel</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#data = pd.read_csv("Volcanoes.txt")
+</span><span class="n">lat</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"LAT"</span><span class="p">])</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"LON"</span><span class="p">])</span>
+<span class="n">elev</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"ELEV"</span><span class="p">])</span>
+
+<span class="c1">#color markers by elevation
+</span><span class="k">def</span> <span class="nf">color_producer</span><span class="p">(</span><span class="n">elevation</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">elevation</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">"green"</span>
+    <span class="k">elif</span> <span class="mi">1000</span> <span class="o">&lt;=</span> <span class="n">elevation</span> <span class="o">&lt;</span> <span class="mi">3000</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">"orange"</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">"red"</span>
+    
+<span class="n">mp</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">38.58</span><span class="p">,</span> <span class="o">-</span><span class="mf">99.09</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s">"Stamen Terrain"</span><span class="p">)</span>
+
+<span class="n">fg</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">FeatureGroup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"My map"</span><span class="p">)</span>
+
+<span class="c1">#use circle marker
+</span><span class="k">for</span> <span class="n">lt</span><span class="p">,</span> <span class="n">ln</span><span class="p">,</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">elev</span><span class="p">):</span>
+    <span class="n">fg</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="p">.</span><span class="n">CircleMarker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">lt</span><span class="p">,</span> <span class="n">ln</span><span class="p">],</span> <span class="n">radius</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">popup</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">el</span><span class="p">)</span><span class="o">+</span><span class="s">" m"</span><span class="p">,</span> 
+                <span class="n">fill_color</span><span class="o">=</span><span class="n">color_producer</span><span class="p">(</span><span class="n">el</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s">"grey"</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">fill_opacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">))</span>
+
+<span class="c1">#add world layer
+</span><span class="n">fg</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="p">.</span><span class="n">GeoJson</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s">"world.json"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf-8-sig"</span><span class="p">).</span><span class="n">read</span><span class="p">(),</span>
+    <span class="n">style_function</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">{</span><span class="s">"fillColor"</span><span class="p">:</span><span class="s">"yellow"</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s">"properties"</span><span class="p">][</span><span class="s">"POP2005"</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">10000000</span>
+    <span class="k">else</span> <span class="s">"orange"</span> <span class="k">if</span> <span class="mi">10000000</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">[</span><span class="s">"properties"</span><span class="p">][</span><span class="s">"POP2005"</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">20000000</span> <span class="k">else</span> <span class="s">"red"</span> <span class="p">}))</span> 
+
+<span class="n">mp</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">fg</span><span class="p">)</span>
+<span class="n">mp</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="p">.</span><span class="n">LayerControl</span><span class="p">())</span> <span class="c1">#add layer control panel
+</span>
+<span class="n">mp</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="s">"Map1.html"</span><span class="p">)</span>
+<span class="n">mp</span>
+</code></pre></div></div>
+<p><img src="/images/20210710_web_map_Folium/map41.png" alt="name" /></p>
+
+<p>Now you only have one layer with name <code class="language-plaintext highlighter-rouge">"My map"</code>, because you only have one layer <code class="language-plaintext highlighter-rouge">fg</code>. To control different layers seperately, we need to set different name for different layer.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#data = pd.read_csv("Volcanoes.txt")
+</span><span class="n">lat</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"LAT"</span><span class="p">])</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"LON"</span><span class="p">])</span>
+<span class="n">elev</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"ELEV"</span><span class="p">])</span>
+
+<span class="c1">#color markers by elevation
+</span><span class="k">def</span> <span class="nf">color_producer</span><span class="p">(</span><span class="n">elevation</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">elevation</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">"green"</span>
+    <span class="k">elif</span> <span class="mi">1000</span> <span class="o">&lt;=</span> <span class="n">elevation</span> <span class="o">&lt;</span> <span class="mi">3000</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">"orange"</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">"red"</span>
+    
+<span class="n">mp</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">38.58</span><span class="p">,</span> <span class="o">-</span><span class="mf">99.09</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s">"Stamen Terrain"</span><span class="p">)</span>
+
+<span class="n">fgv</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">FeatureGroup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"Volcanoes"</span><span class="p">)</span>
+
+<span class="c1">#use circle marker
+</span><span class="k">for</span> <span class="n">lt</span><span class="p">,</span> <span class="n">ln</span><span class="p">,</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">elev</span><span class="p">):</span>
+    <span class="n">fgv</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="p">.</span><span class="n">CircleMarker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">lt</span><span class="p">,</span> <span class="n">ln</span><span class="p">],</span> <span class="n">radius</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">popup</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">el</span><span class="p">)</span><span class="o">+</span><span class="s">" m"</span><span class="p">,</span> 
+                <span class="n">fill_color</span><span class="o">=</span><span class="n">color_producer</span><span class="p">(</span><span class="n">el</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s">"grey"</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">fill_opacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">))</span>
+
+<span class="n">fgp</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">FeatureGroup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"Population"</span><span class="p">)</span>
+<span class="c1">#add world layer
+</span><span class="n">fgp</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="p">.</span><span class="n">GeoJson</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s">"world.json"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf-8-sig"</span><span class="p">).</span><span class="n">read</span><span class="p">(),</span>
+    <span class="n">style_function</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">{</span><span class="s">"fillColor"</span><span class="p">:</span><span class="s">"yellow"</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s">"properties"</span><span class="p">][</span><span class="s">"POP2005"</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">10000000</span>
+    <span class="k">else</span> <span class="s">"orange"</span> <span class="k">if</span> <span class="mi">10000000</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">[</span><span class="s">"properties"</span><span class="p">][</span><span class="s">"POP2005"</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">20000000</span> <span class="k">else</span> <span class="s">"red"</span> <span class="p">}))</span> 
+
+<span class="n">mp</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">fgv</span><span class="p">)</span>
+<span class="n">mp</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">fgp</span><span class="p">)</span>
+<span class="n">mp</span><span class="p">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="p">.</span><span class="n">LayerControl</span><span class="p">())</span> <span class="c1">#add layer control panel
+</span>
+<span class="n">mp</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="s">"Map1.html"</span><span class="p">)</span>
+<span class="n">mp</span>
+</code></pre></div></div>
+<p><img src="/images/20210710_web_map_Folium/map42.png" alt="name" /></p>
+
+<p>Now there are two layers: <code class="language-plaintext highlighter-rouge">Volcanoes</code> and <code class="language-plaintext highlighter-rouge">Population</code>.</p>
 
         
       </section>
