@@ -97,6 +97,11 @@ footer:
       icon: "fas fa-link"
       url: "https://public.tableau.com/profile/ycheng#!/"
 
+comments:
+  provider: "disqus"
+  disqus:
+    shortname: "myblog"
+
 defaults:
   # _posts
   - scope:
