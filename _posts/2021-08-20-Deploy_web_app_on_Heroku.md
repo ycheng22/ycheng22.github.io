@@ -19,11 +19,12 @@ Summary: deploy web app on Heroku.
 
 Check this blog on [github](https://github.com/ycheng22/ycheng22.github.io/blob/master/_posts/2021-08-20-Deploy_web_app_on_Heroku.md).
 
+App web: <https://yc-web1.herokuapp.com/>
+
 **Contents:**
 - [Simple web](#simple-web)
 - [Create virtual environment](#create-virtual-environment)
 - [Deploy app on Heroku](#deploy-app-on-heroku)
-
 
 ## Simple web
 
