@@ -2,7 +2,7 @@
 title: 'Set up web on Github (academicpages template)'
 date: 2021-07-10
 header:
-  image: "/images/academicpages_template.png"
+#   image: "/images/academicpages_template.png"
 #   caption: "A beautiful photo"
   teaser: "/images/academicpages_template.png"
 categories:

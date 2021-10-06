@@ -3,7 +3,8 @@ title: "Life"
 permalink: /life/
 author_profile: true
 categories:
-  - blog
+  - life
+classes: wide
 ---
 
 Moments in my daily life.

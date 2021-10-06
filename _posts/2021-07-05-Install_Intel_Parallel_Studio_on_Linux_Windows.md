@@ -17,9 +17,21 @@ tags:
 classes: wide
 ---
 
-Intel Parallel Studio is a powerful tool in many computational scenarios. 
+Sumarry: Intel Parallel Studio is a powerful tool in many computational scenarios. 
 
 In this blog, I will introduction how to install it and run Fortran code as an example. 
+
+Check this blog on [github]().
+
+**Contents:**
+- [1. Install it on Linux](#1-install-it-on-linux)
+  - [1.1 Download “intel parallel studio”](#11-download-intel-parallel-studio)
+  - [1.2 Installation guide](#12-installation-guide)
+  - [1.3 Test fortran compiler](#13-test-fortran-compiler)
+- [2. Run Fortran code on windows](#2-run-fortran-code-on-windows)
+  - [2.1 Install visual studio](#21-install-visual-studio)
+  - [2.2 Download Intel parallel studio](#22-download-intel-parallel-studio)
+  - [2.3 Run Fortran code](#23-run-fortran-code)
 
 # 1. Install it on Linux
 
