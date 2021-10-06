@@ -22,11 +22,11 @@ Check this blog on [github](https://github.com/ycheng22/ycheng22.github.io/blob/
 App web: <https://yc-web1.herokuapp.com/>
 
 **Contents:**
-- [Simple web](#simple-web)
-- [Create virtual environment](#create-virtual-environment)
-- [Deploy app on Heroku](#deploy-app-on-heroku)
+- [1. Simple web](#1-simple-web)
+- [2. Create virtual environment](#2-create-virtual-environment)
+- [3. Deploy app to Heroku](#3-deploy-app-to-heroku)
 
-## Simple web
+## 1. Simple web
 
 Check below code through the link:
 
@@ -65,7 +65,7 @@ fig 1: Home Page
 ![name](/images/heroku_blogs/about_page.png)
 fig 2: About Page
 
-## Create virtual environment
+## 2. Create virtual environment
 
 To deploy the web, Create folder `Mysite`, move all necessary files to` Mysite/Demo`.
 
@@ -97,7 +97,7 @@ To deploy the web, Create folder `Mysite`, move all necessary files to` Mysite/D
 
   The app will run at: http://127.0.0.1:5000/
 
-## Deploy app on Heroku
+## 3. Deploy app to Heroku
 - create Heroku account
 - Install Heroku CLI
 - Login Heroku in cmd prompt:

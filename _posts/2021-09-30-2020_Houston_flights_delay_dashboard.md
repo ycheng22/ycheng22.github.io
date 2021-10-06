@@ -32,10 +32,21 @@ Check this blog on [github](https://ycheng22.github.io/2020_Houston_flights_dela
   - [3.3 Flight map](#33-flight-map)
   - [3.4 Table](#34-table)
   - [3.5 Routes](#35-routes)
+- [4. Conclusion](#4-conclusion)
 
 ## 1 .Introduction
 
 Bokeh is a Python library for creating interactive visualizations for modern web browsers. According to this [blog](https://towardsdatascience.com/data-visualization-with-bokeh-in-python-part-one-getting-started-a11655a467d4), I collected information about all flights depart Houston in 2020 and created similar dashboard.
+
+According to Bokeh's introduction on [widgets](https://docs.bokeh.org/en/latest/docs/user_guide/interaction/widgets.html):
+
+There are two ways to use a widget’s functionality:
+
+- A `CustomJS` callback. This approach will work in standalone HTML documents or Bokeh server apps.
+
+- Use `bokeh serve` to start a Bokeh server and set up event handlers with `.on_change` (or for some widgets, `.on_click`).
+
+This blog is about the practice with first method.
 
 ## 2. Data collecting and processing
 
@@ -50,11 +61,17 @@ The [anyflights](https://github.com/simonpcouch/anyflights) package supplies a s
 
 It's a `R` package, install the package and download the data in `Rstudio`:
 
-- Download flights data: `HOUflights20_ <- anyflights(c("IAH", "HOU"), 2020)`
+- Download flights data: 
+  ```R
+  HOUflights20_ <- anyflights(c("IAH", "HOU"), 2020)
+  ```
   
   Note: the package has bug now, but it can download all 12 months flights data. 
 
--Download airports data:  `airports <- get_airports()`
+- Download airports data:  
+  ```R
+  airports <- get_airports()
+  ```
 
 Write them to csv file. 
 
@@ -939,3 +956,7 @@ show(tabs)
 fig 5: Table of arrival delay statistics by airline
 
 *Note:* The route map is not a standalone plot, need more work.
+
+## 4. Conclusion
+
+To create standalone interactive figure, the one need to program Javascript callback. If use `bokeh serve` method, only python code need to be programmed. 
