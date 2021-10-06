@@ -72,7 +72,7 @@ var store = [{
         "teaser": "/images/Hou_flights_delay/bokeh_serve_image.svg"
       },{
         "title": "Switch My Web Theme to Minimal Mistake",
-        "excerpt":"Summary: switch my web theme to Minimal Mistake   The theme is forked from here.   Update settings in _config.yml and _pages. The setting is similar to this blog : Set up web on Github (academicpages template).   Run server locally:   bundle install   bundle exec jekyll serve   Address: http://127.0.0.1:4000  ","categories": [],
+        "excerpt":"Summary: switch my web theme to Minimal Mistake 1. Introduction The theme is forked from here. 2. Editing settings Update settings in _config.yml and _pages. The setting is similar to this blog : Set up web on Github (academicpages template). Run server locally: bundle install bundle exec jekyll serve Address:...","categories": [],
         "tags": ["Github Pages","Minimal Mistake","Web","Jekyll"],
         "url": "/Switch_my_web_theme_to_Minimal_Mistake/",
         "teaser": "/images/mm_image.png"

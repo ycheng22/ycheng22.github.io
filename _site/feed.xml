@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-06T17:15:28-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Yunpeng</title><author><name>Yunpeng</name></author><entry><title type="html">Switch My Web Theme to Minimal Mistake</title><link href="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/" rel="alternate" type="text/html" title="Switch My Web Theme to Minimal Mistake" /><published>2021-10-04T00:00:00-04:00</published><updated>2021-10-04T00:00:00-04:00</updated><id>http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake</id><content type="html" xml:base="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/">&lt;p&gt;Summary: switch my web theme to Minimal Mistake&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-06T17:38:36-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Yunpeng</title><author><name>Yunpeng</name></author><entry><title type="html">Switch My Web Theme to Minimal Mistake</title><link href="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/" rel="alternate" type="text/html" title="Switch My Web Theme to Minimal Mistake" /><published>2021-10-04T00:00:00-04:00</published><updated>2021-10-04T00:00:00-04:00</updated><id>http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake</id><content type="html" xml:base="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/">&lt;p&gt;Summary: switch my web theme to Minimal Mistake&lt;/p&gt;
 
+&lt;h2 id=&quot;1-introduction&quot;&gt;1. Introduction&lt;/h2&gt;
 &lt;p&gt;The theme is forked from &lt;a href=&quot;https://github.com/mmistakes/mm-github-pages-starter&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
+&lt;h2 id=&quot;2-editing-settings&quot;&gt;2. Editing settings&lt;/h2&gt;
 &lt;p&gt;Update settings in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_pages&lt;/code&gt;. The setting is similar to this blog : &lt;a href=&quot;https://ycheng22.github.io/blog/set_up_web_on_Github/&quot;&gt;Set up web on Github (academicpages template)&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Run server locally:&lt;/p&gt;
@@ -10,7 +12,15 @@
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Address: &lt;a href=&quot;http://127.0.0.1:4000&quot;&gt;http://127.0.0.1:4000&lt;/a&gt;&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="Github Pages" /><category term="Minimal Mistake" /><category term="Web" /><category term="Jekyll" /><summary type="html">Summary: switch my web theme to Minimal Mistake</summary></entry><entry><title type="html">Deploy Bokeh Server App on Heroku</title><link href="http://localhost:4000/Deploy_Bokeh_Server_App_on_Heroku/" rel="alternate" type="text/html" title="Deploy Bokeh Server App on Heroku" /><published>2021-10-01T00:00:00-04:00</published><updated>2021-10-01T00:00:00-04:00</updated><id>http://localhost:4000/Deploy_Bokeh_Server_App_on_Heroku</id><content type="html" xml:base="http://localhost:4000/Deploy_Bokeh_Server_App_on_Heroku/">&lt;p&gt;Summary: deploy Bokeh server app on Heroku.&lt;/p&gt;
+&lt;p&gt;Address: &lt;a href=&quot;http://127.0.0.1:4000&quot;&gt;http://127.0.0.1:4000&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;3-add-github-pages-to-google&quot;&gt;3. Add Github Pages to Google&lt;/h2&gt;
+
+&lt;p&gt;Reference:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://saowu.top/blog/4tCVcic30/&quot;&gt;https://saowu.top/blog/4tCVcic30/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://victor2code.github.io/blog/2019/07/04/jekyll-github-pages-appear-on-Google.html&quot;&gt;https://victor2code.github.io/blog/2019/07/04/jekyll-github-pages-appear-on-Google.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Yunpeng</name></author><category term="Github Pages" /><category term="Minimal Mistake" /><category term="Web" /><category term="Jekyll" /><summary type="html">Summary: switch my web theme to Minimal Mistake</summary></entry><entry><title type="html">Deploy Bokeh Server App on Heroku</title><link href="http://localhost:4000/Deploy_Bokeh_Server_App_on_Heroku/" rel="alternate" type="text/html" title="Deploy Bokeh Server App on Heroku" /><published>2021-10-01T00:00:00-04:00</published><updated>2021-10-01T00:00:00-04:00</updated><id>http://localhost:4000/Deploy_Bokeh_Server_App_on_Heroku</id><content type="html" xml:base="http://localhost:4000/Deploy_Bokeh_Server_App_on_Heroku/">&lt;p&gt;Summary: deploy Bokeh server app on Heroku.&lt;/p&gt;
 
 &lt;p&gt;Check this blog on &lt;a href=&quot;https://github.com/ycheng22/ycheng22.github.io/blob/main/_posts/2021-10-05-Deploy_Bokeh_Server_App_on_Heroku.md&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
 
