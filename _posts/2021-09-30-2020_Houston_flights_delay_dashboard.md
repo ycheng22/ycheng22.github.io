@@ -48,6 +48,8 @@ There are two ways to use a widget’s functionality:
 
 This blog is about the practice with first method.
 
+Another blog about the second method can be found in this blog: [Deploy Bokeh Server App on Heroku](https://ycheng22.github.io/Deploy_Bokeh_Server_App_on_Heroku/).
+
 Preview:
 <p float="left">
   <img src="../images/Hou_flights_delay/histogram.png" width="49%" />
