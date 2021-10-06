@@ -1,6 +1,6 @@
 ---
 title: 'Set up Web on Github (Academicpages Template)'
-date: 2021-07-10
+date: 2020-05-01
 header:
 #   image: "/images/academicpages_template.png"
 #   caption: "A beautiful photo"
@@ -80,7 +80,7 @@ Go to the repo in your Github, rename the repo's name to ``[your_name].github.io
         ```
     * url will connect the markdown file `_pages/aboutme.md`, edit `aboutme.md` to change the contents. 
 
-- Add new blog: `_posts/2021-07-09-blog-demo.md`
+- Add new blog: `_posts/blog-demo.md`
     
     * Add new markdown file in the folder `_posts`
     

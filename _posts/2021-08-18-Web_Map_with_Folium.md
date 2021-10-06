@@ -17,7 +17,7 @@ classes: wide
 
 Summary: Build a web map with [Folium](https://github.com/python-visualization/folium).
 
-Find the [notebook](https://github.com/ycheng22/Build_10_Real_World_Applicatoins/blob/main/App2_Web_Map_with_Volcanoes_Population/Web_Map.ipynb).
+Check this blog on [github](https://github.com/ycheng22/Build_10_Real_World_Applicatoins/blob/main/App2_Web_Map_with_Volcanoes_Population/Web_Map.ipynb).
 
 **Contents:**
 - [1. Create a map](#1-create-a-map)

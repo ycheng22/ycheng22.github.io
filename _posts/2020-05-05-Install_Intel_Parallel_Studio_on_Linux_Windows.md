@@ -1,10 +1,10 @@
 ---
 title: 'Install_Intel_Parallel_Studio_on_Linux_Windows'
-date: 2021-07-05
+date: 2020-05-05
 header:
 #   image: "/images/foo-bar-identity.jpg"
 #   caption: "A beautiful photo"
-#   teaser: "/images/20210805_blog_pymol/show_session.png"
+#   teaser: "/images/20200805_blog_pymol/show_session.png"
 categories:
   - blog
 tags:

@@ -1,6 +1,6 @@
 ---
 title: 'SQL on LeetCode'
-date: 2021-07-20
+date: 2020-08-20
 header:
 #   image: "/images/foo-bar-identity.jpg"
 #   caption: "A beautiful photo"

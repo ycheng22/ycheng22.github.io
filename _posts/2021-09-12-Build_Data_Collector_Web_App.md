@@ -19,16 +19,16 @@ classes: wide
 
 Summary: Build Data Collector Web App with `Flask` and `PostgreSQL`, deploy the app to [pythonanywhere](https://www.pythonanywhere.com/).
 
-Find the [notebook]().
+Check this blog on [github](https://github.com/ycheng22/ycheng22.github.io/blob/main/_posts/2021-09-12-Build_Data_Collector_Web_App.md)
 
 App web: <http://ycheng.pythonanywhere.com/>
 
-Preview: 
-![name](/images/20210912_web_app_pythonanywhere/pythonanywhere_image.png)
-
 **Contents:**
+- [1. Introduction](#1-introduction)
 
 
+## 1. Introduction
 
-## 1. Create a map
+Preview: 
 
+![name](/images/20210912_web_app_pythonanywhere/pythonanywhere_image.png)

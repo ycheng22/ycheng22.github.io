@@ -5,28 +5,16 @@ var store = [{
         "url": "/blog/welcome-to-jekyll/",
         "teaser": "/images/foo-bar-identity.jpg"
       },{
-        "title": "Install_Intel_Parallel_Studio_on_Linux_Windows",
-        "excerpt":"Sumarry: Intel Parallel Studio is a powerful tool in many computational scenarios. In this blog, I will introduction how to install it and run Fortran code as an example. Check this blog on github. Contents: 1. Install it on Linux 1.1 Download “intel parallel studio” 1.2 Installation guide 1.3 Test...","categories": ["blog"],
-        "tags": ["Intel","Fortran","Linux"],
-        "url": "/blog/Install_Intel_Parallel_Studio_on_Linux_Windows/",
-        "teaser": null
-      },{
-        "title": "Story of Texas Outage in Feb 2021",
-        "excerpt":"Tableau is popular visualization software. I collect Texas outage data and visualize it in Tableau.      Code is here   Visualization is on Tableau   Collecting and process….   Final results:                       ","categories": ["blog"],
-        "tags": ["Tableau","Texas","Outage","Visualization"],
-        "url": "/blog/Story_of_Texas_Outage_in_Feb2021/",
-        "teaser": "/images/texas_outage/texas_outage.png"
-      },{
         "title": "Set up Web on Github (Academicpages Template)",
         "excerpt":"In this blog, I record the process about setting up my website on Github. Tool: Github Desktop, VS Code. Check this blog on github. Contents: 1. Usefull resources 2. Set up my web step by step 2.1 Choose your favorite theme 2.2 Customize the theme 1. Usefull resources GIthub Pages...","categories": ["blog"],
         "tags": ["Github Pages","academicpages","Web","Jekyll"],
         "url": "/blog/set_up_web_on_Github/",
         "teaser": "/images/academicpages_template.png"
       },{
-        "title": "SQL on HackerRank",
-        "excerpt":"Summary: solving the SQL problems on HackerRank. Check this blog on github Aggregation Revising Aggregations - The Count Function Revising Aggregations - Averages Average Population Japan Population Population Density Difference The Blunder Top Earners Weather Observation Station 2 Weather Observation Station 13 Weather Observation Station 14 Weather Observation Station 15...","categories": ["blog"],
-        "tags": ["SQL","HackerRank","MySQL"],
-        "url": "/blog/SQL_on_HackerRank/",
+        "title": "Install_Intel_Parallel_Studio_on_Linux_Windows",
+        "excerpt":"Sumarry: Intel Parallel Studio is a powerful tool in many computational scenarios. In this blog, I will introduction how to install it and run Fortran code as an example. Check this blog on github. Contents: 1. Install it on Linux 1.1 Download “intel parallel studio” 1.2 Installation guide 1.3 Test...","categories": ["blog"],
+        "tags": ["Intel","Fortran","Linux"],
+        "url": "/blog/Install_Intel_Parallel_Studio_on_Linux_Windows/",
         "teaser": null
       },{
         "title": "SQL on LeetCode",
@@ -35,10 +23,16 @@ var store = [{
         "url": "/SQL_on_LeetCode/",
         "teaser": null
       },{
-        "title": "10 Days of Statistics",
-        "excerpt":"Summary: solving some problems about statistics in 10 days. The problems are on HackerRank. 10 Days of Statistics Check this blog on github. 10 Days of Statistics Day 0: Mean, Median, and Mode Day 0: Weighted Mean Day 1: Quartiles Day 1: Interquartile Range Day 1: Standard Deviation Day 2:...","categories": [],
-        "tags": ["Statistics","HackerRank","Python"],
-        "url": "/10-Days-of-Statistics/",
+        "title": "Story of Texas Outage in Feb 2021",
+        "excerpt":"Tableau is popular visualization software. I collect Texas outage data and visualize it in Tableau.      Code is here   Visualization is on Tableau   Collecting and process….   Final results:                       ","categories": ["blog"],
+        "tags": ["Tableau","Texas","Outage","Visualization"],
+        "url": "/blog/Story_of_Texas_Outage_in_Feb2021/",
+        "teaser": "/images/texas_outage/texas_outage.png"
+      },{
+        "title": "SQL on HackerRank",
+        "excerpt":"Summary: solving the SQL problems on HackerRank. Check this blog on github Aggregation Revising Aggregations - The Count Function Revising Aggregations - Averages Average Population Japan Population Population Density Difference The Blunder Top Earners Weather Observation Station 2 Weather Observation Station 13 Weather Observation Station 14 Weather Observation Station 15...","categories": ["blog"],
+        "tags": ["SQL","HackerRank","MySQL"],
+        "url": "/blog/SQL_on_HackerRank/",
         "teaser": null
       },{
         "title": "Create xyz-axis for PyMol",
@@ -48,7 +42,7 @@ var store = [{
         "teaser": "/images/20210805_blog_pymol/show_session.png"
       },{
         "title": "Web_Map_with_Folium",
-        "excerpt":"Summary: Build a web map with Folium. Find the notebook. Contents: 1. Create a map 2. Add marker 2.1 Add single marker 2.2 Add multiple markers from file 2.3 Add elevation to popup 2.4 Color generate function for markers 2.5 Circle markers 3. Add population layer with json data 3.1...","categories": [],
+        "excerpt":"Summary: Build a web map with Folium. Check this blog on github. Contents: 1. Create a map 2. Add marker 2.1 Add single marker 2.2 Add multiple markers from file 2.3 Add elevation to popup 2.4 Color generate function for markers 2.5 Circle markers 3. Add population layer with json...","categories": [],
         "tags": ["Web Map","Folium","Python"],
         "url": "/Web_Map_with_Folium/",
         "teaser": "/images/20210710_web_map_Folium/map24.png"
@@ -60,7 +54,7 @@ var store = [{
         "teaser": "/images/heroku_blogs/heroku_image.png"
       },{
         "title": "Build Data Collector Web App (Flask, PostgreSQL)",
-        "excerpt":"Summary: Build Data Collector Web App with Flask and PostgreSQL, deploy the app to pythonanywhere.   Find the notebook.   App web: http://ycheng.pythonanywhere.com/   Preview:     Contents:   1. Create a map   ","categories": [],
+        "excerpt":"Summary: Build Data Collector Web App with Flask and PostgreSQL, deploy the app to pythonanywhere.   Check this blog on github   App web: http://ycheng.pythonanywhere.com/   Contents:     1. Introduction   1. Introduction   Preview:     ","categories": [],
         "tags": ["Web","Flask","PostgreSQL","Database","Python"],
         "url": "/Build_Data_Collector_Web_App/",
         "teaser": "/images/20210912_web_app_pythonanywhere/pythonanywhere_image.png"
