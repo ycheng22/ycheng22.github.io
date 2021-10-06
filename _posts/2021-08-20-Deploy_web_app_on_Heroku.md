@@ -1,10 +1,10 @@
 ---
-title: 'Deploy_web_app_on_Heroku'
+title: 'Deploy Web App on Heroku'
 date: 2021-08-20
 header:
-#   image: "/images/foo-bar-identity.jpg"
-#   caption: "A beautiful photo"
-  # teaser: "/images/20210805_blog_pymol/show_session.png"
+  # image: "/images/heroku_blogs/heroku_image.png"
+  # caption: "A beautiful photo"
+  teaser: "/images/heroku_blogs/heroku_image.png"
 tags:
 - Bokeh
 - Heroku

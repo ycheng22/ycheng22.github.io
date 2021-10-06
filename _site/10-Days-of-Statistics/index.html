@@ -1,0 +1,1374 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>10 Days of Statistics - Yunpeng</title>
+<meta name="description" content="Summary: solving some problems about statistics in 10 days. The problems are on HackerRank.">
+
+
+  <meta name="author" content="Yunpeng">
+  
+  <meta property="article:author" content="Yunpeng">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Yunpeng">
+<meta property="og:title" content="10 Days of Statistics">
+<meta property="og:url" content="http://localhost:4000/10-Days-of-Statistics/">
+
+
+  <meta property="og:description" content="Summary: solving some problems about statistics in 10 days. The problems are on HackerRank.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-07-30T00:00:00-04:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/10-Days-of-Statistics/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Yunpeng Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Yunpeng
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/life/">Life</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/images/Yunpeng.jpg" alt="Yunpeng" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Yunpeng</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>A PhD candidate of physics</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Texas, US</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/ycheng22" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/yunpeng-cheng-aa8142127/" rel="nofollow noopener noreferrer me"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+          
+            <li><a href="https://public.tableau.com/profile/ycheng#!/" rel="nofollow noopener noreferrer me"><i class="fas fa-link" aria-hidden="true"></i><span class="label">Tableau</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="10 Days of Statistics">
+    <meta itemprop="description" content="Summary: solving some problems about statistics in 10 days. The problems are on HackerRank.">
+    <meta itemprop="datePublished" content="2021-07-30T00:00:00-04:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/10-Days-of-Statistics/" class="u-url" itemprop="url">10 Days of Statistics
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-30T00:00:00-04:00">July 30, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          10 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p>Summary: solving some problems about statistics in 10 days. The problems are on <a href="https://www.hackerrank.com/domains/tutorials/10-days-of-statistics">HackerRank</a>.</p>
+
+<h1 id="10-days-of-statistics">10 Days of Statistics</h1>
+
+<p>Check this blog on <a href="https://github.com/ycheng22/ycheng22.github.io/blob/master/_posts/2021-07-30-10%20Days%20of%20Statistics.md">github</a>.</p>
+
+<ul>
+  <li><a href="#10-days-of-statistics">10 Days of Statistics</a>
+    <ul>
+      <li><a href="#day-0-mean-median-and-mode">Day 0: Mean, Median, and Mode</a></li>
+      <li><a href="#day-0-weighted-mean">Day 0: Weighted Mean</a></li>
+      <li><a href="#day-1-quartiles">Day 1: Quartiles</a></li>
+      <li><a href="#day-1-interquartile-range">Day 1: Interquartile Range</a></li>
+      <li><a href="#day-1-standard-deviation">Day 1: Standard Deviation</a></li>
+      <li><a href="#day-2-basic-probability">Day 2: Basic Probability</a></li>
+      <li><a href="#day-2-more-dice">Day 2: More Dice</a></li>
+      <li><a href="#day-2-compound-event-probability">Day 2: Compound Event Probability</a></li>
+      <li><a href="#day-3-conditional-probability">Day 3: Conditional Probability</a></li>
+      <li><a href="#day-3-cards-of-the-same-suit">Day 3: Cards of the Same Suit</a></li>
+      <li><a href="#day-3-drawing-marbles">Day 3: Drawing Marbles</a></li>
+      <li><a href="#day-4-binomial-distribution-i">Day 4: Binomial Distribution I</a></li>
+      <li><a href="#day-4-binomial-distribution-ii">Day 4: Binomial Distribution II</a></li>
+      <li><a href="#day-4-geometric-distribution-i">Day 4: Geometric Distribution I</a></li>
+      <li><a href="#day-4-geometric-distribution-ii">Day 4: Geometric Distribution II</a></li>
+      <li><a href="#day-5-poisson-distribution-i">Day 5: Poisson Distribution I</a></li>
+      <li><a href="#day-5-poisson-distribution-ii">Day 5: Poisson Distribution II</a></li>
+      <li><a href="#day-5-normal-distribution-i">Day 5: Normal Distribution I</a></li>
+      <li><a href="#day-5-normal-distribution-ii">Day 5: Normal Distribution II</a></li>
+      <li><a href="#day-6-the-central-limit-theorem-i">Day 6: The Central Limit Theorem I</a></li>
+      <li><a href="#day-6-the-central-limit-theorem-ii">Day 6: The Central Limit Theorem II</a></li>
+      <li><a href="#day-6-the-central-limit-theorem-iii">Day 6: The Central Limit Theorem III</a></li>
+      <li><a href="#day-7-pearson-correlation-coefficient-i">Day 7: Pearson Correlation Coefficient I</a></li>
+      <li><a href="#day-7-spearmans-rank-correlation-coefficient">Day 7: Spearman’s Rank Correlation Coefficient</a></li>
+      <li><a href="#day-8-least-square-regression-line">Day 8: Least Square Regression Line</a></li>
+      <li><a href="#day-8-pearson-correlation-coefficient-ii">Day 8: Pearson Correlation Coefficient II</a></li>
+      <li><a href="#day-9-multiple-linear-regression">Day 9: Multiple Linear Regression</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="day-0-mean-median-and-mode">Day 0: Mean, Median, and Mode</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-basic-statistics/problem">https://www.hackerrank.com/challenges/s10-basic-statistics/problem</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Enter your code here. Read input from STDIN. Print output to STDOUT
+</span><span class="k">def</span> <span class="nf">getMean</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">len_arr</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="n">acc</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+        <span class="n">acc</span> <span class="o">+=</span> <span class="n">i</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">acc</span> <span class="o">/</span> <span class="n">len_arr</span>
+    <span class="k">return</span> <span class="n">result</span>
+<span class="k">def</span> <span class="nf">getMedian</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">len_arr</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">len_arr</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">arr</span><span class="p">[(</span><span class="n">len_arr</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">len_arr</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">arr</span><span class="p">[</span><span class="n">len_arr</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+<span class="k">def</span> <span class="nf">getMode</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">len_arr</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="n">arr</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="n">count</span><span class="o">=</span><span class="p">{}</span>
+    <span class="n">result</span><span class="o">=</span><span class="bp">None</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">count</span><span class="p">:</span>
+            <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">result</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;</span><span class="n">count</span><span class="p">[</span><span class="n">result</span><span class="p">]):</span>
+            <span class="n">result</span><span class="o">=</span><span class="n">i</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="n">count</span><span class="p">[</span><span class="n">result</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="n">result</span><span class="p">):</span>
+            <span class="n">result</span><span class="o">=</span><span class="n">i</span>
+    <span class="k">return</span> <span class="n">result</span>
+<span class="n">n</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">getMean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">getMedian</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">getMode</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="day-0-weighted-mean">Day 0: Weighted Mean</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-weighted-mean/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/s10-weighted-mean/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">weighted_mean</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
+    <span class="n">numerator</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">denominator</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)):</span>
+        <span class="n">numerator</span> <span class="o">+=</span> <span class="n">values</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">*</span><span class="n">weight</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="n">denominator</span> <span class="o">+=</span> <span class="n">weight</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">numerator</span><span class="o">/</span><span class="n">denominator</span>
+
+<span class="n">n</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()]</span>
+<span class="n">w</span><span class="o">=</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">weit</span><span class="p">)</span> <span class="k">for</span> <span class="n">weit</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()]</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">weighted_mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">w</span><span class="p">),</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="day-1-quartiles">Day 1: Quartiles</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-quartiles/problem">https://www.hackerrank.com/challenges/s10-quartiles/problem</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Enter your code here. Read input from STDIN. Print output to STDOUT
+#Day 1: Quartiles
+</span><span class="k">def</span> <span class="nf">getMedian</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">start_index</span><span class="p">,</span> <span class="n">end_index</span><span class="p">):</span>
+    <span class="n">len_index</span> <span class="o">=</span> <span class="n">end_index</span> <span class="o">-</span> <span class="n">start_index</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">start_index</span> <span class="o">+</span> <span class="n">len_index</span><span class="o">//</span><span class="mi">2</span>
+    <span class="n">med</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">len_index</span><span class="o">%</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">med</span> <span class="o">=</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">arr</span><span class="p">[</span><span class="n">m</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">med</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">med</span>
+
+<span class="k">def</span> <span class="nf">getQuantile</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="n">len_arr</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">len_arr</span><span class="o">//</span><span class="mi">2</span>
+    <span class="n">q2</span> <span class="o">=</span> <span class="n">getMedian</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">len_arr</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">len_arr</span><span class="o">%</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">q1</span> <span class="o">=</span> <span class="n">getMedian</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">q3</span> <span class="o">=</span> <span class="n">getMedian</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">len_arr</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">q1</span> <span class="o">=</span> <span class="n">getMedian</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">q3</span> <span class="o">=</span> <span class="n">getMedian</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">len_arr</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">q1</span><span class="p">,</span> <span class="n">q2</span><span class="p">,</span> <span class="n">q3</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="s">'{:g}'</span><span class="p">.</span><span class="nb">format</span><span class="p">,</span> <span class="n">getQuantile</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+<span class="c1"># q1, q2, q3 = getQuantile(x)
+# print(q1)
+# print(q2)
+# print(q3)
+</span></code></pre></div></div>
+
+<h2 id="day-1-interquartile-range">Day 1: Interquartile Range</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-interquartile-range/problem">https://www.hackerrank.com/challenges/s10-interquartile-range/problem</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Enter your code here. Read input from STDIN. Print output to STDOUT
+# Day 1: Interquartile Range
+</span>
+<span class="k">def</span> <span class="nf">getMedian</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">start_index</span><span class="p">,</span> <span class="n">end_index</span><span class="p">):</span>
+    <span class="n">len_index</span> <span class="o">=</span> <span class="n">end_index</span> <span class="o">-</span> <span class="n">start_index</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">start_index</span> <span class="o">+</span> <span class="n">len_index</span><span class="o">//</span><span class="mi">2</span>
+    <span class="n">med</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">len_index</span><span class="o">%</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">med</span> <span class="o">=</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">arr</span><span class="p">[</span><span class="n">m</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">med</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">med</span>
+
+<span class="k">def</span> <span class="nf">getQuantile</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="n">len_arr</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">len_arr</span><span class="o">//</span><span class="mi">2</span>
+    <span class="n">q2</span> <span class="o">=</span> <span class="n">getMedian</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">len_arr</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">len_arr</span><span class="o">%</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">q1</span> <span class="o">=</span> <span class="n">getMedian</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">q3</span> <span class="o">=</span> <span class="n">getMedian</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">len_arr</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">q1</span> <span class="o">=</span> <span class="n">getMedian</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">q3</span> <span class="o">=</span> <span class="n">getMedian</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">len_arr</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">q1</span><span class="p">,</span> <span class="n">q2</span><span class="p">,</span> <span class="n">q3</span>
+
+<span class="k">def</span> <span class="nf">interquartile_range</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+    <span class="n">len_x</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">len_x</span><span class="p">):</span>
+        <span class="n">x_ele</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">f_ele</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">f_ele</span><span class="p">):</span>
+            <span class="n">s</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x_ele</span><span class="p">)</span>
+        <span class="c1">#s.append([x_ele] * f_ele)
+</span>    <span class="n">s</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">qt</span> <span class="o">=</span> <span class="n">getQuantile</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">qt</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">qt</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()]</span>
+<span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">interquartile_range</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="day-1-standard-deviation">Day 1: Standard Deviation</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-standard-deviation/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/s10-standard-deviation/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Enter your code here. Read input from STDIN. Print output to STDOUT
+# Day 1: Standard Deviation
+</span>
+<span class="k">def</span> <span class="nf">std_dev</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">len_arr</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="o">/</span><span class="n">len_arr</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="p">(</span><span class="n">val</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">result</span><span class="o">/</span><span class="n">len_arr</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">token</span><span class="p">)</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()]</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">std_dev</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="day-2-basic-probability">Day 2: Basic Probability</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-mcq-1/problem">https://www.hackerrank.com/challenges/s10-mcq-1/problem</a></p>
+
+<p><strong>Task:</strong></p>
+
+<p>In a single toss of 2 fair (evenly-weighted) six-sided dice, find the probability that their sum will be at most 9.</p>
+
+<p><strong>Solution:</strong></p>
+
+<ul>
+  <li>scenarios summation equal 10: (4,6), (6,4), (5,5)</li>
+  <li>scenarios summation equal 11: (5,6), (6,5)</li>
+  <li>scenarios summation equal 12: (6,6)</li>
+</ul>
+
+<p>answer: 1-(3+2+1)/(36) = 30/36 = 5/6</p>
+
+<h2 id="day-2-more-dice">Day 2: More Dice</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-mcq-2/problem">https://www.hackerrank.com/challenges/s10-mcq-2/problem</a></p>
+
+<p><strong>Task:</strong></p>
+
+<p>In a single toss of 2 fair (evenly-weighted) six-sided dice, find the probability that the values rolled by each die will be different and the two dice have a sum of 6.</p>
+
+<p><strong>Solution:</strong></p>
+
+<p>(1,5), (5,1), (2,4), (4,2)</p>
+
+<p>4/36 = 1/9</p>
+
+<h2 id="day-2-compound-event-probability">Day 2: Compound Event Probability</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-mcq-3/problem">https://www.hackerrank.com/challenges/s10-mcq-3/problem</a></p>
+
+<p><strong>Task:</strong></p>
+
+<p>There are 3 urns labeled X, Y, and Z.</p>
+
+<ul>
+  <li>Urn X contains 4 red balls and 3 black balls.</li>
+  <li>Urn Y contains 5 red balls and 4 black balls.</li>
+  <li>Urn Z contains 4 red balls and 4 black balls.</li>
+</ul>
+
+<p>One ball is drawn from each of the 3 urns. What is the probability that, of the 3 balls drawn, 2 are red and 1 is black?</p>
+
+<p><strong>Solution:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>p(red)</th>
+      <th>p(black)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>X</td>
+      <td>4/7</td>
+      <td>3/7</td>
+    </tr>
+    <tr>
+      <td>Y</td>
+      <td>5/9</td>
+      <td>4/9</td>
+    </tr>
+    <tr>
+      <td>Z</td>
+      <td>1/2</td>
+      <td>1/2</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>XYZ -&gt; red,red,black -&gt; 4/7 * 5/9 * 1/2</p>
+
+<p>XYZ -&gt; red,black,red -&gt; 4/7 * 4/9 * 1/2</p>
+
+<p>XYZ -&gt; black,red,red -&gt; 3/7 * 5/9 * 1/2</p>
+
+<p>sum up is 17/42</p>
+
+<h2 id="day-3-conditional-probability">Day 3: Conditional Probability</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-mcq-4/problem">https://www.hackerrank.com/challenges/s10-mcq-4/problem</a></p>
+
+<p><strong>Task:</strong></p>
+
+<p>Suppose a family has 2 children, one of which is a boy. What is the probability that both children are boys?</p>
+
+<p><strong>Solution:</strong></p>
+
+<p>P(BB|B) = BB/(BG+GB+BB) = 1/3</p>
+
+<h2 id="day-3-cards-of-the-same-suit">Day 3: Cards of the Same Suit</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-mcq-5/problem">https://www.hackerrank.com/challenges/s10-mcq-5/problem</a></p>
+
+<p><strong>Task:</strong></p>
+
+<p>You draw 2 cards from a standard 52-card deck without replacing them. What is the probability that both cards are of the same suit?</p>
+
+<p><strong>Solution:</strong></p>
+
+<p>Total choices C(52,2): $C_{52}^{2}$;</p>
+
+<p>one of four suits: C(4,1);</p>
+
+<p>two of same suit: C(13,2);</p>
+
+<p>answer: C(4,1) * C(13,2) / C(52,2) = 12/51</p>
+
+<h2 id="day-3-drawing-marbles">Day 3: Drawing Marbles</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-mcq-6/problem">https://www.hackerrank.com/challenges/s10-mcq-6/problem</a></p>
+
+<p><strong>Task:</strong></p>
+
+<p>A bag contains 3 red marbles and 4 blue marbles. Then, 2 marbles are drawn from the bag, at random, without replacement. If the first marble drawn is red, what is the probability that the second marble is blue?</p>
+
+<p><strong>Solution:</strong></p>
+
+<p>After 1 drawing, there are total 6 marbles, 4 blue marbles, the probability that the second marble is blue is 4/6 = 2/3.</p>
+
+<h2 id="day-4-binomial-distribution-i">Day 4: Binomial Distribution I</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-binomial-distribution-1/problem">https://www.hackerrank.com/challenges/s10-binomial-distribution-1/problem</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Enter your code here. Read input from STDIN. Print output to STDOUT
+# Day 4: Binomial Distribution I
+</span>
+<span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span><span class="o">==</span><span class="mi">0</span> <span class="ow">or</span> <span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">nCr</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">r</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">r</span><span class="p">))</span>
+
+<span class="n">n1</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)))</span>
+<span class="n">p</span><span class="o">=</span><span class="n">n1</span><span class="o">/</span><span class="p">(</span><span class="n">n1</span><span class="o">+</span><span class="n">n2</span><span class="p">)</span>
+<span class="n">q</span><span class="o">=</span><span class="n">n2</span><span class="o">/</span><span class="p">(</span><span class="n">n1</span><span class="o">+</span><span class="n">n2</span><span class="p">)</span>
+<span class="n">sum1</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span>
+    <span class="n">temp</span><span class="o">=</span><span class="n">nCr</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">temp1</span><span class="o">=</span><span class="p">(</span><span class="n">p</span><span class="o">**</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">q</span><span class="o">**</span><span class="p">(</span><span class="mi">6</span><span class="o">-</span><span class="n">i</span><span class="p">))</span>
+    <span class="n">sum1</span><span class="o">+=</span> <span class="n">temp</span><span class="o">*</span><span class="n">temp1</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">sum1</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="day-4-binomial-distribution-ii">Day 4: Binomial Distribution II</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-binomial-distribution-2/problem">https://www.hackerrank.com/challenges/s10-binomial-distribution-2/problem</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Enter your code here. Read input from STDIN. Print output to STDOUT
+# Day 4: Binomial Distribution II
+</span>
+<span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span><span class="o">==</span><span class="mi">0</span> <span class="ow">or</span> <span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">r</span><span class="p">)))</span><span class="o">*</span><span class="n">p</span><span class="o">**</span><span class="n">r</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">r</span><span class="p">)</span>
+
+<span class="n">p</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)))</span>
+<span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="o">/</span><span class="mi">100</span>
+
+<span class="c1"># sum1=0
+# for i in range(0,3):
+#     sum1 += binomial(N,i,p)
+</span>
+<span class="c1"># sum2=0
+# for i in range(2,N+1):
+#     sum2 += binomial(N,i,p)
+</span>
+<span class="c1"># print(round(sum1,3))
+# print(round(sum2,3))
+</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="n">binomial</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)]),</span><span class="mi">3</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="n">binomial</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)]),</span><span class="mi">3</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="day-4-geometric-distribution-i">Day 4: Geometric Distribution I</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-geometric-distribution-1/problem">https://www.hackerrank.com/challenges/s10-geometric-distribution-1/problem</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Enter your code here. Read input from STDIN. Print output to STDOUT
+# Day 4: Geometric Distribution I
+</span>
+<span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)))</span>
+<span class="n">n</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="n">p</span><span class="o">=</span><span class="n">numerator</span><span class="o">/</span><span class="n">denominator</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">p</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="day-4-geometric-distribution-ii">Day 4: Geometric Distribution II</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-geometric-distribution-2/problem">https://www.hackerrank.com/challenges/s10-geometric-distribution-2/problem</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Enter your code here. Read input from STDIN. Print output to STDOUT
+# Day 4: Geometric Distribution II
+</span>
+<span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)))</span>
+<span class="n">n</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="n">p</span><span class="o">=</span><span class="n">numerator</span><span class="o">/</span><span class="n">denominator</span>
+
+<span class="n">result</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">p</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="day-5-poisson-distribution-i">Day 5: Poisson Distribution I</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-poisson-distribution-1/tutorial">https://www.hackerrank.com/challenges/s10-poisson-distribution-1/tutorial</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Enter your code here. Read input from STDIN. Print output to STDOUT
+# Day 5: Poisson Distribution I
+</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span><span class="p">,</span> <span class="n">factorial</span>
+<span class="n">lamd</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">x</span><span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="n">pois</span><span class="o">=</span><span class="p">((</span><span class="n">lamd</span><span class="o">**</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">lamd</span><span class="p">))</span><span class="o">/</span><span class="n">factorial</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">pois</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="day-5-poisson-distribution-ii">Day 5: Poisson Distribution II</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-poisson-distribution-2/problem">https://www.hackerrank.com/challenges/s10-poisson-distribution-2/problem</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Enter your code here. Read input from STDIN. Print output to STDOUT
+# Day 5: Poisson Distribution II
+</span>
+<span class="n">meanA</span><span class="p">,</span> <span class="n">meanB</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)))</span>
+<span class="n">Ca</span> <span class="o">=</span> <span class="mi">160</span> <span class="o">+</span> <span class="mi">40</span><span class="o">*</span><span class="p">(</span><span class="n">meanA</span> <span class="o">+</span> <span class="n">meanA</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Cb</span> <span class="o">=</span> <span class="mi">128</span> <span class="o">+</span> <span class="mi">40</span><span class="o">*</span><span class="p">(</span><span class="n">meanB</span> <span class="o">+</span> <span class="n">meanB</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">Ca</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">Cb</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="day-5-normal-distribution-i">Day 5: Normal Distribution I</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-normal-distribution-1/problem">https://www.hackerrank.com/challenges/s10-normal-distribution-1/problem</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Enter your code here. Read input from STDIN. Print output to STDOUT
+# Day 5: Normal Distribution I
+</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="n">mean</span><span class="p">,</span> <span class="n">sd</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">y1</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)))</span>
+
+<span class="k">def</span> <span class="nf">cumm_norm_prob</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">math</span><span class="p">.</span><span class="n">erf</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="n">mean</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">sd</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mf">0.5</span><span class="p">))))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">cumm_norm_prob</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">cumm_norm_prob</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span><span class="o">-</span><span class="n">cumm_norm_prob</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="day-5-normal-distribution-ii">Day 5: Normal Distribution II</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-normal-distribution-2/problem">https://www.hackerrank.com/challenges/s10-normal-distribution-2/problem</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Enter your code here. Read input from STDIN. Print output to STDOUT
+# Day 5: Normal Distribution II
+</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="n">mean</span><span class="p">,</span> <span class="n">sd</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)))</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span> <span class="c1">#80
+</span><span class="n">y2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span> <span class="c1">#60
+</span>
+<span class="k">def</span> <span class="nf">cumm_norm_prob</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">math</span><span class="p">.</span><span class="n">erf</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="n">mean</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">sd</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mf">0.5</span><span class="p">))))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">round</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">cumm_norm_prob</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">y1</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">round</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">cumm_norm_prob</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">y2</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">cumm_norm_prob</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="day-6-the-central-limit-theorem-i">Day 6: The Central Limit Theorem I</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-the-central-limit-theorem-1/problem">https://www.hackerrank.com/challenges/s10-the-central-limit-theorem-1/problem</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Enter your code here. Read input from STDIN. Print output to STDOUT
+# Day 6: The Central Limit Theorem I
+</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="n">max_weight</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sd</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(),</span><span class="nb">input</span><span class="p">(),</span><span class="nb">input</span><span class="p">(),</span><span class="nb">input</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">cumm_norm_prob</span><span class="p">(</span><span class="n">max_weight</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">):</span>
+    <span class="n">new_mean</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">mean</span>
+    <span class="n">new_sd</span> <span class="o">=</span> <span class="n">n</span><span class="o">**</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">sd</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">math</span><span class="p">.</span><span class="n">erf</span><span class="p">((</span><span class="n">max_weight</span><span class="o">-</span><span class="n">new_mean</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">new_sd</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)))),</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">cumm_norm_prob</span><span class="p">(</span><span class="n">max_weight</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="day-6-the-central-limit-theorem-ii">Day 6: The Central Limit Theorem II</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-the-central-limit-theorem-2/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/s10-the-central-limit-theorem-2/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Enter your code here. Read input from STDIN. Print output to STDOUT
+# Day 6: The Central Limit Theorem II
+</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="n">all_tickets</span><span class="p">,</span> <span class="n">student</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sd</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(),</span><span class="nb">input</span><span class="p">(),</span><span class="nb">input</span><span class="p">(),</span><span class="nb">input</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">cumm_norm_prob</span><span class="p">(</span><span class="n">all_tickets</span><span class="p">,</span> <span class="n">student</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">):</span>
+    <span class="n">new_mean</span> <span class="o">=</span> <span class="n">student</span> <span class="o">*</span> <span class="n">mean</span>
+    <span class="n">new_sd</span> <span class="o">=</span> <span class="n">student</span><span class="o">**</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">sd</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">math</span><span class="p">.</span><span class="n">erf</span><span class="p">((</span><span class="n">all_tickets</span><span class="o">-</span><span class="n">new_mean</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">new_sd</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)))),</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">cumm_norm_prob</span><span class="p">(</span><span class="n">all_tickets</span><span class="p">,</span> <span class="n">student</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="day-6-the-central-limit-theorem-iii">Day 6: The Central Limit Theorem III</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-the-central-limit-theorem-3/problem?h_r=next-challenge&amp;h_v=zen&amp;h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/s10-the-central-limit-theorem-3/problem?h_r=next-challenge&amp;h_v=zen&amp;h_r=next-challenge&amp;h_v=zen</a></p>
+
+<p>Learn <a href="https://www.statisticshowto.com/probability-and-statistics/z-score/"><strong>Z-Score: Definition, Formula and Calculation</strong></a>.</p>
+
+<p>Z-score:</p>
+
+<p>$z = \dfrac{x-\mu}{\sigma / \sqrt(n)}$</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Enter your code here. Read input from STDIN. Print output to STDOUT
+# Day 6: The Central Limit Theorem III
+</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">per</span><span class="p">,</span> <span class="n">z_score</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(),</span><span class="nb">input</span><span class="p">(),</span><span class="nb">input</span><span class="p">(),</span><span class="nb">input</span><span class="p">(),</span><span class="nb">input</span><span class="p">()</span>
+
+<span class="n">sd_error</span> <span class="o">=</span> <span class="n">sd</span> <span class="o">/</span> <span class="n">n</span><span class="o">**</span><span class="mf">0.5</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">mean</span> <span class="o">-</span> <span class="n">sd_error</span> <span class="o">*</span> <span class="n">z_score</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">mean</span> <span class="o">+</span> <span class="n">sd_error</span> <span class="o">*</span> <span class="n">z_score</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="day-7-pearson-correlation-coefficient-i">Day 7: Pearson Correlation Coefficient I</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-pearson-correlation-coefficient/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/s10-pearson-correlation-coefficient/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Enter your code here. Read input from STDIN. Print output to STDOUT
+# Day 7: Pearson Correlation Coefficient I
+</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">x_arr</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()]</span>
+<span class="n">y_arr</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()]</span>
+
+
+<span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">sd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x_mean</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[(</span><span class="n">val</span> <span class="o">-</span> <span class="n">x_mean</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span><span class="o">**</span><span class="mf">0.5</span>
+
+<span class="k">def</span> <span class="nf">pearson_corr</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x_arr</span><span class="p">,</span> <span class="n">y_arr</span><span class="p">):</span>
+    <span class="n">x_mean</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">x_arr</span><span class="p">)</span>
+    <span class="n">x_sd</span> <span class="o">=</span> <span class="n">sd</span><span class="p">(</span><span class="n">x_arr</span><span class="p">,</span> <span class="n">x_mean</span><span class="p">)</span>
+    <span class="n">y_mean</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">y_arr</span><span class="p">)</span>
+    <span class="n">y_sd</span> <span class="o">=</span> <span class="n">sd</span><span class="p">(</span><span class="n">y_arr</span><span class="p">,</span> <span class="n">y_mean</span><span class="p">)</span>
+    
+    <span class="n">numerator</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">x_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">x_mean</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">y_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">y_mean</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="n">denominator</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">x_sd</span> <span class="o">*</span> <span class="n">y_sd</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">numerator</span><span class="o">/</span><span class="n">denominator</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">pearson_corr</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x_arr</span><span class="p">,</span> <span class="n">y_arr</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="day-7-spearmans-rank-correlation-coefficient">Day 7: Spearman’s Rank Correlation Coefficient</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-spearman-rank-correlation-coefficient/problem">https://www.hackerrank.com/challenges/s10-spearman-rank-correlation-coefficient/problem</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Enter your code here. Read input from STDIN. Print output to STDOUT
+# Day 7: Spearman's Rank Correlation Coefficient
+</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()]</span>
+
+<span class="k">def</span> <span class="nf">rank</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">rank_of_arr</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">arr_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+        <span class="n">rank_of_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr_sorted</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">rank_of_arr</span>
+
+<span class="k">def</span> <span class="nf">spearman_rank_cc</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">rank_of_x</span> <span class="o">=</span> <span class="n">rank</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">rank_of_y</span> <span class="o">=</span> <span class="n">rank</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="n">d_sqr</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="p">(</span><span class="n">rank_of_x</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">-</span> <span class="n">rank_of_y</span><span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">d_sqr</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+    <span class="n">numerator</span> <span class="o">=</span> <span class="mi">6</span><span class="o">*</span><span class="nb">sum</span><span class="p">(</span><span class="n">d_sqr</span><span class="p">)</span>
+    <span class="n">denominator</span> <span class="o">=</span> <span class="n">n</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">numerator</span><span class="o">/</span><span class="n">denominator</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">spearman_rank_cc</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="day-8-least-square-regression-line">Day 8: Least Square Regression Line</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-least-square-regression-line/problem?h_r=next-challenge&amp;h_v=zen&amp;h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/s10-least-square-regression-line/problem?h_r=next-challenge&amp;h_v=zen&amp;h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Enter your code here. Read input from STDIN. Print output to STDOUT
+# Day 8: Least Square Regression Line
+</span>
+<span class="n">maths</span><span class="p">,</span> <span class="n">stats</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">m</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">maths</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">stats</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">LSR</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">xy</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="n">x_sqr</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+    <span class="n">numerator</span> <span class="o">=</span> <span class="n">n</span><span class="o">*</span><span class="nb">sum</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="nb">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">denominator</span> <span class="o">=</span> <span class="n">n</span><span class="o">*</span><span class="nb">sum</span><span class="p">(</span><span class="n">x_sqr</span><span class="p">)</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">numerator</span><span class="o">/</span><span class="n">denominator</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">n</span> <span class="o">-</span> <span class="n">b</span><span class="o">*</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">n</span> 
+    <span class="k">return</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">LSR</span><span class="p">(</span><span class="n">maths</span><span class="p">,</span> <span class="n">stats</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">*</span><span class="mi">80</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="day-8-pearson-correlation-coefficient-ii">Day 8: Pearson Correlation Coefficient II</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-mcq-7/problem?h_r=next-challenge&amp;h_v=zen&amp;h_r=next-challenge&amp;h_v=zen&amp;h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/s10-mcq-7/problem?h_r=next-challenge&amp;h_v=zen&amp;h_r=next-challenge&amp;h_v=zen&amp;h_r=next-challenge&amp;h_v=zen</a></p>
+
+<p><strong>Task:</strong></p>
+
+<p>The regression line of y on x is 3x+4y+8=0, and the regression line of x on y is 4x+3y+7=0. What is the value of the Pearson correlation coefficient?</p>
+
+<p><strong>Solution:</strong></p>
+
+<p>Rewrite the 2 lines as:</p>
+
+<p>y = -2 + (-3/4) * x</p>
+
+<p>x = -7/4 + (-3/4) * y</p>
+
+<p>as we know: $b=\rho \cdot \dfrac{\sigma_Y}{\sigma_X}$</p>
+
+<p>so $\rho= b \cdot \dfrac{\sigma_X}{\sigma_Y}$</p>
+
+<p>Pearson cc p equal:</p>
+<ul>
+  <li>p = b1(x_std/y_std)</li>
+  <li>p = b2(y_std/x_std)</li>
+</ul>
+
+<p>multiply these 2 equations:</p>
+
+<p>p^2 = 9/16</p>
+
+<p>The answer is -3/4.</p>
+
+<h2 id="day-9-multiple-linear-regression">Day 9: Multiple Linear Regression</h2>
+<p><a href="https://www.hackerrank.com/challenges/s10-multiple-linear-regression/problem">https://www.hackerrank.com/challenges/s10-multiple-linear-regression/problem</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Enter your code here. Read input from STDIN. Print output to STDOUT
+# Day 9: Multiple Linear Regression
+</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">xy_val</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">xy_val</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">y</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">xy_val</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    
+<span class="n">lm</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">lm</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># q = int(input())
+# test = []
+# for i in range(q):
+#     vals = map(float, input().split())
+#     test.append(vals)
+</span>
+<span class="c1"># pred = lm.predict(test)
+# for i in pred:
+#     print(i)
+</span>    
+<span class="n">a</span> <span class="o">=</span> <span class="n">lm</span><span class="p">.</span><span class="n">intercept_</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">lm</span><span class="p">.</span><span class="n">coef_</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">(),</span> <span class="n">np</span><span class="p">.</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">f</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">y</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#hackerrank" class="page__taxonomy-item p-category" rel="tag">HackerRank</a><span class="sep">, </span>
+    
+      <a href="/tags/#python" class="page__taxonomy-item p-category" rel="tag">Python</a><span class="sep">, </span>
+    
+      <a href="/tags/#statistics" class="page__taxonomy-item p-category" rel="tag">Statistics</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2021-07-30T00:00:00-04:00">July 30, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=10+Days+of+Statistics%20http%3A%2F%2Flocalhost%3A4000%2F10-Days-of-Statistics%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F10-Days-of-Statistics%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F10-Days-of-Statistics%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/SQL_on_LeetCode/" class="pagination--pager" title="SQL on LeetCode
+">Previous</a>
+    
+    
+      <a href="/blog/create_xyz_for_PyMol/" class="pagination--pager" title="Create xyz-axis for PyMol
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You May Also Enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/Hou_flights_delay/bokeh_serve_image.svg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Deploy_Bokeh_Server_App_on_Heroku/" rel="permalink">Deploy Bokeh Server App on Heroku
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-10-05T00:00:00-04:00">October 5, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: deploy Bokeh server app on Heroku.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/mm_image.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Switch_my_web_theme_to_Minimal_Mistake/" rel="permalink">Switch My Web Theme to Minimal Mistake
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-10-04T00:00:00-04:00">October 4, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: switch my web theme to Minimal Mistake
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/Hou_flights_delay/flight_map.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2020_Houston_flights_delay_dashboard/" rel="permalink">2020 Houston Flights Delay Dashboard
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-09-30T00:00:00-04:00">September 30, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          11 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: Create standalone Bokeh dashboard.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/heroku_blogs/heroku_image.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Deploy_web_app_on_Heroku/" rel="permalink">Deploy Web App on Heroku
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-08-20T00:00:00-04:00">August 20, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: deploy web app on Heroku.
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/ycheng22" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/yunpeng-cheng-aa8142127/" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+          <li><a href="https://public.tableau.com/profile/ycheng#!/" rel="nofollow noopener noreferrer"><i class="fas fa-link" aria-hidden="true"></i> Tableau</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Yunpeng. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/10-Days-of-Statistics/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/10 Days of Statistics"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://myblog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

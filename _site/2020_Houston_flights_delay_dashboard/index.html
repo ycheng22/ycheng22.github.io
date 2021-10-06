@@ -1,0 +1,1644 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>2020 Houston Flights Delay Dashboard - Yunpeng</title>
+<meta name="description" content="Summary: Create standalone Bokeh dashboard.">
+
+
+  <meta name="author" content="Yunpeng">
+  
+  <meta property="article:author" content="Yunpeng">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Yunpeng">
+<meta property="og:title" content="2020 Houston Flights Delay Dashboard">
+<meta property="og:url" content="http://localhost:4000/2020_Houston_flights_delay_dashboard/">
+
+
+  <meta property="og:description" content="Summary: Create standalone Bokeh dashboard.">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/images/Hou_flights_delay/flight_map.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2021-09-30T00:00:00-04:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/2020_Houston_flights_delay_dashboard/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Yunpeng Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Yunpeng
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/life/">Life</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/images/Yunpeng.jpg" alt="Yunpeng" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Yunpeng</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>A PhD candidate of physics</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Texas, US</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/ycheng22" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/yunpeng-cheng-aa8142127/" rel="nofollow noopener noreferrer me"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+          
+            <li><a href="https://public.tableau.com/profile/ycheng#!/" rel="nofollow noopener noreferrer me"><i class="fas fa-link" aria-hidden="true"></i><span class="label">Tableau</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="2020 Houston Flights Delay Dashboard">
+    <meta itemprop="description" content="Summary: Create standalone Bokeh dashboard.">
+    <meta itemprop="datePublished" content="2021-09-30T00:00:00-04:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/2020_Houston_flights_delay_dashboard/" class="u-url" itemprop="url">2020 Houston Flights Delay Dashboard
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-09-30T00:00:00-04:00">September 30, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          15 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p>Summary: Create standalone Bokeh dashboard.</p>
+
+<p>Check this blog on <a href="https://ycheng22.github.io/2020_Houston_flights_delay_dashboard/">github</a>.</p>
+
+<p><strong>Contents:</strong></p>
+<ul>
+  <li><a href="#1-introduction">1 .Introduction</a></li>
+  <li><a href="#2-data-collecting-and-processing">2. Data collecting and processing</a>
+    <ul>
+      <li><a href="#21-collecting-data-by-anyflights">2.1 Collecting data by <code class="language-plaintext highlighter-rouge">anyflights</code></a></li>
+      <li><a href="#22-combining-12-months-data">2.2 Combining 12 months data</a></li>
+      <li><a href="#23-add-logitude-and-latitude-to-hou_flights">2.3 Add logitude and latitude to Hou_flights</a></li>
+      <li><a href="#24-delay-time-statistics-arrival-delays-mean-max-min">2.4 Delay time statistics (arrival delay’s mean, max, min)</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-creating-dashboard-step-by-step">3. Creating dashboard step by step</a>
+    <ul>
+      <li><a href="#31-histogram-of-arrival-delays-by-carrier">3.1 Histogram of Arrival Delays by Carrier</a></li>
+      <li><a href="#32-density-plot">3.2 Density plot</a></li>
+      <li><a href="#33-flight-map">3.3 Flight map</a></li>
+      <li><a href="#34-table">3.4 Table</a></li>
+      <li><a href="#35-routes">3.5 Routes</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-conclusion">4. Conclusion</a></li>
+</ul>
+
+<h2 id="1-introduction">1 .Introduction</h2>
+
+<p>Bokeh is a Python library for creating interactive visualizations for modern web browsers. According to this <a href="https://towardsdatascience.com/data-visualization-with-bokeh-in-python-part-one-getting-started-a11655a467d4">blog</a>, I collected information about all flights depart Houston in 2020 and created similar dashboard.</p>
+
+<p>According to Bokeh’s introduction on <a href="https://docs.bokeh.org/en/latest/docs/user_guide/interaction/widgets.html">widgets</a>:</p>
+
+<p>There are two ways to use a widget’s functionality:</p>
+
+<ul>
+  <li>
+    <p>A <code class="language-plaintext highlighter-rouge">CustomJS</code> callback. This approach will work in standalone HTML documents or Bokeh server apps.</p>
+  </li>
+  <li>
+    <p>Use <code class="language-plaintext highlighter-rouge">bokeh serve</code> to start a Bokeh server and set up event handlers with <code class="language-plaintext highlighter-rouge">.on_change</code> (or for some widgets, <code class="language-plaintext highlighter-rouge">.on_click</code>).</p>
+  </li>
+</ul>
+
+<p>This blog is about the practice with first method.</p>
+
+<p>Preview:</p>
+<p float="left">
+  <img src="../images/Hou_flights_delay/histogram.png" width="49%" />
+  <img src="../images/Hou_flights_delay/density.png" width="49%" />
+  <img src="../images/Hou_flights_delay/flight_map.png" width="49%" />
+  <img src="../images/Hou_flights_delay/table.png" width="49%" />
+</p>
+
+<h2 id="2-data-collecting-and-processing">2. Data collecting and processing</h2>
+
+<h3 id="21-collecting-data-by-anyflights">2.1 Collecting data by <code class="language-plaintext highlighter-rouge">anyflights</code></h3>
+
+<p>The <a href="https://github.com/simonpcouch/anyflights">anyflights</a> package supplies a set of functions to generate air travel data (and data packages!) similar to <a href="https://github.com/hadley/nycflights13">nycflights13</a>. With a user-defined year and airport, the anyflights function will grab data on</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">flights</code>: all flights that departed a given airport in a given year and month</li>
+  <li><code class="language-plaintext highlighter-rouge">weather</code>: hourly meterological data for a given airport in a given year and month</li>
+  <li><code class="language-plaintext highlighter-rouge">airports</code>: airport names, FAA codes, and locations</li>
+  <li><code class="language-plaintext highlighter-rouge">airlines</code>: translation between two letter carrier (airline) codes and names</li>
+  <li><code class="language-plaintext highlighter-rouge">planes</code>: construction information about each plane found in flights</li>
+</ul>
+
+<p>It’s a <code class="language-plaintext highlighter-rouge">R</code> package, install the package and download the data in <code class="language-plaintext highlighter-rouge">Rstudio</code>:</p>
+
+<ul>
+  <li>Download flights data:
+    <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">HOUflights20_</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">anyflights</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s2">"IAH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"HOU"</span><span class="p">),</span><span class="w"> </span><span class="m">2020</span><span class="p">)</span><span class="w">
+</span></code></pre></div>    </div>
+
+    <p>Note: the package has bug now, but it can download all 12 months flights data.</p>
+  </li>
+  <li>Download airports data:
+    <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">airports</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">get_airports</span><span class="p">()</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Write them to csv file.</p>
+
+<h3 id="22-combining-12-months-data">2.2 Combining 12 months data</h3>
+
+<p>Note: check details in this <a href="https://github.com/ycheng22/Trye_Bokeh/blob/main/Bokeh_standalon_JS_demo/data/Data_Processing_part1.ipynb">notebook</a>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="n">select_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s">'FlightDate'</span><span class="p">,</span> <span class="s">'Reporting_Airline'</span><span class="p">,</span> <span class="s">'Origin'</span><span class="p">,</span> <span class="s">'OriginCityName'</span><span class="p">,</span> <span class="s">'OriginStateName'</span><span class="p">,</span> 
+               <span class="s">'Dest'</span><span class="p">,</span> <span class="s">'DestCityName'</span><span class="p">,</span> <span class="s">'DestStateName'</span><span class="p">,</span> <span class="s">'CRSDepTime'</span><span class="p">,</span> <span class="s">'DepTime'</span><span class="p">,</span> <span class="s">'DepDelay'</span><span class="p">,</span> 
+               <span class="s">'CRSArrTime'</span><span class="p">,</span> <span class="s">'ArrTime'</span><span class="p">,</span> <span class="s">'ArrDelay'</span><span class="p">]</span>
+
+<span class="n">Hou_flights</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">select_cols</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">select_cols</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s">'Origin'</span><span class="p">]</span><span class="o">==</span><span class="s">'IAH'</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">'Origin'</span><span class="p">]</span><span class="o">==</span><span class="s">'HOU'</span><span class="p">)]</span>
+    <span class="n">Hou_flights</span> <span class="o">=</span> <span class="n">Hou_flights</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1">#add carrier name
+</span><span class="n">carrier_names</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s">'airlines_code.xlsx'</span><span class="p">)</span>
+<span class="n">Hou_flights</span> <span class="o">=</span> <span class="n">Hou_flights</span><span class="p">.</span><span class="n">merge</span><span class="p">(</span><span class="n">carrier_names</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s">'left'</span><span class="p">,</span> <span class="n">left_on</span> <span class="o">=</span> <span class="s">'Reporting_Airline'</span><span class="p">,</span> <span class="n">right_on</span> <span class="o">=</span> <span class="s">'carrier'</span><span class="p">)</span>
+<span class="n">Hou_flights</span><span class="p">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">'Hou_flights.csv'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="23-add-logitude-and-latitude-to-hou_flights">2.3 Add logitude and latitude to Hou_flights</h3>
+
+<p>Note: check details in this <a href="https://github.com/ycheng22/Trye_Bokeh/blob/main/Bokeh_standalon_JS_demo/data/Data_Processing_part2.ipynb">notebook</a>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="c1">#Add logitude and latitude to Hou_flights
+</span><span class="n">Hou_flights</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'Hou_flights.csv'</span><span class="p">)</span>
+<span class="n">air_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s">'faa'</span><span class="p">,</span> <span class="s">'lat'</span><span class="p">,</span> <span class="s">'lon'</span><span class="p">]</span>
+<span class="n">airport_orig</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"airports.csv"</span><span class="p">,</span> <span class="n">usecols</span> <span class="o">=</span> <span class="n">air_columns</span><span class="p">)</span> <span class="c1">#merge for origin location
+</span><span class="n">airport_orig</span><span class="p">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s">'lat'</span><span class="p">:</span> <span class="s">'orig_lat'</span><span class="p">,</span> <span class="s">'lon'</span><span class="p">:</span> <span class="s">'orig_lon'</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">airport_dest</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"airports.csv"</span><span class="p">,</span> <span class="n">usecols</span> <span class="o">=</span> <span class="n">air_columns</span><span class="p">)</span> <span class="c1">#merger for destination location
+</span><span class="n">airport_dest</span><span class="p">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s">'lat'</span><span class="p">:</span> <span class="s">'dest_lat'</span><span class="p">,</span> <span class="s">'lon'</span><span class="p">:</span> <span class="s">'dest_lon'</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">Hou_flights_location</span> <span class="o">=</span> <span class="n">Hou_flights</span><span class="p">.</span><span class="n">merge</span><span class="p">(</span><span class="n">airport_orig</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s">'left'</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s">'Origin'</span><span class="p">,</span> <span class="n">right_on</span> <span class="o">=</span> <span class="s">'faa'</span><span class="p">)</span>
+
+<span class="n">Hou_flights_location</span> <span class="o">=</span> <span class="n">Hou_flights_location</span><span class="p">.</span><span class="n">merge</span><span class="p">(</span><span class="n">airport_dest</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s">'left'</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s">'Dest'</span><span class="p">,</span> <span class="n">right_on</span> <span class="o">=</span> <span class="s">'faa'</span><span class="p">)</span>
+
+<span class="n">Hou_flights_location</span><span class="p">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">'faa_x'</span><span class="p">,</span> <span class="s">'faa_y'</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">Hou_flights_location</span><span class="p">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">'Hou_flights_location.csv'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="24-delay-time-statistics-arrival-delays-mean-max-min">2.4 Delay time statistics (arrival delay’s mean, max, min)</h3>
+
+<p>Note: check details in this <a href="https://github.com/ycheng22/Trye_Bokeh/blob/main/Bokeh_standalon_JS_demo/data/Data_Processing_part2.ipynb">notebook</a>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Hou_flights_location</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'Hou_flights_location.csv'</span><span class="p">)</span>
+
+<span class="c1">#group by carrier, destination, 
+#mean, max, min of arrival delay time, number of flights
+</span><span class="n">df1</span> <span class="o">=</span> <span class="n">Hou_flights_location</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s">'name'</span><span class="p">,</span> <span class="s">'Dest'</span><span class="p">,</span> <span class="s">'Origin'</span><span class="p">])[</span><span class="s">'ArrDelay'</span><span class="p">].</span><span class="n">agg</span><span class="p">([</span><span class="s">'mean'</span><span class="p">,</span> <span class="s">'max'</span><span class="p">,</span> <span class="s">'min'</span><span class="p">]).</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">counts</span> <span class="o">=</span>  <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">Hou_flights_location</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s">'name'</span><span class="p">,</span> <span class="s">'Dest'</span><span class="p">,</span> <span class="s">'Origin'</span><span class="p">]).</span><span class="n">size</span><span class="p">().</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'counts'</span><span class="p">))</span>
+
+<span class="n">df1</span> <span class="o">=</span> <span class="n">df1</span><span class="p">.</span><span class="n">merge</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">'left'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s">'name'</span><span class="p">,</span> <span class="s">'Dest'</span><span class="p">,</span> <span class="s">'Origin'</span><span class="p">])</span>
+<span class="n">df1</span><span class="p">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s">'mean'</span><span class="p">:</span><span class="s">'ArrDelay_mean'</span><span class="p">,</span> <span class="s">'max'</span><span class="p">:</span><span class="s">'ArrDelay_max'</span><span class="p">,</span> <span class="s">'min'</span><span class="p">:</span><span class="s">'ArrDelay_min'</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">df2</span> <span class="o">=</span> <span class="n">Hou_flights_location</span><span class="p">[[</span><span class="s">'name'</span><span class="p">,</span> <span class="s">'Origin'</span><span class="p">,</span> <span class="s">'OriginCityName'</span><span class="p">,</span> 
+                         <span class="s">'OriginStateName'</span><span class="p">,</span> <span class="s">'Dest'</span><span class="p">,</span> <span class="s">'DestCityName'</span><span class="p">,</span> <span class="s">'DestStateName'</span><span class="p">,</span><span class="s">'orig_lat'</span><span class="p">,</span>
+                         <span class="s">'orig_lon'</span><span class="p">,</span> <span class="s">'dest_lat'</span><span class="p">,</span> <span class="s">'dest_lon'</span><span class="p">]]</span>
+
+<span class="n">arr_delay</span> <span class="o">=</span> <span class="n">df1</span><span class="p">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">'left'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s">'name'</span><span class="p">,</span> <span class="s">'Dest'</span><span class="p">,</span> <span class="s">'Origin'</span><span class="p">])</span>
+
+<span class="n">arr_delay</span><span class="p">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">arr_delay</span><span class="p">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">'arr_delay.csv'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="3-creating-dashboard-step-by-step">3. Creating dashboard step by step</h2>
+
+<ul>
+  <li>Check details in this <a href="https://github.com/ycheng22/Trye_Bokeh/blob/main/Bokeh_standalon_JS_demo/scripts_nb/scripts_nb.ipynb">notebook</a>.</li>
+  <li>
+    <p>Final <a href="https://github.com/ycheng22/Trye_Bokeh/blob/main/Bokeh_standalon_JS_demo/scripts_nb/Hou_flights_delay_plots.html">dashboard</a>.</p>
+
+    <p><em>Note:</em> Download and open the html file in browser to explore the full function.</p>
+  </li>
+</ul>
+
+<h3 id="31-histogram-of-arrival-delays-by-carrier">3.1 Histogram of Arrival Delays by Carrier</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#import packages
+</span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="kn">from</span> <span class="nn">bokeh.io</span> <span class="kn">import</span> <span class="n">show</span><span class="p">,</span> <span class="n">output_notebook</span><span class="p">,</span> <span class="n">output_file</span>
+<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span>
+
+<span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="n">HoverTool</span><span class="p">,</span> <span class="n">ColumnDataSource</span><span class="p">,</span> <span class="n">Panel</span><span class="p">,</span> <span class="n">CustomJS</span><span class="p">,</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Row</span><span class="p">,</span> <span class="n">Select</span><span class="p">,</span> <span class="n">FuncTickFormatter</span>
+<span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="n">CheckboxGroup</span><span class="p">,</span> <span class="n">Slider</span><span class="p">,</span> <span class="n">RangeSlider</span><span class="p">,</span> <span class="n">Tabs</span><span class="p">,</span> <span class="n">TableColumn</span><span class="p">,</span> <span class="n">DataTable</span>
+
+<span class="kn">from</span> <span class="nn">bokeh.palettes</span> <span class="kn">import</span> <span class="n">Category20_16</span>
+
+<span class="c1"># Gaussian kernel density estimate for density plot
+</span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">gaussian_kde</span>
+
+<span class="c1"># List of lists to single list
+</span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
+
+<span class="n">output_notebook</span><span class="p">()</span>
+<span class="n">output_file</span><span class="p">(</span><span class="s">"Hou_flights_delay_plots.html"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Load in flights and inspect
+</span><span class="n">flights</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'../data/Hou_flights.csv'</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)[[</span><span class="s">'ArrDelay'</span><span class="p">,</span> <span class="s">'Reporting_Airline'</span><span class="p">,</span> <span class="s">'name'</span><span class="p">]]</span>
+<span class="c1"># print(flights.head())
+</span>
+<span class="c1"># Available carrier list
+</span><span class="n">available_carriers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">flights</span><span class="p">[</span><span class="s">'name'</span><span class="p">].</span><span class="n">unique</span><span class="p">())</span>
+
+<span class="c1"># Sort the list in-place (alphabetical order)
+</span><span class="n">available_carriers</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">available_carriers</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">make_dataset</span><span class="p">(</span><span class="n">carrier_list</span><span class="p">,</span> <span class="n">range_start</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="n">range_end</span> <span class="o">=</span> <span class="mi">120</span><span class="p">,</span> <span class="n">bin_width</span> <span class="o">=</span> <span class="mi">5</span><span class="p">):</span>
+
+    <span class="n">by_carrier</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">'proportion'</span><span class="p">,</span> <span class="s">'left'</span><span class="p">,</span> <span class="s">'right'</span><span class="p">,</span> 
+                                       <span class="s">'f_proportion'</span><span class="p">,</span> <span class="s">'f_interval'</span><span class="p">,</span>
+                                       <span class="s">'name'</span><span class="p">,</span> <span class="s">'color'</span><span class="p">])</span>
+    <span class="n">range_extent</span> <span class="o">=</span> <span class="n">range_end</span> <span class="o">-</span> <span class="n">range_start</span>
+
+    <span class="c1"># Iterate through all the carriers
+</span>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">carrier_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">carrier_list</span><span class="p">):</span>
+
+        <span class="c1"># Subset to the carrier
+</span>        <span class="n">subset</span> <span class="o">=</span> <span class="n">flights</span><span class="p">[</span><span class="n">flights</span><span class="p">[</span><span class="s">'name'</span><span class="p">]</span> <span class="o">==</span> <span class="n">carrier_name</span><span class="p">]</span>
+
+        <span class="c1"># Create a histogram with 5 minute bins
+</span>        <span class="n">arr_hist</span><span class="p">,</span> <span class="n">edges</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">subset</span><span class="p">[</span><span class="s">'ArrDelay'</span><span class="p">],</span> 
+                                       <span class="n">bins</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">range_extent</span> <span class="o">/</span> <span class="n">bin_width</span><span class="p">),</span> 
+                                       <span class="nb">range</span> <span class="o">=</span> <span class="p">[</span><span class="n">range_start</span><span class="p">,</span> <span class="n">range_end</span><span class="p">])</span>
+
+        <span class="c1"># Divide the counts by the total to get a proportion
+</span>        <span class="n">arr_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">'proportion'</span><span class="p">:</span> <span class="n">arr_hist</span> <span class="o">/</span> <span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">arr_hist</span><span class="p">),</span> <span class="s">'left'</span><span class="p">:</span> <span class="n">edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s">'right'</span><span class="p">:</span> <span class="n">edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="p">})</span>
+
+        <span class="c1"># Format the proportion 
+</span>        <span class="n">arr_df</span><span class="p">[</span><span class="s">'f_proportion'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">'%0.5f'</span> <span class="o">%</span> <span class="n">proportion</span> <span class="k">for</span> <span class="n">proportion</span> <span class="ow">in</span> <span class="n">arr_df</span><span class="p">[</span><span class="s">'proportion'</span><span class="p">]]</span>
+
+        <span class="c1"># Format the interval
+</span>        <span class="n">arr_df</span><span class="p">[</span><span class="s">'f_interval'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">'%d to %d minutes'</span> <span class="o">%</span> <span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span> <span class="k">for</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">arr_df</span><span class="p">[</span><span class="s">'left'</span><span class="p">],</span> <span class="n">arr_df</span><span class="p">[</span><span class="s">'right'</span><span class="p">])]</span>
+
+        <span class="c1"># Assign the carrier for labels
+</span>        <span class="n">arr_df</span><span class="p">[</span><span class="s">'name'</span><span class="p">]</span> <span class="o">=</span> <span class="n">carrier_name</span>
+
+        <span class="c1"># Color each carrier differently
+</span>        <span class="n">arr_df</span><span class="p">[</span><span class="s">'color'</span><span class="p">]</span> <span class="o">=</span> <span class="n">Category20_16</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+        <span class="c1"># Add to the overall dataframe
+</span>        <span class="n">by_carrier</span> <span class="o">=</span> <span class="n">by_carrier</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">arr_df</span><span class="p">)</span>
+
+    <span class="c1"># Overall dataframe
+</span>    <span class="n">by_carrier</span> <span class="o">=</span> <span class="n">by_carrier</span><span class="p">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s">'name'</span><span class="p">,</span> <span class="s">'left'</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">ColumnDataSource</span><span class="p">(</span><span class="n">by_carrier</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="c1"># Title 
+</span>    <span class="n">p</span><span class="p">.</span><span class="n">title</span><span class="p">.</span><span class="n">align</span> <span class="o">=</span> <span class="s">'center'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">title</span><span class="p">.</span><span class="n">text_font_size</span> <span class="o">=</span> <span class="s">'20pt'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">title</span><span class="p">.</span><span class="n">text_font</span> <span class="o">=</span> <span class="s">'serif'</span>
+
+    <span class="c1"># Axis titles
+</span>    <span class="n">p</span><span class="p">.</span><span class="n">xaxis</span><span class="p">.</span><span class="n">axis_label_text_font_size</span> <span class="o">=</span> <span class="s">'14pt'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">xaxis</span><span class="p">.</span><span class="n">axis_label_text_font_style</span> <span class="o">=</span> <span class="s">'bold'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">yaxis</span><span class="p">.</span><span class="n">axis_label_text_font_size</span> <span class="o">=</span> <span class="s">'14pt'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">yaxis</span><span class="p">.</span><span class="n">axis_label_text_font_style</span> <span class="o">=</span> <span class="s">'bold'</span>
+
+    <span class="c1"># Tick labels
+</span>    <span class="n">p</span><span class="p">.</span><span class="n">xaxis</span><span class="p">.</span><span class="n">major_label_text_font_size</span> <span class="o">=</span> <span class="s">'12pt'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">yaxis</span><span class="p">.</span><span class="n">major_label_text_font_size</span> <span class="o">=</span> <span class="s">'12pt'</span>
+
+    <span class="k">return</span> <span class="n">p</span>
+
+<span class="k">def</span> <span class="nf">make_plot</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="c1"># Blank plot with correct labels
+</span>    <span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">plot_width</span> <span class="o">=</span> <span class="mi">700</span><span class="p">,</span> <span class="n">plot_height</span> <span class="o">=</span> <span class="mi">700</span><span class="p">,</span> 
+              <span class="n">title</span> <span class="o">=</span> <span class="s">'Histogram of Arrival Delays by Carrier'</span><span class="p">,</span>
+              <span class="n">x_axis_label</span> <span class="o">=</span> <span class="s">'Delay (min)'</span><span class="p">,</span> <span class="n">y_axis_label</span> <span class="o">=</span> <span class="s">'Proportion'</span><span class="p">)</span>
+
+    <span class="c1"># Quad glyphs to create a histogram
+</span>    <span class="n">p</span><span class="p">.</span><span class="n">quad</span><span class="p">(</span><span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">bottom</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">top</span> <span class="o">=</span> <span class="s">'proportion'</span><span class="p">,</span> <span class="n">left</span> <span class="o">=</span> <span class="s">'left'</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="s">'right'</span><span class="p">,</span>
+           <span class="n">color</span> <span class="o">=</span> <span class="s">'color'</span><span class="p">,</span> <span class="n">fill_alpha</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">hover_fill_color</span> <span class="o">=</span> <span class="s">'color'</span><span class="p">,</span> <span class="n">legend_field</span> <span class="o">=</span> <span class="s">'name'</span><span class="p">,</span>
+           <span class="n">hover_fill_alpha</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">line_color</span> <span class="o">=</span> <span class="s">'black'</span><span class="p">)</span>
+
+    <span class="c1"># Hover tool with vline mode
+</span>    <span class="n">hover</span> <span class="o">=</span> <span class="n">HoverTool</span><span class="p">(</span><span class="n">tooltips</span><span class="o">=</span><span class="p">[(</span><span class="s">'Carrier'</span><span class="p">,</span> <span class="s">'@name'</span><span class="p">),</span> 
+                                <span class="p">(</span><span class="s">'Delay'</span><span class="p">,</span> <span class="s">'@f_interval'</span><span class="p">),</span>
+                                <span class="p">(</span><span class="s">'Proportion'</span><span class="p">,</span> <span class="s">'@f_proportion'</span><span class="p">)],</span>
+                      <span class="n">mode</span><span class="o">=</span><span class="s">'vline'</span><span class="p">)</span>
+
+    <span class="n">p</span><span class="p">.</span><span class="n">add_tools</span><span class="p">(</span><span class="n">hover</span><span class="p">)</span>
+
+    <span class="c1"># Styling
+</span>    <span class="n">p</span> <span class="o">=</span> <span class="n">style</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">p</span>
+
+<span class="n">carrier_list</span><span class="o">=</span><span class="n">available_carriers</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">make_dataset</span><span class="p">(</span><span class="n">carrier_list</span><span class="p">,</span> <span class="n">range_start</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="n">range_end</span> <span class="o">=</span> <span class="mi">120</span><span class="p">,</span> <span class="n">bin_width</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="c1">#add range slider
+</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">ColumnDataSource</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">proportion</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">left</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">right</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">color</span><span class="o">=</span><span class="p">[],</span> <span class="n">name</span><span class="o">=</span><span class="p">[],</span> <span class="n">f_proportion</span><span class="o">=</span><span class="p">[],</span> <span class="n">f_interval</span><span class="o">=</span><span class="p">[]))</span>
+
+<span class="n">callback</span> <span class="o">=</span> <span class="n">CustomJS</span><span class="p">(</span><span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="s">'source'</span><span class="p">:</span> <span class="n">source</span><span class="p">,</span> <span class="s">'data_source'</span><span class="p">:</span> <span class="n">data</span><span class="p">},</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="s">"""
+        var data = data_source.data;
+        var s_data = source.data;
+
+        var select_vals = cb_obj.active.map(x =&gt; cb_obj.labels[x]);
+        console.log(select_vals);
+        //read original data
+
+        var proportion_data = data['proportion'];
+        var left_data = data['left'];
+        var right_data = data['right'];
+        var color_data = data['color'];
+        var name_data = data['name'];
+        var f_proportion_data = data['f_proportion'];
+        var f_interval_data = data['f_interval'];
+
+
+        //initialize source data
+        var proportion = s_data['proportion'];
+        proportion.length = 0;
+        var left = s_data['left'];
+        left.length = 0;
+        var right = s_data['right'];
+        right.length = 0;
+        var color = s_data['color'];
+        color.length = 0;
+        var name = s_data['name'];
+        name.length = 0;
+        var f_proportion = s_data['f_proportion'];
+        f_proportion.length = 0;
+        var f_interval = s_data['f_interval'];
+        f_interval.length = 0;
+
+        for (var i = 0; i &lt; proportion_data.length; i++) {
+            if (select_vals.indexOf(name_data[i]) &gt;= 0) {
+                proportion.push(proportion_data[i]);
+                left.push(left_data[i]);
+                right.push(right_data[i]);
+                color.push(color_data[i]);
+                name.push(name_data[i]);
+                f_proportion.push(f_proportion_data[i]);
+                f_interval.push(f_interval_data[i]);
+                }
+        }
+        source.change.emit();
+        console.log("callback completed");
+    """</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">make_plot</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+
+<span class="n">chkbxgrp</span> <span class="o">=</span> <span class="n">CheckboxGroup</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="n">available_carriers</span><span class="p">,</span> <span class="n">active</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">chkbxgrp</span><span class="p">.</span><span class="n">js_on_change</span><span class="p">(</span><span class="s">'active'</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
+
+<span class="n">range_slider</span> <span class="o">=</span> <span class="n">RangeSlider</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">180</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">120</span><span class="p">),</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s">'Delay Range (min)'</span><span class="p">)</span>
+<span class="n">range_slider</span><span class="p">.</span><span class="n">js_on_change</span><span class="p">(</span><span class="s">'value'</span><span class="p">,</span>
+    <span class="n">CustomJS</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">other</span><span class="o">=</span><span class="n">p</span><span class="p">.</span><span class="n">x_range</span><span class="p">),</span>
+             <span class="n">code</span><span class="o">=</span><span class="s">"""
+             other.start = this.value[0];
+             other.end = this.value[1];
+             """</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">layout</span> <span class="o">=</span> <span class="n">Row</span><span class="p">(</span><span class="n">Column</span><span class="p">(</span><span class="n">chkbxgrp</span><span class="p">,</span> <span class="n">range_slider</span><span class="p">),</span> <span class="n">p</span><span class="p">)</span>
+
+<span class="n">tab_hist</span> <span class="o">=</span> <span class="n">Panel</span><span class="p">(</span><span class="n">child</span><span class="o">=</span><span class="n">layout</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s">'Delay Histogram'</span><span class="p">)</span>
+<span class="n">tabs</span> <span class="o">=</span> <span class="n">Tabs</span><span class="p">(</span><span class="n">tabs</span><span class="o">=</span><span class="p">[</span><span class="n">tab_hist</span><span class="p">])</span>
+    
+<span class="n">show</span><span class="p">(</span><span class="n">tabs</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="/images/Hou_flights_delay/histogram.png" alt="name" />
+fig 1: Histogram of Arrival Delays by Carrier</p>
+
+<h3 id="32-density-plot">3.2 Density plot</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Load in flights and inspect
+</span><span class="n">flights</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'../data/Hou_flights.csv'</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)[[</span><span class="s">'ArrDelay'</span><span class="p">,</span> <span class="s">'Reporting_Airline'</span><span class="p">,</span> <span class="s">'name'</span><span class="p">]]</span>
+<span class="c1"># print(flights.head())
+</span>
+<span class="c1"># Available carrier list
+</span><span class="n">available_carriers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">flights</span><span class="p">[</span><span class="s">'name'</span><span class="p">].</span><span class="n">unique</span><span class="p">())</span>
+
+<span class="c1"># Sort the list in-place (alphabetical order)
+</span><span class="n">available_carriers</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">available_carriers</span><span class="p">)</span>
+<span class="n">airline_colors</span> <span class="o">=</span> <span class="n">Category20_16</span>
+
+<span class="k">def</span> <span class="nf">make_kde_dataset</span><span class="p">(</span><span class="n">carrier_list</span><span class="p">,</span> <span class="n">range_start</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="n">range_end</span> <span class="o">=</span> <span class="mi">120</span><span class="p">,</span> <span class="n">bandwidth</span> <span class="o">=</span> <span class="mi">5</span><span class="p">):</span>
+
+    <span class="n">xs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ys</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">carrier</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">carrier_list</span><span class="p">):</span>
+        <span class="n">subset</span> <span class="o">=</span> <span class="n">flights</span><span class="p">[</span><span class="n">flights</span><span class="p">[</span><span class="s">'name'</span><span class="p">]</span> <span class="o">==</span> <span class="n">carrier</span><span class="p">]</span>
+        <span class="n">subset</span> <span class="o">=</span> <span class="n">subset</span><span class="p">[</span><span class="n">subset</span><span class="p">[</span><span class="s">'ArrDelay'</span><span class="p">].</span><span class="n">between</span><span class="p">(</span><span class="n">range_start</span><span class="p">,</span> <span class="n">range_end</span><span class="p">)]</span>
+
+        <span class="n">kde</span> <span class="o">=</span> <span class="n">gaussian_kde</span><span class="p">(</span><span class="n">subset</span><span class="p">[</span><span class="s">'ArrDelay'</span><span class="p">],</span> <span class="n">bw_method</span><span class="o">=</span><span class="n">bandwidth</span><span class="p">)</span>
+        <span class="c1"># Evenly space x values
+</span>        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">range_start</span><span class="p">,</span> <span class="n">range_end</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="c1"># Evaluate pdf at every value of x
+</span>        <span class="n">y</span> <span class="o">=</span> <span class="n">kde</span><span class="p">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+        <span class="c1"># Append the values to plot
+</span>        <span class="n">xs</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">ys</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+        
+<span class="c1">#         #store name for checkbox
+#         names.append(carrier)
+</span>
+        <span class="c1"># Append the colors and label
+</span>        <span class="n">colors</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">airline_colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">labels</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">carrier</span><span class="p">)</span>
+
+    <span class="n">kernel_source</span> <span class="o">=</span> <span class="n">ColumnDataSource</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">'x'</span><span class="p">:</span> <span class="n">xs</span><span class="p">,</span> <span class="s">'y'</span><span class="p">:</span> <span class="n">ys</span><span class="p">,</span> <span class="s">'color'</span><span class="p">:</span> <span class="n">colors</span><span class="p">,</span> <span class="s">'label'</span><span class="p">:</span> <span class="n">labels</span><span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">kernel_source</span>
+
+<span class="n">carrier_list</span> <span class="o">=</span> <span class="n">available_carriers</span>
+<span class="n">kde_data</span> <span class="o">=</span> <span class="n">make_kde_dataset</span><span class="p">(</span><span class="n">carrier_list</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="c1"># Title 
+</span>    <span class="n">p</span><span class="p">.</span><span class="n">title</span><span class="p">.</span><span class="n">align</span> <span class="o">=</span> <span class="s">'center'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">title</span><span class="p">.</span><span class="n">text_font_size</span> <span class="o">=</span> <span class="s">'20pt'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">title</span><span class="p">.</span><span class="n">text_font</span> <span class="o">=</span> <span class="s">'serif'</span>
+
+    <span class="c1"># Axis titles
+</span>    <span class="n">p</span><span class="p">.</span><span class="n">xaxis</span><span class="p">.</span><span class="n">axis_label_text_font_size</span> <span class="o">=</span> <span class="s">'14pt'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">xaxis</span><span class="p">.</span><span class="n">axis_label_text_font_style</span> <span class="o">=</span> <span class="s">'bold'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">yaxis</span><span class="p">.</span><span class="n">axis_label_text_font_size</span> <span class="o">=</span> <span class="s">'14pt'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">yaxis</span><span class="p">.</span><span class="n">axis_label_text_font_style</span> <span class="o">=</span> <span class="s">'bold'</span>
+
+    <span class="c1"># Tick labels
+</span>    <span class="n">p</span><span class="p">.</span><span class="n">xaxis</span><span class="p">.</span><span class="n">major_label_text_font_size</span> <span class="o">=</span> <span class="s">'12pt'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">yaxis</span><span class="p">.</span><span class="n">major_label_text_font_size</span> <span class="o">=</span> <span class="s">'12pt'</span>
+
+    <span class="k">return</span> <span class="n">p</span>
+
+<span class="k">def</span> <span class="nf">make_kde_plot</span><span class="p">(</span><span class="n">kde_src</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">plot_width</span> <span class="o">=</span> <span class="mi">700</span><span class="p">,</span> <span class="n">plot_height</span> <span class="o">=</span> <span class="mi">700</span><span class="p">,</span>
+               <span class="n">title</span> <span class="o">=</span> <span class="s">'Density Plot of Arrival Delays by Airline'</span><span class="p">,</span>
+               <span class="n">x_axis_label</span> <span class="o">=</span> <span class="s">'Delay (min)'</span><span class="p">,</span> <span class="n">y_axis_label</span> <span class="o">=</span> <span class="s">'Density'</span><span class="p">)</span>
+
+
+    <span class="n">p</span><span class="p">.</span><span class="n">multi_line</span><span class="p">(</span><span class="s">'x'</span><span class="p">,</span> <span class="s">'y'</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">'color'</span><span class="p">,</span> <span class="n">legend_field</span> <span class="o">=</span> <span class="s">'label'</span><span class="p">,</span> 
+                 <span class="n">line_width</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+                 <span class="n">source</span> <span class="o">=</span> <span class="n">kde_src</span><span class="p">)</span>
+
+    <span class="c1"># Hover tool with next line policy
+</span>    <span class="n">hover</span> <span class="o">=</span> <span class="n">HoverTool</span><span class="p">(</span><span class="n">tooltips</span><span class="o">=</span><span class="p">[(</span><span class="s">'Carrier'</span><span class="p">,</span> <span class="s">'@label'</span><span class="p">),</span> 
+                                <span class="p">(</span><span class="s">'Delay'</span><span class="p">,</span> <span class="s">'$x'</span><span class="p">),</span>
+                                <span class="p">(</span><span class="s">'Density'</span><span class="p">,</span> <span class="s">'$y'</span><span class="p">)],</span>
+                      <span class="n">line_policy</span> <span class="o">=</span> <span class="s">'next'</span><span class="p">)</span>
+
+    <span class="c1"># Add the hover tool and styling
+</span>    <span class="n">p</span><span class="p">.</span><span class="n">add_tools</span><span class="p">(</span><span class="n">hover</span><span class="p">)</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="n">style</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">p</span>
+
+<span class="c1">#add range slider
+</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">ColumnDataSource</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">color</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">label</span><span class="o">=</span><span class="p">[]))</span>
+
+<span class="n">callback</span> <span class="o">=</span> <span class="n">CustomJS</span><span class="p">(</span><span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="s">'source'</span><span class="p">:</span> <span class="n">source</span><span class="p">,</span> <span class="s">'data_source'</span><span class="p">:</span> <span class="n">kde_data</span><span class="p">},</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="s">"""
+        var data = data_source.data;
+        var s_data = source.data;
+
+        var select_vals = cb_obj.active.map(x =&gt; cb_obj.labels[x]);
+        console.log(select_vals);
+        
+        //read original data
+        var x_data = data['x'];
+        var y_data = data['y'];
+        var label_data = data['label'];
+        var color_data = data['color'];
+
+        //initialize source data
+        var x = s_data['x'];
+        x.length = 0;
+        var y = s_data['y'];
+        y.length = 0;
+        var label = s_data['label'];
+        label.length = 0;
+        var color = s_data['color'];
+        color.length = 0;
+
+        for (var i = 0; i &lt; x_data.length; i++) {
+            if (select_vals.indexOf(label_data[i]) &gt;= 0) {
+                x.push(x_data[i]);
+                y.push(y_data[i]);
+                label.push(label_data[i]);
+                color.push(color_data[i]);
+                }
+        }
+        source.change.emit();
+        console.log("callback completed");
+    """</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">make_kde_plot</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+
+<span class="n">chkbxgrp</span> <span class="o">=</span> <span class="n">CheckboxGroup</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="n">available_carriers</span><span class="p">,</span> <span class="n">active</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">chkbxgrp</span><span class="p">.</span><span class="n">js_on_change</span><span class="p">(</span><span class="s">'active'</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
+
+<span class="n">range_slider</span> <span class="o">=</span> <span class="n">RangeSlider</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">180</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">120</span><span class="p">),</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s">'Delay Range (min)'</span><span class="p">)</span>
+<span class="n">range_slider</span><span class="p">.</span><span class="n">js_on_change</span><span class="p">(</span><span class="s">'value'</span><span class="p">,</span>
+    <span class="n">CustomJS</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">other</span><span class="o">=</span><span class="n">p</span><span class="p">.</span><span class="n">x_range</span><span class="p">),</span>
+             <span class="n">code</span><span class="o">=</span><span class="s">"""
+             other.start = this.value[0];
+             other.end = this.value[1];
+             """</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">layout</span> <span class="o">=</span> <span class="n">Row</span><span class="p">(</span><span class="n">Column</span><span class="p">(</span><span class="n">chkbxgrp</span><span class="p">,</span> <span class="n">range_slider</span><span class="p">),</span> <span class="n">p</span><span class="p">)</span>
+
+<span class="n">tab_density</span> <span class="o">=</span> <span class="n">Panel</span><span class="p">(</span><span class="n">child</span><span class="o">=</span><span class="n">layout</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s">'Density Plot'</span><span class="p">)</span>
+<span class="n">tabs</span> <span class="o">=</span> <span class="n">Tabs</span><span class="p">(</span><span class="n">tabs</span><span class="o">=</span><span class="p">[</span><span class="n">tab_hist</span><span class="p">,</span> <span class="n">tab_density</span><span class="p">])</span>
+    
+<span class="n">show</span><span class="p">(</span><span class="n">tabs</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="/images/Hou_flights_delay/density.png" alt="name" />
+fig 2: Density Plot of Arrival Delays by airline</p>
+
+<h3 id="33-flight-map">3.3 Flight map</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Included data in Bokeh for map
+</span><span class="kn">from</span> <span class="nn">bokeh.sampledata.us_states</span> <span class="kn">import</span> <span class="n">data</span> <span class="k">as</span> <span class="n">states</span>
+
+<span class="c1"># Remove Alaska and Hawaii
+</span><span class="k">if</span> <span class="s">'HI'</span> <span class="ow">in</span> <span class="n">states</span><span class="p">:</span> <span class="k">del</span> <span class="n">states</span><span class="p">[</span><span class="s">'HI'</span><span class="p">]</span>
+<span class="k">if</span> <span class="s">'AK'</span> <span class="ow">in</span> <span class="n">states</span><span class="p">:</span> <span class="k">del</span> <span class="n">states</span><span class="p">[</span><span class="s">'AK'</span><span class="p">]</span>
+    
+<span class="c1"># Put longitudes and latitudes in lists
+</span><span class="n">xs</span> <span class="o">=</span> <span class="p">[</span><span class="n">states</span><span class="p">[</span><span class="n">state</span><span class="p">][</span><span class="s">'lons'</span><span class="p">]</span> <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">states</span><span class="p">]</span>
+<span class="n">ys</span> <span class="o">=</span> <span class="p">[</span><span class="n">states</span><span class="p">[</span><span class="n">state</span><span class="p">][</span><span class="s">'lats'</span><span class="p">]</span> <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">states</span><span class="p">]</span>
+
+<span class="c1"># Formatted Flight Delay Data for map
+</span><span class="n">map_data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'../data/arr_delay.csv'</span><span class="p">)</span>
+<span class="n">map_data</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"map_data shape before drop Alaska and Hawaii: </span><span class="si">{</span><span class="n">map_data</span><span class="p">.</span><span class="n">shape</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="c1"># map_data = map_data[(map_data.DestStateName != 'Alaska') &amp; (map_data.DestStateName != 'Hawaii')]
+</span><span class="n">map_data</span> <span class="o">=</span> <span class="n">map_data</span><span class="p">[(</span><span class="n">map_data</span><span class="p">[</span><span class="s">'DestStateName'</span><span class="p">]</span><span class="o">!=</span><span class="s">'Alaska'</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">map_data</span><span class="p">[</span><span class="s">'DestStateName'</span><span class="p">]</span><span class="o">!=</span><span class="s">'Hawaii'</span><span class="p">)]</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"map_data shape after drop: </span><span class="si">{</span><span class="n">map_data</span><span class="p">.</span><span class="n">shape</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+<span class="c1"># Available carrier list
+</span><span class="n">available_carriers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">map_data</span><span class="p">[</span><span class="s">'name'</span><span class="p">].</span><span class="n">unique</span><span class="p">())</span>
+
+<span class="c1"># Sort the list in-place (alphabetical order)
+</span><span class="n">available_carriers</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">available_carriers</span><span class="p">)</span>
+
+<span class="c1"># Function to make a dataset for the map based on a list of carriers
+</span><span class="k">def</span> <span class="nf">make_dataset</span><span class="p">(</span><span class="n">carrier_list</span><span class="p">):</span>
+
+    <span class="c1"># Subset to the carriers in the specified list
+</span>    <span class="n">subset</span> <span class="o">=</span> <span class="n">map_data</span><span class="p">[</span><span class="n">map_data</span><span class="p">[</span><span class="s">'name'</span><span class="p">].</span><span class="n">isin</span><span class="p">(</span><span class="n">carrier_list</span><span class="p">)]</span>
+
+
+    <span class="c1"># Dictionary mapping carriers to colors
+</span>    <span class="n">color_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">carrier</span><span class="p">:</span> <span class="n">color</span> <span class="k">for</span> <span class="n">carrier</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">map_data</span><span class="p">[</span><span class="s">'name'</span><span class="p">])),</span> 
+                                                           <span class="n">Category20_16</span><span class="p">)}</span>
+
+    <span class="c1"># Lists of data for plotting
+</span>    <span class="n">flight_x</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">flight_y</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">carriers</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">mean_delays</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">min_delays</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">max_delays</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">dest_loc</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">origin_x_loc</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">origin_y_loc</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">dest_x_loc</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">dest_y_loc</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">origins</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">dests</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">origin_citys</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">dest_citys</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Iterate through each carrier
+</span>    <span class="k">for</span> <span class="n">carrier</span> <span class="ow">in</span> <span class="n">carrier_list</span><span class="p">:</span>
+
+        <span class="c1"># Subset to the carrier
+</span>        <span class="n">sub_carrier</span> <span class="o">=</span> <span class="n">subset</span><span class="p">[</span><span class="n">subset</span><span class="p">[</span><span class="s">'name'</span><span class="p">]</span> <span class="o">==</span> <span class="n">carrier</span><span class="p">]</span>
+
+        <span class="c1"># Iterate through each route (origin to destination) for the carrier
+</span>        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">sub_carrier</span><span class="p">.</span><span class="n">iterrows</span><span class="p">():</span>
+
+            <span class="n">colors</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">color_dict</span><span class="p">[</span><span class="n">carrier</span><span class="p">])</span>
+            <span class="n">carriers</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">carrier</span><span class="p">)</span>
+            <span class="n">origins</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">'Origin'</span><span class="p">])</span>
+            <span class="n">dests</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">'Dest'</span><span class="p">])</span>
+            <span class="n">origin_citys</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">'OriginCityName'</span><span class="p">])</span>
+            <span class="n">dest_citys</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">'DestCityName'</span><span class="p">])</span>
+            
+
+            <span class="c1"># Origin x (longitude) and y (latitude) location
+</span>            <span class="n">origin_x_loc</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">'orig_lon'</span><span class="p">])</span>
+            <span class="n">origin_y_loc</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">'orig_lat'</span><span class="p">])</span>
+
+            <span class="c1"># Destination x (longitude) and y latitude (location)
+</span>            <span class="n">dest_x_loc</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">'dest_lon'</span><span class="p">])</span>
+            <span class="n">dest_y_loc</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">'dest_lat'</span><span class="p">])</span>
+
+            <span class="c1"># Flight x (longitude) locations
+</span>            <span class="n">flight_x</span><span class="p">.</span><span class="n">append</span><span class="p">([</span><span class="n">row</span><span class="p">[</span><span class="s">'orig_lon'</span><span class="p">],</span> 
+                             <span class="n">row</span><span class="p">[</span><span class="s">'dest_lon'</span><span class="p">]])</span>
+
+            <span class="c1"># Flight y (latitude) locations
+</span>            <span class="n">flight_y</span><span class="p">.</span><span class="n">append</span><span class="p">([</span><span class="n">row</span><span class="p">[</span><span class="s">'orig_lat'</span><span class="p">],</span> 
+                             <span class="n">row</span><span class="p">[</span><span class="s">'dest_lat'</span><span class="p">]])</span>
+
+
+            <span class="c1"># Stats about the particular route
+</span>            <span class="n">counts</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">'counts'</span><span class="p">])</span>
+            <span class="n">mean_delays</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">'ArrDelay_mean'</span><span class="p">])</span>
+            <span class="n">min_delays</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">'ArrDelay_min'</span><span class="p">])</span>
+            <span class="n">max_delays</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">'ArrDelay_max'</span><span class="p">])</span>
+
+
+    <span class="c1"># Create a column data source from the lists of lists
+</span>    <span class="n">new_map_src</span> <span class="o">=</span> <span class="n">ColumnDataSource</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'carrier'</span><span class="p">:</span> <span class="n">carriers</span><span class="p">,</span> <span class="s">'flight_x'</span><span class="p">:</span> <span class="n">flight_x</span><span class="p">,</span> <span class="s">'flight_y'</span><span class="p">:</span> <span class="n">flight_y</span><span class="p">,</span> 
+                                           <span class="s">'origin_x_loc'</span><span class="p">:</span> <span class="n">origin_x_loc</span><span class="p">,</span> <span class="s">'origin_y_loc'</span><span class="p">:</span> <span class="n">origin_y_loc</span><span class="p">,</span>
+                                           <span class="s">'dest_x_loc'</span><span class="p">:</span> <span class="n">dest_x_loc</span><span class="p">,</span> <span class="s">'dest_y_loc'</span><span class="p">:</span> <span class="n">dest_y_loc</span><span class="p">,</span>
+                                           <span class="s">'color'</span><span class="p">:</span> <span class="n">colors</span><span class="p">,</span> <span class="s">'count'</span><span class="p">:</span> <span class="n">counts</span><span class="p">,</span> <span class="s">'mean_delay'</span><span class="p">:</span> <span class="n">mean_delays</span><span class="p">,</span>
+                                           <span class="s">'origin'</span><span class="p">:</span> <span class="n">origins</span><span class="p">,</span> <span class="s">'dest'</span><span class="p">:</span> <span class="n">dests</span><span class="p">,</span>
+                                           <span class="s">'min_delay'</span><span class="p">:</span> <span class="n">min_delays</span><span class="p">,</span> <span class="s">'max_delay'</span><span class="p">:</span> <span class="n">max_delays</span><span class="p">,</span>
+                                          <span class="s">'origin_city'</span><span class="p">:</span><span class="n">origin_citys</span><span class="p">,</span> <span class="s">'dest_city'</span><span class="p">:</span><span class="n">dest_citys</span><span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">new_map_src</span>
+
+<span class="n">carrier_list</span> <span class="o">=</span> <span class="n">available_carriers</span>
+<span class="n">new_map_data</span> <span class="o">=</span> <span class="n">make_dataset</span><span class="p">(</span><span class="n">carrier_list</span><span class="p">)</span>
+
+<span class="c1"># Styling 
+</span><span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+
+    <span class="c1"># Title 
+</span>    <span class="n">p</span><span class="p">.</span><span class="n">title</span><span class="p">.</span><span class="n">align</span> <span class="o">=</span> <span class="s">'center'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">title</span><span class="p">.</span><span class="n">text_font_size</span> <span class="o">=</span> <span class="s">'20pt'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">title</span><span class="p">.</span><span class="n">text_font</span> <span class="o">=</span> <span class="s">'serif'</span>
+
+    <span class="c1"># Axis titles
+</span>    <span class="n">p</span><span class="p">.</span><span class="n">xaxis</span><span class="p">.</span><span class="n">axis_label_text_font_size</span> <span class="o">=</span> <span class="s">'14pt'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">xaxis</span><span class="p">.</span><span class="n">axis_label_text_font_style</span> <span class="o">=</span> <span class="s">'bold'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">yaxis</span><span class="p">.</span><span class="n">axis_label_text_font_size</span> <span class="o">=</span> <span class="s">'14pt'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">yaxis</span><span class="p">.</span><span class="n">axis_label_text_font_style</span> <span class="o">=</span> <span class="s">'bold'</span>
+
+    <span class="c1"># Tick labels
+</span>    <span class="n">p</span><span class="p">.</span><span class="n">xaxis</span><span class="p">.</span><span class="n">major_label_text_font_size</span> <span class="o">=</span> <span class="s">'12pt'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">yaxis</span><span class="p">.</span><span class="n">major_label_text_font_size</span> <span class="o">=</span> <span class="s">'12pt'</span>
+
+    <span class="k">return</span> <span class="n">p</span>
+
+<span class="k">def</span> <span class="nf">make_plot</span><span class="p">(</span><span class="n">map_src</span><span class="p">):</span>
+
+    <span class="c1"># Create the plot with no axes or grid
+</span>    <span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">plot_width</span> <span class="o">=</span> <span class="mi">1100</span><span class="p">,</span> <span class="n">plot_height</span> <span class="o">=</span> <span class="mi">700</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s">'Map of 2020 Flight Delays Departing Houston'</span><span class="p">)</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">xaxis</span><span class="p">.</span><span class="n">visible</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">yaxis</span><span class="p">.</span><span class="n">visible</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">grid</span><span class="p">.</span><span class="n">visible</span> <span class="o">=</span> <span class="bp">False</span>
+
+    <span class="c1"># States are drawn as patches
+</span>    <span class="n">patches_glyph</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">patches</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">fill_alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">fill_color</span> <span class="o">=</span> <span class="s">'lightgray'</span><span class="p">,</span> 
+                              <span class="n">line_color</span><span class="o">=</span><span class="s">"#884444"</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">line_alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+
+    <span class="c1"># Airline flights are drawn as lines
+</span>    <span class="n">lines_glyph</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">multi_line</span><span class="p">(</span><span class="s">'flight_x'</span><span class="p">,</span> <span class="s">'flight_y'</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">'color'</span><span class="p">,</span> <span class="n">line_width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> 
+                               <span class="n">line_alpha</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">hover_line_alpha</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">hover_line_color</span> <span class="o">=</span> <span class="s">'color'</span><span class="p">,</span>
+                               <span class="n">legend_field</span> <span class="o">=</span> <span class="s">'carrier'</span><span class="p">,</span> <span class="n">source</span> <span class="o">=</span> <span class="n">map_src</span><span class="p">)</span>
+
+    <span class="c1"># Origins are drawn as squares (all in NYC)
+</span>    <span class="n">squares_glyph</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">square</span><span class="p">(</span><span class="s">'origin_x_loc'</span><span class="p">,</span> <span class="s">'origin_y_loc'</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">'color'</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">source</span> <span class="o">=</span> <span class="n">map_src</span><span class="p">,</span> 
+                             <span class="n">legend_field</span> <span class="o">=</span> <span class="s">'carrier'</span><span class="p">)</span>
+
+    <span class="c1"># Destinations are drawn as circles
+</span>    <span class="n">circles_glyph</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">circle</span><span class="p">(</span><span class="s">'dest_x_loc'</span><span class="p">,</span> <span class="s">'dest_y_loc'</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">'color'</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">source</span> <span class="o">=</span> <span class="n">map_src</span><span class="p">,</span> 
+                             <span class="n">legend_field</span> <span class="o">=</span> <span class="s">'carrier'</span><span class="p">)</span>
+
+    <span class="c1"># Add the glyphs to the plot using the renderers attribute
+</span>    <span class="n">p</span><span class="p">.</span><span class="n">renderers</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">patches_glyph</span><span class="p">)</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">renderers</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">lines_glyph</span><span class="p">)</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">renderers</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">squares_glyph</span><span class="p">)</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">renderers</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">circles_glyph</span><span class="p">)</span>
+
+    <span class="c1"># Hover tooltip for flight lines, assign only the l
+</span>    <span class="n">hover_line</span> <span class="o">=</span> <span class="n">HoverTool</span><span class="p">(</span><span class="n">tooltips</span><span class="o">=</span><span class="p">[(</span><span class="s">'Airline'</span><span class="p">,</span> <span class="s">'@carrier'</span><span class="p">),</span>
+                                <span class="p">(</span><span class="s">'Number of Flights'</span><span class="p">,</span> <span class="s">'@count'</span><span class="p">),</span>
+                                <span class="p">(</span><span class="s">'Average Delay'</span><span class="p">,</span> <span class="s">'@mean_delay{0.0}'</span><span class="p">),</span>
+                                <span class="p">(</span><span class="s">'Max Delay'</span><span class="p">,</span> <span class="s">'@max_delay{0.0}'</span><span class="p">),</span>
+                                <span class="p">(</span><span class="s">'Min Delay'</span><span class="p">,</span> <span class="s">'@min_delay{0.0}'</span><span class="p">)],</span>
+                          <span class="n">line_policy</span> <span class="o">=</span> <span class="s">'next'</span><span class="p">,</span>
+                          <span class="n">renderers</span> <span class="o">=</span> <span class="p">[</span><span class="n">lines_glyph</span><span class="p">])</span>
+
+    <span class="c1"># Hover tooltip for origin and destination
+</span>    <span class="n">hover_circle</span> <span class="o">=</span> <span class="n">HoverTool</span><span class="p">(</span><span class="n">tooltips</span><span class="o">=</span><span class="p">[(</span><span class="s">'OriginAirport'</span><span class="p">,</span> <span class="s">'@origin'</span><span class="p">),</span>
+                                       <span class="p">(</span><span class="s">'OriginCity'</span><span class="p">,</span> <span class="s">'@origin_city'</span><span class="p">),</span>
+                                       <span class="p">(</span><span class="s">'DestAirport'</span><span class="p">,</span> <span class="s">'@dest'</span><span class="p">),</span>
+                                       <span class="p">(</span><span class="s">'DestCity'</span><span class="p">,</span> <span class="s">'@dest_city'</span><span class="p">),</span>
+                                       <span class="p">],</span>
+                            <span class="n">renderers</span> <span class="o">=</span> <span class="p">[</span><span class="n">circles_glyph</span><span class="p">])</span>
+
+    <span class="c1"># Position the location so it does not overlap plot
+</span>    <span class="n">p</span><span class="p">.</span><span class="n">legend</span><span class="p">.</span><span class="n">location</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+    <span class="c1"># Add the hovertools to the figure
+</span>    <span class="n">p</span><span class="p">.</span><span class="n">add_tools</span><span class="p">(</span><span class="n">hover_line</span><span class="p">)</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">add_tools</span><span class="p">(</span><span class="n">hover_circle</span><span class="p">)</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="n">style</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> 
+
+    <span class="k">return</span> <span class="n">p</span>
+
+<span class="c1"># {'carrier': carriers, 'flight_x': flight_x, 'flight_y': flight_y, 
+# 'origin_x_loc': origin_x_loc, 'origin_y_loc': origin_y_loc,
+# 'dest_x_loc': dest_x_loc, 'dest_y_loc': dest_y_loc,
+# 'color': colors, 'count': counts, 'mean_delay': mean_delays,
+# 'origin': origins, 'dest': dests,
+# 'min_delay': min_delays, 'max_delay': max_delays,
+# 'origin_city':origin_citys, 'dest_city':dest_citys})
+</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">ColumnDataSource</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">carrier</span><span class="o">=</span><span class="p">[],</span> <span class="n">flight_x</span><span class="o">=</span><span class="p">[],</span> <span class="n">flight_y</span><span class="o">=</span><span class="p">[],</span> <span class="n">origin_x_loc</span><span class="o">=</span><span class="p">[],</span> <span class="n">origin_y_loc</span><span class="o">=</span><span class="p">[],</span>
+                               <span class="n">dest_x_loc</span><span class="o">=</span><span class="p">[],</span> <span class="n">dest_y_loc</span><span class="o">=</span><span class="p">[],</span> <span class="n">color</span><span class="o">=</span><span class="p">[],</span> <span class="n">count</span><span class="o">=</span><span class="p">[],</span> <span class="n">mean_delay</span><span class="o">=</span><span class="p">[],</span>
+                               <span class="n">origin</span><span class="o">=</span><span class="p">[],</span> <span class="n">dest</span><span class="o">=</span><span class="p">[],</span> <span class="n">min_delay</span><span class="o">=</span><span class="p">[],</span> <span class="n">max_delay</span><span class="o">=</span><span class="p">[],</span> <span class="n">origin_city</span><span class="o">=</span><span class="p">[],</span>
+                               <span class="n">dest_city</span><span class="o">=</span><span class="p">[]</span>
+                              <span class="p">))</span>
+
+<span class="n">callback_map</span> <span class="o">=</span> <span class="n">CustomJS</span><span class="p">(</span><span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="s">'source'</span><span class="p">:</span> <span class="n">source</span><span class="p">,</span> <span class="s">'data_source'</span><span class="p">:</span> <span class="n">new_map_data</span><span class="p">},</span>
+<span class="n">code</span> <span class="o">=</span> <span class="s">"""
+var data = data_source.data;
+var s_data = source.data;
+
+var select_vals = cb_obj.active.map(x =&gt; cb_obj.labels[x]);
+console.log(select_vals);
+//read original data
+var carrier_data = data['carrier'];
+var flight_x_data = data['flight_x'];
+var flight_y_data = data['flight_y'];
+var origin_x_loc_data = data['origin_x_loc'];
+var origin_y_loc_data = data['origin_y_loc'];
+var dest_x_loc_data = data['dest_x_loc'];
+var dest_y_loc_data = data['dest_y_loc'];
+var color_data = data['color'];
+var count_data = data['count'];
+var mean_delay_data = data['mean_delay'];
+var origin_data = data['origin'];
+var dest_data = data['dest'];
+var min_delay_data = data['min_delay'];
+var max_delay_data = data['max_delay'];
+var origin_city_data = data['origin_city'];
+var dest_city_data = data['dest_city'];
+
+//initialize source data
+var carrier = s_data['carrier'];
+carrier.length = 0;
+var flight_x = s_data['flight_x'];
+flight_x.length = 0;
+var flight_y = s_data['flight_y'];
+flight_y.length = 0;
+var origin_x_loc = s_data['origin_x_loc'];
+origin_x_loc.length = 0;
+var origin_y_loc = s_data['origin_y_loc'];
+origin_y_loc.length = 0;
+var dest_x_loc = s_data['dest_x_loc'];
+dest_x_loc.length = 0;
+var dest_y_loc = s_data['dest_y_loc'];
+dest_y_loc.length = 0;
+var color = s_data['color'];
+color.length = 0;
+var count = s_data['count'];
+count.length = 0;
+var mean_delay = s_data['mean_delay'];
+mean_delay.length = 0;
+var origin = s_data['origin'];
+origin.length = 0;
+var dest = s_data['dest'];
+dest.length = 0;
+var min_delay = s_data['min_delay'];
+min_delay.length = 0;
+var max_delay = s_data['max_delay'];
+max_delay.length = 0;
+var origin_city = s_data['origin_city'];
+origin_city.length = 0;
+var dest_city = s_data['dest_city'];
+dest_city.length = 0;
+
+for (var i = 0; i &lt; carrier_data.length; i++) {
+    if (select_vals.indexOf(carrier_data[i]) &gt;= 0) {
+        carrier.push(carrier_data[i]);
+        flight_x.push(flight_x_data[i]);
+        flight_y.push(flight_y_data[i]);
+        origin_x_loc.push(origin_x_loc_data[i]);
+        origin_y_loc.push(origin_y_loc_data[i]);
+        dest_x_loc.push(dest_x_loc_data[i]);
+        dest_y_loc.push(dest_y_loc_data[i]);
+        color.push(color_data[i]);
+        count.push(count_data[i]);
+        mean_delay.push(mean_delay_data[i]);
+        origin.push(origin_data[i]);
+        dest.push(dest_data[i]);
+        min_delay.push(min_delay_data[i]);
+        max_delay.push(max_delay_data[i]);
+        origin_city.push(origin_city_data[i]);
+        dest_city.push(dest_city_data[i]);
+        }
+}
+source.change.emit();
+console.log("callback completed");
+"""</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">make_plot</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+<span class="n">chkbxgrp</span> <span class="o">=</span> <span class="n">CheckboxGroup</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="n">available_carriers</span><span class="p">,</span> <span class="n">active</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">chkbxgrp</span><span class="p">.</span><span class="n">js_on_change</span><span class="p">(</span><span class="s">'active'</span><span class="p">,</span> <span class="n">callback_map</span><span class="p">)</span>
+<span class="n">layout</span> <span class="o">=</span> <span class="n">Row</span><span class="p">(</span><span class="n">chkbxgrp</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+
+<span class="n">tab_map</span> <span class="o">=</span> <span class="n">Panel</span><span class="p">(</span><span class="n">child</span><span class="o">=</span><span class="n">layout</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s">'Flight Map'</span><span class="p">)</span>
+<span class="n">tabs</span> <span class="o">=</span> <span class="n">Tabs</span><span class="p">(</span><span class="n">tabs</span><span class="o">=</span><span class="p">[</span><span class="n">tab_hist</span><span class="p">,</span> <span class="n">tab_density</span><span class="p">,</span> <span class="n">tab_map</span><span class="p">])</span>
+    
+<span class="n">show</span><span class="p">(</span><span class="n">tabs</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="/images/Hou_flights_delay/flight_map.png" alt="name" />
+fig 3: Flight map</p>
+
+<h3 id="34-table">3.4 Table</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Load in flights and inspect
+</span><span class="n">flights</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'../data/Hou_flights.csv'</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)[[</span><span class="s">'ArrDelay'</span><span class="p">,</span> <span class="s">'Reporting_Airline'</span><span class="p">,</span> <span class="s">'name'</span><span class="p">]]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">flights</span><span class="p">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="n">carrier_stats</span> <span class="o">=</span> <span class="n">flights</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'name'</span><span class="p">)[</span><span class="s">'ArrDelay'</span><span class="p">].</span><span class="n">describe</span><span class="p">()</span>
+
+<span class="n">carrier_stats</span> <span class="o">=</span> <span class="n">flights</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'name'</span><span class="p">)[</span><span class="s">'ArrDelay'</span><span class="p">].</span><span class="n">describe</span><span class="p">()</span>
+<span class="n">carrier_stats</span> <span class="o">=</span> <span class="n">carrier_stats</span><span class="p">.</span><span class="n">reset_index</span><span class="p">().</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'airline'</span><span class="p">,</span> 
+                                                            <span class="s">'count'</span><span class="p">:</span> <span class="s">'flights'</span><span class="p">,</span> 
+                                                            <span class="s">'50%'</span><span class="p">:</span><span class="s">'median'</span><span class="p">})</span>
+<span class="n">carrier_stats</span><span class="p">[</span><span class="s">'mean'</span><span class="p">]</span> <span class="o">=</span> <span class="n">carrier_stats</span><span class="p">[</span><span class="s">'mean'</span><span class="p">].</span><span class="nb">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">carrier_src</span> <span class="o">=</span> <span class="n">ColumnDataSource</span><span class="p">(</span><span class="n">carrier_stats</span><span class="p">)</span>
+
+<span class="n">table_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">TableColumn</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s">'airline'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">'Airline'</span><span class="p">),</span>
+                 <span class="n">TableColumn</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s">'flights'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">'Number of Flights'</span><span class="p">),</span>
+                 <span class="n">TableColumn</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s">'min'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">'Min Delay'</span><span class="p">),</span>
+                 <span class="n">TableColumn</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s">'mean'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">'Mean Delay'</span><span class="p">),</span>
+                 <span class="n">TableColumn</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s">'median'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">'Median Delay'</span><span class="p">),</span>
+                 <span class="n">TableColumn</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s">'max'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">'Max Delay'</span><span class="p">)]</span>
+
+<span class="n">carrier_table</span> <span class="o">=</span> <span class="n">DataTable</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">carrier_src</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">table_columns</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">tab_table</span> <span class="o">=</span> <span class="n">Panel</span><span class="p">(</span><span class="n">child</span> <span class="o">=</span> <span class="n">carrier_table</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s">'Summary Table'</span><span class="p">)</span>
+<span class="n">tabs</span> <span class="o">=</span> <span class="n">Tabs</span><span class="p">(</span><span class="n">tabs</span><span class="o">=</span><span class="p">[</span><span class="n">tab_hist</span><span class="p">,</span> <span class="n">tab_density</span><span class="p">,</span> <span class="n">tab_table</span><span class="p">,</span> <span class="n">tab_map</span><span class="p">])</span>
+<span class="n">show</span><span class="p">(</span><span class="n">tabs</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="/images/Hou_flights_delay/table.png" alt="name" />
+fig 4: Table of arrival delay statistics by airline</p>
+
+<h3 id="35-routes">3.5 Routes</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Load in flights and inspect
+</span><span class="n">flights</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'../data/Hou_flights.csv'</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)[[</span><span class="s">'Origin'</span><span class="p">,</span> <span class="s">'Dest'</span><span class="p">,</span> <span class="s">'ArrDelay'</span><span class="p">,</span> <span class="s">'name'</span><span class="p">]]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">flights</span><span class="p">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="k">def</span> <span class="nf">make_dataset</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">destination</span><span class="p">):</span>
+    <span class="c1"># Subset to the selected route
+</span>    <span class="n">subset</span> <span class="o">=</span> <span class="n">flights</span><span class="p">[(</span><span class="n">flights</span><span class="p">[</span><span class="s">'Dest'</span><span class="p">]</span> <span class="o">==</span> <span class="n">destination</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">flights</span><span class="p">[</span><span class="s">'Origin'</span><span class="p">]</span> <span class="o">==</span> <span class="n">origin</span><span class="p">)]</span>
+
+    <span class="c1"># Find the carriers who cover particular route
+</span>    <span class="n">carriers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">subset</span><span class="p">[</span><span class="s">'name'</span><span class="p">]))</span>
+
+    <span class="c1"># x is the delay, y is the airline
+</span>    <span class="n">xs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ys</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">label_dict</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c1"># Iterate through the unique carriers
+</span>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">carrier</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">carriers</span><span class="p">):</span>
+
+        <span class="c1"># Subset to the carrier
+</span>        <span class="n">carrier_data</span> <span class="o">=</span> <span class="n">flights</span><span class="p">[</span><span class="n">flights</span><span class="p">[</span><span class="s">'name'</span><span class="p">]</span> <span class="o">==</span> <span class="n">carrier</span><span class="p">]</span>
+
+        <span class="c1"># Append the index of the carrier as many times as there are flights
+</span>        <span class="c1"># Append the delays for the carrier
+</span>        <span class="n">ys</span><span class="p">.</span><span class="n">append</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">carrier_data</span><span class="p">))])</span>
+        <span class="n">xs</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">carrier_data</span><span class="p">[</span><span class="s">'ArrDelay'</span><span class="p">]))</span>
+
+        <span class="c1"># Map the index to the carrier
+</span>        <span class="n">label_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span> <span class="n">carrier</span>
+
+    <span class="n">xs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">xs</span><span class="p">))</span>
+    <span class="n">ys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">ys</span><span class="p">))</span>
+
+    <span class="n">new_plan_src</span> <span class="o">=</span> <span class="n">ColumnDataSource</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'x'</span><span class="p">:</span> <span class="n">xs</span><span class="p">,</span> <span class="s">'y'</span><span class="p">:</span> <span class="n">ys</span><span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">new_plan_src</span><span class="p">,</span> <span class="n">label_dict</span>
+
+<span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="c1"># Title 
+</span>    <span class="n">p</span><span class="p">.</span><span class="n">title</span><span class="p">.</span><span class="n">align</span> <span class="o">=</span> <span class="s">'center'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">title</span><span class="p">.</span><span class="n">text_font_size</span> <span class="o">=</span> <span class="s">'20pt'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">title</span><span class="p">.</span><span class="n">text_font</span> <span class="o">=</span> <span class="s">'serif'</span>
+
+    <span class="c1"># Axis titles
+</span>    <span class="n">p</span><span class="p">.</span><span class="n">xaxis</span><span class="p">.</span><span class="n">axis_label_text_font_size</span> <span class="o">=</span> <span class="s">'14pt'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">xaxis</span><span class="p">.</span><span class="n">axis_label_text_font_style</span> <span class="o">=</span> <span class="s">'bold'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">yaxis</span><span class="p">.</span><span class="n">axis_label_text_font_size</span> <span class="o">=</span> <span class="s">'14pt'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">yaxis</span><span class="p">.</span><span class="n">axis_label_text_font_style</span> <span class="o">=</span> <span class="s">'bold'</span>
+
+    <span class="c1"># Tick labels
+</span>    <span class="n">p</span><span class="p">.</span><span class="n">xaxis</span><span class="p">.</span><span class="n">major_label_text_font_size</span> <span class="o">=</span> <span class="s">'12pt'</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">yaxis</span><span class="p">.</span><span class="n">major_label_text_font_size</span> <span class="o">=</span> <span class="s">'12pt'</span>
+
+    <span class="k">return</span> <span class="n">p</span>
+
+<span class="k">def</span> <span class="nf">make_plot</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">destination</span><span class="p">,</span> <span class="n">label_dict</span><span class="p">):</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">plot_width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span> <span class="n">plot_height</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="n">x_axis_label</span> <span class="o">=</span> <span class="s">'Delay (min)'</span><span class="p">,</span>
+            <span class="n">y_axis_label</span> <span class="o">=</span> <span class="s">''</span><span class="p">,</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="s">'Arrival Delays for Flights from %s to %s'</span> <span class="o">%</span> <span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">destination</span><span class="p">))</span>
+
+    <span class="n">p</span><span class="p">.</span><span class="n">circle</span><span class="p">(</span><span class="s">'x'</span><span class="p">,</span> <span class="s">'y'</span><span class="p">,</span> <span class="n">source</span> <span class="o">=</span> <span class="n">src</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span>
+             <span class="n">color</span> <span class="o">=</span> <span class="s">'navy'</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">yaxis</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">ticker</span><span class="p">.</span><span class="n">desired_num_ticks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">label_dict</span><span class="p">)</span>
+
+    <span class="n">p</span><span class="p">.</span><span class="n">yaxis</span><span class="p">.</span><span class="n">formatter</span> <span class="o">=</span> <span class="n">FuncTickFormatter</span><span class="p">(</span><span class="n">code</span> <span class="o">=</span> <span class="s">"""
+                        var labels = %s;
+                        return labels[tick];
+                        """</span> <span class="o">%</span> <span class="n">label_dict</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">style</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p</span>
+
+<span class="n">origins</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">flights</span><span class="p">[</span><span class="s">'Origin'</span><span class="p">]))</span>
+<span class="n">dests</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">flights</span><span class="p">[</span><span class="s">'Dest'</span><span class="p">]))</span>
+
+<span class="n">origin_select</span> <span class="o">=</span> <span class="n">Select</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s">'Origin'</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="s">'IAH'</span><span class="p">,</span> <span class="n">options</span> <span class="o">=</span> <span class="n">origins</span><span class="p">)</span>
+
+<span class="n">dest_select</span> <span class="o">=</span> <span class="n">Select</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s">'Destination'</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="s">'JFK'</span><span class="p">,</span> <span class="n">options</span> <span class="o">=</span> <span class="n">dests</span><span class="p">)</span>
+
+<span class="n">initial_origin</span> <span class="o">=</span> <span class="n">origin_select</span><span class="p">.</span><span class="n">value</span>
+<span class="n">initial_dest</span> <span class="o">=</span> <span class="n">dest_select</span><span class="p">.</span><span class="n">value</span>
+
+<span class="n">plan_src</span><span class="p">,</span> <span class="n">label_dict</span> <span class="o">=</span> <span class="n">make_dataset</span><span class="p">(</span><span class="n">initial_origin</span><span class="p">,</span> <span class="n">initial_dest</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">make_plot</span><span class="p">(</span><span class="n">plan_src</span><span class="p">,</span> <span class="n">initial_origin</span><span class="p">,</span> <span class="n">initial_dest</span><span class="p">,</span> <span class="n">label_dict</span><span class="p">)</span>
+
+<span class="n">layout</span> <span class="o">=</span> <span class="n">Row</span><span class="p">(</span><span class="n">Column</span><span class="p">(</span><span class="n">origin_select</span><span class="p">,</span> <span class="n">dest_select</span><span class="p">),</span> <span class="n">p</span><span class="p">)</span>
+<span class="n">tab_route</span> <span class="o">=</span> <span class="n">Panel</span><span class="p">(</span><span class="n">child</span> <span class="o">=</span> <span class="n">layout</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s">'Route Details'</span><span class="p">)</span>
+<span class="n">tabs</span> <span class="o">=</span> <span class="n">Tabs</span><span class="p">(</span><span class="n">tabs</span><span class="o">=</span><span class="p">[</span><span class="n">tab_hist</span><span class="p">,</span> <span class="n">tab_density</span><span class="p">,</span> <span class="n">tab_table</span><span class="p">,</span> <span class="n">tab_map</span><span class="p">,</span> <span class="n">tab_route</span><span class="p">])</span>
+<span class="n">show</span><span class="p">(</span><span class="n">tabs</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="/images/Hou_flights_delay/route.png" alt="name" />
+fig 5: Table of arrival delay statistics by airline</p>
+
+<p><em>Note:</em> The route map is not a standalone plot, need more work.</p>
+
+<h2 id="4-conclusion">4. Conclusion</h2>
+
+<p>To create standalone interactive figure, the one need to program Javascript callback. If use <code class="language-plaintext highlighter-rouge">bokeh serve</code> method, only python code need to be programmed.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#bokeh" class="page__taxonomy-item p-category" rel="tag">Bokeh</a><span class="sep">, </span>
+    
+      <a href="/tags/#dashboard" class="page__taxonomy-item p-category" rel="tag">Dashboard</a><span class="sep">, </span>
+    
+      <a href="/tags/#python" class="page__taxonomy-item p-category" rel="tag">Python</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2021-09-30T00:00:00-04:00">September 30, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=2020+Houston+Flights+Delay+Dashboard%20http%3A%2F%2Flocalhost%3A4000%2F2020_Houston_flights_delay_dashboard%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2020_Houston_flights_delay_dashboard%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2020_Houston_flights_delay_dashboard%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/Deploy_web_app_on_Heroku/" class="pagination--pager" title="Deploy Web App on Heroku
+">Previous</a>
+    
+    
+      <a href="/Switch_my_web_theme_to_Minimal_Mistake/" class="pagination--pager" title="Switch My Web Theme to Minimal Mistake
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You May Also Enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/Hou_flights_delay/bokeh_serve_image.svg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Deploy_Bokeh_Server_App_on_Heroku/" rel="permalink">Deploy Bokeh Server App on Heroku
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-10-05T00:00:00-04:00">October 5, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: deploy Bokeh server app on Heroku.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/mm_image.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Switch_my_web_theme_to_Minimal_Mistake/" rel="permalink">Switch My Web Theme to Minimal Mistake
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-10-04T00:00:00-04:00">October 4, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: switch my web theme to Minimal Mistake
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/heroku_blogs/heroku_image.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Deploy_web_app_on_Heroku/" rel="permalink">Deploy Web App on Heroku
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-08-20T00:00:00-04:00">August 20, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: deploy web app on Heroku.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Web_Map_with_Folium/" rel="permalink">Web_Map_with_Folium
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-08-18T00:00:00-04:00">August 18, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Build a web map with Folium.
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/ycheng22" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/yunpeng-cheng-aa8142127/" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+          <li><a href="https://public.tableau.com/profile/ycheng#!/" rel="nofollow noopener noreferrer"><i class="fas fa-link" aria-hidden="true"></i> Tableau</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Yunpeng. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/2020_Houston_flights_delay_dashboard/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/2020_Houston_flights_delay_dashboard"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://myblog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

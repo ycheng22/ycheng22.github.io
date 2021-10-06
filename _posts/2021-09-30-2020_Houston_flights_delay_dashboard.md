@@ -1,10 +1,10 @@
 ---
-title: '2020_Houston_flights_delay_dashboard'
+title: '2020 Houston Flights Delay Dashboard'
 date: 2021-09-30
 header:
 #   image: "/images/foo-bar-identity.jpg"
 #   caption: "A beautiful photo"
-  # teaser: "/images/20210805_blog_pymol/show_session.png"
+  teaser: "/images/Hou_flights_delay/flight_map.png"
 tags:
 - Bokeh
 - Dashboard
@@ -47,6 +47,14 @@ There are two ways to use a widget’s functionality:
 - Use `bokeh serve` to start a Bokeh server and set up event handlers with `.on_change` (or for some widgets, `.on_click`).
 
 This blog is about the practice with first method.
+
+Preview:
+<p float="left">
+  <img src="../images/Hou_flights_delay/histogram.png" width="49%" />
+  <img src="../images/Hou_flights_delay/density.png" width="49%" />
+  <img src="../images/Hou_flights_delay/flight_map.png" width="49%" />
+  <img src="../images/Hou_flights_delay/table.png" width="49%" />
+</p>
 
 ## 2. Data collecting and processing
 

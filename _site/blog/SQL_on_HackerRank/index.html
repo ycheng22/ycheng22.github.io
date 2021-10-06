@@ -1,0 +1,1269 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>SQL on HackerRank - Yunpeng</title>
+<meta name="description" content="Summary: solving the SQL problems on HackerRank.">
+
+
+  <meta name="author" content="Yunpeng">
+  
+  <meta property="article:author" content="Yunpeng">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Yunpeng">
+<meta property="og:title" content="SQL on HackerRank">
+<meta property="og:url" content="http://localhost:4000/blog/SQL_on_HackerRank/">
+
+
+  <meta property="og:description" content="Summary: solving the SQL problems on HackerRank.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-07-15T00:00:00-04:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/blog/SQL_on_HackerRank/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Yunpeng Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Yunpeng
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/life/">Life</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/images/Yunpeng.jpg" alt="Yunpeng" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Yunpeng</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>A PhD candidate of physics</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Texas, US</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/ycheng22" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/yunpeng-cheng-aa8142127/" rel="nofollow noopener noreferrer me"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+          
+            <li><a href="https://public.tableau.com/profile/ycheng#!/" rel="nofollow noopener noreferrer me"><i class="fas fa-link" aria-hidden="true"></i><span class="label">Tableau</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="SQL on HackerRank">
+    <meta itemprop="description" content="Summary: solving the SQL problems on HackerRank.">
+    <meta itemprop="datePublished" content="2021-07-15T00:00:00-04:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/blog/SQL_on_HackerRank/" class="u-url" itemprop="url">SQL on HackerRank
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-15T00:00:00-04:00">July 15, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p>Summary: solving the SQL problems on HackerRank.</p>
+
+<p>Check this blog on <a href="https://github.com/ycheng22/ycheng22.github.io/blob/master/_posts/2021-07-15-SQL_on_HackerRank.md">github</a></p>
+
+<ul>
+  <li><a href="#aggregation">Aggregation</a>
+    <ul>
+      <li><a href="#revising-aggregations---the-count-function">Revising Aggregations - The Count Function</a></li>
+      <li><a href="#revising-aggregations---averages">Revising Aggregations - Averages</a></li>
+      <li><a href="#average-population">Average Population</a></li>
+      <li><a href="#japan-population">Japan Population</a></li>
+      <li><a href="#population-density-difference">Population Density Difference</a></li>
+      <li><a href="#the-blunder">The Blunder</a></li>
+      <li><a href="#top-earners">Top Earners</a></li>
+      <li><a href="#weather-observation-station-2">Weather Observation Station 2</a></li>
+      <li><a href="#weather-observation-station-13">Weather Observation Station 13</a></li>
+      <li><a href="#weather-observation-station-14">Weather Observation Station 14</a></li>
+      <li><a href="#weather-observation-station-15">Weather Observation Station 15</a></li>
+      <li><a href="#weather-observation-station-16">Weather Observation Station 16</a></li>
+      <li><a href="#weather-observation-station-17">Weather Observation Station 17</a></li>
+      <li><a href="#weather-observation-station-18">Weather Observation Station 18</a></li>
+      <li><a href="#weather-observation-station-19">Weather Observation Station 19</a></li>
+      <li><a href="#weather-observation-station-20">Weather Observation Station 20</a></li>
+    </ul>
+  </li>
+  <li><a href="#basic-join">Basic Join</a>
+    <ul>
+      <li><a href="#asian-population">Asian Population</a></li>
+      <li><a href="#african-cities">African Cities</a></li>
+      <li><a href="#average-population-of-each-continent">Average Population of Each Continent</a></li>
+      <li><a href="#the-report">The Report</a></li>
+      <li><a href="#top-competitors">Top Competitors</a></li>
+      <li><a href="#ollivanders-inventory">Ollivander’s Inventory</a></li>
+      <li><a href="#challenges">Challenges</a></li>
+      <li><a href="#contest-leaderboard">Contest Leaderboard</a></li>
+    </ul>
+  </li>
+  <li><a href="#advanced-join">Advanced Join</a>
+    <ul>
+      <li><a href="#sql-project-planning">SQL Project Planning</a></li>
+      <li><a href="#placements">Placements</a></li>
+      <li><a href="#symmetric-pairs">Symmetric Pairs</a></li>
+      <li><a href="#interviews">Interviews</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="revising-the-select-query-i">Revising the Select Query I</h2>
+<p><a href="https://www.hackerrank.com/challenges/revising-the-select-query/problem">https://www.hackerrank.com/challenges/revising-the-select-query/problem</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">CITY</span> 
+<span class="k">WHERE</span> <span class="n">POPULATION</span> <span class="o">&gt;</span> <span class="mi">100000</span> <span class="k">AND</span> <span class="n">COUNTRYCODE</span><span class="o">=</span><span class="s1">'USA'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="revising-the-select-query-ii">Revising the Select Query II</h2>
+<p><a href="https://www.hackerrank.com/challenges/revising-the-select-query-2/problem">https://www.hackerrank.com/challenges/revising-the-select-query-2/problem</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">NAME</span> <span class="k">FROM</span> <span class="n">CITY</span>
+<span class="k">WHERE</span> <span class="n">POPULATION</span> <span class="o">&gt;</span> <span class="mi">120000</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="select-all">Select All</h2>
+<p><a href="https://www.hackerrank.com/challenges/select-all-sql/problem">https://www.hackerrank.com/challenges/select-all-sql/problem</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">CITY</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="select-by-id">Select By ID</h2>
+<p><a href="https://www.hackerrank.com/challenges/select-by-id/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/select-by-id/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">CITY</span> <span class="k">WHERE</span> <span class="n">ID</span><span class="o">=</span><span class="mi">1661</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="japanese-cities-attributes">Japanese Cities’ Attributes</h2>
+<p><a href="https://www.hackerrank.com/challenges/japanese-cities-attributes/problem?h_r=next-challenge&amp;h_v=zen&amp;h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/japanese-cities-attributes/problem?h_r=next-challenge&amp;h_v=zen&amp;h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">CITY</span> <span class="k">WHERE</span> <span class="n">COUNTRYCODE</span><span class="o">=</span><span class="s1">'JPN'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="japanese-cities-names">Japanese Cities’ Names</h2>
+<p><a href="https://www.hackerrank.com/challenges/japanese-cities-name/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/japanese-cities-name/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">NAME</span> <span class="k">FROM</span> <span class="n">CITY</span> <span class="k">WHERE</span> <span class="n">COUNTRYCODE</span><span class="o">=</span><span class="s1">'JPN'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="weather-observation-station-1">Weather Observation Station 1</h2>
+<p><a href="https://www.hackerrank.com/challenges/weather-observation-station-1/problem?h_r=next-challenge&amp;h_v=zen&amp;h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/weather-observation-station-1/problem?h_r=next-challenge&amp;h_v=zen&amp;h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">CITY</span><span class="p">,</span> <span class="k">STATE</span> <span class="k">FROM</span> <span class="n">STATION</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="weather-observation-station-3">Weather Observation Station 3</h2>
+<p><a href="https://www.hackerrank.com/challenges/weather-observation-station-3/problem">https://www.hackerrank.com/challenges/weather-observation-station-3/problem</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="p">(</span><span class="n">ID</span><span class="o">%</span><span class="mi">2</span><span class="p">)</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="weather-observation-station-4">Weather Observation Station 4</h2>
+<p><a href="https://www.hackerrank.com/challenges/weather-observation-station-4/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/weather-observation-station-4/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="p">(</span><span class="k">COUNT</span><span class="p">(</span><span class="n">CITY</span><span class="p">)</span> <span class="o">-</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">CITY</span><span class="p">))</span> <span class="k">FROM</span> <span class="n">STATION</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="weather-observation-station-5">Weather Observation Station 5</h2>
+<p><a href="https://www.hackerrank.com/challenges/weather-observation-station-5/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/weather-observation-station-5/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">city</span><span class="p">,</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">city</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">station</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">city</span><span class="p">),</span> <span class="n">city</span> <span class="k">ASC</span>
+<span class="k">LIMIT</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="n">city</span><span class="p">,</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">city</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">station</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">city</span><span class="p">)</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">city</span> <span class="k">ASC</span>
+<span class="k">LIMIT</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="weather-observation-station-6">Weather Observation Station 6</h2>
+<p><a href="https://www.hackerrank.com/challenges/weather-observation-station-6/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/weather-observation-station-6/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<p>Solution 1:</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="n">CITY</span> <span class="n">REGEXP</span> <span class="nv">"^[aeiou].*"</span><span class="p">;</span>
+</code></pre></div></div>
+<p>Solution 2:</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> 
+<span class="k">WHERE</span> <span class="k">LOWER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="n">CITY</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> 
+<span class="k">IN</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'e'</span><span class="p">,</span> <span class="s1">'i'</span><span class="p">,</span> <span class="s1">'o'</span><span class="p">,</span> <span class="s1">'u'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="weather-observation-station-7">Weather Observation Station 7</h2>
+<p><a href="https://www.hackerrank.com/challenges/weather-observation-station-7/problem">https://www.hackerrank.com/challenges/weather-observation-station-7/problem</a></p>
+
+<p>Solution 1:</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="n">CITY</span> <span class="n">REGEXP</span> <span class="s1">'[aeiou]$'</span><span class="p">;</span>
+</code></pre></div></div>
+<p>Solution 2:</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> 
+<span class="k">WHERE</span> <span class="k">LOWER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="n">CITY</span><span class="p">,</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">CITY</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span> 
+<span class="k">IN</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'e'</span><span class="p">,</span> <span class="s1">'i'</span><span class="p">,</span> <span class="s1">'o'</span><span class="p">,</span> <span class="s1">'u'</span><span class="p">);</span>
+</code></pre></div></div>
+<p>Solution 3:</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> 
+<span class="k">WHERE</span> <span class="k">RIGHT</span><span class="p">(</span><span class="n">CITY</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> 
+<span class="k">IN</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'e'</span><span class="p">,</span> <span class="s1">'i'</span><span class="p">,</span> <span class="s1">'o'</span><span class="p">,</span> <span class="s1">'u'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="weather-observation-station-8">Weather Observation Station 8</h2>
+<p><a href="https://www.hackerrank.com/challenges/weather-observation-station-8/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/weather-observation-station-8/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<p>Solution 1:</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> 
+<span class="k">WHERE</span> <span class="k">LEFT</span><span class="p">(</span><span class="n">CITY</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'i'</span><span class="p">,</span><span class="s1">'o'</span><span class="p">,</span><span class="s1">'u'</span><span class="p">)</span>
+<span class="k">AND</span> <span class="k">RIGHT</span><span class="p">(</span><span class="n">CITY</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'i'</span><span class="p">,</span><span class="s1">'o'</span><span class="p">,</span><span class="s1">'u'</span><span class="p">);</span>
+</code></pre></div></div>
+<p>Solution 2:</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> 
+<span class="k">WHERE</span> <span class="n">CITY</span> <span class="n">RLIKE</span> <span class="s1">'^[aeiou].*[aeiou]$'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="weather-observation-station-9">Weather Observation Station 9</h2>
+<p><a href="https://www.hackerrank.com/challenges/weather-observation-station-9/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/weather-observation-station-9/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> 
+<span class="k">WHERE</span> <span class="k">LEFT</span><span class="p">(</span><span class="n">CITY</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'i'</span><span class="p">,</span><span class="s1">'o'</span><span class="p">,</span><span class="s1">'u'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="weather-observation-station-10">Weather Observation Station 10</h2>
+<p><a href="https://www.hackerrank.com/challenges/weather-observation-station-10/problem">https://www.hackerrank.com/challenges/weather-observation-station-10/problem</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> 
+<span class="k">WHERE</span> <span class="k">RIGHT</span><span class="p">(</span><span class="n">CITY</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'i'</span><span class="p">,</span><span class="s1">'o'</span><span class="p">,</span><span class="s1">'u'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="weather-observation-station-11">Weather Observation Station 11</h2>
+<p><a href="https://www.hackerrank.com/challenges/weather-observation-station-11/problem">https://www.hackerrank.com/challenges/weather-observation-station-11/problem</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> 
+<span class="k">WHERE</span> <span class="k">LEFT</span><span class="p">(</span><span class="n">CITY</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'i'</span><span class="p">,</span><span class="s1">'o'</span><span class="p">,</span><span class="s1">'u'</span><span class="p">)</span>
+<span class="k">OR</span> <span class="k">RIGHT</span><span class="p">(</span><span class="n">CITY</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'i'</span><span class="p">,</span><span class="s1">'o'</span><span class="p">,</span><span class="s1">'u'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="weather-observation-station-12">Weather Observation Station 12</h2>
+<p><a href="https://www.hackerrank.com/challenges/weather-observation-station-12/problem">https://www.hackerrank.com/challenges/weather-observation-station-12/problem</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> 
+<span class="k">WHERE</span> <span class="k">LEFT</span><span class="p">(</span><span class="n">CITY</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'i'</span><span class="p">,</span><span class="s1">'o'</span><span class="p">,</span><span class="s1">'u'</span><span class="p">)</span>
+<span class="k">AND</span> <span class="k">RIGHT</span><span class="p">(</span><span class="n">CITY</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'i'</span><span class="p">,</span><span class="s1">'o'</span><span class="p">,</span><span class="s1">'u'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="higher-than-75-marks">Higher Than 75 Marks</h2>
+<p><a href="https://www.hackerrank.com/challenges/more-than-75-marks/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/more-than-75-marks/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">Name</span> <span class="k">FROM</span> <span class="n">STUDENTS</span> 
+<span class="k">WHERE</span> <span class="n">Marks</span><span class="o">&gt;</span><span class="mi">75</span> 
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">RIGHT</span><span class="p">(</span><span class="n">Name</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">ID</span> <span class="k">ASC</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="employee-names">Employee Names</h2>
+<p><a href="https://www.hackerrank.com/challenges/name-of-employees/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/name-of-employees/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">Employee</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">name</span> <span class="k">ASC</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="employee-salaries">Employee Salaries</h2>
+<p><a href="https://www.hackerrank.com/challenges/salary-of-employees/problem">https://www.hackerrank.com/challenges/salary-of-employees/problem</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">Employee</span>
+<span class="k">WHERE</span> <span class="n">salary</span> <span class="o">&gt;</span> <span class="mi">2000</span> <span class="k">AND</span> <span class="n">months</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="type-of-triangle">Type of Triangle</h2>
+<p><a href="https://www.hackerrank.com/challenges/what-type-of-triangle/problem">https://www.hackerrank.com/challenges/what-type-of-triangle/problem</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">CASE</span>
+            <span class="k">WHEN</span> <span class="n">A</span><span class="o">+</span><span class="n">B</span><span class="o">&gt;</span><span class="k">C</span> <span class="k">AND</span> <span class="n">B</span><span class="o">+</span><span class="k">C</span><span class="o">&gt;</span><span class="n">A</span> <span class="k">AND</span> <span class="k">C</span><span class="o">+</span><span class="n">A</span><span class="o">&gt;</span><span class="n">B</span> <span class="k">THEN</span>
+                <span class="k">CASE</span> 
+                    <span class="k">WHEN</span> <span class="n">A</span><span class="o">=</span><span class="n">B</span> <span class="k">AND</span> <span class="n">B</span><span class="o">=</span><span class="k">C</span> <span class="k">THEN</span> <span class="s1">'Equilateral'</span>
+                    <span class="k">WHEN</span> <span class="n">A</span><span class="o">=</span><span class="n">B</span> <span class="k">OR</span> <span class="n">B</span><span class="o">=</span><span class="k">C</span> <span class="k">OR</span> <span class="k">C</span><span class="o">=</span><span class="n">A</span> <span class="k">THEN</span> <span class="s1">'Isosceles'</span>
+                    <span class="k">ELSE</span> <span class="s1">'Scalene'</span>
+                <span class="k">END</span>
+            <span class="k">ELSE</span> <span class="s1">'Not A Triangle'</span>
+        <span class="k">END</span>
+<span class="k">FROM</span> <span class="n">TRIANGLES</span><span class="p">;</span> 
+</code></pre></div></div>
+
+<h2 id="the-pads">The PADS</h2>
+<p><a href="https://www.hackerrank.com/challenges/the-pads/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/the-pads/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">Name</span><span class="p">,</span> <span class="s1">'('</span><span class="p">,</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="n">Occupation</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="s1">')'</span><span class="p">)</span> <span class="k">AS</span> <span class="n">Name</span>
+<span class="k">FROM</span> <span class="n">OCCUPATIONS</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">Name</span> <span class="k">ASC</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="n">CONCAT</span><span class="p">(</span><span class="s1">'There are a total of'</span><span class="p">,</span> <span class="s1">' '</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">Occupation</span><span class="p">),</span> <span class="s1">' '</span><span class="p">,</span> <span class="k">LOWER</span><span class="p">(</span><span class="n">Occupation</span><span class="p">),</span> <span class="s1">'s.'</span><span class="p">)</span> <span class="k">AS</span> <span class="n">Total</span>
+<span class="k">FROM</span> <span class="n">OCCUPATIONS</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">Occupation</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">Total</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="unsolved-occupations">[Unsolved] Occupations</h2>
+<p><a href="https://www.hackerrank.com/challenges/occupations/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/occupations/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<h2 id="binary-tree-nodes">Binary Tree Nodes</h2>
+<p><a href="https://www.hackerrank.com/challenges/binary-search-tree-1/problem">https://www.hackerrank.com/challenges/binary-search-tree-1/problem</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">CASE</span>
+        <span class="k">WHEN</span> <span class="n">P</span> <span class="k">IS</span> <span class="k">NULL</span> <span class="k">THEN</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">' Root'</span><span class="p">)</span>
+        <span class="k">WHEN</span> <span class="n">N</span> <span class="k">IN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">P</span> <span class="k">FROM</span> <span class="n">BST</span><span class="p">)</span> <span class="k">THEN</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">' Inner'</span><span class="p">)</span>
+        <span class="k">ELSE</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">' Leaf'</span><span class="p">)</span>
+        <span class="k">END</span>
+<span class="k">FROM</span> <span class="n">BST</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">N</span> <span class="k">ASC</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="new-companies">New Companies</h2>
+<p><a href="https://www.hackerrank.com/challenges/the-company/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/the-company/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">company_code</span><span class="p">,</span> <span class="n">founder</span><span class="p">,</span> 
+<span class="p">(</span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">lead_manager_code</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">Lead_Manager</span> <span class="k">WHERE</span> <span class="n">company_code</span><span class="o">=</span><span class="k">c</span><span class="p">.</span><span class="n">company_code</span><span class="p">),</span>
+<span class="p">(</span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">senior_manager_code</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">Senior_Manager</span> <span class="k">WHERE</span> <span class="n">company_code</span><span class="o">=</span><span class="k">c</span><span class="p">.</span><span class="n">company_code</span><span class="p">),</span>
+<span class="p">(</span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">manager_code</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">Manager</span> <span class="k">WHERE</span> <span class="n">company_code</span><span class="o">=</span><span class="k">c</span><span class="p">.</span><span class="n">company_code</span><span class="p">),</span>
+<span class="p">(</span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">employee_code</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">Employee</span> <span class="k">WHERE</span> <span class="n">company_code</span><span class="o">=</span><span class="k">c</span><span class="p">.</span><span class="n">company_code</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">Company</span> <span class="k">c</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">company_code</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h1 id="aggregation">Aggregation</h1>
+
+<h2 id="revising-aggregations---the-count-function">Revising Aggregations - The Count Function</h2>
+<p><a href="https://www.hackerrank.com/challenges/revising-aggregations-the-count-function/problem">https://www.hackerrank.com/challenges/revising-aggregations-the-count-function/problem</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">CITY</span> <span class="k">WHERE</span> <span class="n">POPULATION</span> <span class="o">&gt;</span> <span class="mi">100000</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="revising-aggregations---averages">Revising Aggregations - Averages</h2>
+<p><a href="https://www.hackerrank.com/challenges/revising-aggregations-the-average-function/problem">https://www.hackerrank.com/challenges/revising-aggregations-the-average-function/problem</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">AVG</span><span class="p">(</span><span class="n">POPULATION</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">CITY</span> <span class="k">WHERE</span> <span class="n">DISTRICT</span> <span class="o">=</span> <span class="s1">'California'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="average-population">Average Population</h2>
+<p><a href="https://www.hackerrank.com/challenges/average-population/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/average-population/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">FLOOR</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">POPULATION</span><span class="p">))</span> <span class="k">FROM</span> <span class="n">CITY</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="japan-population">Japan Population</h2>
+<p><a href="https://www.hackerrank.com/challenges/japan-population/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/japan-population/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="n">POPULATION</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">CITY</span> <span class="k">WHERE</span> <span class="n">COUNTRYCODE</span> <span class="o">=</span> <span class="s1">'JPN'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="population-density-difference">Population Density Difference</h2>
+<p><a href="https://www.hackerrank.com/challenges/population-density-difference/problem?h_r=next-challenge&amp;h_v=zen&amp;h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/population-density-difference/problem?h_r=next-challenge&amp;h_v=zen&amp;h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="n">POPULATION</span><span class="p">)</span><span class="o">-</span><span class="k">MIN</span><span class="p">(</span><span class="n">POPULATION</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">CITY</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="the-blunder">The Blunder</h2>
+<p><a href="https://www.hackerrank.com/challenges/the-blunder/problem">https://www.hackerrank.com/challenges/the-blunder/problem</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">CEIL</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">Salary</span><span class="p">)</span><span class="o">-</span><span class="k">AVG</span><span class="p">(</span><span class="k">REPLACE</span><span class="p">(</span><span class="n">Salary</span><span class="p">,</span> <span class="s1">'0'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)))</span> <span class="k">FROM</span> <span class="n">EMPLOYEES</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="top-earners">Top Earners</h2>
+<p><a href="https://www.hackerrank.com/challenges/earnings-of-employees/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/earnings-of-employees/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">salary</span> <span class="o">*</span> <span class="n">months</span> <span class="k">AS</span> <span class="n">earnings</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">Employee</span> 
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">earnings</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">earnings</span> <span class="k">DESC</span>
+<span class="k">LIMIT</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="weather-observation-station-2">Weather Observation Station 2</h2>
+<p><a href="https://www.hackerrank.com/challenges/weather-observation-station-2/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/weather-observation-station-2/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">LAT_N</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">LONG_W</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="weather-observation-station-13">Weather Observation Station 13</h2>
+<p><a href="https://www.hackerrank.com/challenges/weather-observation-station-13/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/weather-observation-station-13/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">TRUNCATE</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">LAT_N</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span>  <span class="n">LAT_N</span> <span class="k">BETWEEN</span> <span class="mi">38</span><span class="p">.</span><span class="mi">7880</span> <span class="k">AND</span> <span class="mi">137</span><span class="p">.</span><span class="mi">2345</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>*Note:</p>
+
+<p><code class="language-plaintext highlighter-rouge">ROUND</code> vs <code class="language-plaintext highlighter-rouge">TRUNCATE</code>:</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">Select</span> <span class="n">ROUND</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">289</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="k">AS</span> <span class="s1">'AFTER ROUND'</span><span class="p">,</span><span class="k">TRUNCATE</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">289</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="k">AS</span> <span class="s1">'AFTER TRUNCATE'</span><span class="p">;</span>
+</code></pre></div></div>
+<p>| AFTER ROUND | AFTER TRUNCATE |
+| ———– | ————– |
+|        1.29 |           1.28 |</p>
+
+<h2 id="weather-observation-station-14">Weather Observation Station 14</h2>
+<p><a href="https://www.hackerrank.com/challenges/weather-observation-station-14/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/weather-observation-station-14/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">TRUNCATE</span><span class="p">(</span><span class="k">MAX</span><span class="p">(</span><span class="n">LAT_N</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="n">LAT_N</span> <span class="o">&lt;</span> <span class="mi">137</span><span class="p">.</span><span class="mi">2345</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="weather-observation-station-15">Weather Observation Station 15</h2>
+<p><a href="https://www.hackerrank.com/challenges/weather-observation-station-15/problem?h_r=next-challenge&amp;h_v=zen&amp;h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/weather-observation-station-15/problem?h_r=next-challenge&amp;h_v=zen&amp;h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ROUND</span><span class="p">(</span><span class="n">LONG_W</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span> 
+<span class="k">WHERE</span> <span class="n">LAT_N</span> <span class="o">&lt;</span> <span class="mi">137</span><span class="p">.</span><span class="mi">2345</span> 
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">LAT_N</span> <span class="k">DESC</span> 
+<span class="k">LIMIT</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="weather-observation-station-16">Weather Observation Station 16</h2>
+<p><a href="https://www.hackerrank.com/challenges/weather-observation-station-16/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/weather-observation-station-16/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ROUND</span><span class="p">(</span><span class="k">MIN</span><span class="p">(</span><span class="n">LAT_N</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span> 
+<span class="k">WHERE</span> <span class="n">LAT_N</span> <span class="o">&gt;</span> <span class="mi">38</span><span class="p">.</span><span class="mi">7780</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="weather-observation-station-17">Weather Observation Station 17</h2>
+<p><a href="https://www.hackerrank.com/challenges/weather-observation-station-17/problem?h_r=next-challenge&amp;h_v=zen&amp;h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/weather-observation-station-17/problem?h_r=next-challenge&amp;h_v=zen&amp;h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ROUND</span><span class="p">(</span><span class="n">LONG_W</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span> 
+<span class="k">WHERE</span> <span class="n">LAT_N</span> <span class="o">&gt;</span> <span class="mi">38</span><span class="p">.</span><span class="mi">7780</span> 
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">LAT_N</span> <span class="k">ASC</span> 
+<span class="k">LIMIT</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="weather-observation-station-18">Weather Observation Station 18</h2>
+<p><a href="https://www.hackerrank.com/challenges/weather-observation-station-18/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/weather-observation-station-18/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ROUND</span><span class="p">(</span><span class="k">ABS</span><span class="p">(</span><span class="k">MIN</span><span class="p">(</span><span class="n">LAT_N</span><span class="p">)</span> <span class="o">-</span> <span class="k">MAX</span><span class="p">(</span><span class="n">LAT_N</span><span class="p">))</span> <span class="o">+</span> 
+            <span class="k">ABS</span><span class="p">(</span><span class="k">MIN</span><span class="p">(</span><span class="n">LONG_W</span><span class="p">)</span> <span class="o">-</span> <span class="k">MAX</span><span class="p">(</span><span class="n">LONG_W</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span> 
+<span class="k">FROM</span> <span class="n">STATION</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="weather-observation-station-19">Weather Observation Station 19</h2>
+<p><a href="https://www.hackerrank.com/challenges/weather-observation-station-19/problem">https://www.hackerrank.com/challenges/weather-observation-station-19/problem</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ROUND</span><span class="p">(</span><span class="n">SQRT</span><span class="p">(</span><span class="n">POWER</span><span class="p">(</span><span class="k">MAX</span><span class="p">(</span><span class="n">LAT_N</span><span class="p">)</span><span class="o">-</span><span class="k">MIN</span><span class="p">(</span><span class="n">LAT_N</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> 
+                <span class="n">POWER</span><span class="p">(</span><span class="k">MAX</span><span class="p">(</span><span class="n">LONG_W</span><span class="p">)</span><span class="o">-</span><span class="k">MIN</span><span class="p">(</span><span class="n">LONG_W</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+                <span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">STATION</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="weather-observation-station-20">Weather Observation Station 20</h2>
+<p><a href="https://www.hackerrank.com/challenges/weather-observation-station-20/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/weather-observation-station-20/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SET</span> <span class="o">@</span><span class="n">ROWINDEX</span> <span class="p">:</span><span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="n">ROUND</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">LAT_N</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="k">FROM</span>
+<span class="p">(</span><span class="k">SELECT</span> <span class="o">@</span><span class="n">ROWINDEX</span> <span class="p">:</span><span class="o">=</span> <span class="o">@</span><span class="n">ROWINDEX</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">AS</span> <span class="n">ROWINDEX</span><span class="p">,</span> <span class="n">LAT_N</span> 
+<span class="k">FROM</span> <span class="n">STATION</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">LAT_N</span><span class="p">)</span> <span class="k">AS</span> <span class="n">L</span>
+<span class="k">WHERE</span> <span class="n">L</span><span class="p">.</span><span class="n">ROWINDEX</span> <span class="k">IN</span> <span class="p">(</span><span class="n">FLOOR</span><span class="p">(</span><span class="o">@</span><span class="n">ROWINDEX</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">CEIL</span><span class="p">(</span><span class="o">@</span><span class="n">ROWINDEX</span><span class="o">/</span><span class="mi">2</span><span class="p">));</span>
+</code></pre></div></div>
+
+<h1 id="basic-join">Basic Join</h1>
+
+<h2 id="asian-population">Asian Population</h2>
+<p><a href="https://www.hackerrank.com/challenges/asian-population/problem">https://www.hackerrank.com/challenges/asian-population/problem</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="n">CITY</span><span class="p">.</span><span class="n">POPULATION</span><span class="p">)</span> 
+<span class="k">FROM</span> <span class="n">CITY</span><span class="p">,</span> <span class="n">COUNTRY</span>
+<span class="k">WHERE</span> <span class="n">CITY</span><span class="p">.</span><span class="n">COUNTRYCODE</span> <span class="o">=</span> <span class="n">COUNTRY</span><span class="p">.</span><span class="n">CODE</span> <span class="k">AND</span> <span class="n">COUNTRY</span><span class="p">.</span><span class="n">CONTINENT</span> <span class="o">=</span> <span class="s1">'Asia'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="african-cities">African Cities</h2>
+<p><a href="https://www.hackerrank.com/challenges/african-cities/problem">https://www.hackerrank.com/challenges/african-cities/problem</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">CITY</span><span class="p">.</span><span class="n">NAME</span> <span class="k">FROM</span> <span class="n">CITY</span> <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">COUNTRY</span>
+<span class="k">ON</span> <span class="n">COUNTRYCODE</span> <span class="o">=</span> <span class="n">CODE</span>
+<span class="k">WHERE</span> <span class="n">CONTINENT</span> <span class="o">=</span> <span class="s1">'Africa'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="average-population-of-each-continent">Average Population of Each Continent</h2>
+<p><a href="https://www.hackerrank.com/challenges/average-population-of-each-continent/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/average-population-of-each-continent/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">COUNTRY</span><span class="p">.</span><span class="n">CONTINENT</span><span class="p">,</span> <span class="n">FLOOR</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">CITY</span><span class="p">.</span><span class="n">POPULATION</span><span class="p">))</span>
+<span class="k">FROM</span> <span class="n">CITY</span> <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">COUNTRY</span>
+<span class="k">ON</span> <span class="n">CITY</span><span class="p">.</span><span class="n">COUNTRYCODE</span> <span class="o">=</span> <span class="n">COUNTRY</span><span class="p">.</span><span class="n">CODE</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">COUNTRY</span><span class="p">.</span><span class="n">CONTINENT</span><span class="p">;</span>     
+</code></pre></div></div>
+
+<h2 id="the-report">The Report</h2>
+<p><a href="https://www.hackerrank.com/challenges/the-report/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/the-report/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">IF</span><span class="p">(</span><span class="n">GRADE</span> <span class="o">&lt;</span><span class="mi">8</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="n">NAME</span><span class="p">),</span> <span class="n">GRADE</span><span class="p">,</span> <span class="n">MARKS</span>
+<span class="k">FROM</span> <span class="n">STUDENTS</span> <span class="k">JOIN</span> <span class="n">GRADES</span>
+<span class="k">WHERE</span> <span class="n">MARKS</span> <span class="k">BETWEEN</span> <span class="n">MIN_MARK</span> <span class="k">AND</span> <span class="n">MAX_MARK</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">GRADE</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">NAME</span><span class="p">,</span> <span class="n">MARKS</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="top-competitors">Top Competitors</h2>
+<p><a href="https://www.hackerrank.com/challenges/full-score/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/full-score/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">h</span><span class="p">.</span><span class="n">hacker_id</span><span class="p">,</span> <span class="n">h</span><span class="p">.</span><span class="n">name</span>
+<span class="k">FROM</span> <span class="n">submissions</span> <span class="n">s</span> 
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">challenges</span> <span class="k">c</span>
+<span class="k">ON</span> <span class="n">s</span><span class="p">.</span><span class="n">challenge_id</span> <span class="o">=</span> <span class="k">c</span><span class="p">.</span><span class="n">challenge_id</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">difficulty</span> <span class="n">d</span>
+<span class="k">ON</span> <span class="k">c</span><span class="p">.</span><span class="n">difficulty_level</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">difficulty_level</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">hackers</span> <span class="n">h</span>
+<span class="k">ON</span> <span class="n">s</span><span class="p">.</span><span class="n">hacker_id</span> <span class="o">=</span> <span class="n">h</span><span class="p">.</span><span class="n">hacker_id</span>
+<span class="k">WHERE</span> <span class="n">s</span><span class="p">.</span><span class="n">score</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">score</span> <span class="k">and</span> <span class="k">c</span><span class="p">.</span><span class="n">difficulty_level</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">difficulty_level</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">h</span><span class="p">.</span><span class="n">hacker_id</span><span class="p">,</span> <span class="n">h</span><span class="p">.</span><span class="n">name</span>
+<span class="k">HAVING</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">hacker_id</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">hacker_id</span><span class="p">)</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">hacker_id</span> <span class="k">ASC</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="ollivanders-inventory">Ollivander’s Inventory</h2>
+<p><a href="https://www.hackerrank.com/challenges/harry-potter-and-wands/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/harry-potter-and-wands/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">W</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">P</span><span class="p">.</span><span class="n">age</span><span class="p">,</span> <span class="n">W</span><span class="p">.</span><span class="n">coins_needed</span><span class="p">,</span> <span class="n">W</span><span class="p">.</span><span class="n">power</span>
+<span class="k">FROM</span> <span class="n">Wands</span> <span class="k">AS</span> <span class="n">W</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Wands_Property</span> <span class="k">AS</span> <span class="n">P</span> 
+<span class="k">ON</span> <span class="n">W</span><span class="p">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">P</span><span class="p">.</span><span class="n">code</span>
+<span class="k">WHERE</span> <span class="n">P</span><span class="p">.</span><span class="n">is_evil</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">AND</span> <span class="n">W</span><span class="p">.</span><span class="n">coins_needed</span> <span class="o">=</span> 
+    <span class="p">(</span><span class="k">SELECT</span> <span class="k">MIN</span><span class="p">(</span><span class="n">coins_needed</span><span class="p">)</span>
+    <span class="k">FROM</span> <span class="n">Wands</span> <span class="k">AS</span> <span class="n">W1</span> 
+     <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Wands_Property</span> <span class="k">AS</span> <span class="n">P1</span> 
+     <span class="k">ON</span> <span class="n">W1</span><span class="p">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">P1</span><span class="p">.</span><span class="n">code</span>
+     <span class="k">WHERE</span> <span class="n">W1</span><span class="p">.</span><span class="n">power</span> <span class="o">=</span> <span class="n">W</span><span class="p">.</span><span class="n">power</span> <span class="k">and</span> <span class="n">P1</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">P</span><span class="p">.</span><span class="n">age</span><span class="p">)</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">W</span><span class="p">.</span><span class="n">power</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">P</span><span class="p">.</span><span class="n">age</span> <span class="k">DESC</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="challenges">Challenges</h2>
+<p><a href="https://www.hackerrank.com/challenges/challenges/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/challenges/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">h</span><span class="p">.</span><span class="n">hacker_id</span><span class="p">,</span> <span class="n">h</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">c</span><span class="p">.</span><span class="n">hacker_id</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">Hackers</span> <span class="k">AS</span> <span class="n">h</span><span class="p">,</span> <span class="n">Challenges</span> <span class="k">AS</span> <span class="k">c</span>
+<span class="k">WHERE</span> <span class="n">h</span><span class="p">.</span><span class="n">hacker_id</span> <span class="o">=</span> <span class="k">c</span><span class="p">.</span><span class="n">hacker_id</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">h</span><span class="p">.</span><span class="n">hacker_id</span><span class="p">,</span> <span class="n">h</span><span class="p">.</span><span class="n">name</span>
+<span class="k">HAVING</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">c</span><span class="p">.</span><span class="n">hacker_id</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">IN</span> 
+    <span class="p">(</span>
+    <span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">hacker_id</span><span class="p">)</span> 
+     <span class="k">FROM</span> <span class="n">Challenges</span> 
+        <span class="k">WHERE</span> <span class="n">hacker_id</span> <span class="o">&lt;&gt;</span> <span class="n">h</span><span class="p">.</span><span class="n">hacker_id</span>  <span class="cm">/* ???????????  */</span>
+        <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">hacker_id</span> 
+        <span class="k">HAVING</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">hacker_id</span><span class="p">)</span> <span class="o">&lt;</span> 
+        <span class="p">(</span><span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">challenge_count</span><span class="p">)</span>  <span class="cm">/* select max num of chanllenges */</span>
+         <span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">c</span><span class="p">.</span><span class="n">challenge_id</span><span class="p">)</span> <span class="k">AS</span> <span class="n">challenge_count</span>  
+               <span class="k">FROM</span> <span class="n">Challenges</span> <span class="k">c</span> 
+               <span class="k">GROUP</span> <span class="k">BY</span> <span class="k">c</span><span class="p">.</span><span class="n">hacker_id</span><span class="p">)</span> <span class="k">AS</span> <span class="n">x</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">c</span><span class="p">.</span><span class="n">hacker_id</span><span class="p">)</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">H</span><span class="p">.</span><span class="n">hacker_id</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="contest-leaderboard">Contest Leaderboard</h2>
+<p><a href="https://www.hackerrank.com/challenges/contest-leaderboard/problem">https://www.hackerrank.com/challenges/contest-leaderboard/problem</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">t2</span><span class="p">.</span><span class="n">hid</span><span class="p">,</span> <span class="n">h</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t2</span><span class="p">.</span><span class="n">score</span>
+<span class="k">FROM</span> 
+    <span class="p">(</span><span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">maxscore</span><span class="p">)</span> <span class="k">AS</span> <span class="n">score</span><span class="p">,</span> <span class="n">t1</span><span class="p">.</span><span class="n">hid</span> <span class="k">AS</span> <span class="n">hid</span>
+    <span class="n">FORM</span>
+        <span class="p">(</span><span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="n">score</span><span class="p">)</span> <span class="k">AS</span> <span class="n">maxscore</span><span class="p">,</span> <span class="n">challenge_id</span> <span class="k">AS</span> <span class="n">cid</span><span class="p">,</span> <span class="n">hacker_id</span> <span class="k">AS</span> <span class="n">hid</span>
+        <span class="k">FROM</span> <span class="n">submissions</span>
+        <span class="k">WHERE</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">hacker_id</span><span class="p">,</span> <span class="n">challenge_id</span><span class="p">)</span> <span class="n">t1</span>
+     <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">hid</span><span class="p">)</span> <span class="n">t2</span>
+<span class="k">JOIN</span> <span class="n">hackers</span> <span class="n">h</span>
+<span class="k">ON</span> <span class="n">h</span><span class="p">.</span><span class="n">hacker_id</span> <span class="o">=</span> <span class="n">t2</span><span class="p">.</span><span class="n">hid</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">t2</span><span class="p">.</span><span class="n">score</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">t2</span><span class="p">.</span><span class="n">hid</span> <span class="k">ASC</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h1 id="advanced-join">Advanced Join</h1>
+
+<h2 id="sql-project-planning">SQL Project Planning</h2>
+<p><a href="https://www.hackerrank.com/challenges/sql-projects/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/sql-projects/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">Start_Date</span><span class="p">,</span> <span class="k">MIN</span><span class="p">(</span><span class="n">End_Date</span><span class="p">)</span>
+<span class="cm">/*Min means for the particular start_date, we get the closest end_date, that doesn't coincide with the start_date of another task*/</span>
+<span class="k">FROM</span> 
+    <span class="p">(</span><span class="k">SELECT</span> <span class="n">Start_Date</span> 
+     <span class="k">FROM</span> <span class="n">Projects</span> 
+     <span class="k">WHERE</span> <span class="n">Start_Date</span> <span class="k">NOT</span> <span class="k">IN</span> 
+        <span class="p">(</span><span class="k">SELECT</span> <span class="n">End_Date</span> <span class="k">FROM</span> <span class="n">Projects</span><span class="p">))</span> <span class="n">a</span><span class="p">,</span>
+    <span class="p">(</span><span class="k">SELECT</span> <span class="n">End_Date</span> 
+     <span class="k">FROM</span> <span class="n">Projects</span> 
+     <span class="k">WHERE</span> <span class="n">End_Date</span> <span class="k">NOT</span> <span class="k">IN</span> 
+        <span class="p">(</span><span class="k">SELECT</span> <span class="n">Start_Date</span> <span class="k">FROM</span> <span class="n">Projects</span><span class="p">))</span> <span class="n">b</span>
+<span class="k">WHERE</span> <span class="n">Start_Date</span> <span class="o">&lt;</span> <span class="n">End_Date</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">Start_Date</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">DATEDIFF</span><span class="p">(</span><span class="n">Start_Date</span><span class="p">,</span> <span class="k">MIN</span><span class="p">(</span><span class="n">End_Date</span><span class="p">))</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">Start_Date</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="placements">Placements</h2>
+<p><a href="https://www.hackerrank.com/challenges/placements/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/placements/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">s</span><span class="p">.</span><span class="n">Name</span> <span class="k">FROM</span> <span class="n">Students</span> <span class="n">s</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Friends</span> <span class="n">f</span> <span class="k">ON</span> <span class="n">s</span><span class="p">.</span><span class="n">ID</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">ID</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Packages</span> <span class="n">p</span> <span class="k">ON</span> <span class="n">s</span><span class="p">.</span><span class="n">ID</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">ID</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Packages</span> <span class="n">p1</span> <span class="k">ON</span> <span class="n">f</span><span class="p">.</span><span class="n">Friend_ID</span> <span class="o">=</span> <span class="n">p1</span><span class="p">.</span><span class="n">ID</span>
+<span class="k">WHERE</span> <span class="n">p</span><span class="p">.</span><span class="n">Salary</span> <span class="o">&lt;</span> <span class="n">p1</span><span class="p">.</span><span class="n">Salary</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">p1</span><span class="p">.</span><span class="n">Salary</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="symmetric-pairs">Symmetric Pairs</h2>
+<p><a href="https://www.hackerrank.com/challenges/symmetric-pairs/problem?h_r=next-challenge&amp;h_v=zen">https://www.hackerrank.com/challenges/symmetric-pairs/problem?h_r=next-challenge&amp;h_v=zen</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">f1</span><span class="p">.</span><span class="n">X</span><span class="p">,</span> <span class="n">f1</span><span class="p">.</span><span class="n">Y</span> <span class="k">FROM</span> <span class="n">Functions</span> <span class="n">f1</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Functions</span> <span class="n">f2</span> 
+<span class="k">ON</span> <span class="n">f1</span><span class="p">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">f2</span><span class="p">.</span><span class="n">Y</span> <span class="k">AND</span> <span class="n">f1</span><span class="p">.</span><span class="n">Y</span> <span class="o">=</span> <span class="n">f2</span><span class="p">.</span><span class="n">X</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">f1</span><span class="p">.</span><span class="n">X</span><span class="p">,</span> <span class="n">f1</span><span class="p">.</span><span class="n">Y</span>
+<span class="k">HAVING</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">f1</span><span class="p">.</span><span class="n">X</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">OR</span> <span class="n">f1</span><span class="p">.</span><span class="n">X</span> <span class="o">&lt;</span> <span class="n">f1</span><span class="p">.</span><span class="n">Y</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">f1</span><span class="p">.</span><span class="n">X</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="interviews">Interviews</h2>
+<p><a href="https://www.hackerrank.com/challenges/interviews/problem">https://www.hackerrank.com/challenges/interviews/problem</a></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#hackerrank" class="page__taxonomy-item p-category" rel="tag">HackerRank</a><span class="sep">, </span>
+    
+      <a href="/tags/#mysql" class="page__taxonomy-item p-category" rel="tag">MySQL</a><span class="sep">, </span>
+    
+      <a href="/tags/#sql" class="page__taxonomy-item p-category" rel="tag">SQL</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#blog" class="page__taxonomy-item p-category" rel="tag">blog</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2021-07-15T00:00:00-04:00">July 15, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=SQL+on+HackerRank%20http%3A%2F%2Flocalhost%3A4000%2Fblog%2FSQL_on_HackerRank%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fblog%2FSQL_on_HackerRank%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fblog%2FSQL_on_HackerRank%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/blog/set_up_web_on_Github/" class="pagination--pager" title="Set up Web on Github (Academicpages Template)
+">Previous</a>
+    
+    
+      <a href="/SQL_on_LeetCode/" class="pagination--pager" title="SQL on LeetCode
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You May Also Enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/Hou_flights_delay/bokeh_serve_image.svg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Deploy_Bokeh_Server_App_on_Heroku/" rel="permalink">Deploy Bokeh Server App on Heroku
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-10-05T00:00:00-04:00">October 5, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: deploy Bokeh server app on Heroku.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/mm_image.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Switch_my_web_theme_to_Minimal_Mistake/" rel="permalink">Switch My Web Theme to Minimal Mistake
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-10-04T00:00:00-04:00">October 4, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: switch my web theme to Minimal Mistake
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/Hou_flights_delay/flight_map.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2020_Houston_flights_delay_dashboard/" rel="permalink">2020 Houston Flights Delay Dashboard
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-09-30T00:00:00-04:00">September 30, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          11 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: Create standalone Bokeh dashboard.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/heroku_blogs/heroku_image.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Deploy_web_app_on_Heroku/" rel="permalink">Deploy Web App on Heroku
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-08-20T00:00:00-04:00">August 20, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: deploy web app on Heroku.
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/ycheng22" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/yunpeng-cheng-aa8142127/" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+          <li><a href="https://public.tableau.com/profile/ycheng#!/" rel="nofollow noopener noreferrer"><i class="fas fa-link" aria-hidden="true"></i> Tableau</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Yunpeng. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/blog/SQL_on_HackerRank/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/blog/SQL_on_HackerRank"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://myblog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

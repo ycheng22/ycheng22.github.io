@@ -1,0 +1,869 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Install_Intel_Parallel_Studio_on_Linux_Windows - Yunpeng</title>
+<meta name="description" content="Sumarry: Intel Parallel Studio is a powerful tool in many computational scenarios.">
+
+
+  <meta name="author" content="Yunpeng">
+  
+  <meta property="article:author" content="Yunpeng">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Yunpeng">
+<meta property="og:title" content="Install_Intel_Parallel_Studio_on_Linux_Windows">
+<meta property="og:url" content="http://localhost:4000/blog/Install_Intel_Parallel_Studio_on_Linux_Windows/">
+
+
+  <meta property="og:description" content="Sumarry: Intel Parallel Studio is a powerful tool in many computational scenarios.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-07-05T00:00:00-04:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/blog/Install_Intel_Parallel_Studio_on_Linux_Windows/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Yunpeng Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Yunpeng
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/life/">Life</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/images/Yunpeng.jpg" alt="Yunpeng" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Yunpeng</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>A PhD candidate of physics</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Texas, US</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/ycheng22" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/yunpeng-cheng-aa8142127/" rel="nofollow noopener noreferrer me"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+          
+            <li><a href="https://public.tableau.com/profile/ycheng#!/" rel="nofollow noopener noreferrer me"><i class="fas fa-link" aria-hidden="true"></i><span class="label">Tableau</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Install_Intel_Parallel_Studio_on_Linux_Windows">
+    <meta itemprop="description" content="Sumarry: Intel Parallel Studio is a powerful tool in many computational scenarios.">
+    <meta itemprop="datePublished" content="2021-07-05T00:00:00-04:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/blog/Install_Intel_Parallel_Studio_on_Linux_Windows/" class="u-url" itemprop="url">Install_Intel_Parallel_Studio_on_Linux_Windows
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-07-05T00:00:00-04:00">July 5, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p>Sumarry: Intel Parallel Studio is a powerful tool in many computational scenarios.</p>
+
+<p>In this blog, I will introduction how to install it and run Fortran code as an example.</p>
+
+<p>Check this blog on <a href="https://github.com/ycheng22/ycheng22.github.io/blob/main/_posts/2021-07-05-Install_Intel_Parallel_Studio_on_Linux_Windows.md">github</a>.</p>
+
+<p><strong>Contents:</strong></p>
+<ul>
+  <li><a href="#1-install-it-on-linux">1. Install it on Linux</a>
+    <ul>
+      <li><a href="#11-download-intel-parallel-studio">1.1 Download “intel parallel studio”</a></li>
+      <li><a href="#12-installation-guide">1.2 Installation guide</a></li>
+      <li><a href="#13-test-fortran-compiler">1.3 Test fortran compiler</a></li>
+    </ul>
+  </li>
+  <li><a href="#2-run-fortran-code-on-windows">2. Run Fortran code on windows</a>
+    <ul>
+      <li><a href="#21-install-visual-studio">2.1 Install visual studio</a></li>
+      <li><a href="#22-download-intel-parallel-studio">2.2 Download Intel parallel studio</a></li>
+      <li><a href="#23-run-fortran-code">2.3 Run Fortran code</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="1-install-it-on-linux">1. Install it on Linux</h1>
+
+<h2 id="11-download-intel-parallel-studio">1.1 Download “intel parallel studio”</h2>
+
+<p>Go to this website to download, choose student,
+https://software.intel.com/en-us/parallel-studio-xe/choose-download,
+register and login with username and password, download full packcage.</p>
+
+<h2 id="12-installation-guide">1.2 Installation guide</h2>
+
+<p>Reference: https://software.intel.com/sites/default/files/parallel-studio-xe-2020-install-guide-lin_2.pdf
+Refer to 3.2 2 Installation Through Command Line Interface (CLI) in above guide.</p>
+
+<ul>
+  <li>Cd to the download folder, unzip the software package</li>
+  <li>Cd to the folder, bash install.sh</li>
+  <li>Then, follow the instructions to install</li>
+  <li>
+    <p>set the environment variables
+  After installation, follow the instruction to set the environment variables by sourcing the environment script
+  https://software.intel.com/en-us/get-started-with-fortran-compiler-for-linux-parallel-studio-xe</p>
+
+    <p><img src="/images/install_intel_pack/prerequisite.png" alt="name" />
+  fig 1: Set the environment variables</p>
+  </li>
+  <li>
+    <p>Cd intel/parallel_studio_xe_2020.0.088/bin</p>
+  </li>
+  <li>Source psxevars.sh</li>
+</ul>
+
+<h2 id="13-test-fortran-compiler">1.3 Test fortran compiler</h2>
+
+<p><strong>Test hello world</strong></p>
+
+<p>Name a file <code class="language-plaintext highlighter-rouge">hello_for.f90</code></p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">"Hello, world"</span><span class="w"> 
+</span><span class="k">end</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Cd to the code’s folder,</p>
+
+<p><code class="language-plaintext highlighter-rouge">ifort hello_for.f90</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">./a.out</code></p>
+
+<p><img src="/images/install_intel_pack/ifortran.png" alt="name" />
+fig 2: Test fortran compiler</p>
+
+<p><strong>Test mkl</strong></p>
+
+<p>cd to the fortran code which calls mkl, compile it:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ifort main.f90 <span class="nt">-lmkl_intel_lp64</span> <span class="nt">-lmkl_sequential</span> <span class="nt">-lmkl_core</span> <span class="nt">-lpthread</span> <span class="nt">-lm</span>
+</code></pre></div></div>
+
+<p><img src="/images/install_intel_pack/ifortran_mkl.png" alt="name" />
+fig 3: Test mkl</p>
+
+<p>Build successed, which means mkl is called successfully.</p>
+
+<h1 id="2-run-fortran-code-on-windows">2. Run Fortran code on windows</h1>
+
+<h2 id="21-install-visual-studio">2.1 Install visual studio</h2>
+
+<h2 id="22-download-intel-parallel-studio">2.2 Download Intel parallel studio</h2>
+
+<p>Go to the website, https://software.intel.com/en-us/parallel-studio-xe/choose-download#students, choose windows.</p>
+
+<p>Login and download windows version. When download is done, go to the download folder and double click the software to install.</p>
+
+<p>Follow the instruction to install.</p>
+
+<h2 id="23-run-fortran-code">2.3 Run Fortran code</h2>
+
+<p>When installation is done, start your visual studio, My visual studio is Microsoft visual studio 2019.</p>
+
+<ul>
+  <li>Create a new project</li>
+  <li>
+    <p>Choose the Empty Project with F</p>
+
+    <p><img src="/images/install_intel_pack/vs2.png" alt="name" />
+  fig 4: Choose the Empty Project</p>
+  </li>
+  <li>Input Project Name and Location, Create</li>
+  <li>
+    <p>In the pop up window, choose Empty Project, OK</p>
+
+    <p><img src="/images/install_intel_pack/vs4.png" alt="name" /></p>
+
+    <p>fig 5: Choose the Empty Project</p>
+  </li>
+  <li>
+    <p>Right click source file, Add -&gt; new item</p>
+
+    <p><img src="/images/install_intel_pack/vs6.png" alt="name" />
+  fig 6: Add new item</p>
+  </li>
+  <li>
+    <p>Add fortran file</p>
+
+    <p><img src="/images/install_intel_pack/vs7.png" alt="name" />
+  fig 7: Add fortran file</p>
+  </li>
+  <li>
+    <p>Right click the project name, then click properties</p>
+
+    <p><img src="/images/install_intel_pack/vs8.png" alt="name" /></p>
+
+    <p>fig 8: Project properties</p>
+  </li>
+  <li>
+    <p>In the new window, click Fortran -&gt; Libraries -&gt; Use Intel Math Kernel Library -&gt;choose Sequential,OK</p>
+
+    <p><img src="/images/install_intel_pack/vs9.png" alt="name" />
+  fig 9: Fortran Libraries setting</p>
+  </li>
+  <li>
+    <p>In same windown, Linker -&gt; System -&gt; SubSystem -&gt; Consol, OK</p>
+
+    <p><img src="/images/install_intel_pack/vs10.png" alt="name" />
+  fig 10: Linker System</p>
+  </li>
+  <li>
+    <p>write fortran hellow world in <code class="language-plaintext highlighter-rouge">hello_for.f90</code></p>
+
+    <div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">"Hello, world"</span><span class="w"> 
+  </span><span class="k">end</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Then click Build -&gt; Build Solution, hopefully, it will success.</p>
+
+    <p><img src="/images/install_intel_pack/vs12.png" alt="name" />
+  <img src="/images/install_intel_pack/vs13.png" alt="name" />
+  fig 11: Build Solution</p>
+  </li>
+  <li>
+    <p>Then click Debug -&gt; Start Without Debugging to run the code</p>
+
+    <p><img src="/images/install_intel_pack/vs14.png" alt="name" />
+  <img src="/images/install_intel_pack/vs15.png" alt="name" /></p>
+
+    <p>fig 12: Run code</p>
+  </li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#fortran" class="page__taxonomy-item p-category" rel="tag">Fortran</a><span class="sep">, </span>
+    
+      <a href="/tags/#intel" class="page__taxonomy-item p-category" rel="tag">Intel</a><span class="sep">, </span>
+    
+      <a href="/tags/#linux" class="page__taxonomy-item p-category" rel="tag">Linux</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#blog" class="page__taxonomy-item p-category" rel="tag">blog</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2021-07-05T00:00:00-04:00">July 5, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Install_Intel_Parallel_Studio_on_Linux_Windows%20http%3A%2F%2Flocalhost%3A4000%2Fblog%2FInstall_Intel_Parallel_Studio_on_Linux_Windows%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fblog%2FInstall_Intel_Parallel_Studio_on_Linux_Windows%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fblog%2FInstall_Intel_Parallel_Studio_on_Linux_Windows%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/blog/welcome-to-jekyll/" class="pagination--pager" title="Welcome to Jekyll!
+">Previous</a>
+    
+    
+      <a href="/blog/Story_of_Texas_Outage_in_Feb2021/" class="pagination--pager" title="Story of Texas Outage in Feb 2021
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You May Also Enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/Hou_flights_delay/bokeh_serve_image.svg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Deploy_Bokeh_Server_App_on_Heroku/" rel="permalink">Deploy Bokeh Server App on Heroku
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-10-05T00:00:00-04:00">October 5, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: deploy Bokeh server app on Heroku.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/mm_image.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Switch_my_web_theme_to_Minimal_Mistake/" rel="permalink">Switch My Web Theme to Minimal Mistake
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-10-04T00:00:00-04:00">October 4, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: switch my web theme to Minimal Mistake
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/Hou_flights_delay/flight_map.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2020_Houston_flights_delay_dashboard/" rel="permalink">2020 Houston Flights Delay Dashboard
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-09-30T00:00:00-04:00">September 30, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          11 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: Create standalone Bokeh dashboard.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/heroku_blogs/heroku_image.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Deploy_web_app_on_Heroku/" rel="permalink">Deploy Web App on Heroku
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-08-20T00:00:00-04:00">August 20, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: deploy web app on Heroku.
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/ycheng22" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/yunpeng-cheng-aa8142127/" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+          <li><a href="https://public.tableau.com/profile/ycheng#!/" rel="nofollow noopener noreferrer"><i class="fas fa-link" aria-hidden="true"></i> Tableau</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Yunpeng. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/blog/Install_Intel_Parallel_Studio_on_Linux_Windows/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/blog/Install_Intel_Parallel_Studio_on_Linux_Windows"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://myblog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

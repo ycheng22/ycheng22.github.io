@@ -1,10 +1,10 @@
 ---
-title: 'Deploy_Bokeh_Server_App_on_Heroku'
+title: 'Deploy Bokeh Server App on Heroku'
 date: 2021-10-05
 header:
 #   image: "/images/foo-bar-identity.jpg"
 #   caption: "A beautiful photo"
-  # teaser: "/images/20210805_blog_pymol/show_session.png"
+  teaser: "/images/Hou_flights_delay/bokeh_serve_image.svg"
 tags:
   - Bokeh
   - Heroku

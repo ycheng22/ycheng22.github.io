@@ -1,5 +1,7 @@
 # Minimal Mistakes remote theme starter
 
+Theme is at here: <https://github.com/mmistakes/mm-github-pages-starter>.
+
 Contains basic configuration to get you a site with:
 
 - Sample posts.

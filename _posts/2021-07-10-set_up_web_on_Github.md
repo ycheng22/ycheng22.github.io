@@ -1,5 +1,5 @@
 ---
-title: 'Set up web on Github (academicpages template)'
+title: 'Set up Web on Github (Academicpages Template)'
 date: 2021-07-10
 header:
 #   image: "/images/academicpages_template.png"
@@ -8,8 +8,9 @@ header:
 categories:
   - blog
 tags:
-  - web
-  - github
+  - Github Pages
+  - academicpages
+  - Web
   - Jekyll
 # toc: true
 # toc_label: "Contents"
