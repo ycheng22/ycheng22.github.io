@@ -4,7 +4,7 @@ date: 2021-09-12
 header:
 #   image: "/images/foo-bar-identity.jpg"
 #   caption: "A beautiful photo"
-#   teaser: "/images/20210710_web_map_Folium/map24.png"
+  teaser: "/images/20210912_web_app_pythonanywhere/pythonanywhere_image.png"
 tags:
   - Web
   - Flask
@@ -21,9 +21,14 @@ Summary: Build Data Collector Web App with `Flask` and `PostgreSQL`, deploy the 
 
 Find the [notebook]().
 
-<http://ycheng.pythonanywhere.com/>
+App web: <http://ycheng.pythonanywhere.com/>
+
+Preview: 
+![name](/images/20210912_web_app_pythonanywhere/pythonanywhere_image.png)
 
 **Contents:**
+
+
 
 ## 1. Create a map
 
