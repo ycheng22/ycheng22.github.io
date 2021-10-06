@@ -17,7 +17,7 @@ classes: wide
 
 Summary: Create standalone Bokeh dashboard.
 
-Check this blog on [github]().
+Check this blog on [github](https://ycheng22.github.io/2020_Houston_flights_delay_dashboard/).
 
 **Contents:**
 - [1 .Introduction](#1-introduction)
