@@ -2,9 +2,9 @@
 title: 'Story of Texas Outage in Feb 2021'
 date: 2021-07-10
 header:
-  image: "/images/texas_outage.png"
+  image: "/images/texas_outage/texas_outage.png"
 #   caption: "A beautiful photo"
-  teaser: "/images/texas_outage.png"
+  teaser: "/images/texas_outage/texas_outage.png"
 categories:
   - blog
 tags:
