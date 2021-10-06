@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-06T17:50:27-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Yunpeng</title><author><name>Yunpeng</name></author><entry><title type="html">Switch My Web Theme to Minimal Mistake</title><link href="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/" rel="alternate" type="text/html" title="Switch My Web Theme to Minimal Mistake" /><published>2021-10-04T00:00:00-04:00</published><updated>2021-10-04T00:00:00-04:00</updated><id>http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake</id><content type="html" xml:base="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/">&lt;p&gt;Summary: switch my web theme to Minimal Mistake&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-06T18:07:12-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Yunpeng</title><author><name>Yunpeng</name></author><entry><title type="html">Switch My Web Theme to Minimal Mistake</title><link href="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/" rel="alternate" type="text/html" title="Switch My Web Theme to Minimal Mistake" /><published>2021-10-04T00:00:00-04:00</published><updated>2021-10-04T00:00:00-04:00</updated><id>http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake</id><content type="html" xml:base="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/">&lt;p&gt;Summary: switch my web theme to Minimal Mistake&lt;/p&gt;
 
 &lt;h2 id=&quot;1-introduction&quot;&gt;1. Introduction&lt;/h2&gt;
 &lt;p&gt;The theme is forked from &lt;a href=&quot;https://github.com/mmistakes/mm-github-pages-starter&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
@@ -1325,7 +1325,15 @@ fig 5: Table of arrival delay statistics by airline&lt;/p&gt;
 
 &lt;h2 id=&quot;4-conclusion&quot;&gt;4. Conclusion&lt;/h2&gt;
 
-&lt;p&gt;To create standalone interactive figure, the one need to program Javascript callback. If use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bokeh serve&lt;/code&gt; method, only python code need to be programmed.&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="Bokeh" /><category term="Dashboard" /><category term="Python" /><summary type="html">Summary: Create standalone Bokeh dashboard.</summary></entry><entry><title type="html">Deploy Web App on Heroku</title><link href="http://localhost:4000/Deploy_web_app_on_Heroku/" rel="alternate" type="text/html" title="Deploy Web App on Heroku" /><published>2021-08-20T00:00:00-04:00</published><updated>2021-08-20T00:00:00-04:00</updated><id>http://localhost:4000/Deploy_web_app_on_Heroku</id><content type="html" xml:base="http://localhost:4000/Deploy_web_app_on_Heroku/">&lt;p&gt;Summary: deploy web app on Heroku.&lt;/p&gt;
+&lt;p&gt;To create standalone interactive figure, the one need to program Javascript callback. If use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bokeh serve&lt;/code&gt; method, only python code need to be programmed.&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="Bokeh" /><category term="Dashboard" /><category term="Python" /><summary type="html">Summary: Create standalone Bokeh dashboard.</summary></entry><entry><title type="html">Build Data Collector Web App (Flask, PostgreSQL)</title><link href="http://localhost:4000/Build_Data_Collector_Web_App/" rel="alternate" type="text/html" title="Build Data Collector Web App (Flask, PostgreSQL)" /><published>2021-09-12T00:00:00-04:00</published><updated>2021-09-12T00:00:00-04:00</updated><id>http://localhost:4000/Build_Data_Collector_Web_App</id><content type="html" xml:base="http://localhost:4000/Build_Data_Collector_Web_App/">&lt;p&gt;Summary: Build Data Collector Web App with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flask&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PostgreSQL&lt;/code&gt;, deploy the app to &lt;a href=&quot;https://www.pythonanywhere.com/&quot;&gt;pythonanywhere&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Find the &lt;a href=&quot;&quot;&gt;notebook&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://ycheng.pythonanywhere.com/&quot;&gt;http://ycheng.pythonanywhere.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Contents:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;1-create-a-map&quot;&gt;1. Create a map&lt;/h2&gt;</content><author><name>Yunpeng</name></author><category term="Web" /><category term="Flask" /><category term="PostgreSQL" /><category term="Database" /><category term="Python" /><summary type="html">Summary: Build Data Collector Web App with Flask and PostgreSQL, deploy the app to pythonanywhere.</summary></entry><entry><title type="html">Deploy Web App on Heroku</title><link href="http://localhost:4000/Deploy_web_app_on_Heroku/" rel="alternate" type="text/html" title="Deploy Web App on Heroku" /><published>2021-08-20T00:00:00-04:00</published><updated>2021-08-20T00:00:00-04:00</updated><id>http://localhost:4000/Deploy_web_app_on_Heroku</id><content type="html" xml:base="http://localhost:4000/Deploy_web_app_on_Heroku/">&lt;p&gt;Summary: deploy web app on Heroku.&lt;/p&gt;
 
 &lt;p&gt;Check this blog on &lt;a href=&quot;https://github.com/ycheng22/ycheng22.github.io/blob/master/_posts/2021-08-20-Deploy_web_app_on_Heroku.md&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
 
@@ -3500,27 +3508,4 @@ fig 6: Show xyz axis in PyMol&lt;/p&gt;</content><author><name>Yunpeng</name></a
 &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Yunpeng</name></author><category term="blog" /><category term="SQL" /><category term="HackerRank" /><category term="MySQL" /><summary type="html">Summary: solving the SQL problems on HackerRank.</summary></entry><entry><title type="html">Story of Texas Outage in Feb 2021</title><link href="http://localhost:4000/blog/Story_of_Texas_Outage_in_Feb2021/" rel="alternate" type="text/html" title="Story of Texas Outage in Feb 2021" /><published>2021-07-10T00:00:00-04:00</published><updated>2021-07-10T00:00:00-04:00</updated><id>http://localhost:4000/blog/Story_of_Texas_Outage_in_Feb2021</id><content type="html" xml:base="http://localhost:4000/blog/Story_of_Texas_Outage_in_Feb2021/">&lt;p&gt;Tableau is popular visualization software. I collect Texas outage data and visualize it in Tableau.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Code is &lt;a href=&quot;https://github.com/ycheng22/Visualize_Texas_Outage&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Visualization is on &lt;a href=&quot;https://public.tableau.com/app/profile/ycheng/viz/ot6_Sorted_Bar_of_Reduced_MW_by_County/Story1&quot;&gt;Tableau&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;collecting-and-process&quot;&gt;Collecting and process….&lt;/h2&gt;
-
-&lt;h2 id=&quot;final-results&quot;&gt;Final results:&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/texas_outage/preview1.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/texas_outage/preview2.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/texas_outage/preview3.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/texas_outage/preview4.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/texas_outage/preview5.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/texas_outage/preview6.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/texas_outage/preview7.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="blog" /><category term="Tableau" /><category term="Texas" /><category term="Outage" /><category term="Visualization" /><summary type="html">Tableau is popular visualization software. I collect Texas outage data and visualize it in Tableau.</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Yunpeng</name></author><category term="blog" /><category term="SQL" /><category term="HackerRank" /><category term="MySQL" /><summary type="html">Summary: solving the SQL problems on HackerRank.</summary></entry></feed>

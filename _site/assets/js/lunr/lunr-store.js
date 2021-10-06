@@ -59,6 +59,12 @@ var store = [{
         "url": "/Deploy_web_app_on_Heroku/",
         "teaser": "/images/heroku_blogs/heroku_image.png"
       },{
+        "title": "Build Data Collector Web App (Flask, PostgreSQL)",
+        "excerpt":"Summary: Build Data Collector Web App with Flask and PostgreSQL, deploy the app to pythonanywhere.   Find the notebook.   http://ycheng.pythonanywhere.com/   Contents:   1. Create a map   ","categories": [],
+        "tags": ["Web","Flask","PostgreSQL","Database","Python"],
+        "url": "/Build_Data_Collector_Web_App/",
+        "teaser": null
+      },{
         "title": "2020 Houston Flights Delay Dashboard",
         "excerpt":"Summary: Create standalone Bokeh dashboard. Check this blog on github. Contents: 1 .Introduction 2. Data collecting and processing 2.1 Collecting data by anyflights 2.2 Combining 12 months data 2.3 Add logitude and latitude to Hou_flights 2.4 Delay time statistics (arrival delay’s mean, max, min) 3. Creating dashboard step by step...","categories": [],
         "tags": ["Bokeh","Dashboard","Python"],
