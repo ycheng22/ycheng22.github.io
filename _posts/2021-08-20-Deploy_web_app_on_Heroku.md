@@ -28,13 +28,34 @@ Check this blog on [github](https://github.com/ycheng22/ycheng22.github.io/blob/
 ## Simple web
 
 Check below code through the link:
+
 <https://github.com/ycheng22/Build_10_Real_World_Applicatoins/tree/main/Sec21_App4_Personal_Web/Mysite/Demo>
+
 - script1.py
+  ```python
+  #run in cmd: python .\script1.py
+
+  from flask import Flask, render_template
+
+  app = Flask(__name__)
+
+  @app.route('/') #http://localhost:5000/
+  def home():
+      return render_template("home.html") #must put home.html under folder "template"
+
+  @app.route('/about/') #http://localhost:5000/about
+  def about():
+      return render_template("about.html")
+
+  if __name__ == "__main__":
+      app.run(debug=True)
+  ```
 - home.html
 - about.html
 - layout.html
 
-<script src="https://emgithub.com/ycheng22/Build_10_Real_World_Applicatoins/blob/main/Sec21_App4_Personal_Web/Mysite/Demo/script1.py"></script>
+<!-- <script src="https://github.com/ycheng22/Build_10_Real_World_Applicatoins/blob/main/Sec21_App4_Personal_Web/Mysite/Demo/script1.py"></script> -->
+
 
 **Web**
 ![name](/images/heroku_blogs/home_page.png)
