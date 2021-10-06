@@ -34,7 +34,7 @@ Check below code through the link:
 - about.html
 - layout.html
 
-<script src="https://github.com/ycheng22/Build_10_Real_World_Applicatoins/blob/main/Sec21_App4_Personal_Web/Mysite/Demo/script1.py"></script>
+<script src="https://emgithub.com/ycheng22/Build_10_Real_World_Applicatoins/blob/main/Sec21_App4_Personal_Web/Mysite/Demo/script1.py"></script>
 
 **Web**
 ![name](/images/heroku_blogs/home_page.png)
