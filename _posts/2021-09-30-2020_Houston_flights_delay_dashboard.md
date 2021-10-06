@@ -35,7 +35,7 @@ Check this blog on [github](https://ycheng22.github.io/2020_Houston_flights_dela
 
 ## 1 .Introduction
 
-Bokeh is a Python library for creating interactive visualizations for modern web browsers. According to this [blog](https://towardsdatascience.com/data-visualization-with-bokeh-in-python-part-one-getting-started-a11655a467d4), I collected information about all flights depart Houston in 2020. 
+Bokeh is a Python library for creating interactive visualizations for modern web browsers. According to this [blog](https://towardsdatascience.com/data-visualization-with-bokeh-in-python-part-one-getting-started-a11655a467d4), I collected information about all flights depart Houston in 2020 and created similar dashboard.
 
 ## 2. Data collecting and processing
 
