@@ -1,7 +1,7 @@
 ---
 title: "Life"
 permalink: /life/
-author_profile: false
+author_profile: true
 categories:
   - life
 classes: wide
@@ -40,10 +40,10 @@ Moments in my daily life.
   <img src="../images/life/IMG_20210404_bluebonnet3_compressed.jpg" width="100%" />
 </p>
 
-## 2019-Dec - Snow in Houston - Houston, TX, US
+## 2021-Feb - Snow in Houston - Houston, TX, US
 ![](../images/life/IMG_20210215_snow_in_Houston_compressed.jpg)
 
-## 2019-Dec - Garner State Park -  Concan, TX, US
+## 2020-Dec - Garner State Park -  Concan, TX, US
 <p float="left">
   <img src="../images/life/IMG_20201219_Garner_state_park_compressed.jpg" width="49%" />
   <img src="../images/life/IMG_20201219_Garner_state_park2_compressed.jpg" width="49%" />

@@ -19,7 +19,7 @@ Summary: solving some problems about statistics in 10 days. The problems are on 
 
 # 10 Days of Statistics
 
-Check this blog on [github](https://github.com/ycheng22/ycheng22.github.io/blob/main/_posts/2021-03-01%2010%20Days%20of%20Statistics.md).
+Check this blog on [github](https://github.com/ycheng22/ycheng22.github.io/blob/main/_posts/2021-03-01-10%20Days%20of%20Statistics.md).
 
 - [10 Days of Statistics](#10-days-of-statistics)
   - [Day 0: Mean, Median, and Mode](#day-0-mean-median-and-mode)
