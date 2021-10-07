@@ -257,7 +257,7 @@ if __name__ == '__main__':
   app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://ycheng:mypassword@ycheng.mysql.pythonanywhere-services.com/ycheng$height_collector'
   db = SQLAlchemy(app)
   ```
- *Note:* Note: no space in the string.
+  *Note:* no space in the string, replace `mypassword` with your password.
 - Go to webs, reload web, go the web address, it should work now.
 - Go to `Web`, open `Error` Log to debug
 - 
