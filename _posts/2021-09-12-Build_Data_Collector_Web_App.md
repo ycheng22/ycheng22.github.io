@@ -227,7 +227,7 @@ if __name__ == '__main__':
 ## 7. Deploying the database web app online
 
 - Creating an account at [`pythonanywhere`](https://www.pythonanywhere.com/) before moving forward.
-- The web address will be: <ycheng.pythonanywhere.com>
+- The web address will be: [ycheng.pythonanywhere.com](http://ycheng.pythonanywhere.com/)
 - Go to `Files`, under folder `mysite`, upload files:
   
   ![name](/images/20210912_web_app_pythonanywhere/mysite.png)
@@ -260,5 +260,6 @@ if __name__ == '__main__':
  *Note:* Note: no space in the string.
 - Go to webs, reload web, go the web address, it should work now.
 - Go to `Web`, open `Error` Log to debug
+- 
 ![name](/images/20210912_web_app_pythonanywhere/debug.png)
 

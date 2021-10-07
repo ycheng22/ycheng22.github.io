@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-07T00:05:09-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Yunpeng</title><author><name>Yunpeng</name></author><entry><title type="html">Switch My Web Theme to Minimal Mistake</title><link href="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/" rel="alternate" type="text/html" title="Switch My Web Theme to Minimal Mistake" /><published>2021-10-05T00:00:00-04:00</published><updated>2021-10-05T00:00:00-04:00</updated><id>http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake</id><content type="html" xml:base="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/">&lt;p&gt;Summary: switch my web theme to Minimal Mistake&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-07T00:09:19-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Yunpeng</title><author><name>Yunpeng</name></author><entry><title type="html">Switch My Web Theme to Minimal Mistake</title><link href="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/" rel="alternate" type="text/html" title="Switch My Web Theme to Minimal Mistake" /><published>2021-10-05T00:00:00-04:00</published><updated>2021-10-05T00:00:00-04:00</updated><id>http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake</id><content type="html" xml:base="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/">&lt;p&gt;Summary: switch my web theme to Minimal Mistake&lt;/p&gt;
 
 &lt;h2 id=&quot;1-introduction&quot;&gt;1. Introduction&lt;/h2&gt;
 &lt;p&gt;The theme is forked from &lt;a href=&quot;https://github.com/mmistakes/mm-github-pages-starter&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
@@ -1534,7 +1534,7 @@ fig 5: Table of arrival delay statistics by airline&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Creating an account at &lt;a href=&quot;https://www.pythonanywhere.com/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pythonanywhere&lt;/code&gt;&lt;/a&gt; before moving forward.&lt;/li&gt;
-  &lt;li&gt;The web address will be: &lt;ycheng.pythonanywhere.com&gt;&lt;/ycheng.pythonanywhere.com&gt;&lt;/li&gt;
+  &lt;li&gt;The web address will be: &lt;a href=&quot;http://ycheng.pythonanywhere.com/&quot;&gt;ycheng.pythonanywhere.com&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Go to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Files&lt;/code&gt;, under folder &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysite&lt;/code&gt;, upload files:&lt;/p&gt;
 
@@ -1578,8 +1578,8 @@ fig 5: Table of arrival delay statistics by airline&lt;/p&gt;
     &lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; Note: no space in the string.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;Go to webs, reload web, go the web address, it should work now.&lt;/li&gt;
-  &lt;li&gt;Go to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Web&lt;/code&gt;, open &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Error&lt;/code&gt; Log to debug
-&lt;img src=&quot;/images/20210912_web_app_pythonanywhere/debug.png&quot; alt=&quot;name&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Go to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Web&lt;/code&gt;, open &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Error&lt;/code&gt; Log to debug&lt;/li&gt;
+  &lt;li&gt;&lt;img src=&quot;/images/20210912_web_app_pythonanywhere/debug.png&quot; alt=&quot;name&quot; /&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><author><name>Yunpeng</name></author><category term="Web" /><category term="Flask" /><category term="PostgreSQL" /><category term="Database" /><category term="Python" /><summary type="html">Summary: Build Data Collector Web App with Flask and PostgreSQL, deploy the app to pythonanywhere.</summary></entry><entry><title type="html">Deploy Web App on Heroku</title><link href="http://localhost:4000/Deploy_web_app_on_Heroku/" rel="alternate" type="text/html" title="Deploy Web App on Heroku" /><published>2021-08-20T00:00:00-04:00</published><updated>2021-08-20T00:00:00-04:00</updated><id>http://localhost:4000/Deploy_web_app_on_Heroku</id><content type="html" xml:base="http://localhost:4000/Deploy_web_app_on_Heroku/">&lt;p&gt;Summary: deploy web app on Heroku.&lt;/p&gt;
 
 &lt;p&gt;Check this blog on &lt;a href=&quot;https://github.com/ycheng22/ycheng22.github.io/blob/master/_posts/2021-08-20-Deploy_web_app_on_Heroku.md&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
