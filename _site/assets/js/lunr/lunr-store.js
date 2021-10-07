@@ -29,6 +29,12 @@ var store = [{
         "url": "/SQL_on_LeetCode/",
         "teaser": null
       },{
+        "title": "10 Days of Statistics",
+        "excerpt":"Summary: solving some problems about statistics in 10 days. The problems are on HackerRank. 10 Days of Statistics Check this blog on github. 10 Days of Statistics Day 0: Mean, Median, and Mode Day 0: Weighted Mean Day 1: Quartiles Day 1: Interquartile Range Day 1: Standard Deviation Day 2:...","categories": [],
+        "tags": ["Statistics","HackerRank","Python"],
+        "url": "/10-Days-of-Statistics/",
+        "teaser": null
+      },{
         "title": "Story of Texas Outage in Feb 2021",
         "excerpt":"Tableau is popular visualization software. I collect Texas outage data and visualize it in Tableau.      Code is here   Visualization is on Tableau   Collecting and process….   Final results:                       ","categories": ["blog"],
         "tags": ["Tableau","Texas","Outage","Visualization"],
