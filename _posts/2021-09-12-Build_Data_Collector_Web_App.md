@@ -254,7 +254,7 @@ if __name__ == '__main__':
   from sqlalchemy.sql import func
 
   app = Flask(__name__)
-  app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://ycheng:19921019cyp@ycheng.mysql.pythonanywhere-services.com/ycheng$height_collector'
+  app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://ycheng:mypassword@ycheng.mysql.pythonanywhere-services.com/ycheng$height_collector'
   db = SQLAlchemy(app)
   ```
  *Note:* Note: no space in the string.
