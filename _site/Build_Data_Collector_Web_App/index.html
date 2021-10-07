@@ -301,7 +301,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          less than 1 minute read
+          3 minute read
         
       </span>
     
@@ -322,13 +322,253 @@
 <p><strong>Contents:</strong></p>
 <ul>
   <li><a href="#1-introduction">1. Introduction</a></li>
+  <li><a href="#2-front-end-code">2. Front-end code</a></li>
+  <li><a href="#3-creating-virtual-environment">3. Creating virtual environment</a></li>
+  <li><a href="#4-creating-the-postgresql-database-model">4. Creating the PostGreSQL Database Model</a></li>
+  <li><a href="#5-send-email-to-the-participant">5. Send email to the participant</a></li>
+  <li><a href="#6-back-end-code">6. Back-end code</a></li>
+  <li><a href="#7-deploying-the-database-web-app-online">7. Deploying the database web app online</a></li>
 </ul>
 
 <h2 id="1-introduction">1. Introduction</h2>
 
-<p>Preview:</p>
+<p>In this blog, a web app is created, it can collect user email and height, then send the participant’s <code class="language-plaintext highlighter-rouge">height</code>, <code class="language-plaintext highlighter-rouge">average height</code> of all participants, and <code class="language-plaintext highlighter-rouge">number of participants</code> to the participant.</p>
+
+<p>The data will be recorded in PostgreSQL database, when this app works fine locally, it’s deployed to live server: <code class="language-plaintext highlighter-rouge">pythonanywhere.com</code>.</p>
+
+<p>Overview of folder structure:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>📦Database_web_app
+ ┣ 📂static
+ ┃ ┗ 📜main.css
+ ┣ 📂templates
+ ┃ ┣ 📜index.html
+ ┃ ┗ 📜success.html
+ ┣ 📜add_table_manually.py
+ ┣ 📜app.py
+ ┣ 📜send_email.py
+ ┗ 📜test_sqlalchemy.py
+</code></pre></div></div>
+
+<h2 id="2-front-end-code">2. Front-end code</h2>
+
+<p><code class="language-plaintext highlighter-rouge">./templates/index.html</code></p>
+
+<p><img src="/images/20210912_web_app_pythonanywhere/index.png" alt="name" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">./templates/success.html</code></p>
+
+<p><img src="/images/20210912_web_app_pythonanywhere/suc_code.png" alt="name" /></p>
+
+<p>Main page:</p>
 
 <p><img src="/images/20210912_web_app_pythonanywhere/pythonanywhere_image.png" alt="name" /></p>
+
+<p>Main page when input duplicated email:</p>
+
+<p><img src="/images/20210912_web_app_pythonanywhere/duplicate_.png" alt="name" /></p>
+
+<p>Success page:</p>
+
+<p><img src="/images/20210912_web_app_pythonanywhere/success.png" alt="name" /></p>
+
+<h2 id="3-creating-virtual-environment">3. Creating virtual environment</h2>
+
+<p>The details about creating virtual environment can be found in this blog: <a href="https://ycheng22.github.io/Deploy_web_app_on_Heroku/">Deploy Web App on Heroku</a> section 2.</p>
+
+<p>Necessary packages:</p>
+<ul>
+  <li>flask</li>
+  <li>psycopg2</li>
+  <li>flask_sqlalchemy</li>
+</ul>
+
+<h2 id="4-creating-the-postgresql-database-model">4. Creating the PostGreSQL Database Model</h2>
+<p>Note: the <code class="language-plaintext highlighter-rouge">PostgreSQL</code> has to be installed before moving forward.</p>
+
+<p><strong>Method 1:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span>
+<span class="kn">from</span> <span class="nn">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SQLALCHEMY_DATABASE_URI'</span><span class="p">]</span> <span class="o">=</span> \
+    <span class="s">'postgresql://postgres:1992@localhost/height_collector'</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">SQLAlchemy</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+<span class="n">db</span><span class="p">.</span><span class="n">create_all</span><span class="p">()</span>
+</code></pre></div></div>
+<p><em>Note:</em> the above method doesn’t work in my case.</p>
+
+<p><strong>Method 2:</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">add_table_manually.py</code></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span>
+<span class="c1">#from flask.ext.sqlalchemy import SQLAlchemy
+</span><span class="kn">from</span> <span class="nn">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SQLALCHEMY_DATABASE_URI'</span><span class="p">]</span> <span class="o">=</span> \
+    <span class="s">'postgresql://postgres:1992@localhost/height_collector'</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">SQLAlchemy</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Data</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s">"data"</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">email_</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">String</span><span class="p">(</span><span class="mi">120</span><span class="p">),</span> <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">height_</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Integer</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">email_</span><span class="p">,</span> <span class="n">height_</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">email_</span> <span class="o">=</span> <span class="n">email_</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">height_</span> <span class="o">=</span> <span class="n">height_</span>
+
+<span class="n">db</span><span class="p">.</span><span class="n">create_all</span><span class="p">()</span> 
+<span class="c1">#db.create_all() was after db = SQLAlchemy(app), 
+#before class Data(db.Model),Error: column "email_" of relation "data" does not exist
+#so move to here
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">Data</span><span class="p">(</span><span class="s">'a@a.com'</span><span class="p">,</span> <span class="mi">110</span><span class="p">)</span>
+<span class="n">db</span><span class="p">.</span><span class="n">session</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">db</span><span class="p">.</span><span class="n">session</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
+</code></pre></div></div>
+<p><em>Note:</em> This works for me.</p>
+
+<p>The created table:</p>
+
+<p><img src="/images/20210912_web_app_pythonanywhere/pdAdmin.png" alt="name" /></p>
+
+<h2 id="5-send-email-to-the-participant">5. Send email to the participant</h2>
+
+<p><code class="language-plaintext highlighter-rouge">send_email.py</code></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
+<span class="kn">import</span> <span class="nn">smtplib</span>
+
+<span class="k">def</span> <span class="nf">send_email</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">ave_height</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+    <span class="n">from_email</span> <span class="o">=</span> <span class="s">"mygmail@gmail.com"</span>
+    <span class="n">from_passowrd</span> <span class="o">=</span> <span class="s">"mypassword"</span>
+    <span class="n">to_email</span> <span class="o">=</span> <span class="n">email</span>
+
+    <span class="n">subject</span> <span class="o">=</span> <span class="s">"Height data"</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s">"Hey there, your height is &lt;strong&gt;%s&lt;/strong&gt;. </span><span class="se">\
+</span><span class="s">        Average height of all is &lt;strong&gt;%s&lt;/strong&gt; and that is calculated out </span><span class="se">\
+</span><span class="s">        &lt;strong&gt;%s&lt;/strong&gt; of people."</span> <span class="o">%</span> <span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">ave_height</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+    
+    <span class="n">msg</span> <span class="o">=</span> <span class="n">MIMEText</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="s">'html'</span><span class="p">)</span>
+    <span class="n">msg</span><span class="p">[</span><span class="s">'subject'</span><span class="p">]</span> <span class="o">=</span> <span class="n">subject</span>
+    <span class="n">msg</span><span class="p">[</span><span class="s">'To'</span><span class="p">]</span> <span class="o">=</span> <span class="n">to_email</span>
+    <span class="n">msg</span><span class="p">[</span><span class="s">'From'</span><span class="p">]</span> <span class="o">=</span> <span class="n">from_email</span>
+
+    <span class="n">gmail</span> <span class="o">=</span> <span class="n">smtplib</span><span class="p">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s">'smtp.gmail.com'</span><span class="p">,</span> <span class="mi">587</span><span class="p">)</span>
+    <span class="n">gmail</span><span class="p">.</span><span class="n">ehlo</span><span class="p">()</span>
+    <span class="n">gmail</span><span class="p">.</span><span class="n">starttls</span><span class="p">()</span>
+    <span class="n">gmail</span><span class="p">.</span><span class="n">login</span><span class="p">(</span><span class="n">from_email</span><span class="p">,</span> <span class="n">from_passowrd</span><span class="p">)</span>
+    <span class="n">gmail</span><span class="p">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</code></pre></div></div>
+
+<!-- The email:
+
+![name](/images/20210912_web_app_pythonanywhere/.png) -->
+
+<h2 id="6-back-end-code">6. Back-end code</h2>
+
+<p><code class="language-plaintext highlighter-rouge">app.py</code></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span>
+<span class="c1">#from flask.ext.sqlalchemy import SQLAlchemy
+</span><span class="kn">from</span> <span class="nn">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
+<span class="kn">from</span> <span class="nn">send_email</span> <span class="kn">import</span> <span class="n">send_email</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.sql</span> <span class="kn">import</span> <span class="n">func</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SQLALCHEMY_DATABASE_URI'</span><span class="p">]</span> <span class="o">=</span> \
+    <span class="s">'postgresql://postgres:1992@localhost/height_collector'</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">SQLAlchemy</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+<span class="c1">#db.create_all()
+</span>
+<span class="k">class</span> <span class="nc">Data</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s">"data"</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">email_</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">String</span><span class="p">(</span><span class="mi">120</span><span class="p">),</span> <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">height_</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Integer</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">email_</span><span class="p">,</span> <span class="n">height_</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">email_</span> <span class="o">=</span> <span class="n">email_</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">height_</span> <span class="o">=</span> <span class="n">height_</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">"/"</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'index.html'</span><span class="p">)</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">"/success"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">'POST'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">success</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="p">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">"POST"</span><span class="p">:</span>
+        <span class="n">email</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">[</span><span class="s">"email_name"</span><span class="p">]</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">[</span><span class="s">"height_name"</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">db</span><span class="p">.</span><span class="n">session</span><span class="p">.</span><span class="n">query</span><span class="p">(</span><span class="n">Data</span><span class="p">).</span><span class="nb">filter</span>\
+            <span class="p">(</span><span class="n">Data</span><span class="p">.</span><span class="n">email_</span><span class="o">==</span><span class="n">email</span><span class="p">).</span><span class="n">count</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1">#avoid duplicated email
+</span>            <span class="n">data</span> <span class="o">=</span> <span class="n">Data</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+            <span class="n">db</span><span class="p">.</span><span class="n">session</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">db</span><span class="p">.</span><span class="n">session</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="n">ave_height</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">session</span><span class="p">.</span><span class="n">query</span><span class="p">(</span><span class="n">func</span><span class="p">.</span><span class="n">avg</span><span class="p">(</span><span class="n">Data</span><span class="p">.</span><span class="n">height_</span><span class="p">)).</span><span class="n">scalar</span><span class="p">()</span>
+            <span class="n">ave_height</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">ave_height</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">session</span><span class="p">.</span><span class="n">query</span><span class="p">(</span><span class="n">Data</span><span class="p">.</span><span class="n">height_</span><span class="p">).</span><span class="n">count</span><span class="p">()</span> <span class="c1">#num of records
+</span>            <span class="c1">#send_email(email, height, ave_height, count)
+</span>            <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">"success.html"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'index.html'</span><span class="p">,</span> 
+            <span class="n">text</span><span class="o">=</span><span class="s">"Email already exits, try different one!"</span><span class="p">)</span> <span class="c1">#display on index.html 
+</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">debug</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">port</span> <span class="o">=</span> <span class="mi">5001</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="7-deploying-the-database-web-app-online">7. Deploying the database web app online</h2>
+
+<ul>
+  <li>Creating an account at <a href="https://www.pythonanywhere.com/"><code class="language-plaintext highlighter-rouge">pythonanywhere</code></a> before moving forward.</li>
+  <li>The web address will be: <ycheng.pythonanywhere.com></ycheng.pythonanywhere.com></li>
+  <li>
+    <p>Go to <code class="language-plaintext highlighter-rouge">Files</code>, under folder <code class="language-plaintext highlighter-rouge">mysite</code>, upload files:</p>
+
+    <p><img src="/images/20210912_web_app_pythonanywhere/mysite.png" alt="name" /></p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">flask_app.py</code> will hold the code we typed in <code class="language-plaintext highlighter-rouge">app.py</code>.</li>
+      <li>Click <code class="language-plaintext highlighter-rouge">New directory</code> to create <code class="language-plaintext highlighter-rouge">templates</code> folder, <code class="language-plaintext highlighter-rouge">static</code> folder, and upload files.</li>
+    </ul>
+  </li>
+  <li>Go to <code class="language-plaintext highlighter-rouge">Web</code>
+<img src="/images/20210912_web_app_pythonanywhere/web.png" alt="name" /></li>
+  <li>Go to <code class="language-plaintext highlighter-rouge">Database</code>, create and connect to <code class="language-plaintext highlighter-rouge">MySQL</code> database
+<img src="/images/20210912_web_app_pythonanywhere/db.png" alt="name" />
+    <ul>
+      <li>create database, name is <code class="language-plaintext highlighter-rouge">height_collector</code></li>
+      <li>set password</li>
+    </ul>
+  </li>
+  <li>Click the <code class="language-plaintext highlighter-rouge">Start a console on:ycheng$height_collector</code> to go to MySQL commnd
+    <ul>
+      <li>
+        <p>Create columns:</p>
+
+        <p><code class="language-plaintext highlighter-rouge">CREATE TABLE data (id SERIAL PRIMARY KEY, email_ VARCHAR(120), height_ INT);</code></p>
+
+        <p><img src="/images/20210912_web_app_pythonanywhere/create_table.png" alt="name" /></p>
+      </li>
+    </ul>
+  </li>
+  <li>Connect to the database, snippet of <code class="language-plaintext highlighter-rouge">flask_app.py</code>:
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span>
+<span class="kn">from</span> <span class="nn">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
+<span class="kn">from</span> <span class="nn">send_email</span> <span class="kn">import</span> <span class="n">send_email</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.sql</span> <span class="kn">import</span> <span class="n">func</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SQLALCHEMY_DATABASE_URI'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'mysql+mysqlconnector://ycheng:19921019cyp@ycheng.mysql.pythonanywhere-services.com/ycheng$height_collector'</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">SQLAlchemy</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <p><em>Note:</em> Note: no space in the string.</p>
+  </li>
+  <li>Go to webs, reload web, go the web address, it should work now.</li>
+  <li>Go to <code class="language-plaintext highlighter-rouge">Web</code>, open <code class="language-plaintext highlighter-rouge">Error</code> Log to debug
+<img src="/images/20210912_web_app_pythonanywhere/debug.png" alt="name" /></li>
+</ul>
 
 
         

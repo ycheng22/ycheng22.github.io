@@ -60,7 +60,7 @@ var store = [{
         "teaser": "/images/heroku_blogs/heroku_image.png"
       },{
         "title": "Build Data Collector Web App (Flask, PostgreSQL)",
-        "excerpt":"Summary: Build Data Collector Web App with Flask and PostgreSQL, deploy the app to pythonanywhere.   Check this blog on github   App web: http://ycheng.pythonanywhere.com/   Contents:     1. Introduction   1. Introduction   Preview:      ","categories": [],
+        "excerpt":"Summary: Build Data Collector Web App with Flask and PostgreSQL, deploy the app to pythonanywhere. Check this blog on github App web: http://ycheng.pythonanywhere.com/ Contents: 1. Introduction 2. Front-end code 3. Creating virtual environment 4. Creating the PostGreSQL Database Model 5. Send email to the participant 6. Back-end code 7. Deploying...","categories": [],
         "tags": ["Web","Flask","PostgreSQL","Database","Python"],
         "url": "/Build_Data_Collector_Web_App/",
         "teaser": "/images/20210912_web_app_pythonanywhere/pythonanywhere_image.png"
