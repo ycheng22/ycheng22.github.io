@@ -59,6 +59,12 @@ var store = [{
         "url": "/Deploy_web_app_on_Heroku/",
         "teaser": "/images/heroku_blogs/heroku_image.png"
       },{
+        "title": "Deploy PostgreSQL on Heroku",
+        "excerpt":"Summary: deploy PostgreSQL on Heroku and ingest Data using Pandas and SQLAlchemy. Reference: https://towardsdatascience.com/deploy-free-postgresql-database-in-heroku-and-ingest-data-8002c574a57d. Check this blog on github. Contents: 1. Introduction 2. Generate and store Heroku token 2.1 Generate Heroku token 2.1.1 Method 1: browser 2.1.2 Method 2: Heroku CLI 2.1 Store Heroku token to environment 1. Introduction 2....","categories": [],
+        "tags": ["PostgreSQL","Heroku","Python"],
+        "url": "/Deploy_PostgreSQL_on_Heroku/",
+        "teaser": "/images/heroku_blogs/heroku_image.png"
+      },{
         "title": "Build Data Collector Web App (Flask, PostgreSQL)",
         "excerpt":"Summary: Build Data Collector Web App with Flask and PostgreSQL, deploy the app to pythonanywhere. Check this blog on github App web: http://ycheng.pythonanywhere.com/ Contents: 1. Introduction 2. Front-end code 3. Creating virtual environment 4. Creating the PostGreSQL Database Model 5. Send email to the participant 6. Back-end code 7. Deploying...","categories": [],
         "tags": ["Web","Flask","PostgreSQL","Database","Python"],
