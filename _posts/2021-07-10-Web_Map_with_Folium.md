@@ -1,6 +1,6 @@
 ---
-title: 'Web_Map_with_Folium'
-date: 2021-08-18
+title: 'Web Map with Folium'
+date: 2021-07-10
 header:
 #   image: "/images/foo-bar-identity.jpg"
 #   caption: "A beautiful photo"

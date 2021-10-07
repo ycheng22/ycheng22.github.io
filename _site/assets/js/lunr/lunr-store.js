@@ -35,17 +35,17 @@ var store = [{
         "url": "/blog/Story_of_Texas_Outage_in_Feb2021/",
         "teaser": "/images/texas_outage/texas_outage.png"
       },{
+        "title": "Web Map with Folium",
+        "excerpt":"Summary: Build a web map with Folium. Check this blog on github. Contents: 1. Create a map 2. Add marker 2.1 Add single marker 2.2 Add multiple markers from file 2.3 Add elevation to popup 2.4 Color generate function for markers 2.5 Circle markers 3. Add population layer with json...","categories": [],
+        "tags": ["Web Map","Folium","Python"],
+        "url": "/Web_Map_with_Folium/",
+        "teaser": "/images/20210710_web_map_Folium/map24.png"
+      },{
         "title": "Create xyz-axis for PyMol",
         "excerpt":"Summary: When show protein unit cell in PyMol, I want to show xyz axis, but PyMol doesn’t have this option. Here is a solution. Contents: Step 1: Create xyz axis file Step 2: Edit the xyz_move.pdb file in PyMol Step 3: Show xyz-axis in PyMol Check this blog on github...","categories": ["blog"],
         "tags": ["PyMol","PDB"],
         "url": "/blog/create_xyz_for_PyMol/",
         "teaser": "/images/20210805_blog_pymol/show_session.png"
-      },{
-        "title": "Web_Map_with_Folium",
-        "excerpt":"Summary: Build a web map with Folium. Check this blog on github. Contents: 1. Create a map 2. Add marker 2.1 Add single marker 2.2 Add multiple markers from file 2.3 Add elevation to popup 2.4 Color generate function for markers 2.5 Circle markers 3. Add population layer with json...","categories": [],
-        "tags": ["Web Map","Folium","Python"],
-        "url": "/Web_Map_with_Folium/",
-        "teaser": "/images/20210710_web_map_Folium/map24.png"
       },{
         "title": "Deploy Web App on Heroku",
         "excerpt":"Summary: deploy web app on Heroku. Check this blog on github. App web: https://yc-web1.herokuapp.com/ Contents: 1. Simple web 2. Create virtual environment 3. Deploy app to Heroku 1. Simple web Check below code through the link: https://github.com/ycheng22/Build_10_Real_World_Applicatoins/tree/main/Sec21_App4_Personal_Web/Mysite/Demo script1.py #run in cmd: python .\\script1.py from flask import Flask, render_template app =...","categories": [],

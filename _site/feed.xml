@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-06T20:55:28-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Yunpeng</title><author><name>Yunpeng</name></author><entry><title type="html">Switch My Web Theme to Minimal Mistake</title><link href="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/" rel="alternate" type="text/html" title="Switch My Web Theme to Minimal Mistake" /><published>2021-10-04T00:00:00-04:00</published><updated>2021-10-04T00:00:00-04:00</updated><id>http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake</id><content type="html" xml:base="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/">&lt;p&gt;Summary: switch my web theme to Minimal Mistake&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-06T21:02:11-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Yunpeng</title><author><name>Yunpeng</name></author><entry><title type="html">Switch My Web Theme to Minimal Mistake</title><link href="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/" rel="alternate" type="text/html" title="Switch My Web Theme to Minimal Mistake" /><published>2021-10-04T00:00:00-04:00</published><updated>2021-10-04T00:00:00-04:00</updated><id>http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake</id><content type="html" xml:base="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/">&lt;p&gt;Summary: switch my web theme to Minimal Mistake&lt;/p&gt;
 
 &lt;h2 id=&quot;1-introduction&quot;&gt;1. Introduction&lt;/h2&gt;
 &lt;p&gt;The theme is forked from &lt;a href=&quot;https://github.com/mmistakes/mm-github-pages-starter&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
@@ -1500,7 +1500,121 @@ git push heroku master
 
 &lt;p&gt;If everything works right, you can check your app at &lt;a href=&quot;https://yc-web1.herokuapp.com/&quot;&gt;https://yc-web1.herokuapp.com/&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;If something goes wrong, run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;heroku logs --tail&lt;/code&gt;&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="Bokeh" /><category term="Heroku" /><category term="Python" /><summary type="html">Summary: deploy web app on Heroku.</summary></entry><entry><title type="html">Web_Map_with_Folium</title><link href="http://localhost:4000/Web_Map_with_Folium/" rel="alternate" type="text/html" title="Web_Map_with_Folium" /><published>2021-08-18T00:00:00-04:00</published><updated>2021-08-18T00:00:00-04:00</updated><id>http://localhost:4000/Web_Map_with_Folium</id><content type="html" xml:base="http://localhost:4000/Web_Map_with_Folium/">&lt;p&gt;Summary: Build a web map with &lt;a href=&quot;https://github.com/python-visualization/folium&quot;&gt;Folium&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If something goes wrong, run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;heroku logs --tail&lt;/code&gt;&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="Bokeh" /><category term="Heroku" /><category term="Python" /><summary type="html">Summary: deploy web app on Heroku.</summary></entry><entry><title type="html">Create xyz-axis for PyMol</title><link href="http://localhost:4000/blog/create_xyz_for_PyMol/" rel="alternate" type="text/html" title="Create xyz-axis for PyMol" /><published>2021-08-05T00:00:00-04:00</published><updated>2021-08-05T00:00:00-04:00</updated><id>http://localhost:4000/blog/create_xyz_for_PyMol</id><content type="html" xml:base="http://localhost:4000/blog/create_xyz_for_PyMol/">&lt;p&gt;Summary: When show protein unit cell in PyMol, I want to show xyz axis, but PyMol doesn’t have this option. Here is a solution.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Contents:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#step-1-create-xyz-axis-file&quot;&gt;Step 1: Create xyz axis file&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#step-2-edit-the-xyz_movepdb-file-in-pymol&quot;&gt;Step 2: Edit the xyz_move.pdb file in PyMol&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#step-3-show-xyz-axis-in-pymol&quot;&gt;Step 3: Show xyz-axis in PyMol&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Check this blog on &lt;a href=&quot;https://github.com/ycheng22/ycheng22.github.io/blob/master/_posts/2021-08-05-create_xyz_for_PyMol.md&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;*The code and file are available &lt;a href=&quot;https://github.com/ycheng22/Show-xyz-axis-for-PyMol&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20210805_blog_pymol/preview.png&quot; alt=&quot;name&quot; /&gt;
+fig 1: Preview of protein unit cell&lt;/p&gt;
+
+&lt;!-- &lt;figure&gt;
+  &lt;img src=&quot;/assets/images/20210805_blog_pymol/preview.png&quot; alt=&quot;this is a placeholder image&quot;&gt;
+  &lt;figcaption&gt;fig 1: Preview of protein unit cell&lt;/figcaption&gt;
+&lt;/figure&gt; --&gt;
+
+&lt;h2 id=&quot;step-1-create-xyz-axis-file&quot;&gt;Step 1: Create xyz axis file&lt;/h2&gt;
+
+&lt;p&gt;The following MATLAB code is used to create xyz axis.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-MATLAB&quot;&gt;%set origin point to (-10,-10,-10)
+x=1:50;
+a_axis = zeros(length(x),3);
+a_axis(:,1) = x';
+b_axis = zeros(length(x),3);
+b_axis(:,2) = x';
+c_axis = zeros(length(x),3);
+c_axis(:,3) = x';
+abc_axis=[a_axis; b_axis; c_axis];
+abc_axis=abc_axis-10;
+
+fl_ID_name=&quot;xyz_move.pdb&quot;;
+fl_ID=fopen(fl_ID_name,'w');
+for m=1:length(abc_axis)
+    x=abc_axis(m,1);
+    y=abc_axis(m,2);
+    z=abc_axis(m,3);
+    fprintf(fl_ID,'%4s%7d%3s                %8.3f%8.3f%8.3f%6.2f%6.2f\n',... %%%16 spaces
+                'ATOM',m,'  H',x,y,z,1.0,0.05);
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The axis’ origin point is set to (-10, -10, -10) so that it won’t overlap with the unit cell origin. Each axis has 50 points.&lt;/p&gt;
+
+&lt;h2 id=&quot;step-2-edit-the-xyz_movepdb-file-in-pymol&quot;&gt;Step 2: Edit the xyz_move.pdb file in PyMol&lt;/h2&gt;
+
+&lt;p&gt;Open the xyz_move.pdb file in PyMol(fig 2):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20210805_blog_pymol/show_xyz.png&quot; alt=&quot;name&quot; /&gt;
+fig 2: Show xyz_move.pdb in PyMol&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Select xyz axis&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Type following command one by one in the command input area:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;select a, id 1-50 # x-axis
+
+select b, id 51-100 # y-axis
+
+select c, id 101-150 #z-axis
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;*Learn PyMol command at &lt;a href=&quot;https://pymolwiki.org/index.php/Selection_Algebra&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Now it looks like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20210805_blog_pymol/select_abc.png&quot; alt=&quot;name&quot; /&gt;
+fig 3: Select xyz axis in PyMol&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Color xyz axis&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Look at the red block in fig 4, for the selected&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;a, click C, then choose red -&amp;gt; red&lt;/li&gt;
+  &lt;li&gt;b, click C, then choose green -&amp;gt; greem&lt;/li&gt;
+  &lt;li&gt;c, click C, then choose blue -&amp;gt; blue&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20210805_blog_pymol/color_abc1.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20210805_blog_pymol/a_red.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;fig 4: Color xyz axis&lt;/p&gt;
+
+&lt;p&gt;Now xyz axis has been colored with red, green, blue respectively.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Label xyz&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Right click the last atom at x-axis, menu -&amp;gt; edit label (upper figure in fig 5). In the middle figure, at right lower corner, choose label size: 36,
+at left upper corner, input capital x, enter.&lt;/p&gt;
+
+&lt;p&gt;Same for the y, z axis.&lt;/p&gt;
+
+&lt;p&gt;The result is in the lower figure.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20210805_blog_pymol/label_1.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20210805_blog_pymol/label_2.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20210805_blog_pymol/label_3.png&quot; alt=&quot;name&quot; /&gt;
+fig 5: Label xyz axis&lt;/p&gt;
+
+&lt;p&gt;Click File -&amp;gt; Save Session, named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xyz_move_colored.pse&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;step-3-show-xyz-axis-in-pymol&quot;&gt;Step 3: Show xyz-axis in PyMol&lt;/h2&gt;
+
+&lt;p&gt;Open the saved session, choose “Merge with current session”, now you will see fig 6.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20210805_blog_pymol/show_session.png&quot; alt=&quot;name&quot; /&gt;
+fig 6: Show xyz axis in PyMol&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="blog" /><category term="PyMol" /><category term="PDB" /><summary type="html">Summary: When show protein unit cell in PyMol, I want to show xyz axis, but PyMol doesn’t have this option. Here is a solution.</summary></entry><entry><title type="html">Web Map with Folium</title><link href="http://localhost:4000/Web_Map_with_Folium/" rel="alternate" type="text/html" title="Web Map with Folium" /><published>2021-07-10T00:00:00-04:00</published><updated>2021-07-10T00:00:00-04:00</updated><id>http://localhost:4000/Web_Map_with_Folium</id><content type="html" xml:base="http://localhost:4000/Web_Map_with_Folium/">&lt;p&gt;Summary: Build a web map with &lt;a href=&quot;https://github.com/python-visualization/folium&quot;&gt;Folium&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Check this blog on &lt;a href=&quot;https://github.com/ycheng22/Build_10_Real_World_Applicatoins/blob/main/App2_Web_Map_with_Volcanoes_Population/Web_Map.ipynb&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
 
@@ -1802,121 +1916,7 @@ git push heroku master
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;&lt;img src=&quot;/images/20210710_web_map_Folium/map42.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Now there are two layers: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Volcanoes&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Population&lt;/code&gt;.&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="Web Map" /><category term="Folium" /><category term="Python" /><summary type="html">Summary: Build a web map with Folium.</summary></entry><entry><title type="html">Create xyz-axis for PyMol</title><link href="http://localhost:4000/blog/create_xyz_for_PyMol/" rel="alternate" type="text/html" title="Create xyz-axis for PyMol" /><published>2021-08-05T00:00:00-04:00</published><updated>2021-08-05T00:00:00-04:00</updated><id>http://localhost:4000/blog/create_xyz_for_PyMol</id><content type="html" xml:base="http://localhost:4000/blog/create_xyz_for_PyMol/">&lt;p&gt;Summary: When show protein unit cell in PyMol, I want to show xyz axis, but PyMol doesn’t have this option. Here is a solution.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Contents:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#step-1-create-xyz-axis-file&quot;&gt;Step 1: Create xyz axis file&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#step-2-edit-the-xyz_movepdb-file-in-pymol&quot;&gt;Step 2: Edit the xyz_move.pdb file in PyMol&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#step-3-show-xyz-axis-in-pymol&quot;&gt;Step 3: Show xyz-axis in PyMol&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Check this blog on &lt;a href=&quot;https://github.com/ycheng22/ycheng22.github.io/blob/master/_posts/2021-08-05-create_xyz_for_PyMol.md&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;*The code and file are available &lt;a href=&quot;https://github.com/ycheng22/Show-xyz-axis-for-PyMol&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/20210805_blog_pymol/preview.png&quot; alt=&quot;name&quot; /&gt;
-fig 1: Preview of protein unit cell&lt;/p&gt;
-
-&lt;!-- &lt;figure&gt;
-  &lt;img src=&quot;/assets/images/20210805_blog_pymol/preview.png&quot; alt=&quot;this is a placeholder image&quot;&gt;
-  &lt;figcaption&gt;fig 1: Preview of protein unit cell&lt;/figcaption&gt;
-&lt;/figure&gt; --&gt;
-
-&lt;h2 id=&quot;step-1-create-xyz-axis-file&quot;&gt;Step 1: Create xyz axis file&lt;/h2&gt;
-
-&lt;p&gt;The following MATLAB code is used to create xyz axis.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-MATLAB&quot;&gt;%set origin point to (-10,-10,-10)
-x=1:50;
-a_axis = zeros(length(x),3);
-a_axis(:,1) = x';
-b_axis = zeros(length(x),3);
-b_axis(:,2) = x';
-c_axis = zeros(length(x),3);
-c_axis(:,3) = x';
-abc_axis=[a_axis; b_axis; c_axis];
-abc_axis=abc_axis-10;
-
-fl_ID_name=&quot;xyz_move.pdb&quot;;
-fl_ID=fopen(fl_ID_name,'w');
-for m=1:length(abc_axis)
-    x=abc_axis(m,1);
-    y=abc_axis(m,2);
-    z=abc_axis(m,3);
-    fprintf(fl_ID,'%4s%7d%3s                %8.3f%8.3f%8.3f%6.2f%6.2f\n',... %%%16 spaces
-                'ATOM',m,'  H',x,y,z,1.0,0.05);
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The axis’ origin point is set to (-10, -10, -10) so that it won’t overlap with the unit cell origin. Each axis has 50 points.&lt;/p&gt;
-
-&lt;h2 id=&quot;step-2-edit-the-xyz_movepdb-file-in-pymol&quot;&gt;Step 2: Edit the xyz_move.pdb file in PyMol&lt;/h2&gt;
-
-&lt;p&gt;Open the xyz_move.pdb file in PyMol(fig 2):&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/20210805_blog_pymol/show_xyz.png&quot; alt=&quot;name&quot; /&gt;
-fig 2: Show xyz_move.pdb in PyMol&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Select xyz axis&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Type following command one by one in the command input area:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;select a, id 1-50 # x-axis
-
-select b, id 51-100 # y-axis
-
-select c, id 101-150 #z-axis
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;*Learn PyMol command at &lt;a href=&quot;https://pymolwiki.org/index.php/Selection_Algebra&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Now it looks like this:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/20210805_blog_pymol/select_abc.png&quot; alt=&quot;name&quot; /&gt;
-fig 3: Select xyz axis in PyMol&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Color xyz axis&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Look at the red block in fig 4, for the selected&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;a, click C, then choose red -&amp;gt; red&lt;/li&gt;
-  &lt;li&gt;b, click C, then choose green -&amp;gt; greem&lt;/li&gt;
-  &lt;li&gt;c, click C, then choose blue -&amp;gt; blue&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/20210805_blog_pymol/color_abc1.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/20210805_blog_pymol/a_red.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;fig 4: Color xyz axis&lt;/p&gt;
-
-&lt;p&gt;Now xyz axis has been colored with red, green, blue respectively.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Label xyz&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Right click the last atom at x-axis, menu -&amp;gt; edit label (upper figure in fig 5). In the middle figure, at right lower corner, choose label size: 36,
-at left upper corner, input capital x, enter.&lt;/p&gt;
-
-&lt;p&gt;Same for the y, z axis.&lt;/p&gt;
-
-&lt;p&gt;The result is in the lower figure.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/20210805_blog_pymol/label_1.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/20210805_blog_pymol/label_2.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/20210805_blog_pymol/label_3.png&quot; alt=&quot;name&quot; /&gt;
-fig 5: Label xyz axis&lt;/p&gt;
-
-&lt;p&gt;Click File -&amp;gt; Save Session, named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xyz_move_colored.pse&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;step-3-show-xyz-axis-in-pymol&quot;&gt;Step 3: Show xyz-axis in PyMol&lt;/h2&gt;
-
-&lt;p&gt;Open the saved session, choose “Merge with current session”, now you will see fig 6.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/20210805_blog_pymol/show_session.png&quot; alt=&quot;name&quot; /&gt;
-fig 6: Show xyz axis in PyMol&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="blog" /><category term="PyMol" /><category term="PDB" /><summary type="html">Summary: When show protein unit cell in PyMol, I want to show xyz axis, but PyMol doesn’t have this option. Here is a solution.</summary></entry><entry><title type="html">Story of Texas Outage in Feb 2021</title><link href="http://localhost:4000/blog/Story_of_Texas_Outage_in_Feb2021/" rel="alternate" type="text/html" title="Story of Texas Outage in Feb 2021" /><published>2021-04-10T00:00:00-04:00</published><updated>2021-04-10T00:00:00-04:00</updated><id>http://localhost:4000/blog/Story_of_Texas_Outage_in_Feb2021</id><content type="html" xml:base="http://localhost:4000/blog/Story_of_Texas_Outage_in_Feb2021/">&lt;p&gt;Tableau is popular visualization software. I collect Texas outage data and visualize it in Tableau.&lt;/p&gt;
+&lt;p&gt;Now there are two layers: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Volcanoes&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Population&lt;/code&gt;.&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="Web Map" /><category term="Folium" /><category term="Python" /><summary type="html">Summary: Build a web map with Folium.</summary></entry><entry><title type="html">Story of Texas Outage in Feb 2021</title><link href="http://localhost:4000/blog/Story_of_Texas_Outage_in_Feb2021/" rel="alternate" type="text/html" title="Story of Texas Outage in Feb 2021" /><published>2021-04-10T00:00:00-04:00</published><updated>2021-04-10T00:00:00-04:00</updated><id>http://localhost:4000/blog/Story_of_Texas_Outage_in_Feb2021</id><content type="html" xml:base="http://localhost:4000/blog/Story_of_Texas_Outage_in_Feb2021/">&lt;p&gt;Tableau is popular visualization software. I collect Texas outage data and visualize it in Tableau.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Code is &lt;a href=&quot;https://github.com/ycheng22/Visualize_Texas_Outage&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
