@@ -1,6 +1,6 @@
 ---
 title: 'Switch My Web Theme to Minimal Mistake'
-date: 2021-10-04
+date: 2021-10-05
 header:
 #   image: "/images/foo-bar-identity.jpg"
 #   caption: "A beautiful photo"
