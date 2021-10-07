@@ -22,7 +22,7 @@ In this blog, I record the process about setting up my website on Github.
 
 * Tool: Github Desktop, VS Code.
 
-Check this blog on [github](https://github.com/ycheng22/ycheng22.github.io/blob/main/_posts/2021-07-10-set_up_web_on_Github.md).
+Check this blog on [github](https://github.com/ycheng22/ycheng22.github.io/blob/main/_posts/2020-05-01-set_up_web_on_Github.md).
 
 **Contents:**
 - [1. Usefull resources](#1-usefull-resources)

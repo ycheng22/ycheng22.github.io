@@ -21,7 +21,7 @@ Sumarry: Intel Parallel Studio is a powerful tool in many computational scenario
 
 In this blog, I will introduction how to install it and run Fortran code as an example. 
 
-Check this blog on [github](https://github.com/ycheng22/ycheng22.github.io/blob/main/_posts/2021-07-05-Install_Intel_Parallel_Studio_on_Linux_Windows.md).
+Check this blog on [github](https://github.com/ycheng22/ycheng22.github.io/blob/main/_posts/2020-05-05-Install_Intel_Parallel_Studio_on_Linux_Windows.md).
 
 **Contents:**
 - [1. Install it on Linux](#1-install-it-on-linux)

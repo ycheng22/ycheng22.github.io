@@ -1,10 +1,10 @@
 ---
 title: 'SQL on HackerRank'
-date: 2021-07-15
+date: 2020-07-15
 header:
 #   image: "/images/foo-bar-identity.jpg"
 #   caption: "A beautiful photo"
-  # teaser: "/images/20210805_blog_pymol/show_session.png"
+  # teaser: "/images/show_session.png"
 categories:
   - blog
 tags:
@@ -19,7 +19,7 @@ classes: wide
 
 Summary: solving the SQL problems on HackerRank.
 
-Check this blog on [github](https://github.com/ycheng22/ycheng22.github.io/blob/master/_posts/2021-07-15-SQL_on_HackerRank.md)
+Check this blog on [github](https://github.com/ycheng22/ycheng22.github.io/blob/main/_posts/2020-07-15-SQL_on_HackerRank.md)
 
 - [Aggregation](#aggregation)
   - [Revising Aggregations - The Count Function](#revising-aggregations---the-count-function)

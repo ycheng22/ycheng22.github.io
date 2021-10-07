@@ -17,7 +17,7 @@ classes: wide
 
 Summary: solving the SQL problems on LeetCode.
 
-Check this blog on [github](https://github.com/ycheng22/ycheng22.github.io/blob/master/_posts/2021-07-20-SQL_on_LeetCode.md)
+Check this blog on [github](https://github.com/ycheng22/ycheng22.github.io/blob/main/_posts/2020-08-20-SQL_on_LeetCode.md)
 
 - [175. Combine Two Tables](#175combine-two-tables)
 - [176. Second Highest Salary](#176second-highest-salary)

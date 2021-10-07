@@ -17,6 +17,12 @@ var store = [{
         "url": "/blog/Install_Intel_Parallel_Studio_on_Linux_Windows/",
         "teaser": null
       },{
+        "title": "SQL on HackerRank",
+        "excerpt":"Summary: solving the SQL problems on HackerRank. Check this blog on github Aggregation Revising Aggregations - The Count Function Revising Aggregations - Averages Average Population Japan Population Population Density Difference The Blunder Top Earners Weather Observation Station 2 Weather Observation Station 13 Weather Observation Station 14 Weather Observation Station 15...","categories": ["blog"],
+        "tags": ["SQL","HackerRank","MySQL"],
+        "url": "/blog/SQL_on_HackerRank/",
+        "teaser": null
+      },{
         "title": "SQL on LeetCode",
         "excerpt":"Summary: solving the SQL problems on LeetCode. Check this blog on github 175. Combine Two Tables 176. Second Highest Salary 177. Nth Highest Salary 178. Rank Scores 180. Consecutive Numbers 181. Employees Earning More Than Their Managers 182. Duplicate Emails 183. Customers Who Never Order 184. Department Highest Salary 185. Department Top Three Salaries 196. Delete Duplicate Emails 197. Rising Temperature 262. Trips...","categories": [],
         "tags": ["SQL","LeetCode","MySQL"],
@@ -28,12 +34,6 @@ var store = [{
         "tags": ["Tableau","Texas","Outage","Visualization"],
         "url": "/blog/Story_of_Texas_Outage_in_Feb2021/",
         "teaser": "/images/texas_outage/texas_outage.png"
-      },{
-        "title": "SQL on HackerRank",
-        "excerpt":"Summary: solving the SQL problems on HackerRank. Check this blog on github Aggregation Revising Aggregations - The Count Function Revising Aggregations - Averages Average Population Japan Population Population Density Difference The Blunder Top Earners Weather Observation Station 2 Weather Observation Station 13 Weather Observation Station 14 Weather Observation Station 15...","categories": ["blog"],
-        "tags": ["SQL","HackerRank","MySQL"],
-        "url": "/blog/SQL_on_HackerRank/",
-        "teaser": null
       },{
         "title": "Create xyz-axis for PyMol",
         "excerpt":"Summary: When show protein unit cell in PyMol, I want to show xyz axis, but PyMol doesn’t have this option. Here is a solution. Contents: Step 1: Create xyz axis file Step 2: Edit the xyz_move.pdb file in PyMol Step 3: Show xyz-axis in PyMol Check this blog on github...","categories": ["blog"],
@@ -54,7 +54,7 @@ var store = [{
         "teaser": "/images/heroku_blogs/heroku_image.png"
       },{
         "title": "Build Data Collector Web App (Flask, PostgreSQL)",
-        "excerpt":"Summary: Build Data Collector Web App with Flask and PostgreSQL, deploy the app to pythonanywhere.   Check this blog on github   App web: http://ycheng.pythonanywhere.com/   Contents:     1. Introduction   1. Introduction   Preview:     ","categories": [],
+        "excerpt":"Summary: Build Data Collector Web App with Flask and PostgreSQL, deploy the app to pythonanywhere.   Check this blog on github   App web: http://ycheng.pythonanywhere.com/   Contents:     1. Introduction   1. Introduction   Preview:      ","categories": [],
         "tags": ["Web","Flask","PostgreSQL","Database","Python"],
         "url": "/Build_Data_Collector_Web_App/",
         "teaser": "/images/20210912_web_app_pythonanywhere/pythonanywhere_image.png"

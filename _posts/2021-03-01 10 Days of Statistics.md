@@ -1,6 +1,6 @@
 ---
 title: '10 Days of Statistics'
-date: 2021-07-30
+date: 2021-03-01
 header:
 #   image: "/images/foo-bar-identity.jpg"
 #   caption: "A beautiful photo"
