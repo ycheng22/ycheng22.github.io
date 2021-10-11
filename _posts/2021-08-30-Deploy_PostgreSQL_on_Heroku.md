@@ -49,9 +49,15 @@ Go to `Account settings → Applications` . Under the `Authorizations` section, 
 
 on linux: `export HEROKU_API_KEY=<your_token>`
 
-on windows: `echo HEROKU_API_KEY=<your_token>`
+on windows: `setx HEROKU_API_KEY=<your_token>`
 
-*Note:* by the above method, the token variable only valid when the terminal is alive.
+- check it in command window: `echo %HEROKU_API_KEY%`
+
+- check it in python: 
+  ```python
+  import os
+  os.environ["HEROKU_API_KEY"]
+  ```
 
 ..To be continue
 
