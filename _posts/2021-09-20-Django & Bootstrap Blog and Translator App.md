@@ -34,6 +34,8 @@ Check this blog on [github](#)
   - [5.4 URL Patterns](#54-url-patterns)
 - [6. Creating Admin Interface Views](#6-creating-admin-interface-views)
 - [7. Creating a Homepage](#7-creating-a-homepage)
+- [8. Listing Blog Posts on the Homepage](#8-listing-blog-posts-on-the-homepage)
+- [9. Adding Bootstrap to Django](#9-adding-bootstrap-to-django)
 
 
 ## 1. Introduction
@@ -309,4 +311,66 @@ class BlogView(generic.DetailView):
 class HomeView(generic.TemplateView):
     template_name = 'index.html'
 ```
+
+## 8. Listing Blog Posts on the Homepage
+
+`index.html`
+
+![name](/images/20210920_django_blog_app/index_html.png)
+
+`urls.py`
+
+```python
+from . import views
+from django.urls import path
+
+urlpatterns = [
+    path('<slug:slug>', views.BlogView.as_view(), name='blog_view'),
+    path('about/', views.AboutView.as_view(), name='home_view'),
+    path('', views.PostList.as_view(), name='home')
+]
+```
+
+`views.py`
+
+```python
+from django.shortcuts import render
+from .models import Post
+from django.views import generic
+
+# Create your views here.
+
+class BlogView(generic.DetailView):
+    model = Post
+    template_name = 'blog.html'
+
+#TemplateView used when you only need to render a 
+#template without getting data from model
+class AboutView(generic.TemplateView):
+    template_name = 'about.html'
+
+#order_by('-date_created'), - means reversed order
+class PostList(generic.ListView):
+    queryset = Post.objects.filter(status=1).order_by('-date_created')
+    template_name = 'index.html'    
+```
+
+![name](/images/20210920_django_blog_app/list_post.jpg)
+
+## 9. Adding Bootstrap to Django
+
+Refer to [Bootstrap introduction](https://getbootstrap.com/docs/5.1/getting-started/introduction/).
+
+Add css and JavaScript library to `index.html`.
+
+`blog/index.html`:
+
+![name](/images/20210920_django_blog_app/index_html_bootstrap.png)
+
+Now the homepage looks like this:
+
+![name](/images/20210920_django_blog_app/list_post_bootstrap.png)
+
+
+
 

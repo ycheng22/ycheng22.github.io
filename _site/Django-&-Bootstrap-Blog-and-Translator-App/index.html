@@ -338,6 +338,8 @@
   </li>
   <li><a href="#6-creating-admin-interface-views">6. Creating Admin Interface Views</a></li>
   <li><a href="#7-creating-a-homepage">7. Creating a Homepage</a></li>
+  <li><a href="#8-listing-blog-posts-on-the-homepage">8. Listing Blog Posts on the Homepage</a></li>
+  <li><a href="#9-adding-bootstrap-to-django">9. Adding Bootstrap to Django</a></li>
 </ul>
 
 <h2 id="1-introduction">1. Introduction</h2>
@@ -592,6 +594,63 @@ python manage.py migrate
 </span><span class="k">class</span> <span class="nc">HomeView</span><span class="p">(</span><span class="n">generic</span><span class="p">.</span><span class="n">TemplateView</span><span class="p">):</span>
     <span class="n">template_name</span> <span class="o">=</span> <span class="s">'index.html'</span>
 </code></pre></div></div>
+
+<h2 id="8-listing-blog-posts-on-the-homepage">8. Listing Blog Posts on the Homepage</h2>
+
+<p><code class="language-plaintext highlighter-rouge">index.html</code></p>
+
+<p><img src="/images/20210920_django_blog_app/index_html.png" alt="name" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">urls.py</code></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'&lt;slug:slug&gt;'</span><span class="p">,</span> <span class="n">views</span><span class="p">.</span><span class="n">BlogView</span><span class="p">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s">'blog_view'</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'about/'</span><span class="p">,</span> <span class="n">views</span><span class="p">.</span><span class="n">AboutView</span><span class="p">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s">'home_view'</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">''</span><span class="p">,</span> <span class="n">views</span><span class="p">.</span><span class="n">PostList</span><span class="p">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s">'home'</span><span class="p">)</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">views.py</code></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Post</span>
+<span class="kn">from</span> <span class="nn">django.views</span> <span class="kn">import</span> <span class="n">generic</span>
+
+<span class="c1"># Create your views here.
+</span>
+<span class="k">class</span> <span class="nc">BlogView</span><span class="p">(</span><span class="n">generic</span><span class="p">.</span><span class="n">DetailView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Post</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">'blog.html'</span>
+
+<span class="c1">#TemplateView used when you only need to render a 
+#template without getting data from model
+</span><span class="k">class</span> <span class="nc">AboutView</span><span class="p">(</span><span class="n">generic</span><span class="p">.</span><span class="n">TemplateView</span><span class="p">):</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">'about.html'</span>
+
+<span class="c1">#order_by('-date_created'), - means reversed order
+</span><span class="k">class</span> <span class="nc">PostList</span><span class="p">(</span><span class="n">generic</span><span class="p">.</span><span class="n">ListView</span><span class="p">):</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Post</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">1</span><span class="p">).</span><span class="n">order_by</span><span class="p">(</span><span class="s">'-date_created'</span><span class="p">)</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">'index.html'</span>    
+</code></pre></div></div>
+
+<p><img src="/images/20210920_django_blog_app/list_post.jpg" alt="name" /></p>
+
+<h2 id="9-adding-bootstrap-to-django">9. Adding Bootstrap to Django</h2>
+
+<p>Refer to <a href="https://getbootstrap.com/docs/5.1/getting-started/introduction/">Bootstrap introduction</a>.</p>
+
+<p>Add css and JavaScript library to <code class="language-plaintext highlighter-rouge">index.html</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">blog/index.html</code>:</p>
+
+<p><img src="/images/20210920_django_blog_app/index_html_bootstrap.png" alt="name" /></p>
+
+<p>Now the homepage looks like this:</p>
+
+<p><img src="/images/20210920_django_blog_app/list_post_bootstrap.png" alt="name" /></p>
 
 
         
