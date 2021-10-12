@@ -18,7 +18,7 @@ classes: wide
 
 Summary: Build Django and Bootstrap Blog and Translator App.
 
-Check this blog on [github](#)
+Check this blog on [github](https://ycheng22.github.io/Django-&-Bootstrap-Blog-and-Translator-App/)
 
 **Contents:**
 - [1. Introduction](#1-introduction)
@@ -42,6 +42,8 @@ Check this blog on [github](#)
   - [11.2 Creating an HTML Form in Django](#112-creating-an-html-form-in-django)
   - [11.3 Configuring the URLs](#113-configuring-the-urls)
   - [11.4 Creating a Form](#114-creating-a-form)
+  - [11.5 Getting and Processing User Input Through a Form](#115-getting-and-processing-user-input-through-a-form)
+  - [11.6 Defining translator and add it to navbar](#116-defining-translator-and-add-it-to-navbar)
 
 
 ## 1. Introduction
@@ -385,7 +387,7 @@ There are many same elements show up in each webpage, template inheritance can h
 
 ![name](/images/20210920_django_blog_app/base_html.png)
 
-Note: `'home'` in above code `href="{% url 'home' %}"` is from `name` in `urls.py`.
+Note: `'home'` in above code `href="  "` is from `name` in `urls.py`.
 
 `blog.html`
 
@@ -453,3 +455,41 @@ Go to http://127.0.0.1:8000/translate/
 
 ![name](/images/20210920_django_blog_app/tran_view.png)
 
+### 11.5 Getting and Processing User Input Through a Form
+
+Revise `tranlate/views.py`
+
+```python
+from django.shortcuts import render
+from . import translate
+# Create your views here.
+
+def translator_view(request):
+    if request.method == 'POST':
+        original_text = request.POST['my_textarea']
+        output = translate.translate(original_text)
+        return render(request, 'translator.html', 
+            {'output_text':output, 'original_text':original_text})
+    else:
+        return render(request, 'translator.html')
+```
+
+### 11.6 Defining translator and add it to navbar
+
+Add `translate/translate.py`
+
+```python
+from googletrans import Translator
+#pip install googletran==4.0.0-rc1
+
+def translate(text):
+    translator = Translator()
+    translation = translator.translate(text=text, dest='de')
+    return translation.text
+```
+
+Add translator on navbar in `base.html`
+
+![name](/images/20210920_django_blog_app/base_tran.png)
+
+![name](/images/20210920_django_blog_app/trans_view.png)
