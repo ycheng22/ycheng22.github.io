@@ -28,6 +28,12 @@ Check this blog on [github](#)
 - [3. Creating a Superuser for the Project](#3-creating-a-superuser-for-the-project)
 - [4. Setting up an Empty Django Blog App](#4-setting-up-an-empty-django-blog-app)
 - [5. Setting up an Empty Django Blog App](#5-setting-up-an-empty-django-blog-app)
+  - [5.1 Revise `./blog/models.py`](#51-revise-blogmodelspy)
+  - [5.2 HTML Templates](#52-html-templates)
+  - [5.3  Django Views](#53--django-views)
+  - [5.4 URL Patterns](#54-url-patterns)
+- [6. Creating Admin Interface Views](#6-creating-admin-interface-views)
+- [7. Creating a Homepage](#7-creating-a-homepage)
 
 
 ## 1. Introduction
@@ -127,7 +133,7 @@ In the settings `./mysite/settings.py`, add `blog`
 
 ## 5. Setting up an Empty Django Blog App
 
-Revise `./blog/models.py`
+### 5.1 Revise `./blog/models.py`
 
 ```python
 from django.db import models
@@ -162,4 +168,145 @@ A table `blog_post` will be added to database `db.sqlite3`.
 ![name](/images/20210920_django_blog_app/db_table_create.png)
 
 
+### 5.2 HTML Templates
+
+In current folder, create new folder `templates`, create new file `blog.html` under the created folder,
+
+`blog.html`
+
+![name](/images/20210920_django_blog_app/blog_html1.png)
+
+In `mysite/settings.py`, add
+
+```python
+import os
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+```
+
+### 5.3  Django Views
+
+Revise `blog/views.py`
+
+```python
+from django.shortcuts import render
+from .models import Post
+
+# Create your views here.
+
+class BlogView:
+    model = Post
+    template_name = 'blog.html'
+```
+
+### 5.4 URL Patterns
+
+Post a record into the database:
+
+![name](/images/20210920_django_blog_app/db_record1.png)
+
+Create `urls.py` under `blog`
+
+`urls.py`
+
+```python
+from . import views
+from django.urls import path
+
+urlpatterns = [
+    path('<slug:slug>', views.BlogView.as_view(), name='blog_view')
+]
+```
+`path('<slug:slug>')` will search slug in each row in the database
+
+Revise `mysite/urls.py`
+
+![name](/images/20210920_django_blog_app/mysite_urls.png)
+
+Revise `mysite/settings.py`
+
+![name](/images/20210920_django_blog_app/mysite_settings_temp_dir.png)
+
+## 6. Creating Admin Interface Views
+
+Revise `blog/admin.py`
+
+```python
+from django.contrib import admin
+from .models import Post
+
+# Register your models here.
+admin.site.register(Post)
+```
+Go to http://127.0.0.1:8000/admin/
+
+![name](/images/20210920_django_blog_app/admin_post.png)
+
+A new function `Posts` shows up.
+
+Click `Add` at the right side of `Posts`, input above information, save.
+
+Go to http://127.0.0.1:8000/cats
+
+![name](/images/20210920_django_blog_app/blog_cats.jpg)
+
+
+Revise `blog/admin.py`
+
+```python
+from django.contrib import admin
+from .models import Post
+
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('title', 'date_created', 'author')
+
+# Register your models here.
+admin.site.register(Post, PostAdmin)
+```
+Now the post list will show blog` title, data_created, author`.
+
+![name](/images/20210920_django_blog_app/blog_show.png)
+
+## 7. Creating a Homepage
+
+Create `index.html` under `templates`
+
+```html
+<!DOCTYPE html>
+<html>
+    <body>
+        This is the homepage!
+    </body>
+</html>
+```
+
+Revise `blog/urls.py`
+
+```python
+from . import views
+from django.urls import path
+
+urlpatterns = [
+    path('<slug:slug>', views.BlogView.as_view(), name='blog_view'),
+    path('', views.HomeView.as_view(), name='home_view')
+]
+```
+
+Revise `blog/views.py`
+
+```python
+from django.shortcuts import render
+from .models import Post
+from django.views import generic
+
+# Create your views here.
+
+class BlogView(generic.DetailView):
+    model = Post
+    template_name = 'blog.html'
+
+#TemplateView used when you only need to render a 
+#template without getting data from model
+class HomeView(generic.TemplateView):
+    template_name = 'index.html'
+```
 

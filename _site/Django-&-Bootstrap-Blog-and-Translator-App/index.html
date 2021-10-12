@@ -301,7 +301,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          3 minute read
         
       </span>
     
@@ -328,7 +328,16 @@
   </li>
   <li><a href="#3-creating-a-superuser-for-the-project">3. Creating a Superuser for the Project</a></li>
   <li><a href="#4-setting-up-an-empty-django-blog-app">4. Setting up an Empty Django Blog App</a></li>
-  <li><a href="#5-setting-up-an-empty-django-blog-app">5. Setting up an Empty Django Blog App</a></li>
+  <li><a href="#5-setting-up-an-empty-django-blog-app">5. Setting up an Empty Django Blog App</a>
+    <ul>
+      <li><a href="#51-revise-blogmodelspy">5.1 Revise <code class="language-plaintext highlighter-rouge">./blog/models.py</code></a></li>
+      <li><a href="#52-html-templates">5.2 HTML Templates</a></li>
+      <li><a href="#53--django-views">5.3  Django Views</a></li>
+      <li><a href="#54-url-patterns">5.4 URL Patterns</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-creating-admin-interface-views">6. Creating Admin Interface Views</a></li>
+  <li><a href="#7-creating-a-homepage">7. Creating a Homepage</a></li>
 </ul>
 
 <h2 id="1-introduction">1. Introduction</h2>
@@ -419,7 +428,7 @@
 
 <h2 id="5-setting-up-an-empty-django-blog-app">5. Setting up an Empty Django Blog App</h2>
 
-<p>Revise <code class="language-plaintext highlighter-rouge">./blog/models.py</code></p>
+<h3 id="51-revise-blogmodelspy">5.1 Revise <code class="language-plaintext highlighter-rouge">./blog/models.py</code></h3>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
 <span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
@@ -450,6 +459,139 @@ python manage.py migrate
 <p>A table <code class="language-plaintext highlighter-rouge">blog_post</code> will be added to database <code class="language-plaintext highlighter-rouge">db.sqlite3</code>.</p>
 
 <p><img src="/images/20210920_django_blog_app/db_table_create.png" alt="name" /></p>
+
+<h3 id="52-html-templates">5.2 HTML Templates</h3>
+
+<p>In current folder, create new folder <code class="language-plaintext highlighter-rouge">templates</code>, create new file <code class="language-plaintext highlighter-rouge">blog.html</code> under the created folder,</p>
+
+<p><code class="language-plaintext highlighter-rouge">blog.html</code></p>
+
+<p><img src="/images/20210920_django_blog_app/blog_html1.png" alt="name" /></p>
+
+<p>In <code class="language-plaintext highlighter-rouge">mysite/settings.py</code>, add</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">TEMPLATES_DIR</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span><span class="err"> </span><span class="s">'templates'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="53--django-views">5.3  Django Views</h3>
+
+<p>Revise <code class="language-plaintext highlighter-rouge">blog/views.py</code></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Post</span>
+
+<span class="c1"># Create your views here.
+</span>
+<span class="k">class</span> <span class="nc">BlogView</span><span class="p">:</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Post</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">'blog.html'</span>
+</code></pre></div></div>
+
+<h3 id="54-url-patterns">5.4 URL Patterns</h3>
+
+<p>Post a record into the database:</p>
+
+<p><img src="/images/20210920_django_blog_app/db_record1.png" alt="name" /></p>
+
+<p>Create <code class="language-plaintext highlighter-rouge">urls.py</code> under <code class="language-plaintext highlighter-rouge">blog</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">urls.py</code></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'&lt;slug:slug&gt;'</span><span class="p">,</span> <span class="n">views</span><span class="p">.</span><span class="n">BlogView</span><span class="p">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s">'blog_view'</span><span class="p">)</span>
+<span class="p">]</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">path('&lt;slug:slug&gt;')</code> will search slug in each row in the database</p>
+
+<p>Revise <code class="language-plaintext highlighter-rouge">mysite/urls.py</code></p>
+
+<p><img src="/images/20210920_django_blog_app/mysite_urls.png" alt="name" /></p>
+
+<p>Revise <code class="language-plaintext highlighter-rouge">mysite/settings.py</code></p>
+
+<p><img src="/images/20210920_django_blog_app/mysite_settings_temp_dir.png" alt="name" /></p>
+
+<h2 id="6-creating-admin-interface-views">6. Creating Admin Interface Views</h2>
+
+<p>Revise <code class="language-plaintext highlighter-rouge">blog/admin.py</code></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Post</span>
+
+<span class="c1"># Register your models here.
+</span><span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="n">Post</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Go to http://127.0.0.1:8000/admin/</p>
+
+<p><img src="/images/20210920_django_blog_app/admin_post.png" alt="name" /></p>
+
+<p>A new function <code class="language-plaintext highlighter-rouge">Posts</code> shows up.</p>
+
+<p>Click <code class="language-plaintext highlighter-rouge">Add</code> at the right side of <code class="language-plaintext highlighter-rouge">Posts</code>, input above information, save.</p>
+
+<p>Go to http://127.0.0.1:8000/cats</p>
+
+<p><img src="/images/20210920_django_blog_app/blog_cats.jpg" alt="name" /></p>
+
+<p>Revise <code class="language-plaintext highlighter-rouge">blog/admin.py</code></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Post</span>
+
+<span class="k">class</span> <span class="nc">PostAdmin</span><span class="p">(</span><span class="n">admin</span><span class="p">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s">'title'</span><span class="p">,</span> <span class="s">'date_created'</span><span class="p">,</span> <span class="s">'author'</span><span class="p">)</span>
+
+<span class="c1"># Register your models here.
+</span><span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="n">Post</span><span class="p">,</span> <span class="n">PostAdmin</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Now the post list will show blog<code class="language-plaintext highlighter-rouge"> title, data_created, author</code>.</p>
+
+<p><img src="/images/20210920_django_blog_app/blog_show.png" alt="name" /></p>
+
+<h2 id="7-creating-a-homepage">7. Creating a Homepage</h2>
+
+<p>Create <code class="language-plaintext highlighter-rouge">index.html</code> under <code class="language-plaintext highlighter-rouge">templates</code></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;</span><span class="err">!</span><span class="na">DOCTYPE</span><span class="err"> </span><span class="na">html</span><span class="nt">&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        This is the homepage!
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>Revise <code class="language-plaintext highlighter-rouge">blog/urls.py</code></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'&lt;slug:slug&gt;'</span><span class="p">,</span> <span class="n">views</span><span class="p">.</span><span class="n">BlogView</span><span class="p">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s">'blog_view'</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">''</span><span class="p">,</span> <span class="n">views</span><span class="p">.</span><span class="n">HomeView</span><span class="p">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s">'home_view'</span><span class="p">)</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<p>Revise <code class="language-plaintext highlighter-rouge">blog/views.py</code></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Post</span>
+<span class="kn">from</span> <span class="nn">django.views</span> <span class="kn">import</span> <span class="n">generic</span>
+
+<span class="c1"># Create your views here.
+</span>
+<span class="k">class</span> <span class="nc">BlogView</span><span class="p">(</span><span class="n">generic</span><span class="p">.</span><span class="n">DetailView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Post</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">'blog.html'</span>
+
+<span class="c1">#TemplateView used when you only need to render a 
+#template without getting data from model
+</span><span class="k">class</span> <span class="nc">HomeView</span><span class="p">(</span><span class="n">generic</span><span class="p">.</span><span class="n">TemplateView</span><span class="p">):</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">'index.html'</span>
+</code></pre></div></div>
 
 
         

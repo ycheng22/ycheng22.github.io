@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-11T23:21:05-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Yunpeng</title><author><name>Yunpeng</name></author><entry><title type="html">Switch My Web Theme to Minimal Mistake</title><link href="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/" rel="alternate" type="text/html" title="Switch My Web Theme to Minimal Mistake" /><published>2021-10-05T00:00:00-04:00</published><updated>2021-10-05T00:00:00-04:00</updated><id>http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake</id><content type="html" xml:base="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/">&lt;p&gt;Summary: switch my web theme to Minimal Mistake&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-12T15:14:46-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Yunpeng</title><author><name>Yunpeng</name></author><entry><title type="html">Switch My Web Theme to Minimal Mistake</title><link href="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/" rel="alternate" type="text/html" title="Switch My Web Theme to Minimal Mistake" /><published>2021-10-05T00:00:00-04:00</published><updated>2021-10-05T00:00:00-04:00</updated><id>http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake</id><content type="html" xml:base="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/">&lt;p&gt;Summary: switch my web theme to Minimal Mistake&lt;/p&gt;
 
 &lt;h2 id=&quot;1-introduction&quot;&gt;1. Introduction&lt;/h2&gt;
 &lt;p&gt;The theme is forked from &lt;a href=&quot;https://github.com/mmistakes/mm-github-pages-starter&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
@@ -1340,7 +1340,16 @@ fig 5: Table of arrival delay statistics by airline&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#3-creating-a-superuser-for-the-project&quot;&gt;3. Creating a Superuser for the Project&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#4-setting-up-an-empty-django-blog-app&quot;&gt;4. Setting up an Empty Django Blog App&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#5-setting-up-an-empty-django-blog-app&quot;&gt;5. Setting up an Empty Django Blog App&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#5-setting-up-an-empty-django-blog-app&quot;&gt;5. Setting up an Empty Django Blog App&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#51-revise-blogmodelspy&quot;&gt;5.1 Revise &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./blog/models.py&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#52-html-templates&quot;&gt;5.2 HTML Templates&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#53--django-views&quot;&gt;5.3  Django Views&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#54-url-patterns&quot;&gt;5.4 URL Patterns&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#6-creating-admin-interface-views&quot;&gt;6. Creating Admin Interface Views&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#7-creating-a-homepage&quot;&gt;7. Creating a Homepage&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;1-introduction&quot;&gt;1. Introduction&lt;/h2&gt;
@@ -1431,7 +1440,7 @@ fig 5: Table of arrival delay statistics by airline&lt;/p&gt;
 
 &lt;h2 id=&quot;5-setting-up-an-empty-django-blog-app&quot;&gt;5. Setting up an Empty Django Blog App&lt;/h2&gt;
 
-&lt;p&gt;Revise &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./blog/models.py&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;51-revise-blogmodelspy&quot;&gt;5.1 Revise &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./blog/models.py&lt;/code&gt;&lt;/h3&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.db&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.contrib.auth.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;
@@ -1461,7 +1470,140 @@ python manage.py migrate
 
 &lt;p&gt;A table &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;blog_post&lt;/code&gt; will be added to database &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;db.sqlite3&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/20210920_django_blog_app/db_table_create.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="Web" /><category term="Django" /><category term="Bootstrap" /><category term="Python" /><summary type="html">Summary: Build Django and Bootstrap Blog and Translator App.</summary></entry><entry><title type="html">Build Data Collector Web App (Flask, PostgreSQL)</title><link href="http://localhost:4000/Build_Data_Collector_Web_App/" rel="alternate" type="text/html" title="Build Data Collector Web App (Flask, PostgreSQL)" /><published>2021-09-12T00:00:00-04:00</published><updated>2021-09-12T00:00:00-04:00</updated><id>http://localhost:4000/Build_Data_Collector_Web_App</id><content type="html" xml:base="http://localhost:4000/Build_Data_Collector_Web_App/">&lt;p&gt;Summary: Build Data Collector Web App with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flask&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PostgreSQL&lt;/code&gt;, deploy the app to &lt;a href=&quot;https://www.pythonanywhere.com/&quot;&gt;pythonanywhere&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/20210920_django_blog_app/db_table_create.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;52-html-templates&quot;&gt;5.2 HTML Templates&lt;/h3&gt;
+
+&lt;p&gt;In current folder, create new folder &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;templates&lt;/code&gt;, create new file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;blog.html&lt;/code&gt; under the created folder,&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;blog.html&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20210920_django_blog_app/blog_html1.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysite/settings.py&lt;/code&gt;, add&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;TEMPLATES_DIR&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BASE_DIR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'templates'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;53--django-views&quot;&gt;5.3  Django Views&lt;/h3&gt;
+
+&lt;p&gt;Revise &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;blog/views.py&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.shortcuts&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Post&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Create your views here.
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BlogView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Post&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;template_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'blog.html'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;54-url-patterns&quot;&gt;5.4 URL Patterns&lt;/h3&gt;
+
+&lt;p&gt;Post a record into the database:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20210920_django_blog_app/db_record1.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Create &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;urls.py&lt;/code&gt; under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;blog&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;urls.py&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.urls&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&amp;lt;slug:slug&amp;gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BlogView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;as_view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'blog_view'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;path('&amp;lt;slug:slug&amp;gt;')&lt;/code&gt; will search slug in each row in the database&lt;/p&gt;
+
+&lt;p&gt;Revise &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysite/urls.py&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20210920_django_blog_app/mysite_urls.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Revise &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysite/settings.py&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20210920_django_blog_app/mysite_settings_temp_dir.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;6-creating-admin-interface-views&quot;&gt;6. Creating Admin Interface Views&lt;/h2&gt;
+
+&lt;p&gt;Revise &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;blog/admin.py&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.contrib&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Post&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Register your models here.
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Go to http://127.0.0.1:8000/admin/&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20210920_django_blog_app/admin_post.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A new function &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Posts&lt;/code&gt; shows up.&lt;/p&gt;
+
+&lt;p&gt;Click &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Add&lt;/code&gt; at the right side of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Posts&lt;/code&gt;, input above information, save.&lt;/p&gt;
+
+&lt;p&gt;Go to http://127.0.0.1:8000/cats&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20210920_django_blog_app/blog_cats.jpg&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Revise &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;blog/admin.py&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.contrib&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Post&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PostAdmin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ModelAdmin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;list_display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'title'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'date_created'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'author'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Register your models here.
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PostAdmin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Now the post list will show blog&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; title, data_created, author&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20210920_django_blog_app/blog_show.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;7-creating-a-homepage&quot;&gt;7. Creating a Homepage&lt;/h2&gt;
+
+&lt;p&gt;Create &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;index.html&lt;/code&gt; under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;templates&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;DOCTYPE&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+        This is the homepage!
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Revise &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;blog/urls.py&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.urls&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&amp;lt;slug:slug&amp;gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BlogView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;as_view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'blog_view'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HomeView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;as_view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'home_view'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Revise &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;blog/views.py&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.shortcuts&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Post&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.views&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;generic&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Create your views here.
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BlogView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;generic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DetailView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Post&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;template_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'blog.html'&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#TemplateView used when you only need to render a 
+#template without getting data from model
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HomeView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;generic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TemplateView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;template_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'index.html'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Yunpeng</name></author><category term="Web" /><category term="Django" /><category term="Bootstrap" /><category term="Python" /><summary type="html">Summary: Build Django and Bootstrap Blog and Translator App.</summary></entry><entry><title type="html">Build Data Collector Web App (Flask, PostgreSQL)</title><link href="http://localhost:4000/Build_Data_Collector_Web_App/" rel="alternate" type="text/html" title="Build Data Collector Web App (Flask, PostgreSQL)" /><published>2021-09-12T00:00:00-04:00</published><updated>2021-09-12T00:00:00-04:00</updated><id>http://localhost:4000/Build_Data_Collector_Web_App</id><content type="html" xml:base="http://localhost:4000/Build_Data_Collector_Web_App/">&lt;p&gt;Summary: Build Data Collector Web App with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flask&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PostgreSQL&lt;/code&gt;, deploy the app to &lt;a href=&quot;https://www.pythonanywhere.com/&quot;&gt;pythonanywhere&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Check this blog on &lt;a href=&quot;https://github.com/ycheng22/ycheng22.github.io/blob/main/_posts/2021-09-12-Build_Data_Collector_Web_App.md&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
 
