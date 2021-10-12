@@ -355,9 +355,21 @@
 
 <p>on linux: <code class="language-plaintext highlighter-rouge">export HEROKU_API_KEY=&lt;your_token&gt;</code></p>
 
-<p>on windows: <code class="language-plaintext highlighter-rouge">echo HEROKU_API_KEY=&lt;your_token&gt;</code></p>
+<p>on windows: <code class="language-plaintext highlighter-rouge">setx HEROKU_API_KEY=&lt;your_token&gt;</code></p>
 
-<p><em>Note:</em> by the above method, the token variable only valid when the terminal is alive.</p>
+<ul>
+  <li>
+    <p>check it in command window: <code class="language-plaintext highlighter-rouge">echo %HEROKU_API_KEY%</code></p>
+  </li>
+  <li>
+    <p>check it in python:</p>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">"HEROKU_API_KEY"</span><span class="p">]</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>..To be continue</p>
 
 
         
@@ -591,12 +603,12 @@
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
       <div class="archive__item-teaser">
-        <img src="/images/20210912_web_app_pythonanywhere/pythonanywhere_image.png" alt="">
+        <img src="/images/20210920_django_blog_app/demo.png" alt="">
       </div>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/Build_Data_Collector_Web_App/" rel="permalink">Build Data Collector Web App (Flask, PostgreSQL)
+        <a href="/Django-&-Bootstrap-Blog-and-Translator-App/" rel="permalink">Django &amp; Bootstrap Blog and Translator App
 </a>
       
     </h2>
@@ -608,7 +620,7 @@
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-09-12T00:00:00-04:00">September 12, 2021</time>
+        <time datetime="2021-09-20T00:00:00-04:00">September 20, 2021</time>
       </span>
     
 
@@ -621,14 +633,14 @@
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          3 minute read
+          1 minute read
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">Summary: Build Data Collector Web App with Flask and PostgreSQL, deploy the app to pythonanywhere.
+    <p class="archive__item-excerpt" itemprop="description">Summary: Build Django and Bootstrap Blog and Translator App.
 
 </p>
   </article>

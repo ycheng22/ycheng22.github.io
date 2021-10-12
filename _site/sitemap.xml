@@ -1,85 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
 <url>
-<loc>http://localhost:4000/blog/welcome-to-jekyll/</loc>
-<lastmod>2020-01-01T00:00:00-05:00</lastmod>
+  <loc>https://ycheng22.github.io/</loc>
+  <lastmod>2021-10-06T21:19:06+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
-<loc>http://localhost:4000/blog/set_up_web_on_Github/</loc>
-<lastmod>2020-05-01T00:00:00-04:00</lastmod>
+  <loc>https://ycheng22.github.io/about/</loc>
+  <lastmod>2021-10-06T21:19:06+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/blog/Install_Intel_Parallel_Studio_on_Linux_Windows/</loc>
-<lastmod>2020-05-05T00:00:00-04:00</lastmod>
+  <loc>https://ycheng22.github.io/posts/</loc>
+  <lastmod>2021-10-06T21:19:06+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/blog/SQL_on_HackerRank/</loc>
-<lastmod>2020-07-15T00:00:00-04:00</lastmod>
+  <loc>https://ycheng22.github.io/categories/</loc>
+  <lastmod>2021-10-06T21:19:06+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/SQL_on_LeetCode/</loc>
-<lastmod>2020-08-20T00:00:00-04:00</lastmod>
+  <loc>https://ycheng22.github.io/tags/</loc>
+  <lastmod>2021-10-06T21:19:06+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/10-Days-of-Statistics/</loc>
-<lastmod>2021-03-01T00:00:00-05:00</lastmod>
+  <loc>https://ycheng22.github.io/life/</loc>
+  <lastmod>2021-10-06T21:19:06+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/blog/Story_of_Texas_Outage_in_Feb2021/</loc>
-<lastmod>2021-04-10T00:00:00-04:00</lastmod>
+  <loc>https://ycheng22.github.io/Switch_my_web_theme_to_Minimal_Mistake/</loc>
+  <lastmod>2021-10-06T21:19:06+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/Web_Map_with_Folium/</loc>
-<lastmod>2021-07-10T00:00:00-04:00</lastmod>
+  <loc>https://ycheng22.github.io/Deploy_Bokeh_Server_App_on_Heroku/</loc>
+  <lastmod>2021-10-06T21:19:06+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/blog/create_xyz_for_PyMol/</loc>
-<lastmod>2021-08-05T00:00:00-04:00</lastmod>
+  <loc>https://ycheng22.github.io/2020_Houston_flights_delay_dashboard/</loc>
+  <lastmod>2021-10-06T21:19:06+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/Deploy_web_app_on_Heroku/</loc>
-<lastmod>2021-08-20T00:00:00-04:00</lastmod>
+  <loc>https://ycheng22.github.io/Deploy_web_app_on_Heroku/</loc>
+  <lastmod>2021-10-06T21:19:06+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/Deploy_PostgreSQL_on_Heroku/</loc>
-<lastmod>2021-08-30T00:00:00-04:00</lastmod>
+  <loc>https://ycheng22.github.io/Web_Map_with_Folium/</loc>
+  <lastmod>2021-10-06T21:19:06+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/Build_Data_Collector_Web_App/</loc>
-<lastmod>2021-09-12T00:00:00-04:00</lastmod>
+  <loc>https://ycheng22.github.io/blog/create_xyz_for_PyMol/</loc>
+  <lastmod>2021-10-06T21:19:06+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/2020_Houston_flights_delay_dashboard/</loc>
-<lastmod>2021-09-30T00:00:00-04:00</lastmod>
+  <loc>https://ycheng22.github.io/10-Days-of-Statistics/</loc>
+  <lastmod>2021-10-06T21:19:06+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/Deploy_Bokeh_Server_App_on_Heroku/</loc>
-<lastmod>2021-10-01T00:00:00-04:00</lastmod>
+  <loc>https://ycheng22.github.io/SQL_on_LeetCode/</loc>
+  <lastmod>2021-10-06T21:19:06+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/</loc>
-<lastmod>2021-10-05T00:00:00-04:00</lastmod>
+  <loc>https://ycheng22.github.io/blog/SQL_on_HackerRank/</loc>
+  <lastmod>2021-10-06T21:19:06+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/about/</loc>
+  <loc>https://ycheng22.github.io/blog/set_up_web_on_Github/</loc>
+  <lastmod>2021-10-06T21:19:06+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/categories/</loc>
+  <loc>https://ycheng22.github.io/blog/Story_of_Texas_Outage_in_Feb2021/</loc>
+  <lastmod>2021-10-06T21:19:06+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/</loc>
+  <loc>https://ycheng22.github.io/blog/Install_Intel_Parallel_Studio_on_Linux_Windows/</loc>
+  <lastmod>2021-10-06T21:19:06+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/life/</loc>
+  <loc>https://ycheng22.github.io/blog/welcome-to-jekyll/</loc>
+  <lastmod>2021-10-06T21:19:06+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
-<url>
-<loc>http://localhost:4000/tags/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/posts/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/google649b283ef6ceee86.html</loc>
-<lastmod>2021-10-06T17:39:47-04:00</lastmod>
-</url>
+
+
 </urlset>
