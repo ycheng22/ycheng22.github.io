@@ -37,6 +37,11 @@ Check this blog on [github](#)
 - [8. Listing Blog Posts on the Homepage](#8-listing-blog-posts-on-the-homepage)
 - [9. Adding Bootstrap to Django](#9-adding-bootstrap-to-django)
 - [10. Template Inheritance](#10-template-inheritance)
+- [11. Adding translator app to previous app](#11-adding-translator-app-to-previous-app)
+  - [11.1 Creating an Empty App Structure of the Translator](#111-creating-an-empty-app-structure-of-the-translator)
+  - [11.2 Creating an HTML Form in Django](#112-creating-an-html-form-in-django)
+  - [11.3 Configuring the URLs](#113-configuring-the-urls)
+  - [11.4 Creating a Form](#114-creating-a-form)
 
 
 ## 1. Introduction
@@ -374,4 +379,77 @@ Now the homepage looks like this:
 
 ## 10. Template Inheritance
 
+There are many same elements show up in each webpage, template inheritance can help us code less. The idea is code the repeat parts into `base.html`, then extend that in each html.
+
+`base.html`
+
+![name](/images/20210920_django_blog_app/base_html.png)
+
+Note: `'home'` in above code `href="{% url 'home' %}"` is from `name` in `urls.py`.
+
+`blog.html`
+
+![name](/images/20210920_django_blog_app/blog_html2.png)
+
+`about.html`
+
+![name](/images/20210920_django_blog_app/about.png)
+
+`index.html`
+
+![name](/images/20210920_django_blog_app/index_html_ext.png)
+
+## 11. Adding translator app to previous app
+
+### 11.1 Creating an Empty App Structure of the Translator
+
+In the project folder, run 
+```
+python manage.py startapp translator
+```
+
+Revise `mysite/settings.py`
+
+![name](/images/20210920_django_blog_app/Mysite_settings_trans.png)
+
+
+### 11.2 Creating an HTML Form in Django
+
+Add `templates/translator.html`
+
+![name](/images/20210920_django_blog_app/tran_html.png)
+
+### 11.3 Configuring the URLs
+
+In `mysite/urls.py`, add: 
+
+![name](/images/20210920_django_blog_app/mysite_urls_tran.png)
+
+Create `tranlator/urls.py`
+
+```python
+from . import views
+from django.urls import path
+
+urlpatterns = [
+    path('', views.translator_view, name='translator_view')
+]
+```
+
+### 11.4 Creating a Form
+
+`translate/Views.py`
+
+```python
+from django.shortcuts import render
+
+# Create your views here.
+
+def translator_view(request):
+    return render(request, 'translator.html')
+```
+
+Go to http://127.0.0.1:8000/translate/
+
+![name](/images/20210920_django_blog_app/tran_view.png)
 
