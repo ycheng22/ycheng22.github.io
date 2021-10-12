@@ -36,6 +36,7 @@ Check this blog on [github](#)
 - [7. Creating a Homepage](#7-creating-a-homepage)
 - [8. Listing Blog Posts on the Homepage](#8-listing-blog-posts-on-the-homepage)
 - [9. Adding Bootstrap to Django](#9-adding-bootstrap-to-django)
+- [10. Template Inheritance](#10-template-inheritance)
 
 
 ## 1. Introduction
@@ -371,6 +372,6 @@ Now the homepage looks like this:
 
 ![name](/images/20210920_django_blog_app/list_post_bootstrap.png)
 
-
+## 10. Template Inheritance
 
 
