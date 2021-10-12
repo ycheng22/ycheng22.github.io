@@ -27,6 +27,7 @@ Check this blog on [github](#)
   - [2.2 Initialize Django](#22-initialize-django)
 - [3. Creating a Superuser for the Project](#3-creating-a-superuser-for-the-project)
 - [4. Setting up an Empty Django Blog App](#4-setting-up-an-empty-django-blog-app)
+- [5. Setting up an Empty Django Blog App](#5-setting-up-an-empty-django-blog-app)
 
 
 ## 1. Introduction
@@ -123,4 +124,42 @@ A folder `blog` will be created.
 In the settings `./mysite/settings.py`, add `blog`
 
 ![name](/images/20210920_django_blog_app/setting_blog.png)
+
+## 5. Setting up an Empty Django Blog App
+
+Revise `./blog/models.py`
+
+```python
+from django.db import models
+from django.contrib.auth.models import User
+
+STATUS = ((0, 'Draft'), (1, 'Publish'))
+# Create your models here.
+
+class Post(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    date_created = models.DateTimeField(auto_now_add=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    #to means from other database, here is from User
+    #on_delete=models.CASCADE means the post will be deleted if the use was deleted from database
+    author = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    status = models.IntegerField(choices=STATUS, default=0)
+
+    def __str__(self):
+        return self.title
+```
+
+Then run
+
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+
+A table `blog_post` will be added to database `db.sqlite3`.
+
+![name](/images/20210920_django_blog_app/db_table_create.png)
+
+
 

@@ -72,7 +72,7 @@ var store = [{
         "teaser": "/images/20210912_web_app_pythonanywhere/pythonanywhere_image.png"
       },{
         "title": "Django & Bootstrap Blog and Translator App",
-        "excerpt":"Summary: Build Django and Bootstrap Blog and Translator App. Check this blog on github Contents: 1. Introduction 2. Initialize the project 2.1 Install virtual environment 2.2 Initialize Django 3. Creating a Superuser for the Project 4. Setting up an Empty Django Blog App 1. Introduction In this blog, a blog...","categories": [],
+        "excerpt":"Summary: Build Django and Bootstrap Blog and Translator App. Check this blog on github Contents: 1. Introduction 2. Initialize the project 2.1 Install virtual environment 2.2 Initialize Django 3. Creating a Superuser for the Project 4. Setting up an Empty Django Blog App 5. Setting up an Empty Django Blog...","categories": [],
         "tags": ["Web","Django","Bootstrap","Python"],
         "url": "/Django-&-Bootstrap-Blog-and-Translator-App/",
         "teaser": "/images/20210920_django_blog_app/demo.png"
