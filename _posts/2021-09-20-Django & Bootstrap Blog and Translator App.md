@@ -52,7 +52,38 @@ In this blog, a blog app which uses Django and Bootstrap was created, a translat
 
 Overview of folder structure:
 ```
-
+📦Django_app
+ ┣ 📂blog
+ ┃ ┣ 📜admin.py
+ ┃ ┣ 📜apps.py
+ ┃ ┣ 📜models.py
+ ┃ ┣ 📜tests.py
+ ┃ ┣ 📜urls.py
+ ┃ ┣ 📜views.py
+ ┃ ┗ 📜__init__.py
+ ┣ 📂mysite
+ ┃ ┣ 📜asgi.py
+ ┃ ┣ 📜settings.py
+ ┃ ┣ 📜urls.py
+ ┃ ┣ 📜wsgi.py
+ ┃ ┗ 📜__init__.py
+ ┣ 📂templates
+ ┃ ┣ 📜about.html
+ ┃ ┣ 📜base.html
+ ┃ ┣ 📜blog.html
+ ┃ ┣ 📜index.html
+ ┃ ┗ 📜translator.html
+ ┣ 📂translator
+ ┃ ┣ 📜admin.py
+ ┃ ┣ 📜apps.py
+ ┃ ┣ 📜models.py
+ ┃ ┣ 📜tests.py
+ ┃ ┣ 📜translate.py
+ ┃ ┣ 📜urls.py
+ ┃ ┣ 📜views.py
+ ┃ ┗ 📜__init__.py
+ ┣ 📜db.sqlite3
+ ┗ 📜manage.py
 ```
 
 ## 2. Initialize the project
