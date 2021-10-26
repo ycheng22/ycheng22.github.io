@@ -18,6 +18,10 @@ classes: wide
 
 Summary: switch my web theme to Minimal Mistake
 
+**Contents:**
+- [1. Introduction](#1-introduction)
+- [2. Editing settings](#2-editing-settings)
+- [3. Add Github Pages to Google](#3-add-github-pages-to-google)
 
 ## 1. Introduction
 The theme is forked from [here](https://github.com/mmistakes/mm-github-pages-starter).
