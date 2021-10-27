@@ -21,7 +21,7 @@ Summary: Installing Intel oneAPI, run fortran code with calling Math Kernel Libr
 **Contents:**
 - [1. Introduction](#1-introduction)
 - [2. Download and install](#2-download-and-install)
-- [3.](#3)
+- [3. Run Fortran with calling `Math Kernel Library`](#3-run-fortran-with-calling-math-kernel-library)
 
 ## 1. Introduction
 Intel has transitioned from providing `Intel® Parallel Studio XE` as a free tool to providing `Intel® oneAPI Toolkits` as a free tool. To run fortran code with calling Math Kernel Library on Visual Studio 2019, which was described in previous [blog](https://ycheng22.github.io/blog/Install_Intel_Parallel_Studio_on_Linux_Windows/#2-run-fortran-code-on-windows), `Intel® oneAPI Toolkits` has to be installed. 
@@ -37,4 +37,6 @@ Download [Intel® oneAPI HPC Toolkit](https://www.intel.com/content/www/us/en/de
 
 Suppose the `Visual Studio 2019` has been installed, `Intel® oneAPI Base Toolkit` firstly, install `Intel® oneAPI HPC Toolkit` secondly, 
 
-## 3. 
+## 3. Run Fortran with calling `Math Kernel Library`
+
+The following procedures are the same, which have been described in this [blog](https://ycheng22.github.io/blog/Install_Intel_Parallel_Studio_on_Linux_Windows/#2-run-fortran-code-on-windows).
