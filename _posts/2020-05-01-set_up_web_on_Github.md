@@ -4,7 +4,7 @@ date: 2020-05-01
 header:
 #   image: "/images/academicpages_template.png"
 #   caption: "A beautiful photo"
-  teaser: "/images/academicpages_template.png"
+  teaser: "/images/web_theme/academicpages_template.png"
 categories:
   - blog
 tags:
@@ -29,6 +29,10 @@ Check this blog on [github](https://github.com/ycheng22/ycheng22.github.io/blob/
 - [2. Set up my web step by step](#2-set-up-my-web-step-by-step)
   - [2.1 Choose your favorite theme](#21-choose-your-favorite-theme)
   - [2.2 Customize the theme](#22-customize-the-theme)
+- [3. Run server locally](#3-run-server-locally)
+  - [3.1 Install Ruby](#31-install-ruby)
+  - [3.2 Install jekyll](#32-install-jekyll)
+  - [3.2 If the port is occupied](#32-if-the-port-is-occupied)
 
 # 1. Usefull resources
 
@@ -66,7 +70,7 @@ Go to the repo in your Github, rename the repo's name to ``[your_name].github.io
     * Add social media name or full link depends on the setting in `_includes/author-profile.html`.
     If the social media is not provided in the file, you can add a new code block into above html file.
     
-        ![name](/images/web_social.png)
+        ![name](/images/web_theme/web_social.png)
     
     * Change the `<i class="fas fa-link">` to add icon for your social media.
     
@@ -93,12 +97,43 @@ Go to the repo in your Github, rename the repo's name to ``[your_name].github.io
         [Download the file](http://ycheng22.github.io/files/paper1.pdf)
         ```
 
-Run server locally:
+# 3. Run server locally
 
-`bundle install`
+## 3.1 Install Ruby
+Jekyll is written in `Ruby` as a gem, so to run Jekyll on Windows we’ll first need to download and install [RubyInstaller](https://rubyinstaller.org/) for Windows. Make sure to download a recent `Ruby+DevKit` version and use the default options in the installation wizard. On the last step, you’ll want to keep the option “Run ‘ridk install’ to setup MSYS2 and development toolchain.” checked.
+
+In the prompt, choose 1.
+
+![name](/images/web_theme/ruby_msys2.png)
+
+## 3.2 Install jekyll
+
+`gem install jekyll bundler`
+
+Let's confirm jekyll is installed:
+
+`jekyll -v`
+
+Then you can run `bundle install` to add more necessary packages.
+
+If everything works correctly, run will start the serve at below address. 
 
 `bundle exec jekyll serve`
 
 Address: <http://127.0.0.1:4000>
 
+## 3.2 If the port is occupied
 
+To find out which process is using the port, run 
+
+`netstat -aon | findstr "4000"` 
+
+start task manager -> services -> kill that service. 
+
+you can also list task by 
+
+`tasklist | more`
+
+and kill that process by pid 
+
+`taskkill /F /PID pid_number`.

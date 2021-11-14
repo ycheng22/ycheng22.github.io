@@ -6,10 +6,10 @@ var store = [{
         "teaser": "/images/foo-bar-identity.jpg"
       },{
         "title": "Set up Web on Github (Academicpages Template)",
-        "excerpt":"In this blog, I record the process about setting up my website on Github. Tool: Github Desktop, VS Code. Check this blog on github. Contents: 1. Usefull resources 2. Set up my web step by step 2.1 Choose your favorite theme 2.2 Customize the theme 1. Usefull resources GIthub Pages...","categories": ["blog"],
+        "excerpt":"In this blog, I record the process about setting up my website on Github. Tool: Github Desktop, VS Code. Check this blog on github. Contents: 1. Usefull resources 2. Set up my web step by step 2.1 Choose your favorite theme 2.2 Customize the theme 3. Run server locally 3.1...","categories": ["blog"],
         "tags": ["Github Pages","academicpages","Web","Jekyll"],
         "url": "/blog/set_up_web_on_Github/",
-        "teaser": "/images/academicpages_template.png"
+        "teaser": "/images/web_theme/academicpages_template.png"
       },{
         "title": "Install_Intel_Parallel_Studio_on_Linux_Windows",
         "excerpt":"Sumarry: Intel Parallel Studio is a powerful tool in many computational scenarios. In this blog, I will introduction how to install it and run Fortran code as an example. Check this blog on github. Contents: 1. Install it on Linux 1.1 Download “intel parallel studio” 1.2 Installation guide 1.3 Test...","categories": ["blog"],
@@ -27,6 +27,12 @@ var store = [{
         "excerpt":"Summary: solving the SQL problems on LeetCode. Check this blog on github 175. Combine Two Tables 176. Second Highest Salary 177. Nth Highest Salary 178. Rank Scores 180. Consecutive Numbers 181. Employees Earning More Than Their Managers 182. Duplicate Emails 183. Customers Who Never Order 184. Department Highest Salary 185. Department Top Three Salaries 196. Delete Duplicate Emails 197. Rising Temperature 262. Trips...","categories": [],
         "tags": ["SQL","LeetCode","MySQL"],
         "url": "/SQL_on_LeetCode/",
+        "teaser": null
+      },{
+        "title": "Set matlab scheme",
+        "excerpt":"Summary: A useful package which can set matlab scheme easily. Contents: 1. Introduction 2. Download and use 1. Introduction Matlab doesn’t provide easy tool to switch color scheme, there is a package which help us set scheme easily. 2. Download and use The package MATLAB Schemer makes it easy to...","categories": [],
+        "tags": ["matlab","scheme"],
+        "url": "/Set_matlab_scheme/",
         "teaser": null
       },{
         "title": "10 Days of Statistics",
@@ -72,7 +78,7 @@ var store = [{
         "teaser": "/images/20210912_web_app_pythonanywhere/pythonanywhere_image.png"
       },{
         "title": "Django & Bootstrap Blog and Translator App",
-        "excerpt":"Summary: Build Django and Bootstrap Blog and Translator App. Check this blog on github Contents: 1. Introduction 2. Initialize the project 2.1 Install virtual environment 2.2 Initialize Django 3. Creating a Superuser for the Project 4. Setting up an Empty Django Blog App 5. Setting up an Empty Django Blog...","categories": [],
+        "excerpt":"Summary: Build Django and Bootstrap Blog and Translator App. Check this blog on github Source code is here. Contents: 1. Introduction 2. Initialize the project 2.1 Install virtual environment 2.2 Initialize Django 3. Creating a Superuser for the Project 4. Setting up an Empty Django Blog App 5. Setting up...","categories": [],
         "tags": ["Web","Django","Bootstrap","Python"],
         "url": "/Django-&-Bootstrap-Blog-and-Translator-App/",
         "teaser": "/images/20210920_django_blog_app/demo.png"
@@ -90,8 +96,14 @@ var store = [{
         "teaser": "/images/Hou_flights_delay/bokeh_serve_image.svg"
       },{
         "title": "Switch My Web Theme to Minimal Mistake",
-        "excerpt":"Summary: switch my web theme to Minimal Mistake 1. Introduction The theme is forked from here. 2. Editing settings Update settings in _config.yml and _pages. The setting is similar to this blog : Set up web on Github (academicpages template). Run server locally: bundle install bundle exec jekyll serve Address:...","categories": [],
+        "excerpt":"Summary: switch my web theme to Minimal Mistake Contents: 1. Introduction 2. Editing settings 3. Add Github Pages to Google 1. Introduction The theme is forked from here. 2. Editing settings Update settings in _config.yml and _pages. The setting is similar to this blog : Set up web on Github...","categories": [],
         "tags": ["Github Pages","Minimal Mistake","Web","Jekyll"],
         "url": "/Switch_my_web_theme_to_Minimal_Mistake/",
-        "teaser": "/images/mm_image.png"
+        "teaser": "/images/web_theme/mm_image.png"
+      },{
+        "title": "Install_and_Use_Intel_oneAPI_Toolkit",
+        "excerpt":"Summary: Installing Intel oneAPI, run fortran code with calling Math Kernel Library on Visual Studio 2019. Contents: 1. Introduction 2. Download and install 3. Run Fortran with calling Math Kernel Library 1. Introduction Intel has transitioned from providing Intel® Parallel Studio XE as a free tool to providing Intel® oneAPI...","categories": [],
+        "tags": ["Intel oneAPI","Visual Studio 2019","Fortran","Math Kernel Library"],
+        "url": "/Install_and_Use_Intel_oneAPI_Toolkit/",
+        "teaser": null
       }]

@@ -1,4 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-12T19:14:33-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Yunpeng</title><author><name>Yunpeng</name></author><entry><title type="html">Switch My Web Theme to Minimal Mistake</title><link href="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/" rel="alternate" type="text/html" title="Switch My Web Theme to Minimal Mistake" /><published>2021-10-05T00:00:00-04:00</published><updated>2021-10-05T00:00:00-04:00</updated><id>http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake</id><content type="html" xml:base="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/">&lt;p&gt;Summary: switch my web theme to Minimal Mistake&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-11-14T00:17:49-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Yunpeng</title><author><name>Yunpeng</name></author><entry><title type="html">Install_and_Use_Intel_oneAPI_Toolkit</title><link href="http://localhost:4000/Install_and_Use_Intel_oneAPI_Toolkit/" rel="alternate" type="text/html" title="Install_and_Use_Intel_oneAPI_Toolkit" /><published>2021-10-25T00:00:00-05:00</published><updated>2021-10-25T00:00:00-05:00</updated><id>http://localhost:4000/Install_and_Use_Intel_oneAPI_Toolkit</id><content type="html" xml:base="http://localhost:4000/Install_and_Use_Intel_oneAPI_Toolkit/">&lt;p&gt;Summary: Installing Intel oneAPI, run fortran code with calling Math Kernel Library on Visual Studio 2019.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Contents:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#1-introduction&quot;&gt;1. Introduction&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#2-download-and-install&quot;&gt;2. Download and install&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#3-run-fortran-with-calling-math-kernel-library&quot;&gt;3. Run Fortran with calling &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Math Kernel Library&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;1-introduction&quot;&gt;1. Introduction&lt;/h2&gt;
+&lt;p&gt;Intel has transitioned from providing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Intel® Parallel Studio XE&lt;/code&gt; as a free tool to providing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Intel® oneAPI Toolkits&lt;/code&gt; as a free tool. To run fortran code with calling Math Kernel Library on Visual Studio 2019, which was described in previous &lt;a href=&quot;https://ycheng22.github.io/blog/Install_Intel_Parallel_Studio_on_Linux_Windows/#2-run-fortran-code-on-windows&quot;&gt;blog&lt;/a&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Intel® oneAPI Toolkits&lt;/code&gt; has to be installed.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-download-and-install&quot;&gt;2. Download and install&lt;/h2&gt;
+&lt;p&gt;Download &lt;a href=&quot;https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html&quot;&gt;Intel® oneAPI Base Toolkit&lt;/a&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Math Kernel Library&lt;/code&gt; are included in it.&lt;/p&gt;
+
+&lt;p&gt;Select the Operating System, Distribution, Installer Type.&lt;/p&gt;
+
+&lt;p&gt;Then download without sign up.&lt;/p&gt;
+
+&lt;p&gt;Download &lt;a href=&quot;https://www.intel.com/content/www/us/en/developer/tools/oneapi/hpc-toolkit-download.html&quot;&gt;Intel® oneAPI HPC Toolkit&lt;/a&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Intel® Fortran Compilers&lt;/code&gt; are included in it.&lt;/p&gt;
+
+&lt;p&gt;Suppose the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Visual Studio 2019&lt;/code&gt; has been installed, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Intel® oneAPI Base Toolkit&lt;/code&gt; firstly, install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Intel® oneAPI HPC Toolkit&lt;/code&gt; secondly,&lt;/p&gt;
+
+&lt;h2 id=&quot;3-run-fortran-with-calling-math-kernel-library&quot;&gt;3. Run Fortran with calling &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Math Kernel Library&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;The following procedures are the same, which have been described in this &lt;a href=&quot;https://ycheng22.github.io/blog/Install_Intel_Parallel_Studio_on_Linux_Windows/#2-run-fortran-code-on-windows&quot;&gt;blog&lt;/a&gt;.&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="Intel oneAPI" /><category term="Visual Studio 2019" /><category term="Fortran" /><category term="Math Kernel Library" /><summary type="html">Summary: Installing Intel oneAPI, run fortran code with calling Math Kernel Library on Visual Studio 2019.</summary></entry><entry><title type="html">Switch My Web Theme to Minimal Mistake</title><link href="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/" rel="alternate" type="text/html" title="Switch My Web Theme to Minimal Mistake" /><published>2021-10-05T00:00:00-05:00</published><updated>2021-10-05T00:00:00-05:00</updated><id>http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake</id><content type="html" xml:base="http://localhost:4000/Switch_my_web_theme_to_Minimal_Mistake/">&lt;p&gt;Summary: switch my web theme to Minimal Mistake&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Contents:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#1-introduction&quot;&gt;1. Introduction&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#2-editing-settings&quot;&gt;2. Editing settings&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#3-add-github-pages-to-google&quot;&gt;3. Add Github Pages to Google&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;1-introduction&quot;&gt;1. Introduction&lt;/h2&gt;
 &lt;p&gt;The theme is forked from &lt;a href=&quot;https://github.com/mmistakes/mm-github-pages-starter&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
@@ -20,7 +52,7 @@
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://saowu.top/blog/4tCVcic30/&quot;&gt;https://saowu.top/blog/4tCVcic30/&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://victor2code.github.io/blog/2019/07/04/jekyll-github-pages-appear-on-Google.html&quot;&gt;https://victor2code.github.io/blog/2019/07/04/jekyll-github-pages-appear-on-Google.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Yunpeng</name></author><category term="Github Pages" /><category term="Minimal Mistake" /><category term="Web" /><category term="Jekyll" /><summary type="html">Summary: switch my web theme to Minimal Mistake</summary></entry><entry><title type="html">Deploy Bokeh Server App on Heroku</title><link href="http://localhost:4000/Deploy_Bokeh_Server_App_on_Heroku/" rel="alternate" type="text/html" title="Deploy Bokeh Server App on Heroku" /><published>2021-10-01T00:00:00-04:00</published><updated>2021-10-01T00:00:00-04:00</updated><id>http://localhost:4000/Deploy_Bokeh_Server_App_on_Heroku</id><content type="html" xml:base="http://localhost:4000/Deploy_Bokeh_Server_App_on_Heroku/">&lt;p&gt;Summary: deploy Bokeh server app on Heroku.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Yunpeng</name></author><category term="Github Pages" /><category term="Minimal Mistake" /><category term="Web" /><category term="Jekyll" /><summary type="html">Summary: switch my web theme to Minimal Mistake</summary></entry><entry><title type="html">Deploy Bokeh Server App on Heroku</title><link href="http://localhost:4000/Deploy_Bokeh_Server_App_on_Heroku/" rel="alternate" type="text/html" title="Deploy Bokeh Server App on Heroku" /><published>2021-10-01T00:00:00-05:00</published><updated>2021-10-01T00:00:00-05:00</updated><id>http://localhost:4000/Deploy_Bokeh_Server_App_on_Heroku</id><content type="html" xml:base="http://localhost:4000/Deploy_Bokeh_Server_App_on_Heroku/">&lt;p&gt;Summary: deploy Bokeh server app on Heroku.&lt;/p&gt;
 
 &lt;p&gt;Check this blog on &lt;a href=&quot;https://github.com/ycheng22/ycheng22.github.io/blob/main/_posts/2021-10-01-Deploy_Bokeh_Server_App_on_Heroku.md&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
 
@@ -360,7 +392,7 @@ git push heroku master
 
 &lt;p&gt;If everything works right, you can check your app at &lt;a href=&quot;https://yc-bokeh-server.herokuapp.com/&quot;&gt;https://yc-bokeh-server.herokuapp.com/&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;If something goes wrong, run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;heroku logs --tail&lt;/code&gt;&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="Bokeh" /><category term="Heroku" /><category term="Python" /><summary type="html">Summary: deploy Bokeh server app on Heroku.</summary></entry><entry><title type="html">2020 Houston Flights Delay Dashboard</title><link href="http://localhost:4000/2020_Houston_flights_delay_dashboard/" rel="alternate" type="text/html" title="2020 Houston Flights Delay Dashboard" /><published>2021-09-30T00:00:00-04:00</published><updated>2021-09-30T00:00:00-04:00</updated><id>http://localhost:4000/2020_Houston_flights_delay_dashboard</id><content type="html" xml:base="http://localhost:4000/2020_Houston_flights_delay_dashboard/">&lt;p&gt;Summary: Create standalone Bokeh dashboard.&lt;/p&gt;
+&lt;p&gt;If something goes wrong, run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;heroku logs --tail&lt;/code&gt;&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="Bokeh" /><category term="Heroku" /><category term="Python" /><summary type="html">Summary: deploy Bokeh server app on Heroku.</summary></entry><entry><title type="html">2020 Houston Flights Delay Dashboard</title><link href="http://localhost:4000/2020_Houston_flights_delay_dashboard/" rel="alternate" type="text/html" title="2020 Houston Flights Delay Dashboard" /><published>2021-09-30T00:00:00-05:00</published><updated>2021-09-30T00:00:00-05:00</updated><id>http://localhost:4000/2020_Houston_flights_delay_dashboard</id><content type="html" xml:base="http://localhost:4000/2020_Houston_flights_delay_dashboard/">&lt;p&gt;Summary: Create standalone Bokeh dashboard.&lt;/p&gt;
 
 &lt;p&gt;Check this blog on &lt;a href=&quot;https://github.com/ycheng22/ycheng22.github.io/blob/main/_posts/2021-09-30-2020_Houston_flights_delay_dashboard.md&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
 
@@ -1325,9 +1357,11 @@ fig 5: Table of arrival delay statistics by airline&lt;/p&gt;
 
 &lt;h2 id=&quot;4-conclusion&quot;&gt;4. Conclusion&lt;/h2&gt;
 
-&lt;p&gt;To create standalone interactive figure, the one need to program Javascript callback. If use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bokeh serve&lt;/code&gt; method, only python code need to be programmed.&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="Bokeh" /><category term="Dashboard" /><category term="Python" /><summary type="html">Summary: Create standalone Bokeh dashboard.</summary></entry><entry><title type="html">Django &amp;amp; Bootstrap Blog and Translator App</title><link href="http://localhost:4000/Django-&-Bootstrap-Blog-and-Translator-App/" rel="alternate" type="text/html" title="Django &amp;amp; Bootstrap Blog and Translator App" /><published>2021-09-20T00:00:00-04:00</published><updated>2021-09-20T00:00:00-04:00</updated><id>http://localhost:4000/Django%20&amp;%20Bootstrap%20Blog%20and%20Translator%20App</id><content type="html" xml:base="http://localhost:4000/Django-&amp;-Bootstrap-Blog-and-Translator-App/">&lt;p&gt;Summary: Build Django and Bootstrap Blog and Translator App.&lt;/p&gt;
+&lt;p&gt;To create standalone interactive figure, the one need to program Javascript callback. If use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bokeh serve&lt;/code&gt; method, only python code need to be programmed.&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="Bokeh" /><category term="Dashboard" /><category term="Python" /><summary type="html">Summary: Create standalone Bokeh dashboard.</summary></entry><entry><title type="html">Django &amp;amp; Bootstrap Blog and Translator App</title><link href="http://localhost:4000/Django-&-Bootstrap-Blog-and-Translator-App/" rel="alternate" type="text/html" title="Django &amp;amp; Bootstrap Blog and Translator App" /><published>2021-09-20T00:00:00-05:00</published><updated>2021-09-20T00:00:00-05:00</updated><id>http://localhost:4000/Django%20&amp;%20Bootstrap%20Blog%20and%20Translator%20App</id><content type="html" xml:base="http://localhost:4000/Django-&amp;-Bootstrap-Blog-and-Translator-App/">&lt;p&gt;Summary: Build Django and Bootstrap Blog and Translator App.&lt;/p&gt;
 
 &lt;p&gt;Check this blog on &lt;a href=&quot;https://ycheng22.github.io/Django-&amp;amp;-Bootstrap-Blog-and-Translator-App/&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Source code is &lt;a href=&quot;&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Contents:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -1370,7 +1404,38 @@ fig 5: Table of arrival delay statistics by airline&lt;/p&gt;
 &lt;p&gt;In this blog, a blog app which uses Django and Bootstrap was created, a translator was added in this app.&lt;/p&gt;
 
 &lt;p&gt;Overview of folder structure:&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;📦Django_app
+ ┣ 📂blog
+ ┃ ┣ 📜admin.py
+ ┃ ┣ 📜apps.py
+ ┃ ┣ 📜models.py
+ ┃ ┣ 📜tests.py
+ ┃ ┣ 📜urls.py
+ ┃ ┣ 📜views.py
+ ┃ ┗ 📜__init__.py
+ ┣ 📂mysite
+ ┃ ┣ 📜asgi.py
+ ┃ ┣ 📜settings.py
+ ┃ ┣ 📜urls.py
+ ┃ ┣ 📜wsgi.py
+ ┃ ┗ 📜__init__.py
+ ┣ 📂templates
+ ┃ ┣ 📜about.html
+ ┃ ┣ 📜base.html
+ ┃ ┣ 📜blog.html
+ ┃ ┣ 📜index.html
+ ┃ ┗ 📜translator.html
+ ┣ 📂translator
+ ┃ ┣ 📜admin.py
+ ┃ ┣ 📜apps.py
+ ┃ ┣ 📜models.py
+ ┃ ┣ 📜tests.py
+ ┃ ┣ 📜translate.py
+ ┃ ┣ 📜urls.py
+ ┃ ┣ 📜views.py
+ ┃ ┗ 📜__init__.py
+ ┣ 📜db.sqlite3
+ ┗ 📜manage.py
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;2-initialize-the-project&quot;&gt;2. Initialize the project&lt;/h2&gt;
@@ -1782,7 +1847,7 @@ python manage.py migrate
 
 &lt;p&gt;&lt;img src=&quot;/images/20210920_django_blog_app/base_tran.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/20210920_django_blog_app/trans_view.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="Web" /><category term="Django" /><category term="Bootstrap" /><category term="Python" /><summary type="html">Summary: Build Django and Bootstrap Blog and Translator App.</summary></entry><entry><title type="html">Build Data Collector Web App (Flask, PostgreSQL)</title><link href="http://localhost:4000/Build_Data_Collector_Web_App/" rel="alternate" type="text/html" title="Build Data Collector Web App (Flask, PostgreSQL)" /><published>2021-09-12T00:00:00-04:00</published><updated>2021-09-12T00:00:00-04:00</updated><id>http://localhost:4000/Build_Data_Collector_Web_App</id><content type="html" xml:base="http://localhost:4000/Build_Data_Collector_Web_App/">&lt;p&gt;Summary: Build Data Collector Web App with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flask&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PostgreSQL&lt;/code&gt;, deploy the app to &lt;a href=&quot;https://www.pythonanywhere.com/&quot;&gt;pythonanywhere&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/20210920_django_blog_app/trans_view.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="Web" /><category term="Django" /><category term="Bootstrap" /><category term="Python" /><summary type="html">Summary: Build Django and Bootstrap Blog and Translator App.</summary></entry><entry><title type="html">Build Data Collector Web App (Flask, PostgreSQL)</title><link href="http://localhost:4000/Build_Data_Collector_Web_App/" rel="alternate" type="text/html" title="Build Data Collector Web App (Flask, PostgreSQL)" /><published>2021-09-12T00:00:00-05:00</published><updated>2021-09-12T00:00:00-05:00</updated><id>http://localhost:4000/Build_Data_Collector_Web_App</id><content type="html" xml:base="http://localhost:4000/Build_Data_Collector_Web_App/">&lt;p&gt;Summary: Build Data Collector Web App with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flask&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PostgreSQL&lt;/code&gt;, deploy the app to &lt;a href=&quot;https://www.pythonanywhere.com/&quot;&gt;pythonanywhere&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Check this blog on &lt;a href=&quot;https://github.com/ycheng22/ycheng22.github.io/blob/main/_posts/2021-09-12-Build_Data_Collector_Web_App.md&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
 
@@ -2037,7 +2102,7 @@ python manage.py migrate
   &lt;li&gt;Go to webs, reload web, go the web address, it should work now.&lt;/li&gt;
   &lt;li&gt;Go to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Web&lt;/code&gt;, open &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Error&lt;/code&gt; Log to debug&lt;/li&gt;
   &lt;li&gt;&lt;img src=&quot;/images/20210912_web_app_pythonanywhere/debug.png&quot; alt=&quot;name&quot; /&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Yunpeng</name></author><category term="Web" /><category term="Flask" /><category term="PostgreSQL" /><category term="Database" /><category term="Python" /><summary type="html">Summary: Build Data Collector Web App with Flask and PostgreSQL, deploy the app to pythonanywhere.</summary></entry><entry><title type="html">Deploy PostgreSQL on Heroku</title><link href="http://localhost:4000/Deploy_PostgreSQL_on_Heroku/" rel="alternate" type="text/html" title="Deploy PostgreSQL on Heroku" /><published>2021-08-30T00:00:00-04:00</published><updated>2021-08-30T00:00:00-04:00</updated><id>http://localhost:4000/Deploy_PostgreSQL_on_Heroku</id><content type="html" xml:base="http://localhost:4000/Deploy_PostgreSQL_on_Heroku/">&lt;p&gt;Summary: deploy PostgreSQL on Heroku and ingest Data using Pandas and SQLAlchemy.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Yunpeng</name></author><category term="Web" /><category term="Flask" /><category term="PostgreSQL" /><category term="Database" /><category term="Python" /><summary type="html">Summary: Build Data Collector Web App with Flask and PostgreSQL, deploy the app to pythonanywhere.</summary></entry><entry><title type="html">Deploy PostgreSQL on Heroku</title><link href="http://localhost:4000/Deploy_PostgreSQL_on_Heroku/" rel="alternate" type="text/html" title="Deploy PostgreSQL on Heroku" /><published>2021-08-30T00:00:00-05:00</published><updated>2021-08-30T00:00:00-05:00</updated><id>http://localhost:4000/Deploy_PostgreSQL_on_Heroku</id><content type="html" xml:base="http://localhost:4000/Deploy_PostgreSQL_on_Heroku/">&lt;p&gt;Summary: deploy PostgreSQL on Heroku and ingest Data using Pandas and SQLAlchemy.&lt;/p&gt;
 
 &lt;p&gt;Reference: &lt;a href=&quot;https://towardsdatascience.com/deploy-free-postgresql-database-in-heroku-and-ingest-data-8002c574a57d&quot;&gt;https://towardsdatascience.com/deploy-free-postgresql-database-in-heroku-and-ingest-data-8002c574a57d&lt;/a&gt;.&lt;/p&gt;
 
@@ -2093,7 +2158,7 @@ python manage.py migrate
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;..To be continue&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="PostgreSQL" /><category term="Heroku" /><category term="Python" /><summary type="html">Summary: deploy PostgreSQL on Heroku and ingest Data using Pandas and SQLAlchemy.</summary></entry><entry><title type="html">Deploy Web App on Heroku</title><link href="http://localhost:4000/Deploy_web_app_on_Heroku/" rel="alternate" type="text/html" title="Deploy Web App on Heroku" /><published>2021-08-20T00:00:00-04:00</published><updated>2021-08-20T00:00:00-04:00</updated><id>http://localhost:4000/Deploy_web_app_on_Heroku</id><content type="html" xml:base="http://localhost:4000/Deploy_web_app_on_Heroku/">&lt;p&gt;Summary: deploy web app on Heroku.&lt;/p&gt;
+&lt;p&gt;..To be continue&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="PostgreSQL" /><category term="Heroku" /><category term="Python" /><summary type="html">Summary: deploy PostgreSQL on Heroku and ingest Data using Pandas and SQLAlchemy.</summary></entry><entry><title type="html">Deploy Web App on Heroku</title><link href="http://localhost:4000/Deploy_web_app_on_Heroku/" rel="alternate" type="text/html" title="Deploy Web App on Heroku" /><published>2021-08-20T00:00:00-05:00</published><updated>2021-08-20T00:00:00-05:00</updated><id>http://localhost:4000/Deploy_web_app_on_Heroku</id><content type="html" xml:base="http://localhost:4000/Deploy_web_app_on_Heroku/">&lt;p&gt;Summary: deploy web app on Heroku.&lt;/p&gt;
 
 &lt;p&gt;Check this blog on &lt;a href=&quot;https://github.com/ycheng22/ycheng22.github.io/blob/master/_posts/2021-08-20-Deploy_web_app_on_Heroku.md&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
 
@@ -2253,7 +2318,7 @@ git push heroku master
 
 &lt;p&gt;If everything works right, you can check your app at &lt;a href=&quot;https://yc-web1.herokuapp.com/&quot;&gt;https://yc-web1.herokuapp.com/&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;If something goes wrong, run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;heroku logs --tail&lt;/code&gt;&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="Bokeh" /><category term="Heroku" /><category term="Python" /><summary type="html">Summary: deploy web app on Heroku.</summary></entry><entry><title type="html">Create xyz-axis for PyMol</title><link href="http://localhost:4000/blog/create_xyz_for_PyMol/" rel="alternate" type="text/html" title="Create xyz-axis for PyMol" /><published>2021-08-05T00:00:00-04:00</published><updated>2021-08-05T00:00:00-04:00</updated><id>http://localhost:4000/blog/create_xyz_for_PyMol</id><content type="html" xml:base="http://localhost:4000/blog/create_xyz_for_PyMol/">&lt;p&gt;Summary: When show protein unit cell in PyMol, I want to show xyz axis, but PyMol doesn’t have this option. Here is a solution.&lt;/p&gt;
+&lt;p&gt;If something goes wrong, run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;heroku logs --tail&lt;/code&gt;&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="Bokeh" /><category term="Heroku" /><category term="Python" /><summary type="html">Summary: deploy web app on Heroku.</summary></entry><entry><title type="html">Create xyz-axis for PyMol</title><link href="http://localhost:4000/blog/create_xyz_for_PyMol/" rel="alternate" type="text/html" title="Create xyz-axis for PyMol" /><published>2021-08-05T00:00:00-05:00</published><updated>2021-08-05T00:00:00-05:00</updated><id>http://localhost:4000/blog/create_xyz_for_PyMol</id><content type="html" xml:base="http://localhost:4000/blog/create_xyz_for_PyMol/">&lt;p&gt;Summary: When show protein unit cell in PyMol, I want to show xyz axis, but PyMol doesn’t have this option. Here is a solution.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Contents:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -2367,7 +2432,7 @@ fig 5: Label xyz axis&lt;/p&gt;
 &lt;p&gt;Open the saved session, choose “Merge with current session”, now you will see fig 6.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/20210805_blog_pymol/show_session.png&quot; alt=&quot;name&quot; /&gt;
-fig 6: Show xyz axis in PyMol&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="blog" /><category term="PyMol" /><category term="PDB" /><summary type="html">Summary: When show protein unit cell in PyMol, I want to show xyz axis, but PyMol doesn’t have this option. Here is a solution.</summary></entry><entry><title type="html">Web Map with Folium</title><link href="http://localhost:4000/Web_Map_with_Folium/" rel="alternate" type="text/html" title="Web Map with Folium" /><published>2021-07-10T00:00:00-04:00</published><updated>2021-07-10T00:00:00-04:00</updated><id>http://localhost:4000/Web_Map_with_Folium</id><content type="html" xml:base="http://localhost:4000/Web_Map_with_Folium/">&lt;p&gt;Summary: Build a web map with &lt;a href=&quot;https://github.com/python-visualization/folium&quot;&gt;Folium&lt;/a&gt;.&lt;/p&gt;
+fig 6: Show xyz axis in PyMol&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="blog" /><category term="PyMol" /><category term="PDB" /><summary type="html">Summary: When show protein unit cell in PyMol, I want to show xyz axis, but PyMol doesn’t have this option. Here is a solution.</summary></entry><entry><title type="html">Web Map with Folium</title><link href="http://localhost:4000/Web_Map_with_Folium/" rel="alternate" type="text/html" title="Web Map with Folium" /><published>2021-07-10T00:00:00-05:00</published><updated>2021-07-10T00:00:00-05:00</updated><id>http://localhost:4000/Web_Map_with_Folium</id><content type="html" xml:base="http://localhost:4000/Web_Map_with_Folium/">&lt;p&gt;Summary: Build a web map with &lt;a href=&quot;https://github.com/python-visualization/folium&quot;&gt;Folium&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Check this blog on &lt;a href=&quot;https://github.com/ycheng22/ycheng22.github.io/blob/main/_posts/2021-07-10-Web_Map_with_Folium.md&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
 
@@ -2669,27 +2734,4 @@ fig 6: Show xyz axis in PyMol&lt;/p&gt;</content><author><name>Yunpeng</name></a
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;&lt;img src=&quot;/images/20210710_web_map_Folium/map42.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Now there are two layers: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Volcanoes&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Population&lt;/code&gt;.&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="Web Map" /><category term="Folium" /><category term="Python" /><summary type="html">Summary: Build a web map with Folium.</summary></entry><entry><title type="html">Story of Texas Outage in Feb 2021</title><link href="http://localhost:4000/blog/Story_of_Texas_Outage_in_Feb2021/" rel="alternate" type="text/html" title="Story of Texas Outage in Feb 2021" /><published>2021-04-10T00:00:00-04:00</published><updated>2021-04-10T00:00:00-04:00</updated><id>http://localhost:4000/blog/Story_of_Texas_Outage_in_Feb2021</id><content type="html" xml:base="http://localhost:4000/blog/Story_of_Texas_Outage_in_Feb2021/">&lt;p&gt;Tableau is popular visualization software. I collect Texas outage data and visualize it in Tableau.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Code is &lt;a href=&quot;https://github.com/ycheng22/Visualize_Texas_Outage&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Visualization is on &lt;a href=&quot;https://public.tableau.com/app/profile/ycheng/viz/ot6_Sorted_Bar_of_Reduced_MW_by_County/Story1&quot;&gt;Tableau&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;collecting-and-process&quot;&gt;Collecting and process….&lt;/h2&gt;
-
-&lt;h2 id=&quot;final-results&quot;&gt;Final results:&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/texas_outage/preview1.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/texas_outage/preview2.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/texas_outage/preview3.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/texas_outage/preview4.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/texas_outage/preview5.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/texas_outage/preview6.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/texas_outage/preview7.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="blog" /><category term="Tableau" /><category term="Texas" /><category term="Outage" /><category term="Visualization" /><summary type="html">Tableau is popular visualization software. I collect Texas outage data and visualize it in Tableau.</summary></entry></feed>
+&lt;p&gt;Now there are two layers: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Volcanoes&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Population&lt;/code&gt;.&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="Web Map" /><category term="Folium" /><category term="Python" /><summary type="html">Summary: Build a web map with Folium.</summary></entry></feed>

@@ -4,7 +4,7 @@ date: 2021-10-05
 header:
 #   image: "/images/foo-bar-identity.jpg"
 #   caption: "A beautiful photo"
-  teaser: "/images/mm_image.png"
+  teaser: "/images/web_theme/mm_image.png"
 tags:
   - Github Pages
   - Minimal Mistake

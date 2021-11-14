@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Set up Web on Github (Academicpages Template) - Yunpeng</title>
-<meta name="description" content="In this blog, I record the process about setting up my website on Github.">
+<!-- begin _includes/seo.html --><title>Install_and_Use_Intel_oneAPI_Toolkit - Yunpeng</title>
+<meta name="description" content="Summary: Installing Intel oneAPI, run fortran code with calling Math Kernel Library on Visual Studio 2019.">
 
 
   <meta name="author" content="Yunpeng">
@@ -22,28 +22,26 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Yunpeng">
-<meta property="og:title" content="Set up Web on Github (Academicpages Template)">
-<meta property="og:url" content="http://localhost:4000/blog/set_up_web_on_Github/">
+<meta property="og:title" content="Install_and_Use_Intel_oneAPI_Toolkit">
+<meta property="og:url" content="http://localhost:4000/Install_and_Use_Intel_oneAPI_Toolkit/">
 
 
-  <meta property="og:description" content="In this blog, I record the process about setting up my website on Github.">
-
-
-
-  <meta property="og:image" content="http://localhost:4000/images/web_theme/academicpages_template.png">
-
-
-
-
-
-  <meta property="article:published_time" content="2020-05-01T00:00:00-05:00">
+  <meta property="og:description" content="Summary: Installing Intel oneAPI, run fortran code with calling Math Kernel Library on Visual Studio 2019.">
 
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/blog/set_up_web_on_Github/">
+
+  <meta property="article:published_time" content="2021-10-25T00:00:00-05:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/Install_and_Use_Intel_oneAPI_Toolkit/">
 
 
 
@@ -268,16 +266,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Set up Web on Github (Academicpages Template)">
-    <meta itemprop="description" content="In this blog, I record the process about setting up my website on Github.">
-    <meta itemprop="datePublished" content="2020-05-01T00:00:00-05:00">
+    <meta itemprop="headline" content="Install_and_Use_Intel_oneAPI_Toolkit">
+    <meta itemprop="description" content="Summary: Installing Intel oneAPI, run fortran code with calling Math Kernel Library on Visual Studio 2019.">
+    <meta itemprop="datePublished" content="2021-10-25T00:00:00-05:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/blog/set_up_web_on_Github/" class="u-url" itemprop="url">Set up Web on Github (Academicpages Template)
+            <a href="http://localhost:4000/Install_and_Use_Intel_oneAPI_Toolkit/" class="u-url" itemprop="url">Install_and_Use_Intel_oneAPI_Toolkit
 </a>
           </h1>
           
@@ -288,7 +286,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2020-05-01T00:00:00-05:00">May 1, 2020</time>
+        <time datetime="2021-10-25T00:00:00-05:00">October 25, 2021</time>
       </span>
     
 
@@ -301,7 +299,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          2 minute read
+          less than 1 minute read
         
       </span>
     
@@ -313,171 +311,32 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <p>In this blog, I record the process about setting up my website on Github.</p>
-
-<ul>
-  <li>Tool: Github Desktop, VS Code.</li>
-</ul>
-
-<p>Check this blog on <a href="https://github.com/ycheng22/ycheng22.github.io/blob/main/_posts/2020-05-01-set_up_web_on_Github.md">github</a>.</p>
+        <p>Summary: Installing Intel oneAPI, run fortran code with calling Math Kernel Library on Visual Studio 2019.</p>
 
 <p><strong>Contents:</strong></p>
 <ul>
-  <li><a href="#1-usefull-resources">1. Usefull resources</a></li>
-  <li><a href="#2-set-up-my-web-step-by-step">2. Set up my web step by step</a>
-    <ul>
-      <li><a href="#21-choose-your-favorite-theme">2.1 Choose your favorite theme</a></li>
-      <li><a href="#22-customize-the-theme">2.2 Customize the theme</a></li>
-    </ul>
-  </li>
-  <li><a href="#3-run-server-locally">3. Run server locally</a>
-    <ul>
-      <li><a href="#31-install-ruby">3.1 Install Ruby</a></li>
-      <li><a href="#32-install-jekyll">3.2 Install jekyll</a></li>
-      <li><a href="#32-if-the-port-is-occupied">3.2 If the port is occupied</a></li>
-    </ul>
-  </li>
+  <li><a href="#1-introduction">1. Introduction</a></li>
+  <li><a href="#2-download-and-install">2. Download and install</a></li>
+  <li><a href="#3-run-fortran-with-calling-math-kernel-library">3. Run Fortran with calling <code class="language-plaintext highlighter-rouge">Math Kernel Library</code></a></li>
 </ul>
 
-<h1 id="1-usefull-resources">1. Usefull resources</h1>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>Intel has transitioned from providing <code class="language-plaintext highlighter-rouge">Intel® Parallel Studio XE</code> as a free tool to providing <code class="language-plaintext highlighter-rouge">Intel® oneAPI Toolkits</code> as a free tool. To run fortran code with calling Math Kernel Library on Visual Studio 2019, which was described in previous <a href="https://ycheng22.github.io/blog/Install_Intel_Parallel_Studio_on_Linux_Windows/#2-run-fortran-code-on-windows">blog</a>, <code class="language-plaintext highlighter-rouge">Intel® oneAPI Toolkits</code> has to be installed.</p>
 
-<ul>
-  <li>GIthub Pages (https://pages.github.com/)</li>
-  <li>Themes
-    <ul>
-      <li>https://pages.github.com/themes/</li>
-      <li>http://jekyllthemes.org/</li>
-      <li>https://jekyllthemes.io/</li>
-      <li>Others</li>
-    </ul>
-  </li>
-  <li>
-    <p><a href="https://www.kiltandcode.com/2020/04/30/how-to-create-a-blog-using-jekyll-and-github-pages-on-windows/">How to Create a Blog Using Jekyll and GitHub Pages on Windows</a></p>
+<h2 id="2-download-and-install">2. Download and install</h2>
+<p>Download <a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html">Intel® oneAPI Base Toolkit</a>, <code class="language-plaintext highlighter-rouge">Math Kernel Library</code> are included in it.</p>
 
-    <p>*you don’t need to install jekyll server if you don’t need to compile markdown locally. Just push your changes to github, view the changes on your website address.</p>
-  </li>
-</ul>
+<p>Select the Operating System, Distribution, Installer Type.</p>
 
-<h1 id="2-set-up-my-web-step-by-step">2. Set up my web step by step</h1>
+<p>Then download without sign up.</p>
 
-<h2 id="21-choose-your-favorite-theme">2.1 Choose your favorite theme</h2>
+<p>Download <a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/hpc-toolkit-download.html">Intel® oneAPI HPC Toolkit</a>, <code class="language-plaintext highlighter-rouge">Intel® Fortran Compilers</code> are included in it.</p>
 
-<p>Once you choose your favorite theme, fork its repo.</p>
+<p>Suppose the <code class="language-plaintext highlighter-rouge">Visual Studio 2019</code> has been installed, <code class="language-plaintext highlighter-rouge">Intel® oneAPI Base Toolkit</code> firstly, install <code class="language-plaintext highlighter-rouge">Intel® oneAPI HPC Toolkit</code> secondly,</p>
 
-<p>I choose this academic theme (https://academicpages.github.io/). Fork it.</p>
+<h2 id="3-run-fortran-with-calling-math-kernel-library">3. Run Fortran with calling <code class="language-plaintext highlighter-rouge">Math Kernel Library</code></h2>
 
-<p>Go to the repo in your Github, rename the repo’s name to <code class="language-plaintext highlighter-rouge">[your_name].github.io</code>.</p>
-
-<h2 id="22-customize-the-theme">2.2 Customize the theme</h2>
-
-<ul>
-  <li>
-    <p>Change profile: in file <code class="language-plaintext highlighter-rouge">_config.yml</code>,</p>
-
-    <ul>
-      <li>
-        <p>In <strong>Site Settings</strong> section, change <em>name, description, url</em>.</p>
-      </li>
-      <li>
-        <p>In <strong>Site Author</strong> section, change <em>name, avatar, bio, location</em>, and social media you want to add.</p>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>More words on social media:</p>
-
-    <ul>
-      <li>
-        <p>Add social media name or full link depends on the setting in <code class="language-plaintext highlighter-rouge">_includes/author-profile.html</code>.
-  If the social media is not provided in the file, you can add a new code block into above html file.</p>
-
-        <p><img src="/images/web_theme/web_social.png" alt="name" /></p>
-      </li>
-      <li>
-        <p>Change the <code class="language-plaintext highlighter-rouge">&lt;i class="fas fa-link"&gt;</code> to add icon for your social media.</p>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>Change top menu: in file <code class="language-plaintext highlighter-rouge">_data/navigation.yml</code></p>
-
-    <ul>
-      <li>
-        <p>Add or remove menu, for example:</p>
-
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  - title: "About me"
-      url: /aboutme/
-</code></pre></div>        </div>
-      </li>
-      <li>
-        <p>url will connect the markdown file <code class="language-plaintext highlighter-rouge">_pages/aboutme.md</code>, edit <code class="language-plaintext highlighter-rouge">aboutme.md</code> to change the contents.</p>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>Add new blog: <code class="language-plaintext highlighter-rouge">_posts/blog-demo.md</code></p>
-
-    <ul>
-      <li>
-        <p>Add new markdown file in the folder <code class="language-plaintext highlighter-rouge">_posts</code></p>
-      </li>
-      <li>
-        <p>Add images to folder <code class="language-plaintext highlighter-rouge">images</code></p>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>Add attachments: <code class="language-plaintext highlighter-rouge">_publications/2009-10-01-paper-title-number-1.md</code></p>
-
-    <ul>
-      <li>Add the attachment to folder <code class="language-plaintext highlighter-rouge">files</code>
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  [Download the file](http://ycheng22.github.io/files/paper1.pdf)
-</code></pre></div>        </div>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h1 id="3-run-server-locally">3. Run server locally</h1>
-
-<h2 id="31-install-ruby">3.1 Install Ruby</h2>
-<p>Jekyll is written in <code class="language-plaintext highlighter-rouge">Ruby</code> as a gem, so to run Jekyll on Windows we’ll first need to download and install <a href="https://rubyinstaller.org/">RubyInstaller</a> for Windows. Make sure to download a recent <code class="language-plaintext highlighter-rouge">Ruby+DevKit</code> version and use the default options in the installation wizard. On the last step, you’ll want to keep the option “Run ‘ridk install’ to setup MSYS2 and development toolchain.” checked.</p>
-
-<p>In the prompt, choose 1.</p>
-
-<p><img src="/images/web_theme/ruby_msys2.png" alt="name" /></p>
-
-<h2 id="32-install-jekyll">3.2 Install jekyll</h2>
-
-<p><code class="language-plaintext highlighter-rouge">gem install jekyll bundler</code></p>
-
-<p>Let’s confirm jekyll is installed:</p>
-
-<p><code class="language-plaintext highlighter-rouge">jekyll -v</code></p>
-
-<p>Then you can run <code class="language-plaintext highlighter-rouge">bundle install</code> to add more necessary packages.</p>
-
-<p>If everything works correctly, run will start the serve at below address.</p>
-
-<p><code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code></p>
-
-<p>Address: <a href="http://127.0.0.1:4000">http://127.0.0.1:4000</a></p>
-
-<h2 id="32-if-the-port-is-occupied">3.2 If the port is occupied</h2>
-
-<p>To find out which process is using the port, run</p>
-
-<p><code class="language-plaintext highlighter-rouge">netstat -aon | findstr "4000"</code></p>
-
-<p>start task manager -&gt; services -&gt; kill that service.</p>
-
-<p>you can also list task by</p>
-
-<p><code class="language-plaintext highlighter-rouge">tasklist | more</code></p>
-
-<p>and kill that process by pid</p>
-
-<p><code class="language-plaintext highlighter-rouge">taskkill /F /PID pid_number</code>.</p>
+<p>The following procedures are the same, which have been described in this <a href="https://ycheng22.github.io/blog/Install_Intel_Parallel_Studio_on_Linux_Windows/#2-run-fortran-code-on-windows">blog</a>.</p>
 
         
       </section>
@@ -494,61 +353,45 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#academicpages" class="page__taxonomy-item p-category" rel="tag">academicpages</a><span class="sep">, </span>
+      <a href="/tags/#fortran" class="page__taxonomy-item p-category" rel="tag">Fortran</a><span class="sep">, </span>
     
-      <a href="/tags/#github-pages" class="page__taxonomy-item p-category" rel="tag">Github Pages</a><span class="sep">, </span>
+      <a href="/tags/#intel-oneapi" class="page__taxonomy-item p-category" rel="tag">Intel oneAPI</a><span class="sep">, </span>
     
-      <a href="/tags/#jekyll" class="page__taxonomy-item p-category" rel="tag">Jekyll</a><span class="sep">, </span>
+      <a href="/tags/#math-kernel-library" class="page__taxonomy-item p-category" rel="tag">Math Kernel Library</a><span class="sep">, </span>
     
-      <a href="/tags/#web" class="page__taxonomy-item p-category" rel="tag">Web</a>
-    
-    </span>
-  </p>
-
-
-
-
-  
-
-
-  
-
-  <p class="page__taxonomy">
-    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
-    <span itemprop="keywords">
-    
-      <a href="/categories/#blog" class="page__taxonomy-item p-category" rel="tag">blog</a>
+      <a href="/tags/#visual-studio-2019" class="page__taxonomy-item p-category" rel="tag">Visual Studio 2019</a>
     
     </span>
   </p>
+
+
 
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2020-05-01T00:00:00-05:00">May 1, 2020</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2021-10-25T00:00:00-05:00">October 25, 2021</time></p>
 
       </footer>
 
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?text=Set+up+Web+on+Github+%28Academicpages+Template%29%20http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fset_up_web_on_Github%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=Install_and_Use_Intel_oneAPI_Toolkit%20http%3A%2F%2Flocalhost%3A4000%2FInstall_and_Use_Intel_oneAPI_Toolkit%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fset_up_web_on_Github%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2FInstall_and_Use_Intel_oneAPI_Toolkit%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fset_up_web_on_Github%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2FInstall_and_Use_Intel_oneAPI_Toolkit%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/blog/welcome-to-jekyll/" class="pagination--pager" title="Welcome to Jekyll!
+      <a href="/Switch_my_web_theme_to_Minimal_Mistake/" class="pagination--pager" title="Switch My Web Theme to Minimal Mistake
 ">Previous</a>
     
     
-      <a href="/blog/Install_Intel_Parallel_Studio_on_Linux_Windows/" class="pagination--pager" title="Install_Intel_Parallel_Studio_on_Linux_Windows
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -562,54 +405,6 @@
     <div class="page__related">
       <h2 class="page__related-title">You May Also Enjoy</h2>
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/Install_and_Use_Intel_oneAPI_Toolkit/" rel="permalink">Install_and_Use_Intel_oneAPI_Toolkit
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2021-10-25T00:00:00-05:00">October 25, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Summary: Installing Intel oneAPI, run fortran code with calling Math Kernel Library on Visual Studio 2019.
-
-</p>
-  </article>
-</div>
-
         
           
 
@@ -753,7 +548,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          11 minute read
+          15 minute read
         
       </span>
     
@@ -761,6 +556,58 @@
 
 
     <p class="archive__item-excerpt" itemprop="description">Summary: Create standalone Bokeh dashboard.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/20210920_django_blog_app/demo.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Django-&-Bootstrap-Blog-and-Translator-App/" rel="permalink">Django &amp; Bootstrap Blog and Translator App
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-09-20T00:00:00-05:00">September 20, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: Build Django and Bootstrap Blog and Translator App.
 
 </p>
   </article>
@@ -839,8 +686,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/blog/set_up_web_on_Github/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/blog/set_up_web_on_Github"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/Install_and_Use_Intel_oneAPI_Toolkit/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/Install_and_Use_Intel_oneAPI_Toolkit"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');
