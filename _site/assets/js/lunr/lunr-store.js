@@ -9,7 +9,7 @@ var store = [{
         "excerpt":"In this blog, I record the process about setting up my website on Github. Tool: Github Desktop, VS Code. Check this blog on github. Contents: 1. Usefull resources 2. Set up my web step by step 2.1 Choose your favorite theme 2.2 Customize the theme 3. Run server locally 3.1...","categories": ["blog"],
         "tags": ["Github Pages","academicpages","Web","Jekyll"],
         "url": "/blog/set_up_web_on_Github/",
-        "teaser": "/images/web_theme/academicpages_template.png"
+        "teaser": "/images/less_images/academicpages_template.png"
       },{
         "title": "Install_Intel_Parallel_Studio_on_Linux_Windows",
         "excerpt":"Sumarry: Intel Parallel Studio is a powerful tool in many computational scenarios. In this blog, I will introduction how to install it and run Fortran code as an example. Check this blog on github. Contents: 1. Install it on Linux 1.1 Download “intel parallel studio” 1.2 Installation guide 1.3 Test...","categories": ["blog"],
@@ -99,11 +99,11 @@ var store = [{
         "excerpt":"Summary: switch my web theme to Minimal Mistake Contents: 1. Introduction 2. Editing settings 3. Add Github Pages to Google 1. Introduction The theme is forked from here. 2. Editing settings Update settings in _config.yml and _pages. The setting is similar to this blog : Set up web on Github...","categories": [],
         "tags": ["Github Pages","Minimal Mistake","Web","Jekyll"],
         "url": "/Switch_my_web_theme_to_Minimal_Mistake/",
-        "teaser": "/images/web_theme/mm_image.png"
+        "teaser": "/images/less_images/mm_image.png"
       },{
         "title": "Install_and_Use_Intel_oneAPI_Toolkit",
         "excerpt":"Summary: Installing Intel oneAPI, run fortran code with calling Math Kernel Library on Visual Studio 2019. Contents: 1. Introduction 2. Download and install 3. Run Fortran with calling Math Kernel Library 1. Introduction Intel has transitioned from providing Intel® Parallel Studio XE as a free tool to providing Intel® oneAPI...","categories": [],
         "tags": ["Intel oneAPI","Visual Studio 2019","Fortran","Math Kernel Library"],
         "url": "/Install_and_Use_Intel_oneAPI_Toolkit/",
-        "teaser": null
+        "teaser": "/images/less_images/intel_oneAPI.jpg"
       }]

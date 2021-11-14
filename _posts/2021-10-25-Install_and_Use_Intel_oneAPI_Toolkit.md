@@ -4,7 +4,7 @@ date: 2021-10-25
 header:
 #   image: "/images/foo-bar-identity.jpg"
 #   caption: "A beautiful photo"
-#  teaser: "/images/mm_image.png"
+  teaser: "/images/less_images/intel_oneAPI.jpg"
 tags:
   - Intel oneAPI 
   - Visual Studio 2019

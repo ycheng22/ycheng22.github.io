@@ -4,7 +4,7 @@ date: 2020-05-01
 header:
 #   image: "/images/academicpages_template.png"
 #   caption: "A beautiful photo"
-  teaser: "/images/web_theme/academicpages_template.png"
+  teaser: "/images/less_images/academicpages_template.png"
 categories:
   - blog
 tags:
@@ -70,7 +70,7 @@ Go to the repo in your Github, rename the repo's name to ``[your_name].github.io
     * Add social media name or full link depends on the setting in `_includes/author-profile.html`.
     If the social media is not provided in the file, you can add a new code block into above html file.
     
-        ![name](/images/web_theme/web_social.png)
+        ![name](/images/less_images/web_social.png)
     
     * Change the `<i class="fas fa-link">` to add icon for your social media.
     
@@ -104,7 +104,7 @@ Jekyll is written in `Ruby` as a gem, so to run Jekyll on Windows we’ll first 
 
 In the prompt, choose 1.
 
-![name](/images/web_theme/ruby_msys2.png)
+![name](/images/less_images/ruby_msys2.png)
 
 ## 3.2 Install jekyll
 
