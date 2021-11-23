@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:8000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:8000/" rel="alternate" type="text/html" /><updated>2021-11-23T15:55:12-06:00</updated><id>http://localhost:8000/feed.xml</id><title type="html">Yunpeng</title><author><name>Yunpeng</name></author><entry><title type="html">Install_and_Use_Intel_oneAPI_Toolkit</title><link href="http://localhost:8000/Install_and_Use_Intel_oneAPI_Toolkit/" rel="alternate" type="text/html" title="Install_and_Use_Intel_oneAPI_Toolkit" /><published>2021-10-25T00:00:00-05:00</published><updated>2021-10-25T00:00:00-05:00</updated><id>http://localhost:8000/Install_and_Use_Intel_oneAPI_Toolkit</id><content type="html" xml:base="http://localhost:8000/Install_and_Use_Intel_oneAPI_Toolkit/">&lt;p&gt;Summary: Installing Intel oneAPI, run fortran code with calling Math Kernel Library on Visual Studio 2019.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:8000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:8000/" rel="alternate" type="text/html" /><updated>2021-11-23T16:01:55-06:00</updated><id>http://localhost:8000/feed.xml</id><title type="html">Yunpeng</title><author><name>Yunpeng</name></author><entry><title type="html">Install_and_Use_Intel_oneAPI_Toolkit</title><link href="http://localhost:8000/Install_and_Use_Intel_oneAPI_Toolkit/" rel="alternate" type="text/html" title="Install_and_Use_Intel_oneAPI_Toolkit" /><published>2021-10-25T00:00:00-05:00</published><updated>2021-10-25T00:00:00-05:00</updated><id>http://localhost:8000/Install_and_Use_Intel_oneAPI_Toolkit</id><content type="html" xml:base="http://localhost:8000/Install_and_Use_Intel_oneAPI_Toolkit/">&lt;p&gt;Summary: Installing Intel oneAPI, run fortran code with calling Math Kernel Library on Visual Studio 2019.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Contents:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -425,9 +425,7 @@ git push heroku master
 
 &lt;p&gt;Bokeh is a Python library for creating interactive visualizations for modern web browsers. According to this &lt;a href=&quot;https://towardsdatascience.com/data-visualization-with-bokeh-in-python-part-one-getting-started-a11655a467d4&quot;&gt;blog&lt;/a&gt;, I collected information about all flights depart Houston in 2020 and created similar dashboard.&lt;/p&gt;
 
-&lt;p&gt;According to Bokeh’s introduction on &lt;a href=&quot;https://docs.bokeh.org/en/latest/docs/user_guide/interaction/widgets.html&quot;&gt;widgets&lt;/a&gt;:&lt;/p&gt;
-
-&lt;p&gt;There are two ways to use a widget’s functionality:&lt;/p&gt;
+&lt;p&gt;According to Bokeh’s introduction on &lt;a href=&quot;https://docs.bokeh.org/en/latest/docs/user_guide/interaction/widgets.html&quot;&gt;widgets&lt;/a&gt;, there are two ways to use a widget’s functionality:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;

@@ -40,9 +40,7 @@ Check this blog on [github](https://github.com/ycheng22/ycheng22.github.io/blob/
 
 Bokeh is a Python library for creating interactive visualizations for modern web browsers. According to this [blog](https://towardsdatascience.com/data-visualization-with-bokeh-in-python-part-one-getting-started-a11655a467d4), I collected information about all flights depart Houston in 2020 and created similar dashboard.
 
-According to Bokeh's introduction on [widgets](https://docs.bokeh.org/en/latest/docs/user_guide/interaction/widgets.html):
-
-There are two ways to use a widget’s functionality:
+According to Bokeh's introduction on [widgets](https://docs.bokeh.org/en/latest/docs/user_guide/interaction/widgets.html), there are two ways to use a widget’s functionality:
 
 - A `CustomJS` callback. This approach will work in standalone HTML documents or Bokeh server apps.
 
