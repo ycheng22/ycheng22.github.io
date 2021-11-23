@@ -259,7 +259,7 @@ if __name__ == '__main__':
   ```
   *Note:* no space in the string, replace `mypassword` with your password.
 - Go to webs, reload web, go the web address, it should work now.
-- Go to `Web`, open `Error` Log to debug
+- Go to `Web`, open `Error Log` to debug
 - 
 ![name](/images/20210912_web_app_pythonanywhere/debug.png)
 
