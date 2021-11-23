@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Story of Texas Outage in Feb 2021 - Yunpeng</title>
-<meta name="description" content="Tableau is popular visualization software. I collect Texas outage data and visualize it in Tableau.">
+<meta name="description" content="Summary: Tableau is a popular visualization software. I collected Texas outage data and visualize it in Tableau.">
 
 
   <meta name="author" content="Yunpeng">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="http://localhost:8000/blog/Story_of_Texas_Outage_in_Feb2021/">
 
 
-  <meta property="og:description" content="Tableau is popular visualization software. I collect Texas outage data and visualize it in Tableau.">
+  <meta property="og:description" content="Summary: Tableau is a popular visualization software. I collected Texas outage data and visualize it in Tableau.">
 
 
 
@@ -287,7 +287,7 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Story of Texas Outage in Feb 2021">
-    <meta itemprop="description" content="Tableau is popular visualization software. I collect Texas outage data and visualize it in Tableau.">
+    <meta itemprop="description" content="Summary: Tableau is a popular visualization software. I collected Texas outage data and visualize it in Tableau.">
     <meta itemprop="datePublished" content="2021-04-10T00:00:00-05:00">
     
 
@@ -319,7 +319,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          less than 1 minute read
+          4 minute read
         
       </span>
     
@@ -331,30 +331,242 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <p>Tableau is popular visualization software. I collect Texas outage data and visualize it in Tableau.</p>
+        <p>Summary: Tableau is a popular visualization software. I collected Texas outage data and visualize it in Tableau.</p>
 
 <ul>
   <li>Code is <a href="https://github.com/ycheng22/Visualize_Texas_Outage">here</a></li>
   <li>Visualization is on <a href="https://public.tableau.com/app/profile/ycheng/viz/ot6_Sorted_Bar_of_Reduced_MW_by_County/Story1">Tableau</a></li>
 </ul>
 
-<h2 id="collecting-and-process">Collecting and process….</h2>
+<p><strong>Contents</strong></p>
+<ul>
+  <li><a href="#1-introduction">1. Introduction</a></li>
+  <li><a href="#2-data-collection">2. Data Collection</a>
+    <ul>
+      <li><a href="#21-outage-data">2.1 Outage data</a></li>
+      <li><a href="#22-county-data">2.2 County data</a></li>
+      <li><a href="#23-weather-history-data">2.3 Weather history data</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-data-processing">3. Data processing</a>
+    <ul>
+      <li><a href="#31-picking-useful-features-from-weather-data">3.1 Picking useful features from weather data</a></li>
+      <li><a href="#32-picking-useful-features-from-the-outage-data">3.2 Picking useful features from the outage data</a></li>
+      <li><a href="#33-adding-outage-info-to-weather_cut_drop">3.3 Adding outage info to weather_cut_drop.</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-visualization-in-tableau">4. Visualization in Tableau</a>
+    <ul>
+      <li><a href="#41-evolution-of-outageleft-and-temperatureright">4.1 Evolution of outage(left) and temperature(right)</a></li>
+      <li><a href="#42-comparing-the-evolution-in-one-map">4.2 Comparing the evolution in one map</a></li>
+      <li><a href="#43-heatmap-of-counties-total-reduced-power-at-each-time">4.3 Heatmap of counties’ total reduced power at each time</a></li>
+      <li><a href="#44-heatmap-of-counties-temperature-at-each-time">4.4 Heatmap of counties’ temperature at each time</a></li>
+      <li><a href="#45-line-chart-of-each-countys-temperature-and-reduced-power">4.5 Line chart of each county’s temperature and reduced power</a></li>
+      <li><a href="#46-total-reduced-power-by-fuel-type">4.6 Total reduced power by fuel type</a></li>
+      <li><a href="#47-top-x-counties-suffer-power-outage-at-each-time">4.7 Top X counties suffer power outage at each time</a></li>
+    </ul>
+  </li>
+</ul>
 
-<h2 id="final-results">Final results:</h2>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>I want to visualize the Texas power outage during Feb.10 to Feb.19 hour by hour in Tableau.</p>
+<ul>
+  <li>Firstly, collecting outage data, weather history data and Texas county data.</li>
+  <li>Secondly, processing the data.</li>
+  <li>Lastly, visualizing the processed data in Tableau.</li>
+</ul>
+
+<p>Notebook for collecting and processing data can be found <a href="https://github.com/ycheng22/Visualize_Texas_Outage/blob/main/Data_Processing_v3.ipynb">here</a></p>
+
+<h2 id="2-data-collection">2. Data Collection</h2>
+
+<p>In this part, I will collect outage data, weather history data and Texas county data.</p>
+<ul>
+  <li>Outage data is from: <a href="http://www.ercot.com/content/wcm/lists/226521/Unit_Outage_Data_20210312.xlsx">ERCOT, Generation Resource and Energy Storage Resource Outages and Derates for February 10-19, 2021 Excel Version</a>.</li>
+  <li>Texas county list is from: <a href="https://data.texas.gov/dataset/Texas-Counties-Centroid-Map/ups3-9e8m/data">Texas-Counties-Centroid-Map</a>. Another source is <a href="https://en.wikipedia.org/wiki/User:Michael_J/County_table">Wikipedia</a>.</li>
+  <li>Weather history data is from: <a href="https://dev.meteostat.net/python/">Meteostat</a>, weather stations list is <a href="https://github.com/meteostat/weather-stations">here</a>.</li>
+</ul>
+
+<h3 id="21-outage-data">2.1 Outage data</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">outage</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s">'outage_feb1019.xlsx'</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s">'OutageData'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Outage size: </span><span class="si">{</span><span class="n">outage</span><span class="p">.</span><span class="n">shape</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+<span class="n">outage</span><span class="p">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+<p><img src="/images/texas_outage/outage_print.png" alt="name" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">outage</span><span class="p">[</span><span class="s">'FUEL TYPE'</span><span class="p">].</span><span class="n">unique</span><span class="p">()</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">array(['WIND', 'NG', 'COAL', 'SOLAR', 'ESR', 'HYDRO', 'NUCLEAR'], dtype=object)</code></p>
+
+<h3 id="22-county-data">2.2 County data</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cnty</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'Texas_Counties_Centroid_Map.csv'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'County size: </span><span class="si">{</span><span class="n">cnty</span><span class="p">.</span><span class="n">shape</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+<span class="n">cnty</span><span class="p">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">County size: (254, 8)</code>
+<img src="/images/texas_outage/county_data.png" alt="name" /></p>
+
+<h3 id="23-weather-history-data">2.3 Weather history data</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">##scrape weather history data hourly
+</span><span class="n">stations</span> <span class="o">=</span> <span class="n">Stations</span><span class="p">()</span>
+<span class="c1"># Set time period
+</span><span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">59</span><span class="p">)</span>
+
+<span class="c1"># for idx in tqdm(range(len(cnty))):
+# for idx in range(len(cnty)):
+</span><span class="n">idx_s</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1">#change this in tiny step to avoid blocking
+</span><span class="n">idx_e</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cnty</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">idx_s</span><span class="p">,</span> <span class="n">idx_e</span><span class="p">)):</span>
+    <span class="n">cnty_name</span> <span class="o">=</span> <span class="n">cnty</span><span class="p">[</span><span class="s">'CNTY_NM'</span><span class="p">][</span><span class="n">idx</span><span class="p">]</span>
+    <span class="n">lat</span> <span class="o">=</span> <span class="n">cnty</span><span class="p">[</span><span class="s">'X (Lat)'</span><span class="p">][</span><span class="n">idx</span><span class="p">].</span><span class="nb">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">lon</span> <span class="o">=</span> <span class="n">cnty</span><span class="p">[</span><span class="s">'Y (Long)'</span><span class="p">][</span><span class="n">idx</span><span class="p">].</span><span class="nb">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">stations</span> <span class="o">=</span> <span class="n">stations</span><span class="p">.</span><span class="n">nearby</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
+    <span class="n">station</span> <span class="o">=</span> <span class="n">stations</span><span class="p">.</span><span class="n">fetch</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="c1"># Get daily data for 2018
+</span>    <span class="n">data</span> <span class="o">=</span> <span class="n">Hourly</span><span class="p">(</span><span class="n">station</span><span class="p">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span> <span class="c1">#https://dev.meteostat.net/python/hourly.html#example
+</span>    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">fetch</span><span class="p">()</span>
+    <span class="n">data</span><span class="p">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="c1">#the time was used as index, reset it
+</span>    <span class="n">data</span><span class="p">[</span><span class="s">'COUNTY'</span><span class="p">]</span> <span class="o">=</span> <span class="n">cnty_name</span>
+    
+    <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="n">idx_s</span><span class="p">:</span>
+        <span class="n">hourly_data</span> <span class="o">=</span> <span class="n">data</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">hourly_data</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        
+        
+<span class="n">hourly_data</span><span class="p">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">hourly_data</span><span class="p">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">'hourly_data_200_last.csv'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Combining all weather data together:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hourly_data_0_99</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'hourly_data_0_99.csv'</span><span class="p">)</span>
+<span class="n">hourly_data_100_149</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'hourly_data_100_149.csv'</span><span class="p">)</span>
+<span class="n">hourly_data_150_199</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'hourly_data_150_199.csv'</span><span class="p">)</span>
+<span class="n">hourly_data_200_last</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'hourly_data_200_last.csv'</span><span class="p">)</span>
+
+<span class="n">hourly_data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">concat</span><span class="p">([</span><span class="n">hourly_data_0_99</span><span class="p">,</span> <span class="n">hourly_data_100_149</span><span class="p">,</span> <span class="n">hourly_data_150_199</span><span class="p">,</span> <span class="n">hourly_data_200_last</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Cleaning the data names:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hourly_data</span><span class="p">.</span><span class="n">drop</span><span class="p">([</span><span class="s">'Unnamed: 0'</span><span class="p">,</span> <span class="s">'index'</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">hourly_data</span><span class="p">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s">'COUNTY'</span><span class="p">:</span> <span class="s">'CNTY_NM'</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">hourly_data</span><span class="p">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">hourly_data</span><span class="p">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">'hourly_data.csv'</span><span class="p">)</span>
+<span class="n">hourly_data</span><span class="p">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+<p><img src="/images/texas_outage/wea_data.png" alt="name" /></p>
+
+<h2 id="3-data-processing">3. Data processing</h2>
+
+<h3 id="31-picking-useful-features-from-weather-data">3.1 Picking useful features from weather data</h3>
+
+<p>Adding county information to weather data and pick usefull features from the weather data.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hourly_data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'hourly_data.csv'</span><span class="p">)</span> 
+<span class="n">cnty_xycnty</span> <span class="o">=</span> <span class="n">cnty</span><span class="p">[[</span><span class="s">'X (Lat)'</span><span class="p">,</span> <span class="s">'Y (Long)'</span><span class="p">,</span> <span class="s">'CNTY_NM'</span><span class="p">,</span> <span class="s">'CNTY_NBR'</span><span class="p">,</span> <span class="s">'FIPS'</span><span class="p">]]</span> 
+<span class="n">weather_data</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="p">.</span><span class="n">merge</span><span class="p">(</span><span class="n">cnty_xycnty</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">'inner'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s">'CNTY_NM'</span><span class="p">)</span> <span class="c1">#addX (Lat)', 'Y (Long) to weather data
+</span><span class="n">weather_data</span><span class="p">[</span><span class="s">'CNTY_NM'</span><span class="p">]</span> <span class="o">=</span> <span class="n">weather_data</span><span class="p">[</span><span class="s">'CNTY_NM'</span><span class="p">].</span><span class="nb">str</span><span class="p">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="c1"># weather_data['time'] = pd.Timestamp(weather_data['time'])
+</span><span class="n">weather_data</span><span class="p">[</span><span class="s">'time'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">weather_data</span><span class="p">[</span><span class="s">'time'</span><span class="p">])</span> <span class="c1">#str to timestamp
+# df['Timestamp'] = pd.to_datetime(df['Timestamp'], unit='s')
+</span><span class="n">weather_data</span><span class="p">[</span><span class="s">'State'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'Texas'</span>
+<span class="n">weather_cut</span> <span class="o">=</span> <span class="n">weather_data</span><span class="p">[[</span><span class="s">'State'</span><span class="p">,</span> <span class="s">'CNTY_NM'</span><span class="p">,</span> <span class="s">'X (Lat)'</span><span class="p">,</span> <span class="s">'Y (Long)'</span><span class="p">,</span> <span class="s">'CNTY_NBR'</span><span class="p">,</span> <span class="s">'FIPS'</span><span class="p">,</span> <span class="s">'time'</span><span class="p">,</span> <span class="s">'temp'</span><span class="p">,</span> <span class="s">'coco'</span><span class="p">]]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'weather_cut shape: </span><span class="si">{</span><span class="n">weather_cut</span><span class="p">.</span><span class="n">shape</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+<span class="n">weather_cut</span><span class="p">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">weather_cut shape: (59760, 9)</code>
+<img src="/images/texas_outage/wea_use.png" alt="name" /></p>
+
+<h3 id="32-picking-useful-features-from-the-outage-data">3.2 Picking useful features from the outage data</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">outage_cut</span> <span class="o">=</span> <span class="n">outage</span><span class="p">.</span><span class="n">drop</span><span class="p">([</span><span class="s">'STATION LONG NAME'</span><span class="p">,</span> <span class="s">'UNIT NAME'</span><span class="p">,</span> <span class="s">'RESOURCE ENTITY'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">outage_cut</span><span class="p">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s">'SEASONAL MAX MW (HSL)'</span><span class="p">:</span> <span class="s">'MAX_MW'</span><span class="p">,</span> <span class="s">'AVAILABLE MW AFTER OUTAGE/DERATE'</span><span class="p">:</span> <span class="s">'AVAI_MW'</span><span class="p">,</span> <span class="s">'MW REDUCTION FROM OUTAGE/DERATE'</span><span class="p">:</span> <span class="s">'REDU_MW'</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">outage_cut</span><span class="p">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+<p><img src="/images/texas_outage/out_cut.png" alt="name" /></p>
+
+<h3 id="33-adding-outage-info-to-weather_cut_drop">3.3 Adding outage info to weather_cut_drop.</h3>
+
+<p>For each county at each hour, checking if it’s suffering outage or not. The <strong>total</strong> <code class="language-plaintext highlighter-rouge">MAX_MW</code>, <code class="language-plaintext highlighter-rouge">AVAIL_MW</code>, <code class="language-plaintext highlighter-rouge">REDU_MW</code> will be added.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'''
+Adding columns for reduced MW with different fuel type
+'''</span>
+<span class="n">weather_cut_drop</span> <span class="o">=</span> <span class="n">weather_cut</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="c1"># outage['FUEL TYPE'].unique():  ['WIND', 'NG', 'COAL', 'SOLAR', 'ESR', 'HYDRO', 'NUCLEAR']
+</span><span class="n">rng</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">weather_cut_drop</span><span class="p">)</span>
+<span class="n">weather_cut_drop</span> <span class="o">=</span> <span class="n">weather_cut</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">FT</span> <span class="ow">in</span> <span class="n">outage</span><span class="p">[</span><span class="s">'FUEL TYPE'</span><span class="p">].</span><span class="n">unique</span><span class="p">():</span>
+    <span class="n">weather_cut_drop</span><span class="p">[</span><span class="n">FT</span> <span class="o">+</span> <span class="s">'_recu_mw'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">rng</span><span class="p">)</span>
+    
+<span class="n">weather_cut_drop</span><span class="p">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Calculating total reduced power of each fuel type for each county at every hour.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'''
+loop through every pair
+'''</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">weather_cut_drop</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">index_weather</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">rng</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">index_outage</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">outage_cut</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">weather_cut_drop</span><span class="p">[</span><span class="s">'CNTY_NM'</span><span class="p">][</span><span class="n">index_weather</span><span class="p">]</span> <span class="o">==</span> <span class="n">outage_cut</span><span class="p">[</span><span class="s">'COUNTY'</span><span class="p">][</span><span class="n">index_outage</span><span class="p">]:</span> 
+            <span class="c1">#think aobut the efficiency on accesing data in dataframe
+</span>            <span class="k">if</span> <span class="n">weather_cut_drop</span><span class="p">[</span><span class="s">'time'</span><span class="p">][</span><span class="n">index_weather</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">outage_cut</span><span class="p">[</span><span class="s">'START'</span><span class="p">][</span><span class="n">index_outage</span><span class="p">]</span> <span class="ow">and</span> \
+                            <span class="n">weather_cut_drop</span><span class="p">[</span><span class="s">'time'</span><span class="p">][</span><span class="n">index_weather</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">outage_cut</span><span class="p">[</span><span class="s">'END'</span><span class="p">][</span><span class="n">index_outage</span><span class="p">]</span> <span class="p">:</span>
+                <span class="n">FT</span> <span class="o">=</span> <span class="n">outage_cut</span><span class="p">[</span><span class="s">'FUEL TYPE'</span><span class="p">][</span><span class="n">index_outage</span><span class="p">]</span>
+                <span class="n">weather_cut_drop</span><span class="p">[</span><span class="n">FT</span> <span class="o">+</span> <span class="s">'_recu_mw'</span><span class="p">][</span><span class="n">index_weather</span><span class="p">]</span> <span class="o">=</span> \
+                    <span class="n">weather_cut_drop</span><span class="p">[</span><span class="n">FT</span> <span class="o">+</span> <span class="s">'_recu_mw'</span><span class="p">][</span><span class="n">index_weather</span><span class="p">]</span> <span class="o">+</span> <span class="n">outage_cut</span><span class="p">[</span><span class="s">'REDU_MW'</span><span class="p">][</span><span class="n">index_outage</span><span class="p">]</span>
+<span class="n">weather_cut_drop</span><span class="p">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">'cnty_weather_out_v2.csv'</span><span class="p">)</span>
+<span class="n">weather_cut_drop</span><span class="p">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="4-visualization-in-tableau">4. Visualization in Tableau</h2>
+
+<p>Import <code class="language-plaintext highlighter-rouge">cnty_weather_out_v2.csv</code> to Tableau and visualize the data.</p>
+
+<h3 id="41-evolution-of-outageleft-and-temperatureright">4.1 Evolution of outage(left) and temperature(right)</h3>
+
+<p>The slider can help user select time.</p>
 
 <p><img src="/images/texas_outage/preview1.png" alt="name" /></p>
 
+<h3 id="42-comparing-the-evolution-in-one-map">4.2 Comparing the evolution in one map</h3>
+
+<p>The color represents the temperature, the size of dot represents the total reduced power. The slider can help user select time.</p>
+
 <p><img src="/images/texas_outage/preview2.png" alt="name" /></p>
+
+<h3 id="43-heatmap-of-counties-total-reduced-power-at-each-time">4.3 Heatmap of counties’ total reduced power at each time</h3>
 
 <p><img src="/images/texas_outage/preview3.png" alt="name" /></p>
 
+<h3 id="44-heatmap-of-counties-temperature-at-each-time">4.4 Heatmap of counties’ temperature at each time</h3>
+
 <p><img src="/images/texas_outage/preview4.png" alt="name" /></p>
+
+<h3 id="45-line-chart-of-each-countys-temperature-and-reduced-power">4.5 Line chart of each county’s temperature and reduced power</h3>
+
+<p>In drop-down menu, the user can select county.</p>
 
 <p><img src="/images/texas_outage/preview5.png" alt="name" /></p>
 
+<h3 id="46-total-reduced-power-by-fuel-type">4.6 Total reduced power by fuel type</h3>
+
 <p><img src="/images/texas_outage/preview6.png" alt="name" /></p>
 
+<h3 id="47-top-x-counties-suffer-power-outage-at-each-time">4.7 Top X counties suffer power outage at each time</h3>
+
+<p>The slider can help user select time. User can set X in the text box.</p>
+
 <p><img src="/images/texas_outage/preview7.png" alt="name" /></p>
+
 
         
       </section>

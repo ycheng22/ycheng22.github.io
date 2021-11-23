@@ -42,7 +42,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Story of Texas Outage in Feb 2021",
-        "excerpt":"Tableau is popular visualization software. I collect Texas outage data and visualize it in Tableau.      Code is here   Visualization is on Tableau   Collecting and process….   Final results:                       ","categories": ["blog"],
+        "excerpt":"Summary: Tableau is a popular visualization software. I collected Texas outage data and visualize it in Tableau. Code is here Visualization is on Tableau Contents 1. Introduction 2. Data Collection 2.1 Outage data 2.2 County data 2.3 Weather history data 3. Data processing 3.1 Picking useful features from weather data...","categories": ["blog"],
         "tags": ["Tableau","Texas","Outage","Visualization"],
         "url": "/blog/Story_of_Texas_Outage_in_Feb2021/",
         "teaser": "/images/texas_outage/texas_outage.png"
@@ -66,7 +66,7 @@ var store = [{
         "teaser": "/images/heroku_blogs/heroku_image.png"
       },{
         "title": "Building a Desktop SQL Book Inventory GUI App with Python",
-        "excerpt":"Summary: building a desktop SQL book inventory GUI with python. Check this blog on github. Contents: 1. Introduction 2. Backend 3. Frontend 1. Introduction Creating a desktop SQL book inventory GUI with python. This app is backed with sqlite3 database. Preview -Interface -View all -Search entry -Add entry -Update selected...","categories": [],
+        "excerpt":"Summary: building a desktop SQL book inventory GUI with python. Check this blog on github. Contents: 1. Introduction 2. Backend 3. Frontend 4. Package into .exe file 1. Introduction Creating a desktop SQL book inventory GUI with python. This app is backed with sqlite3 database. Preview -Interface -View all -Search...","categories": [],
         "tags": ["SQL","GUI","Python"],
         "url": "/Building_a_Desktop_SQL_Book-Inventory_GUI_with_Python/",
         "teaser": "/images/20210920_book_app/book_store.png"

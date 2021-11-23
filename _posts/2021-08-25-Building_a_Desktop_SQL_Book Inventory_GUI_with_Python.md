@@ -24,6 +24,7 @@ Check this blog on [github](#).
 - [1. Introduction](#1-introduction)
 - [2. Backend](#2-backend)
 - [3. Frontend](#3-frontend)
+- [4. Package into .exe file](#4-package-into-exe-file)
 
 ## 1. Introduction
 
@@ -244,3 +245,9 @@ b6.grid(row=7, column=3)
 
 window.mainloop()
 ```
+
+## 4. Package into .exe file
+
+- Install `pyinstaller`
+- In current folder, run `pyinstaller --onefile --windowed frontend.py`
+- In folder `dist`, books.db, frontend.exe are created
