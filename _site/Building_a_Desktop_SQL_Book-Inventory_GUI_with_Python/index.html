@@ -30,7 +30,7 @@
 
 
 
-  <meta property="og:image" content="http://localhost:8000/images/less_images/book_store.png">
+  <meta property="og:image" content="http://localhost:8000/images/20210920_book_app/book_store.png">
 
 
 
@@ -330,7 +330,43 @@
 
 <p><strong>Preview</strong></p>
 
-<p><img src="/images/less_images/book_store.png" alt="name" /></p>
+<p><strong>-Interface</strong>
+<!-- ![name](/images/20210920_book_app/book_store.png) --></p>
+<p align="center">
+  <img src="../images/20210920_book_app/book_store.png" width="60%" />
+</p>
+
+<p><strong>-View all</strong></p>
+
+<p align="center">
+  <img src="../images/20210920_book_app/view_all.png" width="60%" />
+</p>
+
+<p><strong>-Search entry</strong></p>
+
+<p align="center">
+  <img src="../images/20210920_book_app/search_entry.png" width="60%" />
+</p>
+
+<p><strong>-Add entry</strong></p>
+
+<p align="center">
+  <img src="../images/20210920_book_app/add_entry.png" width="60%" />
+</p>
+
+<p><strong>-Update selected</strong></p>
+
+<p align="center">
+  <img src="../images/20210920_book_app/update_before.png" width="49%" />
+  <img src="../images/20210920_book_app/update_after.png" width="49%" />
+</p>
+
+<p><strong>-Delete selected</strong></p>
+
+<p align="center">
+  <img src="../images/20210920_book_app/delete_before.png" width="49%" />
+  <img src="../images/20210920_book_app/delete_after.png" width="49%" />
+</p>
 
 <h2 id="2-backend">2. Backend</h2>
 
@@ -407,7 +443,7 @@
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">backend</span>
 
-<span class="k">def</span> <span class="nf">get_selected_row</span><span class="p">(</span><span class="n">event</span><span class="p">):</span> <span class="c1">#what's' event for?
+<span class="k">def</span> <span class="nf">get_selected_row</span><span class="p">(</span><span class="n">event</span><span class="p">):</span> <span class="c1">#bind to function: '&lt;&lt;ListboxSelect&gt;&gt;'
 </span>    <span class="k">try</span><span class="p">:</span>
         <span class="k">global</span> <span class="n">selected_tuple</span>
         <span class="n">index</span> <span class="o">=</span> <span class="n">list1</span><span class="p">.</span><span class="n">curselection</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#if not [0], index would be like (0, ) (2, )

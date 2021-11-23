@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:8000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:8000/" rel="alternate" type="text/html" /><updated>2021-11-23T10:27:52-06:00</updated><id>http://localhost:8000/feed.xml</id><title type="html">Yunpeng</title><author><name>Yunpeng</name></author><entry><title type="html">Install_and_Use_Intel_oneAPI_Toolkit</title><link href="http://localhost:8000/Install_and_Use_Intel_oneAPI_Toolkit/" rel="alternate" type="text/html" title="Install_and_Use_Intel_oneAPI_Toolkit" /><published>2021-10-25T00:00:00-05:00</published><updated>2021-10-25T00:00:00-05:00</updated><id>http://localhost:8000/Install_and_Use_Intel_oneAPI_Toolkit</id><content type="html" xml:base="http://localhost:8000/Install_and_Use_Intel_oneAPI_Toolkit/">&lt;p&gt;Summary: Installing Intel oneAPI, run fortran code with calling Math Kernel Library on Visual Studio 2019.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:8000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:8000/" rel="alternate" type="text/html" /><updated>2021-11-23T11:44:00-06:00</updated><id>http://localhost:8000/feed.xml</id><title type="html">Yunpeng</title><author><name>Yunpeng</name></author><entry><title type="html">Install_and_Use_Intel_oneAPI_Toolkit</title><link href="http://localhost:8000/Install_and_Use_Intel_oneAPI_Toolkit/" rel="alternate" type="text/html" title="Install_and_Use_Intel_oneAPI_Toolkit" /><published>2021-10-25T00:00:00-05:00</published><updated>2021-10-25T00:00:00-05:00</updated><id>http://localhost:8000/Install_and_Use_Intel_oneAPI_Toolkit</id><content type="html" xml:base="http://localhost:8000/Install_and_Use_Intel_oneAPI_Toolkit/">&lt;p&gt;Summary: Installing Intel oneAPI, run fortran code with calling Math Kernel Library on Visual Studio 2019.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Contents:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -1359,9 +1359,7 @@ fig 5: Table of arrival delay statistics by airline&lt;/p&gt;
 
 &lt;p&gt;To create standalone interactive figure, the one need to program Javascript callback. If use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bokeh serve&lt;/code&gt; method, only python code need to be programmed.&lt;/p&gt;</content><author><name>Yunpeng</name></author><category term="Bokeh" /><category term="Dashboard" /><category term="Python" /><summary type="html">Summary: Create standalone Bokeh dashboard.</summary></entry><entry><title type="html">Django &amp;amp; Bootstrap Blog and Translator App</title><link href="http://localhost:8000/Django-&-Bootstrap-Blog-and-Translator-App/" rel="alternate" type="text/html" title="Django &amp;amp; Bootstrap Blog and Translator App" /><published>2021-09-20T00:00:00-05:00</published><updated>2021-09-20T00:00:00-05:00</updated><id>http://localhost:8000/Django%20&amp;%20Bootstrap%20Blog%20and%20Translator%20App</id><content type="html" xml:base="http://localhost:8000/Django-&amp;-Bootstrap-Blog-and-Translator-App/">&lt;p&gt;Summary: Build Django and Bootstrap Blog and Translator App.&lt;/p&gt;
 
-&lt;p&gt;Check this blog on &lt;a href=&quot;https://ycheng22.github.io/Django-&amp;amp;-Bootstrap-Blog-and-Translator-App/&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Source code is &lt;a href=&quot;&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Source code is &lt;a href=&quot;https://github.com/ycheng22/Build_10_Real_World_Applicatoins&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Contents:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -2411,7 +2409,43 @@ python manage.py migrate
 
 &lt;p&gt;&lt;strong&gt;Preview&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/less_images/book_store.png&quot; alt=&quot;name&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;-Interface&lt;/strong&gt;
+&lt;!-- ![name](/images/20210920_book_app/book_store.png) --&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;../images/20210920_book_app/book_store.png&quot; width=&quot;60%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;-View all&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;../images/20210920_book_app/view_all.png&quot; width=&quot;60%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;-Search entry&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;../images/20210920_book_app/search_entry.png&quot; width=&quot;60%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;-Add entry&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;../images/20210920_book_app/add_entry.png&quot; width=&quot;60%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;-Update selected&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;../images/20210920_book_app/update_before.png&quot; width=&quot;49%&quot; /&gt;
+  &lt;img src=&quot;../images/20210920_book_app/update_after.png&quot; width=&quot;49%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;-Delete selected&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;../images/20210920_book_app/delete_before.png&quot; width=&quot;49%&quot; /&gt;
+  &lt;img src=&quot;../images/20210920_book_app/delete_after.png&quot; width=&quot;49%&quot; /&gt;
+&lt;/p&gt;
 
 &lt;h2 id=&quot;2-backend&quot;&gt;2. Backend&lt;/h2&gt;
 
@@ -2488,7 +2522,7 @@ python manage.py migrate
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;tkinter&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;backend&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_selected_row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#what's' event for?
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_selected_row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#bind to function: '&amp;lt;&amp;lt;ListboxSelect&amp;gt;&amp;gt;'
 &lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;global&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;selected_tuple&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;curselection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#if not [0], index would be like (0, ) (2, )

@@ -4,7 +4,7 @@ date: 2021-08-25
 header:
   # image: "/images/heroku_blogs/heroku_image.png"
   # caption: "A beautiful photo"
-  teaser: "/images/less_images/book_store.png"
+  teaser: "/images/20210920_book_app/book_store.png"
 tags:
 - SQL
 - GUI
@@ -31,7 +31,43 @@ Creating a desktop SQL book inventory GUI with python. This app is backed with `
 
 **Preview**
 
-![name](/images/less_images/book_store.png)
+**-Interface**
+<!-- ![name](/images/20210920_book_app/book_store.png) -->
+<p align="center">
+  <img src="../images/20210920_book_app/book_store.png" width="60%" />
+</p>
+
+**-View all**
+
+<p align="center">
+  <img src="../images/20210920_book_app/view_all.png" width="60%" />
+</p>
+
+**-Search entry**
+
+<p align="center">
+  <img src="../images/20210920_book_app/search_entry.png" width="60%" />
+</p>
+
+**-Add entry**
+
+<p align="center">
+  <img src="../images/20210920_book_app/add_entry.png" width="60%" />
+</p>
+
+**-Update selected**
+
+<p align="center">
+  <img src="../images/20210920_book_app/update_before.png" width="49%" />
+  <img src="../images/20210920_book_app/update_after.png" width="49%" />
+</p>
+
+**-Delete selected**
+
+<p align="center">
+  <img src="../images/20210920_book_app/delete_before.png" width="49%" />
+  <img src="../images/20210920_book_app/delete_after.png" width="49%" />
+</p>
 
 ## 2. Backend
 
@@ -108,7 +144,7 @@ With the help of `tkinter`, the implementation of frontend is very easy.
 from tkinter import *
 import backend
 
-def get_selected_row(event): #what's' event for?
+def get_selected_row(event): #bind to function: '<<ListboxSelect>>'
     try:
         global selected_tuple
         index = list1.curselection()[0] #if not [0], index would be like (0, ) (2, )

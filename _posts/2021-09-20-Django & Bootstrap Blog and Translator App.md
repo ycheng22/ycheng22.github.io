@@ -18,9 +18,7 @@ classes: wide
 
 Summary: Build Django and Bootstrap Blog and Translator App.
 
-Check this blog on [github](https://ycheng22.github.io/Django-&-Bootstrap-Blog-and-Translator-App/)
-
-Source code is [here]().
+Source code is [here](https://github.com/ycheng22/Build_10_Real_World_Applicatoins).
 
 **Contents:**
 - [1. Introduction](#1-introduction)

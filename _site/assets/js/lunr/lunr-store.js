@@ -66,10 +66,10 @@ var store = [{
         "teaser": "/images/heroku_blogs/heroku_image.png"
       },{
         "title": "Building a Desktop SQL Book Inventory GUI App with Python",
-        "excerpt":"Summary: building a desktop SQL book inventory GUI with python. Check this blog on github. Contents: 1. Introduction 2. Backend 3. Frontend 1. Introduction Creating a desktop SQL book inventory GUI with python. This app is backed with sqlite3 database. Preview 2. Backend This app has below functions: Creating table...","categories": [],
+        "excerpt":"Summary: building a desktop SQL book inventory GUI with python. Check this blog on github. Contents: 1. Introduction 2. Backend 3. Frontend 1. Introduction Creating a desktop SQL book inventory GUI with python. This app is backed with sqlite3 database. Preview -Interface -View all -Search entry -Add entry -Update selected...","categories": [],
         "tags": ["SQL","GUI","Python"],
         "url": "/Building_a_Desktop_SQL_Book-Inventory_GUI_with_Python/",
-        "teaser": "/images/less_images/book_store.png"
+        "teaser": "/images/20210920_book_app/book_store.png"
       },{
         "title": "Deploy PostgreSQL on Heroku",
         "excerpt":"Summary: deploy PostgreSQL on Heroku and ingest Data using Pandas and SQLAlchemy. Reference: https://towardsdatascience.com/deploy-free-postgresql-database-in-heroku-and-ingest-data-8002c574a57d. Check this blog on github. Contents: 1. Introduction 2. Generate and store Heroku token 2.1 Generate Heroku token 2.1.1 Method 1: browser 2.1.2 Method 2: Heroku CLI 2.1 Store Heroku token to environment 1. Introduction 2....","categories": [],
@@ -90,7 +90,7 @@ var store = [{
         "teaser": "/images/20210912_web_app_pythonanywhere/pythonanywhere_image.png"
       },{
         "title": "Django & Bootstrap Blog and Translator App",
-        "excerpt":"Summary: Build Django and Bootstrap Blog and Translator App. Check this blog on github Source code is here. Contents: 1. Introduction 2. Initialize the project 2.1 Install virtual environment 2.2 Initialize Django 3. Creating a Superuser for the Project 4. Setting up an Empty Django Blog App 5. Setting up...","categories": [],
+        "excerpt":"Summary: Build Django and Bootstrap Blog and Translator App. Source code is here. Contents: 1. Introduction 2. Initialize the project 2.1 Install virtual environment 2.2 Initialize Django 3. Creating a Superuser for the Project 4. Setting up an Empty Django Blog App 5. Setting up an Empty Django Blog App...","categories": [],
         "tags": ["Web","Django","Bootstrap","Python"],
         "url": "/Django-&-Bootstrap-Blog-and-Translator-App/",
         "teaser": "/images/20210920_django_blog_app/demo.png"
