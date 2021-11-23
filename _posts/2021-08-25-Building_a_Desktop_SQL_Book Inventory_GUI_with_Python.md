@@ -30,6 +30,7 @@ Check this blog on [github](#).
 Creating a desktop SQL book inventory GUI with python. This app is backed with `sqlite3` database.
 
 **Preview**
+
 ![name](/images/less_images/book_store.png)
 
 ## 2. Backend

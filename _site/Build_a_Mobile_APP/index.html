@@ -1,0 +1,922 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Build a Mobile APP - Yunpeng</title>
+<meta name="description" content="Summary: Build a mobile APP with the library kivy.">
+
+
+  <meta name="author" content="Yunpeng">
+  
+  <meta property="article:author" content="Yunpeng">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Yunpeng">
+<meta property="og:title" content="Build a Mobile APP">
+<meta property="og:url" content="http://localhost:8000/Build_a_Mobile_APP/">
+
+
+  <meta property="og:description" content="Summary: Build a mobile APP with the library kivy.">
+
+
+
+  <meta property="og:image" content="http://localhost:8000/images/20210902_mobile_app/LoginScreen.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2021-09-02T00:00:00-05:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:8000/Build_a_Mobile_APP/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:8000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Yunpeng Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Yunpeng
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/life/">Life</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:8000/">
+        <img src="/images/Yunpeng.jpg" alt="Yunpeng" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:8000/" itemprop="url">Yunpeng</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>A PhD candidate of physics</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Texas, US</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/ycheng22" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/yunpeng-cheng-aa8142127/" rel="nofollow noopener noreferrer me"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+          
+            <li><a href="https://public.tableau.com/profile/ycheng#!/" rel="nofollow noopener noreferrer me"><i class="fas fa-link" aria-hidden="true"></i><span class="label">Tableau</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Build a Mobile APP">
+    <meta itemprop="description" content="Summary: Build a mobile APP with the library kivy.">
+    <meta itemprop="datePublished" content="2021-09-02T00:00:00-05:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:8000/Build_a_Mobile_APP/" class="u-url" itemprop="url">Build a Mobile APP
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-09-02T00:00:00-05:00">September 2, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p>Summary: Build a mobile APP with the library <code class="language-plaintext highlighter-rouge">kivy</code>.</p>
+
+<p><strong>Contents:</strong></p>
+
+<h2 id="1-introduction">1. Introduction</h2>
+
+<p>Building a mobile Feel-Good APP with python, the library <code class="language-plaintext highlighter-rouge">kivy</code> was used.</p>
+
+<p>When login, the user can input mood: <code class="language-plaintext highlighter-rouge">happy, sad, unloved</code>, press <code class="language-plaintext highlighter-rouge">Enlighten me</code>, some words will show up.</p>
+
+<h2 id="2-design-the-front-end">2. Design the front-end</h2>
+
+<p>Creating file <code class="language-plaintext highlighter-rouge">design.kv</code>, there are four screens:</p>
+
+<p><strong>-Login screen</strong></p>
+
+<!-- ![name](/images/20210902_mobile_app/LoginScreen.png) -->
+<p align="center">
+<img src="../images/20210902_mobile_app/LoginScreen.png" width="300" height="500" />
+</p>
+
+<p><strong>-Login screen success</strong></p>
+
+<p align="center">
+<img src="../images/20210902_mobile_app/LoginScreenSuccess.png" width="300" height="500" />
+</p>
+
+<p><strong>-Sign up screen</strong></p>
+
+<p align="center">
+<img src="../images/20210902_mobile_app/SignUpScreen.png" width="300" height="500" />
+</p>
+
+<p><strong>-Sign up screen success</strong></p>
+
+<p align="center">
+<img src="../images/20210902_mobile_app/SignUpScreenSuccess.png" width="300" height="500" />
+</p>
+
+<p><code class="language-plaintext highlighter-rouge">design.kv</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;LoginScreen&gt;:
+
+    GridLayout:
+        cols: 1
+
+        GridLayout:
+            cols: 1
+            padding: 15, 15
+            spacing: 20, 20
+            Label: 
+                text: "User Login"
+                font_size: '20sp' #sp = space-independent pixels
+            TextInput:
+                id: username
+                hint_text: "Username"
+            TextInput:
+                id: password
+                password: True #hidden the password as *****
+                hint_text: "Password"
+            RelativeLayout:
+                Button: 
+                    text: "Login"
+                    on_press: root.login(root.ids.username.text, root.ids.password.text)
+                    size_hint: 0.3, 0.5 #sqeeze 0.3 in horizontal, 0.5 in vertical
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+            Label:
+                id: login_wrong
+                text: ""
+
+        GridLayout:
+            cols: 2
+            size_hint: 0.2, 0.2
+            padding: 10, 10
+            spacing: 10, 0
+            Button:
+                text: "Forgot Password?"
+                background_color: 1, 1, 1, 0 #R, G, B, transparency
+                opacity: 1 if self.state == 'normal' else 0.5 #when click, opacity is 0.5
+                color: 0.1, 0.7, 1, 1
+            Button:
+                text: "Sign up"
+                background_color: 1, 1, 1, 0 #R, G, B, transparency
+                opacity: 1 if self.state == 'normal' else 0.5 #when click, opacity is 0.5
+                color: 0.1, 0.7, 1, 1
+                on_press: root.sign_up()
+
+&lt;SignUpScreen&gt;:
+    GridLayout:
+        cols: 1
+        padding: 20, 20
+        spacing: 20, 20
+        Label:
+            text: "Sign up for a space journey!"
+        TextInput: 
+            id: username
+            hint_text: "Username"
+        TextInput:
+            id: password
+            hint_text: "Password"
+        Button:
+            text: "Submit"
+            on_press: root.add_user(root.ids.username.text, root.ids.password.text)
+
+&lt;SignUpScreenSuccess&gt;:
+    GridLayout:
+        cols: 1
+        Label:
+            text: "Sign up successful!"
+        Button: 
+            text: "Login page"
+            on_press: root.go_to_login()
+
+&lt;LoginScreenSuccess&gt;:
+    GridLayout:
+        cols: 1
+        padding: 30, 30
+        spacing: 30, 30
+        RelativeLayout:
+            ImageButton:
+                on_press: root.log_out()
+                source: 'logout_hover.png' if self.hovered else 'logout_nothover.png'
+                size_hint: 0.35, 0.35
+                pos_hint: {'center_x': 0.93, 'center_y': 0.8}
+        Label:
+            text: "How do you feel?"
+        TextInput:
+            id: feeling
+            hint_Text: "Things to try: happy, sad, unloved..."
+        Button:
+            text: "Enlighten me"
+            on_press: root.get_quote(root.ids.feeling.text)
+        ScrollView:
+            Label:
+                id: quote
+                text: ""
+                text_size: self.width, None
+                size_hint_y: None
+                height: self.texture_size[1] #texture_size is a tuple: (text.width,text.height)
+
+&lt;RootWidget&gt;:
+    LoginScreen:
+        name: "login_screen"
+    SignUpScreen:
+        name: "sign_up_screen"
+    SignUpScreenSuccess:
+        name: "sign_up_screen_success"
+    LoginScreenSuccess:
+        name: "login_screen_success"
+</code></pre></div></div>
+
+<h2 id="3-back-end">3. Back-end</h2>
+
+<p><code class="language-plaintext highlighter-rouge">main.py</code></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">kivy.app</span> <span class="kn">import</span> <span class="n">App</span>
+<span class="kn">from</span> <span class="nn">kivy.lang</span> <span class="kn">import</span> <span class="n">Builder</span>
+<span class="kn">from</span> <span class="nn">kivy.uix.screenmanager</span> <span class="kn">import</span> <span class="n">ScreenManager</span><span class="p">,</span> <span class="n">Screen</span>
+<span class="kn">from</span> <span class="nn">kivy.uix.image</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">kivy.uix.behaviors</span> <span class="kn">import</span> <span class="n">ButtonBehavior</span>
+<span class="kn">import</span> <span class="nn">json</span><span class="p">,</span> <span class="n">glob</span><span class="p">,</span> <span class="n">random</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">hoverable</span> <span class="kn">import</span> <span class="n">HoverBehavior</span>
+
+
+<span class="n">Builder</span><span class="p">.</span><span class="n">load_file</span><span class="p">(</span><span class="s">'design.kv'</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">LoginScreen</span><span class="p">(</span><span class="n">Screen</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">sign_up</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">manager</span><span class="p">.</span><span class="n">current</span> <span class="o">=</span> <span class="s">"sign_up_screen"</span>
+
+    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uname</span><span class="p">,</span> <span class="n">pword</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"users.json"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+            <span class="n">users</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">uname</span> <span class="ow">in</span> <span class="n">users</span> <span class="ow">and</span> <span class="n">users</span><span class="p">[</span><span class="n">uname</span><span class="p">][</span><span class="s">'password'</span><span class="p">]</span> <span class="o">==</span> <span class="n">pword</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">manager</span><span class="p">.</span><span class="n">current</span>  <span class="o">=</span> <span class="s">"login_screen_success"</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">ids</span><span class="p">.</span><span class="n">login_wrong</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">"Wrong username or password!"</span>
+
+
+<span class="k">class</span> <span class="nc">SignUpScreen</span><span class="p">(</span><span class="n">Screen</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">add_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uname</span><span class="p">,</span> <span class="n">pword</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"users.json"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+            <span class="n">users</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+
+        <span class="n">users</span><span class="p">[</span><span class="n">uname</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">'username'</span><span class="p">:</span> <span class="n">uname</span><span class="p">,</span>
+                        <span class="s">'password'</span><span class="p">:</span> <span class="n">pword</span><span class="p">,</span>
+                        <span class="s">'created'</span><span class="p">:</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">().</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%Y-%m-%d %H-%M-%S"</span><span class="p">)}</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"users.json"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+            <span class="n">json</span><span class="p">.</span><span class="n">dump</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="nb">file</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">manager</span><span class="p">.</span><span class="n">current</span> <span class="o">=</span> <span class="s">"sign_up_screen_success"</span>
+
+<span class="k">class</span> <span class="nc">SignUpScreenSuccess</span><span class="p">(</span><span class="n">Screen</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">go_to_login</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">manager</span><span class="p">.</span><span class="n">transition</span><span class="p">.</span><span class="n">direction</span> <span class="o">=</span> <span class="s">'right'</span> <span class="c1">#transition action
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">manager</span><span class="p">.</span><span class="n">current</span> <span class="o">=</span> <span class="s">'login_screen'</span>
+
+<span class="k">class</span> <span class="nc">LoginScreenSuccess</span><span class="p">(</span><span class="n">Screen</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">log_out</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">manager</span><span class="p">.</span><span class="n">transition</span><span class="p">.</span><span class="n">direction</span> <span class="o">=</span> <span class="s">"right"</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">manager</span><span class="p">.</span><span class="n">current</span> <span class="o">=</span> <span class="s">"login_screen"</span>
+
+    <span class="k">def</span> <span class="nf">get_quote</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feel</span><span class="p">):</span>
+        <span class="n">feel</span> <span class="o">=</span> <span class="n">feel</span><span class="p">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">available_feelings</span> <span class="o">=</span> <span class="n">glob</span><span class="p">.</span><span class="n">glob</span><span class="p">(</span><span class="s">"quotes/*txt"</span><span class="p">)</span>
+
+        <span class="c1">#Path(filename).stem will return the filename except the extension
+</span>        <span class="n">available_feelings</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">filename</span><span class="p">).</span><span class="n">stem</span> <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">available_feelings</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">feel</span> <span class="ow">in</span> <span class="n">available_feelings</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s">"quotes/</span><span class="si">{</span><span class="n">feel</span><span class="si">}</span><span class="s">.txt"</span><span class="p">,</span> <span class="s">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+                <span class="n">quotes</span> <span class="o">=</span> <span class="nb">file</span><span class="p">.</span><span class="n">readlines</span><span class="p">()</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">ids</span><span class="p">.</span><span class="n">quote</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="n">choice</span><span class="p">(</span><span class="n">quotes</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">ids</span><span class="p">.</span><span class="n">quote</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">"Try another feeling"</span>
+        
+<span class="k">class</span> <span class="nc">ImageButton</span><span class="p">(</span><span class="n">ButtonBehavior</span><span class="p">,</span> <span class="n">HoverBehavior</span><span class="p">,</span> <span class="n">Image</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+
+<span class="k">class</span> <span class="nc">RootWidget</span><span class="p">(</span><span class="n">ScreenManager</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">MainApp</span><span class="p">(</span><span class="n">App</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">RootWidget</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">MainApp</span><span class="p">().</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="4-result">4. Result</h2>
+
+<p align="center">
+<img src="../images/20210902_mobile_app/result_happy.png" width="300" height="500" />
+</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#kivy" class="page__taxonomy-item p-category" rel="tag">Kivy</a><span class="sep">, </span>
+    
+      <a href="/tags/#mobile-app" class="page__taxonomy-item p-category" rel="tag">Mobile APP</a><span class="sep">, </span>
+    
+      <a href="/tags/#python" class="page__taxonomy-item p-category" rel="tag">Python</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2021-09-02T00:00:00-05:00">September 2, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Build+a+Mobile+APP%20http%3A%2F%2Flocalhost%3A8000%2FBuild_a_Mobile_APP%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8000%2FBuild_a_Mobile_APP%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A8000%2FBuild_a_Mobile_APP%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/Deploy_PostgreSQL_on_Heroku/" class="pagination--pager" title="Deploy PostgreSQL on Heroku
+">Previous</a>
+    
+    
+      <a href="/Build_Data_Collector_Web_App/" class="pagination--pager" title="Build Data Collector Web App (Flask, PostgreSQL)
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You May Also Enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/less_images/intel_oneAPI.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Install_and_Use_Intel_oneAPI_Toolkit/" rel="permalink">Install_and_Use_Intel_oneAPI_Toolkit
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-10-25T00:00:00-05:00">October 25, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: Installing Intel oneAPI, run fortran code with calling Math Kernel Library on Visual Studio 2019.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/less_images/mm_image.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Switch_my_web_theme_to_Minimal_Mistake/" rel="permalink">Switch My Web Theme to Minimal Mistake
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-10-05T00:00:00-05:00">October 5, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: switch my web theme to Minimal Mistake
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/Hou_flights_delay/bokeh_serve_image.svg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Deploy_Bokeh_Server_App_on_Heroku/" rel="permalink">Deploy Bokeh Server App on Heroku
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-10-01T00:00:00-05:00">October 1, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: deploy Bokeh server app on Heroku.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/Hou_flights_delay/flight_map.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2020_Houston_flights_delay_dashboard/" rel="permalink">2020 Houston Flights Delay Dashboard
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-09-30T00:00:00-05:00">September 30, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          11 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: Create standalone Bokeh dashboard.
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/ycheng22" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/yunpeng-cheng-aa8142127/" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+          <li><a href="https://public.tableau.com/profile/ycheng#!/" rel="nofollow noopener noreferrer"><i class="fas fa-link" aria-hidden="true"></i> Tableau</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Yunpeng. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:8000/Build_a_Mobile_APP/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/Build_a_Mobile_APP"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://myblog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

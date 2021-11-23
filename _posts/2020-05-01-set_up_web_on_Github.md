@@ -122,6 +122,12 @@ If everything works correctly, run will start the serve at below address.
 
 Address: <http://127.0.0.1:4000>
 
+Or you can specify the address: 
+
+`bundle exec jekyll serve --port=8000`
+
+The address will be: <http://127.0.0.1:8000>
+
 ## 3.2 If the port is occupied
 
 To find out which process is using the port, run 
