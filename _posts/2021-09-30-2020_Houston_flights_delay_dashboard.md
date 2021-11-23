@@ -17,6 +17,8 @@ classes: wide
 
 Summary: Create standalone Bokeh dashboard.
 
+This blog is about Bokeh's `CustomJS` method, another blog about `bokeh serve` method can be found [here](https://ycheng22.github.io/Deploy_Bokeh_Server_App_on_Heroku/).
+
 Check this blog on [github](https://github.com/ycheng22/ycheng22.github.io/blob/main/_posts/2021-09-30-2020_Houston_flights_delay_dashboard.md).
 
 **Contents:**

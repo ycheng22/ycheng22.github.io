@@ -96,7 +96,7 @@ var store = [{
         "teaser": "/images/20210920_django_blog_app/demo.png"
       },{
         "title": "2020 Houston Flights Delay Dashboard",
-        "excerpt":"Summary: Create standalone Bokeh dashboard. Check this blog on github. Contents: 1 .Introduction 2. Data collecting and processing 2.1 Collecting data by anyflights 2.2 Combining 12 months data 2.3 Add logitude and latitude to Hou_flights 2.4 Delay time statistics (arrival delay’s mean, max, min) 3. Creating dashboard step by step...","categories": [],
+        "excerpt":"Summary: Create standalone Bokeh dashboard. This blog is about Bokeh’s CustomJS method, another blog about bokeh serve method can be found here. Check this blog on github. Contents: 1 .Introduction 2. Data collecting and processing 2.1 Collecting data by anyflights 2.2 Combining 12 months data 2.3 Add logitude and latitude...","categories": [],
         "tags": ["Bokeh","Dashboard","Python"],
         "url": "/2020_Houston_flights_delay_dashboard/",
         "teaser": "/images/Hou_flights_delay/flight_map.png"
