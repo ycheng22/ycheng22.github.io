@@ -18,7 +18,10 @@ classes: wide
 Summary: Build a mobile APP with the library `kivy`.
 
 **Contents:**
-
+- [1. Introduction](#1-introduction)
+- [2. Design the front-end](#2-design-the-front-end)
+- [3. Back-end](#3-back-end)
+- [4. Result](#4-result)
 
 ## 1. Introduction
 
