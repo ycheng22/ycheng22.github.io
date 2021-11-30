@@ -47,6 +47,12 @@ var store = [{
         "url": "/blog/Story_of_Texas_Outage_in_Feb2021/",
         "teaser": "/images/texas_outage/texas_outage.png"
       },{
+        "title": "Data Modeling with PostgreSQL",
+        "excerpt":"Summary: Modeling user activity data to create a relational database and ETL pipeline in PostgreSQL for a music streaming app. Check the code here. Contents: 1. Introduction: 2. Project datasets 2.1 Song dataset 2.2 Log dataset 3. Schema for Song Play Data Analysis 3.1 Fact Table 3.2 Dimension Tables 1....","categories": [],
+        "tags": ["SQL","PostgreSQL","Python"],
+        "url": "/Data_Modeling_with_PostgreSQL/",
+        "teaser": "/images/20210412_data_modeling_postgre/python_postgre.jpg"
+      },{
         "title": "Web Map with Folium",
         "excerpt":"Summary: Build a web map with Folium. Check this blog on github. Contents: 1. Create a map 2. Add marker 2.1 Add single marker 2.2 Add multiple markers from file 2.3 Add elevation to popup 2.4 Color generate function for markers 2.5 Circle markers 3. Add population layer with json...","categories": [],
         "tags": ["Web Map","Folium","Python"],
@@ -78,10 +84,22 @@ var store = [{
         "teaser": "/images/heroku_blogs/heroku_image.png"
       },{
         "title": "Build a Mobile APP",
-        "excerpt":"Summary: Build a mobile APP with the library kivy. Contents: 1. Introduction Building a mobile Feel-Good APP with python, the library kivy was used. When login, the user can input mood: happy, sad, unloved, press Enlighten me, some words will show up. 2. Design the front-end Creating file design.kv, there...","categories": [],
+        "excerpt":"Summary: Build a mobile APP with the library kivy. Contents: 1. Introduction 2. Design the front-end 3. Back-end 4. Result 1. Introduction Building a mobile Feel-Good APP with python, the library kivy was used. When login, the user can input mood: happy, sad, unloved, press Enlighten me, some words will...","categories": [],
         "tags": ["Kivy","Python","Mobile APP"],
         "url": "/Build_a_Mobile_APP/",
         "teaser": "/images/20210902_mobile_app/LoginScreen.png"
+      },{
+        "title": "Communication from Node App to MongoDB",
+        "excerpt":"Summary: Communication from Node application to MongoDB. Contents: 1. Introduction 2. Introduction to MongoDB 2.1 Installation 2.2 Operation 3. Installing Node MongoDB Driver Module and communicating with MongoDB 4. Using Promises to solve calback hell problem 1. Introduction MongoDB is a document database, noSQL database. This blog records how to...","categories": [],
+        "tags": ["MongoDB","Node","JavaScript"],
+        "url": "/Communication_from_Node_App_to_MongoDB/",
+        "teaser": "/images/20210907_node_mongodb/node_mongo.png"
+      },{
+        "title": "Imposing Structure to MongoDB by Mongoose Schema",
+        "excerpt":"Summary: Imposing structure to MongoDB by Mongoose schema. Contents: 1. Introduction 2. Installing Mongoose 3. Imposing structure by Mongoose Schema 1. Introduction MongoDB is a document database, noSQL database, no structure imposed on the document, which is a drawback. Mongoose Schema can help us impose structure on documents. 📦mongodb ┗...","categories": [],
+        "tags": ["MongoDB","Mongoose","JavaScript"],
+        "url": "/Imposing_Structure_to_MongoDB_by_Mongoose_Schema/",
+        "teaser": "/images/20210908_mongodb_mongoose/mongoose_mongodb.png"
       },{
         "title": "Build Data Collector Web App (Flask, PostgreSQL)",
         "excerpt":"Summary: Build Data Collector Web App with Flask and PostgreSQL, deploy the app to pythonanywhere. Check this blog on github App web: http://ycheng.pythonanywhere.com/ Contents: 1. Introduction 2. Front-end code 3. Creating virtual environment 4. Creating the PostGreSQL Database Model 5. Send email to the participant 6. Back-end code 7. Deploying...","categories": [],
