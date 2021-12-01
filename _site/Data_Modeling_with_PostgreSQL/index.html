@@ -301,7 +301,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          5 minute read
+          9 minute read
         
       </span>
     
@@ -332,11 +332,18 @@
       <li><a href="#32-dimension-tables">3.2 Dimension Tables</a></li>
     </ul>
   </li>
-  <li><a href="#4-creating-tables">4. Creating Tables</a>
+  <li><a href="#4-creating-database-and-tables">4. Creating Database and Tables</a>
     <ul>
       <li><a href="#41-queries">4.1 Queries</a></li>
-      <li><a href="#42-creating-table-by-calling-queries">4.2 Creating Table by calling queries</a></li>
+      <li><a href="#42-creating-database-and-table-by-calling-queries">4.2 Creating Database and Table by calling queries</a></li>
       <li><a href="#43-check-the-created-table">4.3 Check the Created Table</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-etl-processes">5. ETL Processes</a>
+    <ul>
+      <li><a href="#51-importing-packages-and-defining-functions">5.1 Importing packages and defining functions</a></li>
+      <li><a href="#52-processing-song-data">5.2 Processing <code class="language-plaintext highlighter-rouge">song data</code></a></li>
+      <li><a href="#53-processing-log-data">5.3 Processing log data</a></li>
     </ul>
   </li>
 </ul>
@@ -409,7 +416,7 @@ song_data/A/A/B/TRAABJL12903CDCF1A.json
 
 <h2 id="3-schema-for-song-and-log-data">3. Schema for Song and Log Data</h2>
 
-<p>Using the song and log datasets, creating a <strong>star schema</strong> optimized for queries on song play analysis. This includes the following tables.</p>
+<p>Using the song and log datasets, creating database <strong>sparkifydb</strong> and creating a <strong>star schema</strong>  for queries on song play analysis. This includes the following tables.</p>
 
 <h3 id="31-fact-table">3.1 Fact Table</h3>
 
@@ -446,7 +453,7 @@ song_data/A/A/B/TRAABJL12903CDCF1A.json
   </li>
 </ul>
 
-<h2 id="4-creating-tables">4. Creating Tables</h2>
+<h2 id="4-creating-database-and-tables">4. Creating Database and Tables</h2>
 
 <h3 id="41-queries">4.1 Queries</h3>
 <p>Writing SQL queries in <code class="language-plaintext highlighter-rouge">sql_queries.py</code>.</p>
@@ -612,9 +619,9 @@ song_data/A/A/B/TRAABJL12903CDCF1A.json
 <span class="n">create_table_queries</span> <span class="o">=</span> <span class="p">[</span><span class="n">time_table_create</span><span class="p">,</span> <span class="n">user_table_create</span><span class="p">,</span> <span class="n">artist_table_create</span><span class="p">,</span> <span class="n">song_table_create</span><span class="p">,</span> <span class="n">songplay_table_create</span><span class="p">]</span>
 <span class="n">drop_table_queries</span> <span class="o">=</span> <span class="p">[</span><span class="n">songplay_table_drop</span><span class="p">,</span> <span class="n">user_table_drop</span><span class="p">,</span> <span class="n">song_table_drop</span><span class="p">,</span> <span class="n">artist_table_drop</span><span class="p">,</span> <span class="n">time_table_drop</span><span class="p">]</span>
 </code></pre></div></div>
-<h3 id="42-creating-table-by-calling-queries">4.2 Creating Table by calling queries</h3>
+<h3 id="42-creating-database-and-table-by-calling-queries">4.2 Creating Database and Table by calling queries</h3>
 
-<p>Writing python in <code class="language-plaintext highlighter-rouge">create_tables.py</code> to create table.</p>
+<p>Writing python in <code class="language-plaintext highlighter-rouge">create_tables.py</code> to create database <code class="language-plaintext highlighter-rouge">sparkifydb</code> and table.</p>
 
 <p><code class="language-plaintext highlighter-rouge">create_tables.py</code>:</p>
 
@@ -625,7 +632,7 @@ song_data/A/A/B/TRAABJL12903CDCF1A.json
     <span class="s">'''
     Create database sparkifydb, connect to this database, return connection and cursor
     '''</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"host=127.0.0.1 port=5432 dbname=de user=postgres password=2020"</span><span class="p">)</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"host=127.0.0.1 port=5432 dbname=de user=postgres password=1992"</span><span class="p">)</span>
     <span class="n">conn</span><span class="p">.</span><span class="n">set_session</span><span class="p">(</span><span class="n">autocommit</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
     <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">cursor</span><span class="p">()</span>
     
@@ -637,7 +644,7 @@ song_data/A/A/B/TRAABJL12903CDCF1A.json
 </span>    <span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
     
     <span class="c1">#connect to sparkifydb database
-</span>    <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"host=127.0.0.1 port=5432 dbname=sparkifydb user=postgres password=2020"</span><span class="p">)</span>
+</span>    <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"host=127.0.0.1 port=5432 dbname=sparkifydb user=postgres password=1992"</span><span class="p">)</span>
     <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">cursor</span><span class="p">()</span>
     
     <span class="k">return</span> <span class="n">cur</span><span class="p">,</span> <span class="n">conn</span>
@@ -668,7 +675,299 @@ song_data/A/A/B/TRAABJL12903CDCF1A.json
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div></div>
 <h3 id="43-check-the-created-table">4.3 Check the Created Table</h3>
-<p>Run test.ipynb to confirm the creation of your tables with the correct columns</p>
+
+<p>Run <code class="language-plaintext highlighter-rouge">test.ipynb</code> to confirm the creation of your tables with the correct columns</p>
+
+<ul>
+  <li>
+    <p>Create table with command:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">%run create_tables.py</code></p>
+  </li>
+  <li>
+    <p>Load sql module in notebook:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">%load_ext sql</code></p>
+
+    <p>Make sure the sql module has been installed by <code class="language-plaintext highlighter-rouge">pip install ipython-sql</code>.</p>
+  </li>
+  <li>
+    <p>Connect to the created database:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">%sql postgresql://postgres:1992@127.0.0.1/sparkifydb</code></p>
+
+    <p>Expalain:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">%sql postgresql://username:password@address/database_name</code></p>
+  </li>
+  <li>
+    <p>Check the empty database and tables:</p>
+
+    <p align="left">
+  <img src="../images/20210412_data_modeling_postgre/empty_data_1.png" />
+  <img src="../images/20210412_data_modeling_postgre/empty_data_2.png" />
+  </p>
+  </li>
+</ul>
+
+<h2 id="5-etl-processes">5. ETL Processes</h2>
+
+<p>Developing ETL processes for each table.</p>
+
+<h3 id="51-importing-packages-and-defining-functions">5.1 Importing packages and defining functions</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#import packages
+</span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">psycopg2</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">from</span> <span class="nn">sql_queries</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="c1">#connection
+</span><span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"host=127.0.0.1 dbname=sparkifydb user=postgres password=1992"</span><span class="p">)</span>
+<span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">cursor</span><span class="p">()</span>
+
+<span class="c1">#get all files' full path
+</span><span class="k">def</span> <span class="nf">get_files</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+    <span class="n">all_files</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="p">.</span><span class="n">walk</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+        <span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="p">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="s">'*.json'</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="p">:</span>
+            <span class="n">all_files</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>   
+    <span class="k">return</span> <span class="n">all_files</span>
+
+<span class="k">def</span> <span class="nf">insert_from_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">insert_query</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="p">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="n">cur</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">insert_query</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
+    <span class="n">conn</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="52-processing-song-data">5.2 Processing <code class="language-plaintext highlighter-rouge">song data</code></h3>
+
+<p>Performing ETL on the <code class="language-plaintext highlighter-rouge">song dataset</code> to create the <code class="language-plaintext highlighter-rouge">songs</code> and <code class="language-plaintext highlighter-rouge">artists</code> dimensional tables.</p>
+
+<ul>
+  <li>
+    <p>Getting song files’ full path</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">song_files</span> <span class="o">=</span> <span class="n">get_files</span><span class="p">(</span><span class="s">'data/song_data/'</span><span class="p">)</span>
+
+  <span class="n">filepath</span> <span class="o">=</span> <span class="n">song_files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  D:\.......\data\song_data\A\A\A\TRAAAAW128F429D538.json
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Loading data to dataframe</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">filepath</span> <span class="o">=</span> <span class="n">song_files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    
+  <span class="n">df_song</span> <span class="o">=</span> <span class="n">df</span> <span class="c1">#the first file
+</span>  <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">song_files</span><span class="p">)):</span> <span class="c1">#second to last file
+</span>  <span class="n">df_song</span> <span class="o">=</span> <span class="n">df_song</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">song_files</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">lines</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span> <span class="n">ignore_index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+  <span class="n">df_song</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>    </div>
+    <p align="center">
+  <img src="../images/20210412_data_modeling_postgre/song_df.png" />
+  </p>
+
+    <p><em>Note</em>: in <code class="language-plaintext highlighter-rouge">sql_queries.py</code>, <strong>artist_id</strong> in songs table refer to artist_id in table <code class="language-plaintext highlighter-rouge">artists</code>, so the table <code class="language-plaintext highlighter-rouge">artists</code> must be inserted firstly.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">artists</code> Table</p>
+
+    <ul>
+      <li>
+        <p>Selecting columns for <code class="language-plaintext highlighter-rouge">artist ID, name, location, latitude, and longitude</code>:</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">artist_data</span> <span class="o">=</span> <span class="n">df_song</span><span class="p">[[</span><span class="s">'artist_id'</span><span class="p">,</span> <span class="s">'artist_name'</span><span class="p">,</span> <span class="s">'artist_location'</span><span class="p">,</span> <span class="s">'artist_latitude'</span><span class="p">,</span> <span class="s">'artist_longitude'</span><span class="p">]]</span>
+
+  <span class="n">artist_data</span> <span class="o">=</span> <span class="n">artist_data</span><span class="p">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+  <span class="n">artist_data</span> <span class="o">=</span> <span class="n">artist_data</span><span class="p">.</span><span class="n">replace</span><span class="p">({</span><span class="n">np</span><span class="p">.</span><span class="n">nan</span><span class="p">:</span> <span class="bp">None</span><span class="p">})</span>
+  <span class="n">artist_data</span><span class="p">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s">'artist_id'</span><span class="p">,</span> <span class="s">'name'</span><span class="p">,</span> <span class="s">'location'</span><span class="p">,</span> <span class="s">'latitude'</span><span class="p">,</span> <span class="s">'longitude'</span><span class="p">]</span>
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Inserting Record into Artist Table</p>
+
+        <p><code class="language-plaintext highlighter-rouge">insert_from_dataframe(artist_data, artist_table_insert)</code></p>
+      </li>
+      <li>
+        <p>Checking the Created <code class="language-plaintext highlighter-rouge">artists</code> Table</p>
+
+        <p align="center">
+  <img src="../images/20210412_data_modeling_postgre/artists.png" />
+  </p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">songs</code> Table</p>
+
+    <ul>
+      <li>
+        <p>Selecting columns for <code class="language-plaintext highlighter-rouge">song ID, title, artist ID, year, and duration</code></p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">song_data</span> <span class="o">=</span> <span class="n">df_song</span><span class="p">[[</span><span class="s">'song_id'</span><span class="p">,</span> <span class="s">'title'</span><span class="p">,</span> <span class="s">'artist_id'</span><span class="p">,</span> <span class="s">'year'</span><span class="p">,</span> <span class="s">'duration'</span><span class="p">]]</span>
+  <span class="n">song_data</span> <span class="o">=</span> <span class="n">song_data</span><span class="p">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+  <span class="n">song_data</span> <span class="o">=</span> <span class="n">song_data</span><span class="p">.</span><span class="n">replace</span><span class="p">({</span><span class="n">np</span><span class="p">.</span><span class="n">nan</span><span class="p">:</span> <span class="bp">None</span><span class="p">})</span>
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Inserting Record into <code class="language-plaintext highlighter-rouge">Song</code> Table</p>
+
+        <p><code class="language-plaintext highlighter-rouge">insert_from_dataframe(song_data, song_table_insert)</code></p>
+      </li>
+      <li>
+        <p>Checking the Created <code class="language-plaintext highlighter-rouge">songs</code> Table</p>
+
+        <p align="center">
+  <img src="../images/20210412_data_modeling_postgre/songs.png" />
+  </p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="53-processing-log-data">5.3 Processing log data</h3>
+
+<p>Performing ETL on the second dataset, <code class="language-plaintext highlighter-rouge">log_data</code>, to create the <code class="language-plaintext highlighter-rouge">time</code> and <code class="language-plaintext highlighter-rouge">users</code> dimensional tables, as well as the <code class="language-plaintext highlighter-rouge">songplays</code> fact table.</p>
+
+<ul>
+  <li>Getting log files’ full path and load to dataframe</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">log_files</span> <span class="o">=</span> <span class="n">get_files</span><span class="p">(</span><span class="s">'data/log_data/'</span><span class="p">)</span>
+<span class="n">filepath</span> <span class="o">=</span> <span class="n">log_files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">df_log</span> <span class="o">=</span> <span class="n">df</span>
+<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">log_files</span><span class="p">)):</span>
+    <span class="n">df_log</span> <span class="o">=</span> <span class="n">df_log</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">log_files</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">lines</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span> <span class="n">ignore_index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'df_log size: </span><span class="si">{</span><span class="n">df_log</span><span class="p">.</span><span class="n">shape</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+<span class="n">df_log</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p align="center">
+<img src="../images/20210412_data_modeling_postgre/log_head.png" />
+</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">time</code> Table
+    <ul>
+      <li>Filtering records by <code class="language-plaintext highlighter-rouge">NextSong</code> action</li>
+      <li>
+        <p>Extracting the timestamp, <code class="language-plaintext highlighter-rouge">hour, day, week of year, month, year, and weekday</code> from the <code class="language-plaintext highlighter-rouge">ts</code> column and set time_data to a list containing these values in order</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df_log</span> <span class="o">=</span> <span class="n">df_log</span><span class="p">[</span><span class="n">df_log</span><span class="p">[</span><span class="s">'page'</span><span class="p">]</span><span class="o">==</span><span class="s">'NextSong'</span><span class="p">]</span>
+<span class="n">df_log</span> <span class="o">=</span> <span class="n">df_log</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">nan</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+
+<span class="n">tf</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">'start_time'</span><span class="p">:</span> <span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_log</span><span class="p">[</span><span class="s">'ts'</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s">'ms'</span><span class="p">)})</span>
+
+<span class="n">tf</span><span class="p">[</span><span class="s">'hour'</span><span class="p">]</span> <span class="o">=</span> <span class="n">tf</span><span class="p">[</span><span class="s">'start_time'</span><span class="p">].</span><span class="n">dt</span><span class="p">.</span><span class="n">hour</span>
+<span class="n">tf</span><span class="p">[</span><span class="s">'day'</span><span class="p">]</span> <span class="o">=</span> <span class="n">tf</span><span class="p">[</span><span class="s">'start_time'</span><span class="p">].</span><span class="n">dt</span><span class="p">.</span><span class="n">day</span>
+<span class="c1"># tf['week'] = tf['start_time'].dt.week #deprecated
+</span><span class="n">tf</span><span class="p">[</span><span class="s">'week'</span><span class="p">]</span> <span class="o">=</span> <span class="n">tf</span><span class="p">[</span><span class="s">'start_time'</span><span class="p">].</span><span class="n">dt</span><span class="p">.</span><span class="n">isocalendar</span><span class="p">().</span><span class="n">week</span>
+<span class="n">tf</span><span class="p">[</span><span class="s">'month'</span><span class="p">]</span> <span class="o">=</span> <span class="n">tf</span><span class="p">[</span><span class="s">'start_time'</span><span class="p">].</span><span class="n">dt</span><span class="p">.</span><span class="n">month</span>
+<span class="n">tf</span><span class="p">[</span><span class="s">'year'</span><span class="p">]</span> <span class="o">=</span> <span class="n">tf</span><span class="p">[</span><span class="s">'start_time'</span><span class="p">].</span><span class="n">dt</span><span class="p">.</span><span class="n">year</span>
+<span class="n">tf</span><span class="p">[</span><span class="s">'weekday'</span><span class="p">]</span> <span class="o">=</span> <span class="n">tf</span><span class="p">[</span><span class="s">'start_time'</span><span class="p">].</span><span class="n">dt</span><span class="p">.</span><span class="n">weekday</span>
+
+<span class="n">tf</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">tf</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>        </div>
+        <p align="center">
+<img src="../images/20210412_data_modeling_postgre/time_stamp.png" />
+</p>
+      </li>
+      <li>
+        <p>Inserting Records into time Table</p>
+
+        <p><code class="language-plaintext highlighter-rouge">insert_from_dataframe(tf, time_table_insert)</code></p>
+      </li>
+      <li>
+        <p>Checking the Created <code class="language-plaintext highlighter-rouge">songs</code> Table</p>
+
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p align="center"&gt;
+&lt;img src="../images/20210412_data_modeling_postgre/time.png"  &gt;
+&lt;/p&gt;
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">users</code> Table</p>
+
+    <ul>
+      <li>Selecting columns for <code class="language-plaintext highlighter-rouge">user ID, first name, last name, gender and level</code> and set to user_df
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">user_df</span> <span class="o">=</span> <span class="n">df_log</span><span class="p">[[</span><span class="s">'userId'</span><span class="p">,</span> <span class="s">'firstName'</span><span class="p">,</span> <span class="s">'lastName'</span><span class="p">,</span> <span class="s">'gender'</span><span class="p">,</span> <span class="s">'level'</span><span class="p">]]</span>
+  <span class="n">user_df</span> <span class="o">=</span> <span class="n">user_df</span><span class="p">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+  <span class="n">user_df</span> <span class="o">=</span> <span class="n">user_df</span><span class="p">[</span><span class="n">user_df</span><span class="p">[</span><span class="s">'userId'</span><span class="p">]</span> <span class="o">!=</span> <span class="s">''</span><span class="p">]</span>
+  <span class="n">user_df</span><span class="p">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s">'user_id'</span><span class="p">,</span> <span class="s">'first_name'</span><span class="p">,</span> <span class="s">'last_name'</span><span class="p">,</span> <span class="s">'gender'</span><span class="p">,</span> <span class="s">'level'</span><span class="p">]</span>
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Inserting Records into Users Table</p>
+
+        <p><code class="language-plaintext highlighter-rouge">insert_from_dataframe(user_df, user_table_insert)</code></p>
+      </li>
+      <li>
+        <p>Checking the Created <code class="language-plaintext highlighter-rouge">songs</code> Table</p>
+
+        <p align="center">
+  <img src="../images/20210412_data_modeling_postgre/users.png" />
+  </p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">songplays</code> Table</p>
+
+    <ul>
+      <li>Implementing the song_select query in sql_queries.py to find the song ID and artist ID based on the title, artist name, and duration of a song.</li>
+      <li>
+        <p>Selecting the timestamp, user ID, level, song ID, artist ID, session ID, location, and user agent and set to songplay_data</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df_log</span><span class="p">.</span><span class="n">iterrows</span><span class="p">():</span>
+
+    <span class="c1"># get songid and artistid from song and artist tables
+</span>    <span class="n">cur</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">song_select</span><span class="p">,</span> <span class="p">(</span><span class="n">row</span><span class="p">.</span><span class="n">song</span><span class="p">,</span> <span class="n">row</span><span class="p">.</span><span class="n">artist</span><span class="p">,</span> <span class="n">row</span><span class="p">.</span><span class="n">length</span><span class="p">))</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">cur</span><span class="p">.</span><span class="n">fetchone</span><span class="p">()</span>
+        
+    <span class="k">if</span> <span class="n">results</span><span class="p">:</span>
+        <span class="n">songid</span><span class="p">,</span> <span class="n">artistid</span> <span class="o">=</span> <span class="n">results</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">songid</span><span class="p">,</span> <span class="n">artistid</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span>
+
+    <span class="c1"># insert songplay record
+</span>    <span class="c1"># (songplay_id int, start_time int, user_id int, level text, song_id text, artist_id text, session_id int, location text, user_agent text)
+</span>    <span class="c1"># songplay_data = (index, row.ts, int(row.userId), row.level, songid, artistid, row.sessionId, row.location, row.userAgent)
+</span>    <span class="n">songplay_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">row</span><span class="p">.</span><span class="n">ts</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s">'ms'</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">.</span><span class="n">userId</span><span class="p">),</span> <span class="n">row</span><span class="p">.</span><span class="n">level</span><span class="p">,</span> <span class="n">songid</span><span class="p">,</span> <span class="n">artistid</span><span class="p">,</span> <span class="n">row</span><span class="p">.</span><span class="n">sessionId</span><span class="p">,</span> <span class="n">row</span><span class="p">.</span><span class="n">location</span><span class="p">,</span> <span class="n">row</span><span class="p">.</span><span class="n">userAgent</span><span class="p">)</span>
+    <span class="n">cur</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">songplay_table_insert</span><span class="p">,</span> <span class="n">songplay_data</span><span class="p">)</span>
+    <span class="n">conn</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
+</code></pre></div>        </div>
+        <ul>
+          <li>
+            <p>Checking the Created <code class="language-plaintext highlighter-rouge">songs</code> Table</p>
+
+            <p align="center">
+  <img src="../images/20210412_data_modeling_postgre/song_play.png" />
+  </p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Checking the Created Database in pgAdmin4</p>
+
+<p align="center">
+<img src="../images/20210412_data_modeling_postgre/pgadmin.png" />
+</p>
+
 
         
       </section>

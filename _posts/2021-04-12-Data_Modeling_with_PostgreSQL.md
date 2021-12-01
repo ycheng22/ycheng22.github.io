@@ -27,10 +27,14 @@ Check the code [here](https://github.com/ycheng22/Udacity_Data_Engineer_Nanodegr
 - [3. Schema for Song and Log Data](#3-schema-for-song-and-log-data)
   - [3.1 Fact Table](#31-fact-table)
   - [3.2 Dimension Tables](#32-dimension-tables)
-- [4. Creating Tables](#4-creating-tables)
+- [4. Creating Database and Tables](#4-creating-database-and-tables)
   - [4.1 Queries](#41-queries)
-  - [4.2 Creating Table by calling queries](#42-creating-table-by-calling-queries)
+  - [4.2 Creating Database and Table by calling queries](#42-creating-database-and-table-by-calling-queries)
   - [4.3 Check the Created Table](#43-check-the-created-table)
+- [5. ETL Processes](#5-etl-processes)
+  - [5.1 Importing packages and defining functions](#51-importing-packages-and-defining-functions)
+  - [5.2 Processing `song data`](#52-processing-song-data)
+  - [5.3 Processing log data](#53-processing-log-data)
 
 ## 1. Introduction: 
 
@@ -103,7 +107,7 @@ And below is an example of what the data in a log file, 2018-11-12-events.json, 
 
 ## 3. Schema for Song and Log Data
    
-Using the song and log datasets, creating a **star schema** optimized for queries on song play analysis. This includes the following tables.
+Using the song and log datasets, creating database **sparkifydb** and creating a **star schema**  for queries on song play analysis. This includes the following tables.
 
 ### 3.1 Fact Table
 
@@ -126,7 +130,7 @@ Using the song and log datasets, creating a **star schema** optimized for querie
   
     `start_time, hour, day, week, month, year, weekday`
 
-## 4. Creating Tables
+## 4. Creating Database and Tables
 
 ### 4.1 Queries
 Writing SQL queries in `sql_queries.py`.
@@ -293,9 +297,9 @@ song_select = ("""
 create_table_queries = [time_table_create, user_table_create, artist_table_create, song_table_create, songplay_table_create]
 drop_table_queries = [songplay_table_drop, user_table_drop, song_table_drop, artist_table_drop, time_table_drop]
 ```
-### 4.2 Creating Table by calling queries
+### 4.2 Creating Database and Table by calling queries
 
-Writing python in `create_tables.py` to create table.
+Writing python in `create_tables.py` to create database `sparkifydb` and table.
 
 `create_tables.py`:
 
@@ -307,7 +311,7 @@ def create_database():
     '''
     Create database sparkifydb, connect to this database, return connection and cursor
     '''
-    conn = psycopg2.connect("host=127.0.0.1 port=5432 dbname=de user=postgres password=2020")
+    conn = psycopg2.connect("host=127.0.0.1 port=5432 dbname=de user=postgres password=1992")
     conn.set_session(autocommit = True)
     cur = conn.cursor()
     
@@ -319,7 +323,7 @@ def create_database():
     conn.close()
     
     #connect to sparkifydb database
-    conn = psycopg2.connect("host=127.0.0.1 port=5432 dbname=sparkifydb user=postgres password=2020")
+    conn = psycopg2.connect("host=127.0.0.1 port=5432 dbname=sparkifydb user=postgres password=1992")
     cur = conn.cursor()
     
     return cur, conn
@@ -350,4 +354,258 @@ if __name__ == "__main__":
     main()
 ```
 ### 4.3 Check the Created Table
-Run test.ipynb to confirm the creation of your tables with the correct columns
+
+Run `test.ipynb` to confirm the creation of your tables with the correct columns
+
+- Create table with command:
+  
+  `%run create_tables.py`
+
+- Load sql module in notebook: 
+  
+  `%load_ext sql`
+
+    Make sure the sql module has been installed by `pip install ipython-sql`.
+- Connect to the created database:
+  
+  `%sql postgresql://postgres:1992@127.0.0.1/sparkifydb`
+  
+  Expalain:
+
+  `%sql postgresql://username:password@address/database_name`
+
+- Check the empty database and tables:
+  
+    <p align="left">
+    <img src="../images/20210412_data_modeling_postgre/empty_data_1.png"  >
+    <img src="../images/20210412_data_modeling_postgre/empty_data_2.png"  >
+    </p>
+
+## 5. ETL Processes
+
+Developing ETL processes for each table.
+
+### 5.1 Importing packages and defining functions
+
+```python
+#import packages
+import os
+import glob
+import psycopg2
+import pandas as pd
+from sql_queries import *
+import numpy as np
+
+#connection
+conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=postgres password=1992")
+cur = conn.cursor()
+
+#get all files' full path
+def get_files(filepath):
+    all_files = []
+    for root, dirs, files in os.walk(filepath):
+        files = glob.glob(os.path.join(root,'*.json'))
+        for f in files :
+            all_files.append(os.path.abspath(f))   
+    return all_files
+
+def insert_from_dataframe(df, insert_query):
+    for i, row in df.iterrows():
+        cur.execute(insert_query, list(row))
+    conn.commit()
+```
+
+### 5.2 Processing `song data`
+
+Performing ETL on the `song dataset` to create the `songs` and `artists` dimensional tables.
+
+- Getting song files' full path
+
+    ```python
+    song_files = get_files('data/song_data/')
+
+    filepath = song_files[0]
+    print(filepath)
+    ```
+    ```
+    D:\.......\data\song_data\A\A\A\TRAAAAW128F429D538.json
+    ```
+
+- Loading data to dataframe
+  
+    ```python
+    filepath = song_files[0]
+    df = pd.read_json(filepath, lines=True)
+    
+    df_song = df #the first file
+    for idx in range(1, len(song_files)): #second to last file
+    df_song = df_song.append(pd.read_json(song_files[idx], lines=True), ignore_index=True)
+    df_song.head()
+    ```
+    <p align="center">
+    <img src="../images/20210412_data_modeling_postgre/song_df.png"  >
+    </p>
+
+    *Note*: in `sql_queries.py`, **artist_id** in songs table refer to artist_id in table `artists`, so the table `artists` must be inserted firstly.
+
+- `artists` Table
+
+    - Selecting columns for `artist ID, name, location, latitude, and longitude`:
+
+        ```python
+        artist_data = df_song[['artist_id', 'artist_name', 'artist_location', 'artist_latitude', 'artist_longitude']]
+
+        artist_data = artist_data.drop_duplicates()
+        artist_data = artist_data.replace({np.nan: None})
+        artist_data.columns = ['artist_id', 'name', 'location', 'latitude', 'longitude']
+        ```
+        
+    - Inserting Record into Artist Table
+  
+        `insert_from_dataframe(artist_data, artist_table_insert)`
+    
+    - Checking the Created `artists` Table
+  
+        <p align="center">
+        <img src="../images/20210412_data_modeling_postgre/artists.png"  >
+        </p>
+
+- `songs` Table
+
+    - Selecting columns for `song ID, title, artist ID, year, and duration`
+  
+        ```python
+        song_data = df_song[['song_id', 'title', 'artist_id', 'year', 'duration']]
+        song_data = song_data.drop_duplicates()
+        song_data = song_data.replace({np.nan: None})
+        ```
+    - Inserting Record into `Song` Table
+  
+        `insert_from_dataframe(song_data, song_table_insert)`
+
+    - Checking the Created `songs` Table
+  
+        <p align="center">
+        <img src="../images/20210412_data_modeling_postgre/songs.png"  >
+        </p>
+
+### 5.3 Processing log data
+
+Performing ETL on the second dataset, `log_data`, to create the `time` and `users` dimensional tables, as well as the `songplays` fact table.
+
+- Getting log files' full path and load to dataframe
+
+```python
+log_files = get_files('data/log_data/')
+filepath = log_files[0]
+
+df = pd.read_json(filepath, lines=True)
+df_log = df
+for idx in range(1, len(log_files)):
+    df_log = df_log.append(pd.read_json(log_files[idx], lines=True), ignore_index=True)
+print(f'df_log size: {df_log.shape}')
+df_log.head()
+```
+
+<p align="center">
+<img src="../images/20210412_data_modeling_postgre/log_head.png"  >
+</p>
+
+
+- `time` Table
+  - Filtering records by `NextSong` action
+  - Extracting the timestamp, `hour, day, week of year, month, year, and weekday` from the `ts` column and set time_data to a list containing these values in order
+
+    ```python
+    df_log = df_log[df_log['page']=='NextSong']
+    df_log = df_log.replace(np.nan, None)
+
+    tf = pd.DataFrame({'start_time': pd.to_datetime(df_log['ts'], unit='ms')})
+
+    tf['hour'] = tf['start_time'].dt.hour
+    tf['day'] = tf['start_time'].dt.day
+    # tf['week'] = tf['start_time'].dt.week #deprecated
+    tf['week'] = tf['start_time'].dt.isocalendar().week
+    tf['month'] = tf['start_time'].dt.month
+    tf['year'] = tf['start_time'].dt.year
+    tf['weekday'] = tf['start_time'].dt.weekday
+
+    tf = tf.drop_duplicates()
+    tf.head()
+    ```
+    <p align="center">
+    <img src="../images/20210412_data_modeling_postgre/time_stamp.png"  >
+    </p>
+
+  - Inserting Records into time Table
+
+    ```insert_from_dataframe(tf, time_table_insert)```
+
+  - Checking the Created `songs` Table
+
+        <p align="center">
+        <img src="../images/20210412_data_modeling_postgre/time.png"  >
+        </p>
+
+- `users` Table
+
+    - Selecting columns for `user ID, first name, last name, gender and level` and set to user_df
+        ```python
+        user_df = df_log[['userId', 'firstName', 'lastName', 'gender', 'level']]
+        user_df = user_df.drop_duplicates()
+        user_df = user_df[user_df['userId'] != '']
+        user_df.columns = ['user_id', 'first_name', 'last_name', 'gender', 'level']
+        ```
+    - Inserting Records into Users Table
+  
+        `insert_from_dataframe(user_df, user_table_insert)`
+
+    - Checking the Created `songs` Table
+  
+        <p align="center">
+        <img src="../images/20210412_data_modeling_postgre/users.png"  >
+        </p>
+
+- `songplays` Table
+  
+  - Implementing the song_select query in sql_queries.py to find the song ID and artist ID based on the title, artist name, and duration of a song.
+  - Selecting the timestamp, user ID, level, song ID, artist ID, session ID, location, and user agent and set to songplay_data
+
+    ```python
+    for index, row in df_log.iterrows():
+
+        # get songid and artistid from song and artist tables
+        cur.execute(song_select, (row.song, row.artist, row.length))
+        results = cur.fetchone()
+        
+        if results:
+            songid, artistid = results
+        else:
+            songid, artistid = None, None
+
+        # insert songplay record
+        # (songplay_id int, start_time int, user_id int, level text, song_id text, artist_id text, session_id int, location text, user_agent text)
+        # songplay_data = (index, row.ts, int(row.userId), row.level, songid, artistid, row.sessionId, row.location, row.userAgent)
+        songplay_data = (index, pd.to_datetime(row.ts, unit='ms'), int(row.userId), row.level, songid, artistid, row.sessionId, row.location, row.userAgent)
+        cur.execute(songplay_table_insert, songplay_data)
+        conn.commit()
+    ```
+    - Checking the Created `songs` Table
+  
+        <p align="center">
+        <img src="../images/20210412_data_modeling_postgre/song_play.png"  >
+        </p>
+
+
+Checking the Created Database in pgAdmin4
+  
+<p align="center">
+<img src="../images/20210412_data_modeling_postgre/pgadmin.png"  >
+</p>
+
+
+
+
+
+
+
