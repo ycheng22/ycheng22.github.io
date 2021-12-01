@@ -53,6 +53,12 @@ var store = [{
         "url": "/Data_Modeling_with_PostgreSQL/",
         "teaser": "/images/20210412_data_modeling_postgre/python_postgre.jpg"
       },{
+        "title": "Data Modeling with Apache Cassandra",
+        "excerpt":"Summary: Data modeling with Apache Cassandra. Modeling event data to create a non-relational database and ETL pipeline for a music streaming app. Check the code here. Contents: 1. Introduction: 2. Project datasets 3. Importing packages and getting filepaths 4. Loading all data to one csv file 5. Creating a Cluster...","categories": [],
+        "tags": ["NoSQL","Cassandra","Python"],
+        "url": "/Data_Modeling_with_Apache_Cassandra/",
+        "teaser": null
+      },{
         "title": "Web Map with Folium",
         "excerpt":"Summary: Build a web map with Folium. Check this blog on github. Contents: 1. Create a map 2. Add marker 2.1 Add single marker 2.2 Add multiple markers from file 2.3 Add elevation to popup 2.4 Color generate function for markers 2.5 Circle markers 3. Add population layer with json...","categories": [],
         "tags": ["Web Map","Folium","Python"],
