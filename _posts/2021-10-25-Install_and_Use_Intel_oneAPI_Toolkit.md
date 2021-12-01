@@ -35,7 +35,7 @@ Then download without sign up.
 
 Download [Intel® oneAPI HPC Toolkit](https://www.intel.com/content/www/us/en/developer/tools/oneapi/hpc-toolkit-download.html), `Intel® Fortran Compilers` are included in it.
 
-Suppose the `Visual Studio 2019` has been installed, `Intel® oneAPI Base Toolkit` firstly, install `Intel® oneAPI HPC Toolkit` secondly, 
+Suppose the `Visual Studio 2019` has been installed, installing `Intel® oneAPI Base Toolkit` firstly, then install `Intel® oneAPI HPC Toolkit`.
 
 ## 3. Run Fortran with calling `Math Kernel Library`
 

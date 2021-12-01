@@ -24,9 +24,13 @@ Check the code [here](https://github.com/ycheng22/Udacity_Data_Engineer_Nanodegr
 - [2. Project datasets](#2-project-datasets)
   - [2.1 Song dataset](#21-song-dataset)
   - [2.2 Log dataset](#22-log-dataset)
-- [3. Schema for Song Play Data Analysis](#3-schema-for-song-play-data-analysis)
+- [3. Schema for Song and Log Data](#3-schema-for-song-and-log-data)
   - [3.1 Fact Table](#31-fact-table)
   - [3.2 Dimension Tables](#32-dimension-tables)
+- [4. Creating Tables](#4-creating-tables)
+  - [4.1 Queries](#41-queries)
+  - [4.2 Creating Table by calling queries](#42-creating-table-by-calling-queries)
+  - [4.3 Check the Created Table](#43-check-the-created-table)
 
 ## 1. Introduction: 
 
@@ -57,7 +61,6 @@ Modeling user activity data to create a database and ETL pipeline in Postgres fo
  ┃ ┃ ┃ ┗ 📂C
  ┃ ┃ ┃ ┃ ┣ 📜TRAACCG128F92E8A55.json
  ┃ ┃ ┃ ┃ ┣ 📜TRAACER128F4290F96.json
- ┃ ┃ ┃ ┃ ┣ 📜TRAACFV128F935E50B.json
  ┃ ┃ ┃ ┃ ┣ ...
  ┃ ┃ ┗ 📂B
  ┃ ┃ ┃ ┣ 📂A
@@ -98,7 +101,7 @@ And below is an example of what the data in a log file, 2018-11-12-events.json, 
 <img src="../images/20210412_data_modeling_postgre/log_data.png"  >
 </p>
 
-## 3. Schema for Song Play Data Analysis 
+## 3. Schema for Song and Log Data
    
 Using the song and log datasets, creating a **star schema** optimized for queries on song play analysis. This includes the following tables.
 
@@ -123,3 +126,228 @@ Using the song and log datasets, creating a **star schema** optimized for querie
   
     `start_time, hour, day, week, month, year, weekday`
 
+## 4. Creating Tables
+
+### 4.1 Queries
+Writing SQL queries in `sql_queries.py`.
+
+`sql_queries.py`:
+```python
+# DROP TABLES
+
+songplay_table_drop = "DROP TABLE IF EXISTS songplays"
+user_table_drop = "DROP TABLE IF EXISTS users"
+song_table_drop = "DROP TABLE IF EXISTS songs"
+artist_table_drop = "DROP TABLE IF EXISTS artists"
+time_table_drop = "DROP TABLE IF EXISTS time"
+
+# CREATE TABLES
+
+songplay_table_create = ("""
+    CREATE TABLE IF NOT EXISTS songplays (
+        songplay_id INTEGER ,
+        start_time TIMESTAMP NOT NULL,
+        user_id INTEGER NOT NULL REFERENCES users (user_id),
+        level VARCHAR,
+        song_id VARCHAR REFERENCES songs (song_id),
+        artist_id VARCHAR REFERENCES artists (artist_id),
+        session_id INTEGER NOT NULL,
+        location VARCHAR,
+        user_agent VARCHAR
+    )
+""")
+
+user_table_create = ("""
+    CREATE TABLE IF NOT EXISTS users (
+        user_id INTEGER PRIMARY KEY,
+        first_name VARCHAR NOT NULL,
+        last_name VARCHAR NOT NULL,
+        gender CHAR(1),
+        level VARCHAR NOT NULL
+    )
+""")
+
+song_table_create = ("""
+    CREATE TABLE IF NOT EXISTS songs (
+        song_id VARCHAR PRIMARY KEY,
+        title VARCHAR NOT NULL,
+        artist_id VARCHAR NOT NULL REFERENCES artists (artist_id),
+        year INTEGER NOT NULL,
+        duration NUMERIC (15, 5) NOT NULL
+    )
+""")
+
+artist_table_create = ("""
+    CREATE TABLE IF NOT EXISTS artists (
+        artist_id VARCHAR PRIMARY KEY,
+        name VARCHAR NOT NULL,
+        location VARCHAR,
+        latitude NUMERIC,
+        longitude NUMERIC
+    )
+""")
+
+time_table_create = ("""
+    CREATE TABLE IF NOT EXISTS time (
+        start_time TIMESTAMP NOT NULL PRIMARY KEY,
+        hour NUMERIC NOT NULL,
+        day NUMERIC NOT NULL,
+        week NUMERIC NOT NULL,
+        month NUMERIC NOT NULL,
+        year NUMERIC NOT NULL,
+        weekday NUMERIC NOT NULL
+    )
+""")
+
+# INSERT RECORDS
+
+songplay_table_insert = ("""
+    INSERT INTO songplays (
+        songplay_id,
+        start_time,
+        user_id,
+        level,
+        song_id,
+        artist_id,
+        session_id,
+        location,
+        user_agent 
+    )
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+""")
+
+user_table_insert = ("""
+    
+    INSERT INTO users (
+        user_id,
+        first_name,
+        last_name,
+        gender,
+        level
+    )
+    VALUES (%s, %s, %s, %s, %s)
+    ON CONFLICT (user_id)
+    DO UPDATE
+        SET level      = EXCLUDED.level
+""")
+
+song_table_insert = ("""
+    INSERT INTO songs (
+        song_id,
+        title,
+        artist_id,
+        year,
+        duration
+    )
+    VALUES (%s, %s, %s, %s, %s)
+    ON CONFLICT (song_id)
+    DO NOTHING
+""")
+
+artist_table_insert = ("""
+    INSERT INTO artists (
+        artist_id,
+        name,
+        location,
+        latitude,
+        longitude
+    )
+    VALUES (%s, %s, %s, %s, %s)
+    ON CONFLICT (artist_id)
+    DO NOTHING
+""")
+
+
+time_table_insert = ("""
+    INSERT INTO time (
+        start_time,
+        hour,
+        day,
+        week,
+        month,
+        year,
+        weekday
+    )
+    VALUES (%s, %s, %s, %s, %s, %s, %s)
+    ON CONFLICT (start_time)
+    DO NOTHING
+""")
+
+# FIND SONGS
+
+song_select = ("""
+    SELECT 
+        songs.song_id AS song_id,
+        songs.artist_id AS artist_id
+    FROM
+        songs
+        JOIN artists ON (songs.artist_id = artists.artist_id)
+    WHERE
+        songs.title = %s AND 
+        artists.name = %s AND 
+        songs.duration = %s
+""")
+
+# QUERY LISTS
+
+create_table_queries = [time_table_create, user_table_create, artist_table_create, song_table_create, songplay_table_create]
+drop_table_queries = [songplay_table_drop, user_table_drop, song_table_drop, artist_table_drop, time_table_drop]
+```
+### 4.2 Creating Table by calling queries
+
+Writing python in `create_tables.py` to create table.
+
+`create_tables.py`:
+
+```python
+import psycopg2
+from sql_queries import create_table_queries, drop_table_queries
+
+def create_database():
+    '''
+    Create database sparkifydb, connect to this database, return connection and cursor
+    '''
+    conn = psycopg2.connect("host=127.0.0.1 port=5432 dbname=de user=postgres password=2020")
+    conn.set_session(autocommit = True)
+    cur = conn.cursor()
+    
+    #create sparkifydb with utf-8 encoding
+    cur.execute("DROP DATABASE IF EXISTS sparkifydb")
+    cur.execute("CREATE DATABASE sparkifydb WITH ENCODING 'utf8' TEMPLATE template0")
+    
+    #close connection to default database
+    conn.close()
+    
+    #connect to sparkifydb database
+    conn = psycopg2.connect("host=127.0.0.1 port=5432 dbname=sparkifydb user=postgres password=2020")
+    cur = conn.cursor()
+    
+    return cur, conn
+
+def drop_tables(cur, conn):
+    '''Drop all tables created on the database'''
+    for query in drop_table_queries:
+        cur.execute(query)
+        conn.commit()
+        
+def create_tables(cur, conn):
+    '''Create tables defined on the sql_queries.py'''
+    for query in create_table_queries:
+        cur.execute(query)
+        conn.commit()
+        
+def main():
+    '''
+    Function to drop and re-create sparkifydb database and all related tables
+    how: python create_tables.py
+    '''
+    cur, conn = create_database()
+    drop_tables(cur, conn)
+    create_tables(cur, conn)
+    conn.close()
+    
+if __name__ == "__main__":
+    main()
+```
+### 4.3 Check the Created Table
+Run test.ipynb to confirm the creation of your tables with the correct columns

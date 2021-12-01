@@ -48,7 +48,7 @@ var store = [{
         "teaser": "/images/texas_outage/texas_outage.png"
       },{
         "title": "Data Modeling with PostgreSQL",
-        "excerpt":"Summary: Modeling user activity data to create a relational database and ETL pipeline in PostgreSQL for a music streaming app. Check the code here. Contents: 1. Introduction: 2. Project datasets 2.1 Song dataset 2.2 Log dataset 3. Schema for Song Play Data Analysis 3.1 Fact Table 3.2 Dimension Tables 1....","categories": [],
+        "excerpt":"Summary: Modeling user activity data to create a relational database and ETL pipeline in PostgreSQL for a music streaming app. Check the code here. Contents: 1. Introduction: 2. Project datasets 2.1 Song dataset 2.2 Log dataset 3. Schema for Song and Log Data 3.1 Fact Table 3.2 Dimension Tables 4....","categories": [],
         "tags": ["SQL","PostgreSQL","Python"],
         "url": "/Data_Modeling_with_PostgreSQL/",
         "teaser": "/images/20210412_data_modeling_postgre/python_postgre.jpg"

@@ -301,7 +301,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          2 minute read
+          5 minute read
         
       </span>
     
@@ -326,10 +326,17 @@
       <li><a href="#22-log-dataset">2.2 Log dataset</a></li>
     </ul>
   </li>
-  <li><a href="#3-schema-for-song-play-data-analysis">3. Schema for Song Play Data Analysis</a>
+  <li><a href="#3-schema-for-song-and-log-data">3. Schema for Song and Log Data</a>
     <ul>
       <li><a href="#31-fact-table">3.1 Fact Table</a></li>
       <li><a href="#32-dimension-tables">3.2 Dimension Tables</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-creating-tables">4. Creating Tables</a>
+    <ul>
+      <li><a href="#41-queries">4.1 Queries</a></li>
+      <li><a href="#42-creating-table-by-calling-queries">4.2 Creating Table by calling queries</a></li>
+      <li><a href="#43-check-the-created-table">4.3 Check the Created Table</a></li>
     </ul>
   </li>
 </ul>
@@ -362,7 +369,6 @@
  ┃ ┃ ┃ ┗ 📂C
  ┃ ┃ ┃ ┃ ┣ 📜TRAACCG128F92E8A55.json
  ┃ ┃ ┃ ┃ ┣ 📜TRAACER128F4290F96.json
- ┃ ┃ ┃ ┃ ┣ 📜TRAACFV128F935E50B.json
  ┃ ┃ ┃ ┃ ┣ ...
  ┃ ┃ ┗ 📂B
  ┃ ┃ ┃ ┣ 📂A
@@ -401,7 +407,7 @@ song_data/A/A/B/TRAABJL12903CDCF1A.json
 <img src="../images/20210412_data_modeling_postgre/log_data.png" />
 </p>
 
-<h2 id="3-schema-for-song-play-data-analysis">3. Schema for Song Play Data Analysis</h2>
+<h2 id="3-schema-for-song-and-log-data">3. Schema for Song and Log Data</h2>
 
 <p>Using the song and log datasets, creating a <strong>star schema</strong> optimized for queries on song play analysis. This includes the following tables.</p>
 
@@ -440,6 +446,229 @@ song_data/A/A/B/TRAABJL12903CDCF1A.json
   </li>
 </ul>
 
+<h2 id="4-creating-tables">4. Creating Tables</h2>
+
+<h3 id="41-queries">4.1 Queries</h3>
+<p>Writing SQL queries in <code class="language-plaintext highlighter-rouge">sql_queries.py</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">sql_queries.py</code>:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># DROP TABLES
+</span>
+<span class="n">songplay_table_drop</span> <span class="o">=</span> <span class="s">"DROP TABLE IF EXISTS songplays"</span>
+<span class="n">user_table_drop</span> <span class="o">=</span> <span class="s">"DROP TABLE IF EXISTS users"</span>
+<span class="n">song_table_drop</span> <span class="o">=</span> <span class="s">"DROP TABLE IF EXISTS songs"</span>
+<span class="n">artist_table_drop</span> <span class="o">=</span> <span class="s">"DROP TABLE IF EXISTS artists"</span>
+<span class="n">time_table_drop</span> <span class="o">=</span> <span class="s">"DROP TABLE IF EXISTS time"</span>
+
+<span class="c1"># CREATE TABLES
+</span>
+<span class="n">songplay_table_create</span> <span class="o">=</span> <span class="p">(</span><span class="s">"""
+    CREATE TABLE IF NOT EXISTS songplays (
+        songplay_id INTEGER ,
+        start_time TIMESTAMP NOT NULL,
+        user_id INTEGER NOT NULL REFERENCES users (user_id),
+        level VARCHAR,
+        song_id VARCHAR REFERENCES songs (song_id),
+        artist_id VARCHAR REFERENCES artists (artist_id),
+        session_id INTEGER NOT NULL,
+        location VARCHAR,
+        user_agent VARCHAR
+    )
+"""</span><span class="p">)</span>
+
+<span class="n">user_table_create</span> <span class="o">=</span> <span class="p">(</span><span class="s">"""
+    CREATE TABLE IF NOT EXISTS users (
+        user_id INTEGER PRIMARY KEY,
+        first_name VARCHAR NOT NULL,
+        last_name VARCHAR NOT NULL,
+        gender CHAR(1),
+        level VARCHAR NOT NULL
+    )
+"""</span><span class="p">)</span>
+
+<span class="n">song_table_create</span> <span class="o">=</span> <span class="p">(</span><span class="s">"""
+    CREATE TABLE IF NOT EXISTS songs (
+        song_id VARCHAR PRIMARY KEY,
+        title VARCHAR NOT NULL,
+        artist_id VARCHAR NOT NULL REFERENCES artists (artist_id),
+        year INTEGER NOT NULL,
+        duration NUMERIC (15, 5) NOT NULL
+    )
+"""</span><span class="p">)</span>
+
+<span class="n">artist_table_create</span> <span class="o">=</span> <span class="p">(</span><span class="s">"""
+    CREATE TABLE IF NOT EXISTS artists (
+        artist_id VARCHAR PRIMARY KEY,
+        name VARCHAR NOT NULL,
+        location VARCHAR,
+        latitude NUMERIC,
+        longitude NUMERIC
+    )
+"""</span><span class="p">)</span>
+
+<span class="n">time_table_create</span> <span class="o">=</span> <span class="p">(</span><span class="s">"""
+    CREATE TABLE IF NOT EXISTS time (
+        start_time TIMESTAMP NOT NULL PRIMARY KEY,
+        hour NUMERIC NOT NULL,
+        day NUMERIC NOT NULL,
+        week NUMERIC NOT NULL,
+        month NUMERIC NOT NULL,
+        year NUMERIC NOT NULL,
+        weekday NUMERIC NOT NULL
+    )
+"""</span><span class="p">)</span>
+
+<span class="c1"># INSERT RECORDS
+</span>
+<span class="n">songplay_table_insert</span> <span class="o">=</span> <span class="p">(</span><span class="s">"""
+    INSERT INTO songplays (
+        songplay_id,
+        start_time,
+        user_id,
+        level,
+        song_id,
+        artist_id,
+        session_id,
+        location,
+        user_agent 
+    )
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+"""</span><span class="p">)</span>
+
+<span class="n">user_table_insert</span> <span class="o">=</span> <span class="p">(</span><span class="s">"""
+    
+    INSERT INTO users (
+        user_id,
+        first_name,
+        last_name,
+        gender,
+        level
+    )
+    VALUES (%s, %s, %s, %s, %s)
+    ON CONFLICT (user_id)
+    DO UPDATE
+        SET level      = EXCLUDED.level
+"""</span><span class="p">)</span>
+
+<span class="n">song_table_insert</span> <span class="o">=</span> <span class="p">(</span><span class="s">"""
+    INSERT INTO songs (
+        song_id,
+        title,
+        artist_id,
+        year,
+        duration
+    )
+    VALUES (%s, %s, %s, %s, %s)
+    ON CONFLICT (song_id)
+    DO NOTHING
+"""</span><span class="p">)</span>
+
+<span class="n">artist_table_insert</span> <span class="o">=</span> <span class="p">(</span><span class="s">"""
+    INSERT INTO artists (
+        artist_id,
+        name,
+        location,
+        latitude,
+        longitude
+    )
+    VALUES (%s, %s, %s, %s, %s)
+    ON CONFLICT (artist_id)
+    DO NOTHING
+"""</span><span class="p">)</span>
+
+
+<span class="n">time_table_insert</span> <span class="o">=</span> <span class="p">(</span><span class="s">"""
+    INSERT INTO time (
+        start_time,
+        hour,
+        day,
+        week,
+        month,
+        year,
+        weekday
+    )
+    VALUES (%s, %s, %s, %s, %s, %s, %s)
+    ON CONFLICT (start_time)
+    DO NOTHING
+"""</span><span class="p">)</span>
+
+<span class="c1"># FIND SONGS
+</span>
+<span class="n">song_select</span> <span class="o">=</span> <span class="p">(</span><span class="s">"""
+    SELECT 
+        songs.song_id AS song_id,
+        songs.artist_id AS artist_id
+    FROM
+        songs
+        JOIN artists ON (songs.artist_id = artists.artist_id)
+    WHERE
+        songs.title = %s AND 
+        artists.name = %s AND 
+        songs.duration = %s
+"""</span><span class="p">)</span>
+
+<span class="c1"># QUERY LISTS
+</span>
+<span class="n">create_table_queries</span> <span class="o">=</span> <span class="p">[</span><span class="n">time_table_create</span><span class="p">,</span> <span class="n">user_table_create</span><span class="p">,</span> <span class="n">artist_table_create</span><span class="p">,</span> <span class="n">song_table_create</span><span class="p">,</span> <span class="n">songplay_table_create</span><span class="p">]</span>
+<span class="n">drop_table_queries</span> <span class="o">=</span> <span class="p">[</span><span class="n">songplay_table_drop</span><span class="p">,</span> <span class="n">user_table_drop</span><span class="p">,</span> <span class="n">song_table_drop</span><span class="p">,</span> <span class="n">artist_table_drop</span><span class="p">,</span> <span class="n">time_table_drop</span><span class="p">]</span>
+</code></pre></div></div>
+<h3 id="42-creating-table-by-calling-queries">4.2 Creating Table by calling queries</h3>
+
+<p>Writing python in <code class="language-plaintext highlighter-rouge">create_tables.py</code> to create table.</p>
+
+<p><code class="language-plaintext highlighter-rouge">create_tables.py</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">psycopg2</span>
+<span class="kn">from</span> <span class="nn">sql_queries</span> <span class="kn">import</span> <span class="n">create_table_queries</span><span class="p">,</span> <span class="n">drop_table_queries</span>
+
+<span class="k">def</span> <span class="nf">create_database</span><span class="p">():</span>
+    <span class="s">'''
+    Create database sparkifydb, connect to this database, return connection and cursor
+    '''</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"host=127.0.0.1 port=5432 dbname=de user=postgres password=2020"</span><span class="p">)</span>
+    <span class="n">conn</span><span class="p">.</span><span class="n">set_session</span><span class="p">(</span><span class="n">autocommit</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">cursor</span><span class="p">()</span>
+    
+    <span class="c1">#create sparkifydb with utf-8 encoding
+</span>    <span class="n">cur</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"DROP DATABASE IF EXISTS sparkifydb"</span><span class="p">)</span>
+    <span class="n">cur</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"CREATE DATABASE sparkifydb WITH ENCODING 'utf8' TEMPLATE template0"</span><span class="p">)</span>
+    
+    <span class="c1">#close connection to default database
+</span>    <span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+    
+    <span class="c1">#connect to sparkifydb database
+</span>    <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"host=127.0.0.1 port=5432 dbname=sparkifydb user=postgres password=2020"</span><span class="p">)</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">cursor</span><span class="p">()</span>
+    
+    <span class="k">return</span> <span class="n">cur</span><span class="p">,</span> <span class="n">conn</span>
+
+<span class="k">def</span> <span class="nf">drop_tables</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">conn</span><span class="p">):</span>
+    <span class="s">'''Drop all tables created on the database'''</span>
+    <span class="k">for</span> <span class="n">query</span> <span class="ow">in</span> <span class="n">drop_table_queries</span><span class="p">:</span>
+        <span class="n">cur</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="n">conn</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
+        
+<span class="k">def</span> <span class="nf">create_tables</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">conn</span><span class="p">):</span>
+    <span class="s">'''Create tables defined on the sql_queries.py'''</span>
+    <span class="k">for</span> <span class="n">query</span> <span class="ow">in</span> <span class="n">create_table_queries</span><span class="p">:</span>
+        <span class="n">cur</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="n">conn</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
+        
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="s">'''
+    Function to drop and re-create sparkifydb database and all related tables
+    how: python create_tables.py
+    '''</span>
+    <span class="n">cur</span><span class="p">,</span> <span class="n">conn</span> <span class="o">=</span> <span class="n">create_database</span><span class="p">()</span>
+    <span class="n">drop_tables</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+    <span class="n">create_tables</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+    <span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+    
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div></div>
+<h3 id="43-check-the-created-table">4.3 Check the Created Table</h3>
+<p>Run test.ipynb to confirm the creation of your tables with the correct columns</p>
 
         
       </section>
