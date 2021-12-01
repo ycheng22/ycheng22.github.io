@@ -6,10 +6,10 @@ author_profile: true
 
 Education
 ======
-* B.S. in Geophysics, China university of Petroleum-Beijing, 2016
-* B.S. in Accounting, China university of Petroleum-Beijing, 2016
-* Ph.D in Physics, University of University, 2022 
-* M.S. in Computer Science, Georgia Institute of Technology, 2022-Current
+* B.S. in Geophysics, China university of Petroleum-Beijing, 2012 - 2016
+* B.S. in Accounting, China university of Petroleum-Beijing, 2012 - 2016
+* Ph.D in Physics, University of University, 2016 - 2022 
+* M.S. in Computer Science, Georgia Institute of Technology, 2022 - Current
 
 Work experience
 ======
