@@ -188,8 +188,8 @@ The above figure means Cuda and Cudnn have been installed successfully.
 - Activating python and testing
 
   ```python
-  import tensorflow as tf
-  tf.config.list_physical_devices('GPU')
+  import torch
+  print(torch.cuda.is_available())
   ```
 
   <p align="center">
