@@ -198,9 +198,9 @@ The above figure means Cuda and Cudnn have been installed successfully.
 
 ## 6. Adding virtual env to notebook
 
-- Activate tfgpu
+- Activate `base` environment
 
-  `conda activate tfgpu`
+  `conda activate base`
 
 - Installing `ipykernel`
 
