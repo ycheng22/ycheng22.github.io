@@ -17,9 +17,12 @@ classes: wide
 
 Summary: deploy Bokeh server app on Heroku.
 
+This blog is about `bokeh serve` method , another blog about Bokeh's `CustomJS` method can be found [here](https://ycheng22.github.io/2020_Houston_flights_delay_dashboard/).
+
 Check this blog on [github](https://github.com/ycheng22/ycheng22.github.io/blob/main/_posts/2021-10-01-Deploy_Bokeh_Server_App_on_Heroku.md).
 
-App web: <https://yc-bokeh-server.herokuapp.com/>
+App web: <https://yc-bokeh-server2.herokuapp.com/>
+Code: <>
 
 **Contents:**
 - [1. Introduction](#1-introduction)
@@ -47,9 +50,14 @@ Overview of the folder structure:
 ```
 📦Demo
  ┣ 📂data
+ ┃ ┣ 📜arr_delay.csv
  ┃ ┗ 📜Hou_flights.csv
  ┣ 📂scripts
+ ┃ ┣ 📜density.py
+ ┃ ┣ 📜draw_map.py
+ ┃ ┣ 📜histogram.py
  ┃ ┣ 📜routes.py
+ ┃ ┣ 📜table.py
  ┃ ┗ 📜__init__.py
  ┣ 📜main.py
  ┣ 📜Procfile
@@ -262,6 +270,8 @@ To deploy the web, Create folder `Bokeh_serve_demo`, move all necessary files to
 
   ```pip install pandas```
 
+  ```pip install scipy```
+
   .etc
 
 - Run demo locally with new virtual env:
@@ -304,12 +314,12 @@ http://localhost:5006/main
 
 - Write packages info to `requirements.txt`
 
-  ```\pip freeze > requirements.txt```
+  ```pip freeze > requirements.txt```
 
 - Create `Procfile`(no file extension)
 
   ```
-  web: bokeh serve --port=$PORT --allow-websocket-origin=yc-bokeh-server.herokuapp.com --address=0.0.0.0 --use-xheaders main.py
+  web: bokeh serve --port=$PORT --allow-websocket-origin=yc-bokeh-server2.herokuapp.com --address=0.0.0.0 --use-xheaders main.py
   ```
   *Note: `yc-bokeh-server` is the app name.
 
@@ -329,7 +339,7 @@ http://localhost:5006/main
   git push heroku master
   ```
 
-If everything works right, you can check your app at <https://yc-bokeh-server.herokuapp.com/>.
+If everything works right, you can check your app at <https://yc-bokeh-server2.herokuapp.com/>.
 
 If something goes wrong, run ```heroku logs --tail```
 
