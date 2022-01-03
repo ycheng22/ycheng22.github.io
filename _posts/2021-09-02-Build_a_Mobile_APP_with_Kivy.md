@@ -1,5 +1,5 @@
 ---
-title: 'Build a Mobile APP'
+title: 'Build a Mobile APP with Kivy'
 date: 2021-09-02
 header:
 #   image: "/images/foo-bar-identity.jpg"
