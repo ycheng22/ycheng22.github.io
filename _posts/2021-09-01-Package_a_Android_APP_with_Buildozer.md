@@ -120,6 +120,7 @@ If everything workds fine, the final `apk` file will be in the `bin` folder. But
   ```
   pip install Cython
   ```
+- `scipy` is not found
 - `autoconf, automake, libtoolize, libffi` not found
 
 Try all below
