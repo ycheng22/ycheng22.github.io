@@ -4,7 +4,7 @@ date: 2022-01-06
 header:
 #   image: "/images/foo-bar-identity.jpg"
 #   caption: "A beautiful photo"
-  teaser: "/images/20220106_BP_APP/cover.jpg"
+  teaser: "/images/20220106_BP_APP/cover.jpeg"
 tags:
   - Kivy 
   - OpenCV
