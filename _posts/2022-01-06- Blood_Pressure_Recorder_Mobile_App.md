@@ -33,6 +33,8 @@ Summary: Developed a mobile APP to recognize picture of blood pressure monitor a
 - [6. Improvement ideas](#6-improvement-ideas)
 - [7. Reference:](#7-reference)
 
+Check the code at [here](https://github.com/ycheng22/Blood_Pressure_Recorder_Mobile_App).
+
 ## 1. Introduction
 In this repo, I developed a mobile APP to recognize picture of blood pressure monitor and store the data to `sqlite3` database. The use can view, add, edit the records. 
 
