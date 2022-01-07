@@ -1,5 +1,5 @@
 ---
-title: 'Note_of_VSCoe_Configuration'
+title: 'Note_of_VSCode_Configuration'
 date: 2021-12-31
 header:
 #   image: "/images/foo-bar-identity.jpg"
