@@ -1,0 +1,931 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Enable GPU acceleration on Win10 with Notebook - Yunpeng</title>
+<meta name="description" content="Summary: Records about enabling GPU acceleration on Windows 10 with Jupyter Notebook.">
+
+
+  <meta name="author" content="Yunpeng">
+  
+  <meta property="article:author" content="Yunpeng">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Yunpeng">
+<meta property="og:title" content="Enable GPU acceleration on Win10 with Notebook">
+<meta property="og:url" content="http://localhost:8000/Enable_GPU_Acceleration_on_Win10_with_Notebook/">
+
+
+  <meta property="og:description" content="Summary: Records about enabling GPU acceleration on Windows 10 with Jupyter Notebook.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-12-05T00:00:00-06:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:8000/Enable_GPU_Acceleration_on_Win10_with_Notebook/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:8000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Yunpeng Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Yunpeng
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/life/">Life</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:8000/">
+        <img src="/images/Yunpeng.jpg" alt="Yunpeng" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:8000/" itemprop="url">Yunpeng</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>A PhD candidate of physics</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Texas, US</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/ycheng22" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/yunpeng-cheng-aa8142127/" rel="nofollow noopener noreferrer me"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+          
+            <li><a href="https://public.tableau.com/profile/ycheng#!/" rel="nofollow noopener noreferrer me"><i class="fas fa-link" aria-hidden="true"></i><span class="label">Tableau</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Enable GPU acceleration on Win10 with Notebook">
+    <meta itemprop="description" content="Summary: Records about enabling GPU acceleration on Windows 10 with Jupyter Notebook.">
+    <meta itemprop="datePublished" content="2021-12-05T00:00:00-06:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:8000/Enable_GPU_Acceleration_on_Win10_with_Notebook/" class="u-url" itemprop="url">Enable GPU acceleration on Win10 with Notebook
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-12-05T00:00:00-06:00">December 5, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p>Summary: Records about enabling GPU acceleration on Windows 10 with Jupyter Notebook.</p>
+
+<p><strong>Contents:</strong></p>
+<ul>
+  <li><a href="#1-introduction-and-basics">1. Introduction and basics</a></li>
+  <li><a href="#2-installing-jupyter-lab-and-setting-default-directory">2. Installing Jupyter lab and setting default directory</a></li>
+  <li><a href="#3-installing-cuda-and-cudnn">3. Installing Cuda and Cudnn</a>
+    <ul>
+      <li><a href="#31-installing-cuda">3.1 Installing Cuda</a></li>
+      <li><a href="#32-installing-cudnn">3.2 Installing Cudnn</a></li>
+      <li><a href="#33-adding-directory-to-environment-path">3.3 Adding directory to environment path</a></li>
+      <li><a href="#34-check-if-its-installed-successfully">3.4 Check if it’s installed successfully</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-creating-tensorflow-gpu-virtual-environment-and-testing">4. Creating tensorflow-gpu virtual environment and testing</a></li>
+  <li><a href="#5-creating-pytorch-gpu-virtual-environment-and-testing">5. Creating pytorch-gpu virtual environment and testing</a></li>
+  <li><a href="#6-adding-virtual-env-to-notebook">6. Adding virtual env to notebook</a></li>
+  <li><a href="#7-nvdashboard">7. NVDashboard</a></li>
+  <li><a href="#reference">Reference:</a></li>
+</ul>
+
+<h2 id="1-introduction-and-basics">1. Introduction and basics</h2>
+
+<p>Both Tensorflow and PyTorch provide GPU acceleration option, the Google Colab and Kaggle Notebook also provide GPU/TPU acceleration options.</p>
+
+<p>This blog is about my recent configure about GPU acceleration on Windows 10 desktop.</p>
+
+<p>Suppose Anaconda has been intalled.</p>
+
+<p>The common commands about creating virtual environment is following:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#the below commands run in anaconda prompt</span>
+
+<span class="c"># list virtual environment</span>
+conda <span class="nb">env </span>list
+
+<span class="c"># create new virtual env, </span>
+conda create <span class="nt">-n</span> env_names package_names   <span class="c"># conda create -n tfgpu python=3.8</span>
+
+<span class="c"># activate virtual env</span>
+conda activate tfgpu
+
+<span class="c"># deactivate current environment</span>
+conda deactivate
+
+<span class="c"># delete virtual env</span>
+conda <span class="nb">env </span>remove <span class="nt">-n</span> env_name
+</code></pre></div></div>
+
+<p>Hardware:</p>
+<ul>
+  <li>Nvidia GeForce RTX 2060 super</li>
+  <li>Windows 10</li>
+</ul>
+
+<h2 id="2-installing-jupyter-lab-and-setting-default-directory">2. Installing Jupyter lab and setting default directory</h2>
+
+<ul>
+  <li>
+    <p>Installing Jupyter lab.</p>
+
+    <p><code class="language-plaintext highlighter-rouge">pip install jupyterlab</code></p>
+  </li>
+  <li>
+    <p>Generating config file <code class="language-plaintext highlighter-rouge">jupyter_notebook_config.py</code>:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">jupyter notebook --generate-config</code></p>
+
+    <p>on Window, the file will be in:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">C:\Users\username\.jupyter/jupyter_notebook_config.py</code></p>
+
+    <p>on Ubuntu, the file will be in:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">~/.jupyter/jupyter_notebook_config.py</code></p>
+  </li>
+  <li>
+    <p>Setting default start directory</p>
+
+    <p>on Windows:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>c.NotebookApp.notebook_dir = u'D:\\OneDriveFolder\\Notebook_OneDrive'
+</code></pre></div>    </div>
+
+    <p>on Ubuntu:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>c.NotebookApp.notebook_dir = '/home/ycheng/Documents/Notebook'
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="3-installing-cuda-and-cudnn">3. Installing Cuda and Cudnn</h2>
+
+<h3 id="31-installing-cuda">3.1 Installing Cuda</h3>
+
+<p>Download <a href="https://developer.nvidia.com/cuda-downloads">Cuda</a>.</p>
+
+<p align="center">
+<img src="../images/20211205_gpu_blog/download_cuda.png" />
+</p>
+
+<p>Version: <code class="language-plaintext highlighter-rouge">cuda_11.5.1_496.13_windows</code>.</p>
+
+<p>Install it with default settings.</p>
+
+<h3 id="32-installing-cudnn">3.2 Installing Cudnn</h3>
+
+<p>Login or Create account and download <a href="https://link.zhihu.com/?target=https%3A//developer.nvidia.com/rdp/cudnn-download">Cudnn</a></p>
+
+<p>Version: <code class="language-plaintext highlighter-rouge">cudnn-windows-x86_64-8.3.1.22_cuda11.5-archive</code>.</p>
+
+<p>Unzip the file and place the file to <code class="language-plaintext highlighter-rouge">C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.5</code>.</p>
+
+<h3 id="33-adding-directory-to-environment-path">3.3 Adding directory to environment path</h3>
+
+<p>When installing Cuda, some directory will be added to path automatically, some are not.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.5
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.5\libnvvp
+C:\Program Files\NVIDIA Corporation\Nsight Compute 2021.3.1\
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.5\extras\CUPTI\lib64
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.5\cudnn-windows-x86_64-8.3.1.22_cuda11.5-archive\bin
+</code></pre></div></div>
+
+<h3 id="34-check-if-its-installed-successfully">3.4 Check if it’s installed successfully</h3>
+
+<p>Open command window and type: <code class="language-plaintext highlighter-rouge">nvcc --V</code></p>
+
+<p align="center">
+<img src="../images/20211205_gpu_blog/nvcc.png" />
+</p>
+
+<p>The above figure means Cuda and Cudnn have been installed successfully.</p>
+
+<h2 id="4-creating-tensorflow-gpu-virtual-environment-and-testing">4. Creating tensorflow-gpu virtual environment and testing</h2>
+
+<ul>
+  <li>
+    <p>Creating virtual env:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">conda create -n tfgpu python=3.8</code></p>
+  </li>
+  <li>
+    <p>Activate tfgpu</p>
+
+    <p><code class="language-plaintext highlighter-rouge">conda activate tfgpu</code></p>
+  </li>
+  <li>
+    <p>Installing <code class="language-plaintext highlighter-rouge">tensorflow-gpu</code></p>
+
+    <p><code class="language-plaintext highlighter-rouge">pip install tensorflow-gpu</code></p>
+  </li>
+  <li>
+    <p>Activating python and testing</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+<span class="n">tf</span><span class="p">.</span><span class="n">config</span><span class="p">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s">'GPU'</span><span class="p">)</span>
+</code></pre></div>    </div>
+
+    <p align="center">
+<img src="../images/20211205_gpu_blog/tfgpu.png" />
+</p>
+  </li>
+</ul>
+
+<h2 id="5-creating-pytorch-gpu-virtual-environment-and-testing">5. Creating pytorch-gpu virtual environment and testing</h2>
+
+<ul>
+  <li>
+    <p>Creating virtual env:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">conda create -n pytorch_gpu python=3.8</code></p>
+  </li>
+  <li>
+    <p>Activate tfgpu</p>
+
+    <p><code class="language-plaintext highlighter-rouge">conda activate pytorch_gpu</code></p>
+  </li>
+  <li>
+    <p>Installing <code class="language-plaintext highlighter-rouge">pytorch, torchvision, torchaudio, cudatoolkit</code></p>
+
+    <p><code class="language-plaintext highlighter-rouge">conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch</code></p>
+
+    <p align="center">
+<img src="../images/20211205_gpu_blog/pytorch.png" />
+</p>
+
+    <p>Note that the cuda version 10.2 was selected, because cuda 11.5 is not available, which could be a problem.</p>
+  </li>
+  <li>
+    <p>Activating python and testing</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">torch</span>
+<span class="k">print</span><span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="n">cuda</span><span class="p">.</span><span class="n">is_available</span><span class="p">())</span>
+</code></pre></div>    </div>
+
+    <p align="center">
+<img src="../images/20211205_gpu_blog/pt.png" />
+</p>
+  </li>
+</ul>
+
+<h2 id="6-adding-virtual-env-to-notebook">6. Adding virtual env to notebook</h2>
+
+<ul>
+  <li>
+    <p>Activate <code class="language-plaintext highlighter-rouge">tfgpu</code> environment</p>
+
+    <p><code class="language-plaintext highlighter-rouge">conda activate tfgpu</code></p>
+  </li>
+  <li>
+    <p>Installing <code class="language-plaintext highlighter-rouge">ipykernel</code></p>
+
+    <p><code class="language-plaintext highlighter-rouge">pip install --user ipykernel</code></p>
+  </li>
+  <li>
+    <p>Adding virtual env to notebook</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python <span class="nt">-m</span> ipykernel <span class="nb">install</span> <span class="nt">--user</span> <span class="nt">--name</span><span class="o">=</span>tfgpu
+<span class="c">#same for pytorch_gpu</span>
+python <span class="nt">-m</span> ipykernel <span class="nb">install</span> <span class="nt">--user</span> <span class="nt">--name</span><span class="o">=</span>pytorch_gpu
+</code></pre></div>    </div>
+
+    <p>Now the new virtual env will be available in notebook</p>
+
+    <p align="center">
+<img src="../images/20211205_gpu_blog/select_kernel.png" />
+</p>
+  </li>
+  <li>
+    <p>List the virtual env in notebook</p>
+
+    <p><code class="language-plaintext highlighter-rouge">jupyter kernelspec list</code></p>
+
+    <p>Note: since jupyter hasn’t been installed in new virtual env, I run above command under <code class="language-plaintext highlighter-rouge">base</code> environment.</p>
+
+    <p align="center">
+<img src="../images/20211205_gpu_blog/kernel_list.png" />
+</p>
+  </li>
+  <li>
+    <p>Removing virutal env from notebook</p>
+
+    <p><code class="language-plaintext highlighter-rouge">jupyter kernelspec uninstall env_name</code></p>
+  </li>
+</ul>
+
+<h2 id="7-nvdashboard">7. NVDashboard</h2>
+
+<p><a href="https://developer.nvidia.com/blog/gpu-dashboards-in-jupyter-lab/">https://developer.nvidia.com/blog/gpu-dashboards-in-jupyter-lab/</a></p>
+
+<h2 id="reference">Reference:</h2>
+<ol>
+  <li><a href="https://zhuanlan.zhihu.com/p/420694711">https://zhuanlan.zhihu.com/p/420694711</a></li>
+  <li><a href="https://www.jianshu.com/p/ed57d1dbf3f9">https://www.jianshu.com/p/ed57d1dbf3f9</a></li>
+</ol>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#gpu" class="page__taxonomy-item p-category" rel="tag">GPU</a><span class="sep">, </span>
+    
+      <a href="/tags/#notebook" class="page__taxonomy-item p-category" rel="tag">Notebook</a><span class="sep">, </span>
+    
+      <a href="/tags/#python" class="page__taxonomy-item p-category" rel="tag">Python</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2021-12-05T00:00:00-06:00">December 5, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Enable+GPU+acceleration+on+Win10+with+Notebook%20http%3A%2F%2Flocalhost%3A8000%2FEnable_GPU_Acceleration_on_Win10_with_Notebook%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8000%2FEnable_GPU_Acceleration_on_Win10_with_Notebook%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A8000%2FEnable_GPU_Acceleration_on_Win10_with_Notebook%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/Install_and_Use_Intel_oneAPI_Toolkit/" class="pagination--pager" title="Install_and_Use_Intel_oneAPI_Toolkit
+">Previous</a>
+    
+    
+      <a href="/Note_of_VSCode_Configuration/" class="pagination--pager" title="Note_of_VSCode_Configuration
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You May Also Enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/20220106_BP_APP/cover.jpeg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Blood_Pressure_Recorder_Mobile_App/" rel="permalink">Blood_Pressure_Recorder_Mobile_App
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-01-06T00:00:00-06:00">January 6, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: Developed a mobile APP to recognize picture of blood pressure monitor and store the data to sqlite3 database. The use can view, add, edit the record...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Note_of_VSCode_Configuration/" rel="permalink">Note_of_VSCode_Configuration
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-12-31T00:00:00-06:00">December 31, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: Notes of my VSCode configuration.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/less_images/intel_oneAPI.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Install_and_Use_Intel_oneAPI_Toolkit/" rel="permalink">Install_and_Use_Intel_oneAPI_Toolkit
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-10-25T00:00:00-05:00">October 25, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: Installing Intel oneAPI, run fortran code with calling Math Kernel Library on Visual Studio 2019.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/less_images/mm_image.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Switch_my_web_theme_to_Minimal_Mistake/" rel="permalink">Switch My Web Theme to Minimal Mistake
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-10-05T00:00:00-05:00">October 5, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: switch my web theme to Minimal Mistake
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/ycheng22" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/yunpeng-cheng-aa8142127/" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+          <li><a href="https://public.tableau.com/profile/ycheng#!/" rel="nofollow noopener noreferrer"><i class="fas fa-link" aria-hidden="true"></i> Tableau</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Yunpeng. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:8000/Enable_GPU_Acceleration_on_Win10_with_Notebook/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/Enable_GPU_Acceleration_on_Win10_with_Notebook"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://myblog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

@@ -59,6 +59,18 @@ var store = [{
         "url": "/Data_Modeling_with_Apache_Cassandra/",
         "teaser": null
       },{
+        "title": "Data Warehouse with AWS",
+        "excerpt":"Summary: Data Warehouse with AWS. Building an ETL pipeline that extracts data from S3, stage them in Redshift, and transform data into a set of dimensional tables for analytics team to continue finding insights in what songs the users are listening to. Check the code here. Contents: 1. Introduction: 2....","categories": [],
+        "tags": ["Data Warehouse","AWS","Redshift"],
+        "url": "/Data_Warehouse_with_AWS/",
+        "teaser": null
+      },{
+        "title": "Data Lakes with Spark",
+        "excerpt":"Summary: Data Warehouse with AWS. Building an ETL pipeline that extracts data from S3, stage them in Redshift, and transform data into a set of dimensional tables for analytics team to continue finding insights in what songs the users are listening to. Check the code here. Contents: 1. Introduction: 2....","categories": [],
+        "tags": ["Data Lakes","Spark","AWS"],
+        "url": "/Data_Lakes_with_Spark/",
+        "teaser": null
+      },{
         "title": "Web Map with Folium",
         "excerpt":"Summary: Build a web map with Folium. Check this blog on github. Contents: 1. Create a map 2. Add marker 2.1 Add single marker 2.2 Add multiple markers from file 2.3 Add elevation to popup 2.4 Color generate function for markers 2.5 Circle markers 3. Add population layer with json...","categories": [],
         "tags": ["Web Map","Folium","Python"],
@@ -89,10 +101,16 @@ var store = [{
         "url": "/Deploy_PostgreSQL_on_Heroku/",
         "teaser": "/images/heroku_blogs/heroku_image.png"
       },{
-        "title": "Build a Mobile APP",
+        "title": "Package a Android APP with Buildozer",
+        "excerpt":"Summary: Package a Android APP with Buildozer. Contents: 1. Introduction 2. The environment and the code 2.1 Installing solftware 2.2 Creating virtual environment 2.3 The code 3. Packaging the APP 4. Some errors to be solved 1. Introduction This blog records my first try with packaging python code to Andriod...","categories": [],
+        "tags": ["Kivy","Buildozer","Python","Mobile APP"],
+        "url": "/Package_a_Android_APP_with_Buildozer/",
+        "teaser": "/images/less_images/buildozer_blog.png"
+      },{
+        "title": "Build a Mobile APP with Kivy",
         "excerpt":"Summary: Build a mobile APP with the library kivy. Contents: 1. Introduction 2. Design the front-end 3. Back-end 4. Result 1. Introduction Building a mobile Feel-Good APP with python, the library kivy was used. When login, the user can input mood: happy, sad, unloved, press Enlighten me, some words will...","categories": [],
         "tags": ["Kivy","Python","Mobile APP"],
-        "url": "/Build_a_Mobile_APP/",
+        "url": "/Build_a_Mobile_APP_with_Kivy/",
         "teaser": "/images/20210902_mobile_app/LoginScreen.png"
       },{
         "title": "Communication from Node App to MongoDB",
@@ -126,7 +144,7 @@ var store = [{
         "teaser": "/images/Hou_flights_delay/flight_map.png"
       },{
         "title": "Deploy Bokeh Server App on Heroku",
-        "excerpt":"Summary: deploy Bokeh server app on Heroku. Check this blog on github. App web: https://yc-bokeh-server.herokuapp.com/ Contents: 1. Introduction 2. python scripts 3. Create virtual environment 4. Deploy the app to Heroku 1. Introduction According to Bokeh’s introduction on widgets: There are two ways to use a widget’s functionality: A CustomJS...","categories": [],
+        "excerpt":"Summary: deploy Bokeh server app on Heroku. This blog is about bokeh serve method , another blog about Bokeh’s CustomJS method can be found here. Check this blog on github. App web: https://yc-bokeh-server2.herokuapp.com/ Code: &lt;&gt; Contents: 1. Introduction 2. python scripts 3. Create virtual environment 4. Deploy the app to...","categories": [],
         "tags": ["Bokeh","Heroku","Python"],
         "url": "/Deploy_Bokeh_Server_App_on_Heroku/",
         "teaser": "/images/Hou_flights_delay/bokeh_serve_image.svg"
@@ -142,4 +160,22 @@ var store = [{
         "tags": ["Intel oneAPI","Visual Studio 2019","Fortran","Math Kernel Library"],
         "url": "/Install_and_Use_Intel_oneAPI_Toolkit/",
         "teaser": "/images/less_images/intel_oneAPI.jpg"
+      },{
+        "title": "Enable GPU acceleration on Win10 with Notebook",
+        "excerpt":"Summary: Records about enabling GPU acceleration on Windows 10 with Jupyter Notebook. Contents: 1. Introduction and basics 2. Installing Jupyter lab and setting default directory 3. Installing Cuda and Cudnn 3.1 Installing Cuda 3.2 Installing Cudnn 3.3 Adding directory to environment path 3.4 Check if it’s installed successfully 4. Creating...","categories": [],
+        "tags": ["GPU","Notebook","Python"],
+        "url": "/Enable_GPU_Acceleration_on_Win10_with_Notebook/",
+        "teaser": null
+      },{
+        "title": "Note_of_VSCode_Configuration",
+        "excerpt":"Summary: Notes of my VSCode configuration. Contents: 1. Introduction 2. My favorite extensions file-tree-generator by Shinotatwu-DS kite 3. Run c/c++ with VSCode Reference: https://code.visualstudio.com/docs/cpp/config-mingw 4. Integrate Cmder and other temminal into VSCode Download Cmder and put it into folder D:\\Downloads. Open Preferences: Open Settings (JSON), add below code: \"terminal.integrated.profiles.windows\": {...","categories": [],
+        "tags": ["GPU","Notebook","Python"],
+        "url": "/Note_of_VSCode_Configuration/",
+        "teaser": null
+      },{
+        "title": "Blood_Pressure_Recorder_Mobile_App",
+        "excerpt":"Summary: Developed a mobile APP to recognize picture of blood pressure monitor and store the data to sqlite3 database. The use can view, add, edit the records. Contents: 1. Introduction 2. Home screen 3. Records list screen 4. Add records screen 4.1 Base interface 4.2 Adding records by hand 4.3...","categories": [],
+        "tags": ["Kivy","OpenCV","APK","Python"],
+        "url": "/Blood_Pressure_Recorder_Mobile_App/",
+        "teaser": "/images/20220106_BP_APP/cover.jpeg"
       }]

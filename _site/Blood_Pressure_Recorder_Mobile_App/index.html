@@ -1,0 +1,998 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Blood_Pressure_Recorder_Mobile_App - Yunpeng</title>
+<meta name="description" content="Summary: Developed a mobile APP to recognize picture of blood pressure monitor and store the data to sqlite3 database. The use can view, add, edit the records.">
+
+
+  <meta name="author" content="Yunpeng">
+  
+  <meta property="article:author" content="Yunpeng">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Yunpeng">
+<meta property="og:title" content="Blood_Pressure_Recorder_Mobile_App">
+<meta property="og:url" content="http://localhost:8000/Blood_Pressure_Recorder_Mobile_App/">
+
+
+  <meta property="og:description" content="Summary: Developed a mobile APP to recognize picture of blood pressure monitor and store the data to sqlite3 database. The use can view, add, edit the records.">
+
+
+
+  <meta property="og:image" content="http://localhost:8000/images/20220106_BP_APP/cover.jpeg">
+
+
+
+
+
+  <meta property="article:published_time" content="2022-01-06T00:00:00-06:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:8000/Blood_Pressure_Recorder_Mobile_App/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:8000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Yunpeng Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Yunpeng
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/life/">Life</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:8000/">
+        <img src="/images/Yunpeng.jpg" alt="Yunpeng" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:8000/" itemprop="url">Yunpeng</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>A PhD candidate of physics</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Texas, US</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/ycheng22" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/yunpeng-cheng-aa8142127/" rel="nofollow noopener noreferrer me"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+          
+            <li><a href="https://public.tableau.com/profile/ycheng#!/" rel="nofollow noopener noreferrer me"><i class="fas fa-link" aria-hidden="true"></i><span class="label">Tableau</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Blood_Pressure_Recorder_Mobile_App">
+    <meta itemprop="description" content="Summary: Developed a mobile APP to recognize picture of blood pressure monitor and store the data to sqlite3 database. The use can view, add, edit the records.">
+    <meta itemprop="datePublished" content="2022-01-06T00:00:00-06:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:8000/Blood_Pressure_Recorder_Mobile_App/" class="u-url" itemprop="url">Blood_Pressure_Recorder_Mobile_App
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-01-06T00:00:00-06:00">January 6, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p>Summary: Developed a mobile APP to recognize picture of blood pressure monitor and store the data to <code class="language-plaintext highlighter-rouge">sqlite3</code> database. The use can view, add, edit the records.</p>
+
+<p><strong>Contents:</strong></p>
+<ul>
+  <li><a href="#1-introduction">1. Introduction</a></li>
+  <li><a href="#2-home-screen">2. Home screen</a></li>
+  <li><a href="#3-records-list-screen">3. Records list screen</a></li>
+  <li><a href="#4-add-records-screen">4. Add records screen</a>
+    <ul>
+      <li><a href="#41-base-interface">4.1 Base interface</a></li>
+      <li><a href="#42-adding-records-by-hand">4.2 Adding records by hand</a></li>
+      <li><a href="#43-adding-records-by-file-chooser">4.3 Adding records by file chooser</a></li>
+      <li><a href="#44-adding-records-by-camera">4.4 Adding records by camera</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-the-back-end-method">5. The back-end method</a>
+    <ul>
+      <li><a href="#51-recogpy-recognize-value-and-extract-time">5.1 <code class="language-plaintext highlighter-rouge">recog.py</code>: recognize value and extract time</a></li>
+      <li><a href="#52-sql_oppy-database-operations">5.2 <code class="language-plaintext highlighter-rouge">sql_op.py</code>: database operations</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-improvement-ideas">6. Improvement ideas</a></li>
+  <li><a href="#7-reference">7. Reference:</a></li>
+</ul>
+
+<p>Check the code at <a href="https://github.com/ycheng22/Blood_Pressure_Recorder_Mobile_App">here</a>.</p>
+
+<h2 id="1-introduction">1. Introduction</h2>
+<p>In this repo, I developed a mobile APP to recognize picture of blood pressure monitor and store the data to <code class="language-plaintext highlighter-rouge">sqlite3</code> database. The use can view, add, edit the records.</p>
+
+<p>In my experience, taking a picture is the easiest way to record important information, such as recording blood pressure, recording logs on the running machine.</p>
+
+<p align="center">
+  <img src="../images/20220106_BP_APP/IMG_20210806_191237.jpg" width="30%" height="100%" />
+</p>
+<p align="center">
+  <img src="../images/20220106_BP_APP/run.jpg" width="30%" height="100%" />
+</p>
+
+<p><strong>About the files:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>📦Blood Pressure Recorder Mobile App
+ ┣ 📂example_img
+ ┃ ┣ 📜IMG_20210904_180521.jpg
+ ┃ ┣ 📜pick2.jpg
+ ┃ ┗ 📜pick5.jpg
+ ┣ 📜BP.db
+ ┣ 📜bp_img.png
+ ┣ 📜kv_str.py
+ ┣ 📜line_img.jpg
+ ┣ 📜main.py
+ ┣ 📜recog.py
+ ┣ 📜seg_image.ipynb
+ ┗ 📜sql_op.py
+</code></pre></div></div>
+<p>The fron-end is designed with <code class="language-plaintext highlighter-rouge">kivy, kiviMD, Plyer</code>, back-end is implemented with <code class="language-plaintext highlighter-rouge">python, OpenCV, numpy</code>.
+There are three screens:</p>
+<ul>
+  <li>Home screen: show line map the records</li>
+  <li>Adding screen, user can add records by filling out form, or uploading file, or taking a picture</li>
+  <li>Records list screen, list all records, user can deleting selected record</li>
+</ul>
+
+<h2 id="2-home-screen">2. Home screen</h2>
+<p>In home screen, all records are shown in scatter plot</p>
+
+<p align="center">
+  <img src="../images/20220106_BP_APP/home_screen.png" width="30%" height="100%" />
+</p>
+
+<p>When new record is inserted or deleted, the figure will be updated.</p>
+
+<h2 id="3-records-list-screen">3. Records list screen</h2>
+
+<p>The third creen is Viewing and editting screen, it lists all records ordered by date and time. The user can delete record by clicking deletion button.</p>
+
+<p>In the below picture, the record with id 15 is deleted.</p>
+<p align="center">
+  <img src="../images/20220106_BP_APP/before_del.png" width="30%" height="100%" />
+  <img src="../images/20220106_BP_APP/after_del.png" width="30%" height="100%" />
+</p>
+
+<p><strong>left</strong>: before deletion     <strong>right</strong>: after deletion</p>
+
+<h2 id="4-add-records-screen">4. Add records screen</h2>
+
+<h3 id="41-base-interface">4.1 Base interface</h3>
+
+<p>Below is the base interface of the middle screen.</p>
+<ul>
+  <li>left one is the base interface</li>
+  <li>right one the the camera screen when clicking camera icon</li>
+</ul>
+<p align="center">
+  <img src="../images/20220106_BP_APP/add_screen.png" width="30%" height="100%" />
+  <img src="../images/20220106_BP_APP/camera_screen.png" width="30%" height="100%" />
+</p>
+
+<p>Explaination of the icons:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">black picture</code>: showing the photo chosen or taken by user</li>
+  <li><code class="language-plaintext highlighter-rouge">upload icon</code>: choosing photo from local folder</li>
+  <li><code class="language-plaintext highlighter-rouge">camera icon</code>: when clicking, it will switch to camera screen, by clicking the <code class="language-plaintext highlighter-rouge">left arrow icon</code>, it will switch back to the previous screen</li>
+  <li><code class="language-plaintext highlighter-rouge">High, Low, Date, Time</code>: text fields</li>
+  <li><code class="language-plaintext highlighter-rouge">calendar icon</code>: Choosing date from pop up window</li>
+  <li><code class="language-plaintext highlighter-rouge">time icon</code>: choosing timme from pop up window</li>
+  <li><code class="language-plaintext highlighter-rouge">cancel icon</code>: cancel this try, and clear all text fields</li>
+  <li><code class="language-plaintext highlighter-rouge">add icon</code>: adding records to database, and clear all text fields</li>
+</ul>
+
+<p>Below is the date picker window(left) and time picker window(right).</p>
+
+<p align="center">
+  <img src="../images/20220106_BP_APP/date_picker.png" width="30%" height="100%" />
+  <img src="../images/20220106_BP_APP/time_picker.png" width="30%" height="100%" />
+</p>
+
+<h3 id="42-adding-records-by-hand">4.2 Adding records by hand</h3>
+
+<p>The user can add record by filling out the text files.</p>
+
+<p>In the following pictures:</p>
+<ul>
+  <li>left one shows the filled text fields</li>
+  <li>middle one shows the result after clicking add icon</li>
+  <li>right one shows the added result in list</li>
+</ul>
+
+<p align="center">
+  <img src="../images/20220106_BP_APP/by_hand_1.png" width="30%" height="100%" />
+  <img src="../images/20220106_BP_APP/by_hand_add.png" width="30%" height="100%" />
+  <img src="../images/20220106_BP_APP/by_hand_list.png" width="30%" height="100%" />
+</p>
+
+<h3 id="43-adding-records-by-file-chooser">4.3 Adding records by file chooser</h3>
+
+<p>The user can add record by choosing photo from local folder. 
+By clicking the <code class="language-plaintext highlighter-rouge">upload</code> icon, a folder explorer window will pop up, user can choose photo. Below are some results:</p>
+
+<p align="center">
+  <img src="../images/20220106_BP_APP/by_file_suc_1.png" width="30%" height="100%" />
+  <img src="../images/20220106_BP_APP/by_file_suc_4.png" width="30%" height="100%" />
+</p>
+
+<p>Below pictures show the second added results in scatter plot and list.</p>
+<p align="center">
+  <img src="../images/20220106_BP_APP/by_file_suc_4_plot.png" width="30%" height="100%" />
+  <img src="../images/20220106_BP_APP/by_file_suc_4_list.png" width="30%" height="100%" />
+</p>
+
+<p>The App recognizes the pressure value correctly, it also extracts the date and time information from the file with the help of library <code class="language-plaintext highlighter-rouge">exifread</code>.</p>
+
+<h3 id="44-adding-records-by-camera">4.4 Adding records by camera</h3>
+
+<p>The user can add record by taking photo with camera. 
+By clicking the <code class="language-plaintext highlighter-rouge">camera</code> icon, it will switch to camera screen, by clicking the <code class="language-plaintext highlighter-rouge">left arrow icon</code>, it will switch back to the previous screen.</p>
+
+<p>Below are the results:</p>
+<ul>
+  <li>Left one is the the camera screen</li>
+  <li>Right one is the adding record screen</li>
+</ul>
+
+<p><strong>Note:</strong> By using <code class="language-plaintext highlighter-rouge">iVCam</code>, I can use my cellphone’s camera when coding on PC.</p>
+
+<p align="center">
+  <img src="../images/20220106_BP_APP/by_camera_1.png" width="30%" height="100%" />
+  <img src="../images/20220106_BP_APP/by_camera_2.png" width="30%" height="100%" />
+</p>
+
+<p>We can see that the App recognizes the pressure value correctly, and sets current time as it’s date and time.</p>
+
+<h2 id="5-the-back-end-method">5. The back-end method</h2>
+
+<p>The back-end code is in files:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">recog.py</code></li>
+  <li><code class="language-plaintext highlighter-rouge">sql_op.py</code></li>
+</ul>
+
+<h3 id="51-recogpy-recognize-value-and-extract-time">5.1 <code class="language-plaintext highlighter-rouge">recog.py</code>: recognize value and extract time</h3>
+
+<p>The digit on the blood pressure monitor is seven segment digits, which are not always easy to recognize.</p>
+
+<p align="center">
+  <img src="../images/20220106_BP_APP/ssd_encode.png" width="30%" height="100%" />
+</p>
+
+<p>I tried <a href="https://github.com/JaidedAI/EasyOCR"><code class="language-plaintext highlighter-rouge">EasyOCR</code></a> and <a href="https://arxiv.org/abs/1704.03155"><code class="language-plaintext highlighter-rouge">EAST</code></a> text detection model.</p>
+
+<p>Both of them can detect the words in the photo except the large digits in the middle, which are the blood pressure values.</p>
+
+<p>Below are the text detection results, left is result of EasyOCR, right is result of EAST.</p>
+<p align="center">
+  <img src="../images/20220106_BP_APP/easyocr_recog.png" width="30%" height="100%" />
+  <img src="../images/20220106_BP_APP/EAST_detect.png" width="30%" height="100%" />
+</p>
+
+<p>Both of them are powerful tool in text detection and/or recognition. But in my case, they don’t work.</p>
+
+<p>After trying some deep-learning based methods, I didn’t get a better solution. So my decided to segment the digits and recognize them by their seven segment area.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DIGITS_LOOKUP</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="mi">7</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mi">8</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mi">9</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="mi">0</span>
+<span class="p">}</span> <span class="c1">#the last zero is for empty at the left-most side of values
+</span></code></pre></div></div>
+<p>The whole process go in this way:</p>
+
+<ol>
+  <li>Read image, apply <code class="language-plaintext highlighter-rouge">Gaussian Blur</code> to clear out noise, apply <code class="language-plaintext highlighter-rouge">Canny</code> method to get the contours in the image. Used <code class="language-plaintext highlighter-rouge">cv2.GaussianBlur, cv2.Canny</code>.</li>
+</ol>
+<p align="center">
+  <img src="../images/20220106_BP_APP/canny.png" width="30%" height="100%" />
+    </p>
+
+<ol>
+  <li>Sort the contours by length, the first four contours shoulb be the outline of the LED screen. Used <code class="language-plaintext highlighter-rouge">cv2.findContours, cv2.arcLength, cv2.approxPolyDP</code>.
+    <p align="center">
+ <img src="../images/20220106_BP_APP/led_creen.png" width="30%" height="100%" />
+ </p>
+  </li>
+  <li>Convert the image to white-black picture, used <code class="language-plaintext highlighter-rouge">cv2.threshold</code>
+    <p align="center">
+ <img src="../images/20220106_BP_APP/led_binary.png" width="30%" height="100%" />
+ </p>
+  </li>
+  <li>Apply <code class="language-plaintext highlighter-rouge">Opening</code> method to decrease noise again, used <code class="language-plaintext highlighter-rouge">cv2.getStructuringElement</code>, <code class="language-plaintext highlighter-rouge">cv2.morphologyEx</code></li>
+  <li>Setmenting the digits horizontally and vertically
+    <p align="center">
+ <img src="../images/20220106_BP_APP/led_horizon.png" width="30%" height="100%" />
+ <img src="../images/20220106_BP_APP/led_vertic.png" width="30%" height="100%" />
+ </p>
+  </li>
+  <li>Extracting each digit by checking each segment’s area
+Take number 2 as example,its seven segments matrix is [1, 0, 1, 1, 1, 0, 1], by checking the above <code class="language-plaintext highlighter-rouge">DIGITS_LOOKUP</code> matrix, it’s recognized as 2.
+The seven recognized digits are as follows:1,2,8, ,9,7
+    <p align="center">
+ <img src="../images/20220106_BP_APP/num1.png" width="15%" height="100%" />
+ <img src="../images/20220106_BP_APP/num2.png" width="15%" height="100%" />
+ <img src="../images/20220106_BP_APP/num3.png" width="15%" height="100%" />
+ <img src="../images/20220106_BP_APP/num4.png" width="15%" height="100%" />
+ <img src="../images/20220106_BP_APP/num5.png" width="15%" height="100%" />
+ <img src="../images/20220106_BP_APP/num6.png" width="15%" height="100%" />
+ </p>
+  </li>
+</ol>
+
+<p>The details are in the file <code class="language-plaintext highlighter-rouge">seg_image.ipynb</code>.</p>
+
+<h3 id="52-sql_oppy-database-operations">5.2 <code class="language-plaintext highlighter-rouge">sql_op.py</code>: database operations</h3>
+
+<p>There are very basic SQL operations in this file.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">connect</span><span class="p">():</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"BP.db"</span><span class="p">)</span> <span class="c1">#BP means blood pressure
+</span>    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="c1">#time is text datatype, https://tableplus.com/blog/2018/07/sqlite-how-to-use-datetime-value.html
+</span>    <span class="n">cur</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"CREATE TABLE IF NOT EXISTS bp_table (id INTEGER PRIMARY KEY, time int, high int, low int)"</span><span class="p">)</span>
+    <span class="n">conn</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">low</span><span class="p">):</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"BP.db"</span><span class="p">)</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cur</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"INSERT INTO bp_table VALUES (NULL,?,?,?)"</span><span class="p">,</span> <span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">low</span><span class="p">))</span>
+    <span class="n">conn</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+    
+<span class="k">def</span> <span class="nf">view</span><span class="p">():</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"BP.db"</span><span class="p">)</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cur</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"SELECT * FROM bp_table"</span><span class="p">)</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">cur</span><span class="p">.</span><span class="n">fetchall</span><span class="p">()</span>
+    <span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">rows</span>
+<span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"BP.db"</span><span class="p">)</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cur</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"DELETE FROM bp_table WHERE id=?"</span><span class="p">,</span> <span class="p">(</span><span class="nb">id</span><span class="p">,))</span>
+    <span class="n">conn</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+    
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">low</span><span class="p">):</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"BP.db"</span><span class="p">)</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cur</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"UPDATE book SET time=?, high=?, low=? WHERE id=?"</span><span class="p">,</span> <span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="nb">id</span><span class="p">))</span>
+    <span class="n">conn</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="6-improvement-ideas">6. Improvement ideas</h2>
+
+<ul>
+  <li>Gneralize the recognition method, deep-based method is better, or train a model on blood picture pictures</li>
+  <li>The UI design</li>
+  <li>More interactive function</li>
+  <li>More functions: such as recognizing the log on running machine, log on bandsports bracelets, mileage of my car, gallon and price after fueling, etc.</li>
+  <li>Start up speed</li>
+</ul>
+
+<h2 id="7-reference">7. Reference:</h2>
+<ul>
+  <li><a href="https://opencv.org/">OpenCV</a></li>
+  <li><a href="https://www.pyimagesearch.com/2018/08/20/opencv-text-detection-east-text-detector/">OpenCV Text Detection (EAST text detector)</a></li>
+  <li><a href="https://kivy.org/#home">Kivy</a></li>
+  <li><a href="https://kivymd.readthedocs.io/en/latest/">KivyMD</a></li>
+  <li><a href="https://github.com/kivy/plyer">Plyer</a></li>
+  <li><a href="https://github.com/kivy-garden/xcamera">XCamera</a></li>
+  <li><a href="https://buildozer.readthedocs.io/en/latest/">Buildozer</a></li>
+  <li>Many impressive tutorial videos on Youtube</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#apk" class="page__taxonomy-item p-category" rel="tag">APK</a><span class="sep">, </span>
+    
+      <a href="/tags/#kivy" class="page__taxonomy-item p-category" rel="tag">Kivy</a><span class="sep">, </span>
+    
+      <a href="/tags/#opencv" class="page__taxonomy-item p-category" rel="tag">OpenCV</a><span class="sep">, </span>
+    
+      <a href="/tags/#python" class="page__taxonomy-item p-category" rel="tag">Python</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-01-06T00:00:00-06:00">January 6, 2022</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Blood_Pressure_Recorder_Mobile_App%20http%3A%2F%2Flocalhost%3A8000%2FBlood_Pressure_Recorder_Mobile_App%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8000%2FBlood_Pressure_Recorder_Mobile_App%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A8000%2FBlood_Pressure_Recorder_Mobile_App%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/Note_of_VSCode_Configuration/" class="pagination--pager" title="Note_of_VSCode_Configuration
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You May Also Enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Note_of_VSCode_Configuration/" rel="permalink">Note_of_VSCode_Configuration
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-12-31T00:00:00-06:00">December 31, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: Notes of my VSCode configuration.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Enable_GPU_Acceleration_on_Win10_with_Notebook/" rel="permalink">Enable GPU acceleration on Win10 with Notebook
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-12-05T00:00:00-06:00">December 5, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: Records about enabling GPU acceleration on Windows 10 with Jupyter Notebook.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/less_images/intel_oneAPI.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Install_and_Use_Intel_oneAPI_Toolkit/" rel="permalink">Install_and_Use_Intel_oneAPI_Toolkit
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-10-25T00:00:00-05:00">October 25, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: Installing Intel oneAPI, run fortran code with calling Math Kernel Library on Visual Studio 2019.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/images/less_images/mm_image.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Switch_my_web_theme_to_Minimal_Mistake/" rel="permalink">Switch My Web Theme to Minimal Mistake
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-10-05T00:00:00-05:00">October 5, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: switch my web theme to Minimal Mistake
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/ycheng22" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/yunpeng-cheng-aa8142127/" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+          <li><a href="https://public.tableau.com/profile/ycheng#!/" rel="nofollow noopener noreferrer"><i class="fas fa-link" aria-hidden="true"></i> Tableau</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Yunpeng. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:8000/Blood_Pressure_Recorder_Mobile_App/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/ Blood_Pressure_Recorder_Mobile_App"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://myblog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

@@ -315,9 +315,12 @@
         
         <p>Summary: deploy Bokeh server app on Heroku.</p>
 
+<p>This blog is about <code class="language-plaintext highlighter-rouge">bokeh serve</code> method , another blog about Bokeh’s <code class="language-plaintext highlighter-rouge">CustomJS</code> method can be found <a href="https://ycheng22.github.io/2020_Houston_flights_delay_dashboard/">here</a>.</p>
+
 <p>Check this blog on <a href="https://github.com/ycheng22/ycheng22.github.io/blob/main/_posts/2021-10-01-Deploy_Bokeh_Server_App_on_Heroku.md">github</a>.</p>
 
-<p>App web: <a href="https://yc-bokeh-server.herokuapp.com/">https://yc-bokeh-server.herokuapp.com/</a></p>
+<p>App web: <a href="https://yc-bokeh-server2.herokuapp.com/">https://yc-bokeh-server2.herokuapp.com/</a>
+Code: &lt;&gt;</p>
 
 <p><strong>Contents:</strong></p>
 <ul>
@@ -351,9 +354,14 @@
 <p>Overview of the folder structure:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>📦Demo
  ┣ 📂data
+ ┃ ┣ 📜arr_delay.csv
  ┃ ┗ 📜Hou_flights.csv
  ┣ 📂scripts
+ ┃ ┣ 📜density.py
+ ┃ ┣ 📜draw_map.py
+ ┃ ┣ 📜histogram.py
  ┃ ┣ 📜routes.py
+ ┃ ┣ 📜table.py
  ┃ ┗ 📜__init__.py
  ┣ 📜main.py
  ┣ 📜Procfile
@@ -571,6 +579,8 @@ fig 1: Routes with bokeh serve</p>
 
     <p><code class="language-plaintext highlighter-rouge">pip install pandas</code></p>
 
+    <p><code class="language-plaintext highlighter-rouge">pip install scipy</code></p>
+
     <p>.etc</p>
   </li>
   <li>
@@ -623,12 +633,12 @@ http://localhost:5006/main</p>
   <li>
     <p>Write packages info to <code class="language-plaintext highlighter-rouge">requirements.txt</code></p>
 
-    <p><code class="language-plaintext highlighter-rouge">\pip freeze &gt; requirements.txt</code></p>
+    <p><code class="language-plaintext highlighter-rouge">pip freeze &gt; requirements.txt</code></p>
   </li>
   <li>
     <p>Create <code class="language-plaintext highlighter-rouge">Procfile</code>(no file extension)</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>web: bokeh serve --port=$PORT --allow-websocket-origin=yc-bokeh-server.herokuapp.com --address=0.0.0.0 --use-xheaders main.py
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>web: bokeh serve --port=$PORT --allow-websocket-origin=yc-bokeh-server2.herokuapp.com --address=0.0.0.0 --use-xheaders main.py
 </code></pre></div>    </div>
     <p>*Note: <code class="language-plaintext highlighter-rouge">yc-bokeh-server</code> is the app name.</p>
   </li>
@@ -651,7 +661,7 @@ git push heroku master
   </li>
 </ul>
 
-<p>If everything works right, you can check your app at <a href="https://yc-bokeh-server.herokuapp.com/">https://yc-bokeh-server.herokuapp.com/</a>.</p>
+<p>If everything works right, you can check your app at <a href="https://yc-bokeh-server2.herokuapp.com/">https://yc-bokeh-server2.herokuapp.com/</a>.</p>
 
 <p>If something goes wrong, run <code class="language-plaintext highlighter-rouge">heroku logs --tail</code></p>
 
@@ -731,6 +741,152 @@ git push heroku master
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
       <div class="archive__item-teaser">
+        <img src="/images/20220106_BP_APP/cover.jpeg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Blood_Pressure_Recorder_Mobile_App/" rel="permalink">Blood_Pressure_Recorder_Mobile_App
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-01-06T00:00:00-06:00">January 6, 2022</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: Developed a mobile APP to recognize picture of blood pressure monitor and store the data to sqlite3 database. The use can view, add, edit the record...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Note_of_VSCode_Configuration/" rel="permalink">Note_of_VSCode_Configuration
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-12-31T00:00:00-06:00">December 31, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: Notes of my VSCode configuration.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Enable_GPU_Acceleration_on_Win10_with_Notebook/" rel="permalink">Enable GPU acceleration on Win10 with Notebook
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-12-05T00:00:00-06:00">December 5, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Summary: Records about enabling GPU acceleration on Windows 10 with Jupyter Notebook.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
         <img src="/images/less_images/intel_oneAPI.jpg" alt="">
       </div>
     
@@ -769,162 +925,6 @@ git push heroku master
 
 
     <p class="archive__item-excerpt" itemprop="description">Summary: Installing Intel oneAPI, run fortran code with calling Math Kernel Library on Visual Studio 2019.
-
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-      <div class="archive__item-teaser">
-        <img src="/images/less_images/mm_image.png" alt="">
-      </div>
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/Switch_my_web_theme_to_Minimal_Mistake/" rel="permalink">Switch My Web Theme to Minimal Mistake
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2021-10-05T00:00:00-05:00">October 5, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Summary: switch my web theme to Minimal Mistake
-
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-      <div class="archive__item-teaser">
-        <img src="/images/Hou_flights_delay/flight_map.png" alt="">
-      </div>
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2020_Houston_flights_delay_dashboard/" rel="permalink">2020 Houston Flights Delay Dashboard
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2021-09-30T00:00:00-05:00">September 30, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          15 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Summary: Create standalone Bokeh dashboard.
-
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-      <div class="archive__item-teaser">
-        <img src="/images/20210920_django_blog_app/demo.png" alt="">
-      </div>
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/Django-&-Bootstrap-Blog-and-Translator-App/" rel="permalink">Django &amp; Bootstrap Blog and Translator App
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2021-09-20T00:00:00-05:00">September 20, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          5 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Summary: Build Django and Bootstrap Blog and Translator App.
 
 </p>
   </article>
@@ -982,7 +982,7 @@ git push heroku master
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2021 Yunpeng. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2022 Yunpeng. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
