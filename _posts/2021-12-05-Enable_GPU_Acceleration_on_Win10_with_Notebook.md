@@ -219,6 +219,19 @@ The above figure means Cuda and Cudnn have been installed successfully.
   <p align="center">
   <img src="../images/20211205_gpu_blog/select_kernel.png"  >
   </p>
+  
+  *Note:*
+  If you forgot to activating new env, and adding the new env to jupyter kernel, you could meet the error: 
+  
+  you can import new installed libraries 
+  for the new env in shell, but you can import it in notebook
+  
+  Run
+  ```
+  import sys
+  sys.executable
+  ```
+  in shell and notebook to check that the path are same, if not, please activate the new env and adding the new env to jupyter kernel.
 
 - List the virtual env in notebook
   
