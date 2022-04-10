@@ -26,7 +26,7 @@ Summary: Notes of my VSCode configuration.
 
 - file-tree-generator by Shinotatwu-DS
 - kite
-- 
+- Markdown All in One (Yu Zhang)
 
 ## 3. Run c/c++ with VSCode
 Reference: <https://code.visualstudio.com/docs/cpp/config-mingw>
