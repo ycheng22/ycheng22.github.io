@@ -46,7 +46,7 @@ Project experience
 * [Course Project of Data Engineer Nanodegree](https://github.com/ycheng22/Udacity_Data_Engineer_Nanodegree)
 
 * [Blood Pressure Recorder Mobile App](https://github.com/ycheng22/Blood_Pressure_Recorder_Mobile_App)
-  * A mobile APP to recognize picture of blood pressure monitor and store the data to sqlite3 database. The use can view, add, edit the records
+  * A mobile APP to recognize a picture of blood pressure monitor and store the data to sqlite3 database. The user can view, add, and edit the records
 
 * [Full Stack Restaurant Web](https://github.com/ycheng22/Courses_/upload/main/Full-Stack%20Web%20Dev%20with%20React/Projects)
   * Developing frontend web with React, building full-fledged REST API server with Express, interacting with MongoDB server
