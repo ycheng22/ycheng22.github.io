@@ -17,6 +17,11 @@ Publications
 * Jiang, M., He, H., Cheng, Y. and Su, W.P., 2018. Resolution dependence of an ab initio phasing method in protein X-ray crystallography. Crystals, 8(4), p.156.
 * Two-step HIO method for direct phasing (in progress)
 
+Certificates
+======
+* Chartered Financial Analyst (CFA), level 1
+* Financial Risk Manager (FRM), part 1                                                                                   
+
 Work experience
 ======
 * University of University: Research Assistant, May 2017 - Present
