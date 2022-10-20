@@ -7,7 +7,7 @@ classes: wide
 
 Education
 ======
-* M.S. in Computer Science, Georgia Institute of Technology, 2022 - Current
+* M.S. in Computer Science, Georgia Institute of Technology, 2022 - 2023
 * Ph.D in Physics, University of University, 2016 - 2022 
 * B.S. in Geophysics, China university of Petroleum-Beijing, 2012 - 2016
 * B.S. in Accounting, China university of Petroleum-Beijing, 2012 - 2016
@@ -19,12 +19,14 @@ Publications
 
 Certificates
 ======
-* Chartered Financial Analyst (CFA), level 1
-* Financial Risk Manager (FRM), part 1                                                                                   
+* Chartered Financial Analyst (CFA) level 1, Dec 2019
+* Financial Risk Manager (FRM) part 1, Oct 2020
+* AWS Cloud Practitioner, Aug 2022
+                                                                                   
 
 Work experience
 ======
-* University of University: Research Assistant, May 2017 - Present
+* University of University: Research Assistant, May 2017 - May 2022
   * Developed Python code to retrieve phase of protein from X-ray data by iterative direct phasing method
   * Programmed script to run code on cluster, improved convergence rate by employing data weighting strategy
   * Extended this method to proteins with low solvent (<65%) by employing non-crystallographic symmetry (NCS)
@@ -47,7 +49,10 @@ Project experience
 
 * [Blood Pressure Recorder Mobile App](https://github.com/ycheng22/Blood_Pressure_Recorder_Mobile_App)
   * A mobile APP to recognize a picture of blood pressure monitor and store the data to sqlite3 database. The user can view, add, and edit the records
-
+* [Traffic Accident Prediction](https://github.com/ycheng22/OMSCS_Courses/tree/main/CSE%206242%20Data%20and%20Visual%20Analytics/Group%20Project)
+  
+  This is a group project from course **Data and Visual Analytics**. Predicting the probability of accident occurrence and severity based on US traffic data. 
+  
 * [Full Stack Restaurant Web](https://github.com/ycheng22/Courses_/upload/main/Full-Stack%20Web%20Dev%20with%20React/Projects)
   * Developing frontend web with React, building full-fledged REST API server with Express, interacting with MongoDB server
 
@@ -64,14 +69,18 @@ Project experience
 
 Skills
 ======
+* AWS
 * Python
-* R
 * SQL
-* NoSQL
+* C#
+* Angular
 * Java
 * JavaScript
+* TypeScript
 * HTML5
 * Matlab
+* R
+* Git
 * Frameworks/packages
   * Numpy
   * Pandas
@@ -80,7 +89,6 @@ Skills
   * PyTorch
   * OpenCV
   * Flask
-  * React
 * Visualization
   * Excel
   * Tableau
