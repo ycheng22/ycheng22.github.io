@@ -60,8 +60,8 @@ plugins:
 author:
   name   : "Yunpeng"
   avatar : "/images/Yunpeng.jpg"
-  bio    : "PhD in Physics, MS in Computer Science, CFA Level 1 passed"
-  location : "Texas, US"
+  bio    : "Software Engineer, PhD in Physics, MS in Computer Science, AWS Cloud Practitioner"
+  location : "US"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
