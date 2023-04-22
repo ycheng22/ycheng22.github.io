@@ -12,17 +12,12 @@ Education
 * B.S. in Geophysics, China university of Petroleum-Beijing, 2012 - 2016
 * B.S. in Accounting, China university of Petroleum-Beijing, 2012 - 2016
 
-<!-- Publications
-======
-* Jiang, M., He, H., Cheng, Y. and Su, W.P., 2018. Resolution dependence of an ab initio phasing method in protein X-ray crystallography. Crystals, 8(4), p.156.
-* Two-step HIO method for direct phasing (in progress) -->
-
 Certificates
 ======
 * Chartered Financial Analyst (CFA) level 1, Dec 2019
 * Financial Risk Manager (FRM) part 1, Oct 2020
 * AWS Cloud Practitioner, Aug 2022
-                                                                                   
+* AWS Certified Solutions Architect - Associate, Apr 2023                                   
 
 Work experience
 ======
@@ -30,7 +25,6 @@ Work experience
   * Developed Python code to retrieve phase of protein from X-ray data by iterative direct phasing method
   * Programmed script to run code on cluster, improved convergence rate by employing data weighting strategy
   * Extended this method to proteins with low solvent (<65%) by employing non-crystallographic symmetry (NCS)
-  * Unveiled two total new proteins’ outline, started from the outline to retrieve phases
 
 * Accenture: Research Intern, Mar 2016 - Jun 2016
   * Implemented risk-based power network security assessment, provided warning if security risk above threshold

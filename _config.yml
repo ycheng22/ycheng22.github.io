@@ -60,7 +60,7 @@ plugins:
 author:
   name   : "Yunpeng"
   avatar : "/images/Yunpeng.jpg"
-  bio    : "Software Engineer, PhD in Physics, MS in Computer Science, AWS Cloud Practitioner"
+  bio    : "Full Stack Software Engineer, PhD in Physics, MS in Computer Science, AWS Solutions Architect Associate"
   location : "US"
   links:
     - label: "GitHub"
