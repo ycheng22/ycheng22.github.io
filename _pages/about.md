@@ -14,11 +14,12 @@ Education
 
 Certificates
 ======
-* Chartered Financial Analyst (CFA) level 1, Dec 2019
-* Financial Risk Manager (FRM) part 1, Oct 2020
-* AWS Cloud Practitioner, Aug 2022
-* AWS Certified Solutions Architect - Associate, Apr 2023                                   
-
+* Chartered Financial Analyst (CFA) level 1, Dec. 2019
+* Financial Risk Manager (FRM) part 1, Oct. 2020
+* AWS Cloud Practitioner, Aug. 2022
+* AWS Certified Solutions Architect - Associate, Apr. 2023          
+* AWS Certified Developer - Associate, May 2023        
+       
 Work experience
 ======
 * University of University: Research Assistant, May 2017 - May 2022
@@ -32,6 +33,9 @@ Work experience
 
 Project experience
 ======
+* [.NET Core Web API](https://github.com/ycheng22/CodeMaze-ASP.NET-Core-Series)
+  - Developed .NET Core web API, documented with Swagger
+  - Implemented SQL Server database
 * [Predict_Future_Sales](https://github.com/ycheng22/Predict_Future_Sales)
   * Final project of course: How to Win a Data Science Competition: Learn from Top Kagglers
   * Predicting total sales for every product and store in next month based on data from past 34 months
