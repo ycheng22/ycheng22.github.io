@@ -26,7 +26,8 @@ Work experience
   * Experience in SDLC, Agile, Jira, CI/CD, Git, SQL, AWS, .NET, Angular, REST API, Info. Security, On-Call
   * Updated .NET Core API wrappers, finished security tickets for weak TLS, cross-site scripting, etc.
   * Developed AWS Lambda, Step Function, CloudFormation template, and deployed to AWS by CI/CD tool
-  * Added color coding, conditional filters, and search features in a full-stack project
+  * Maintained and developed vehicle repossession system, supported business operations timely
+    
 * University of University: Research Assistant, May 2017 - May 2022
   * Developed Python code to retrieve phase of protein from X-ray data by iterative direct phasing method
   * Programmed script to run code on cluster, improved convergence rate by employing data weighting strategy
