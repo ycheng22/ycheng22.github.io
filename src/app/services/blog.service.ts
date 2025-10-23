@@ -1,0 +1,188 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, BehaviorSubject, map, catchError, of, switchMap, forkJoin } from 'rxjs';
+import { BlogPost, BlogPostMetadata } from '../models/blog-post.model';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BlogService {
+  private readonly GITHUB_API_BASE = 'https://api.github.com/repos';
+  private readonly BLOG_REPO_OWNER = 'ycheng22'; // Update this with your GitHub username
+  private readonly BLOG_REPO_NAME = 'blog-posts'; // Update this with your blog repository name
+  
+  private blogPostsSubject = new BehaviorSubject<BlogPost[]>([]);
+  public blogPosts$ = this.blogPostsSubject.asObservable();
+
+  constructor(private http: HttpClient) {
+    this.loadBlogPosts();
+  }
+
+  private loadBlogPosts(): void {
+    this.fetchBlogPosts().subscribe({
+      next: (posts) => this.blogPostsSubject.next(posts),
+      error: (error) => console.error('Error loading blog posts:', error)
+    });
+  }
+
+  private fetchBlogPosts(): Observable<BlogPost[]> {
+    const url = `${this.GITHUB_API_BASE}/${this.BLOG_REPO_OWNER}/${this.BLOG_REPO_NAME}/contents`;
+    
+    return this.http.get<any[]>(url).pipe(
+      map(files => files.filter(file => file.name.endsWith('.md'))),
+      switchMap(mdFiles => {
+        if (mdFiles.length === 0) {
+          return of([]);
+        }
+        
+        const postObservables = mdFiles.map(file => this.fetchBlogPost(file));
+        return forkJoin(postObservables).pipe(
+          map(posts => {
+            // Sort by date (newest first) and pinned posts first
+            posts.sort((a, b) => {
+              if (a.pinned && !b.pinned) return -1;
+              if (!a.pinned && b.pinned) return 1;
+              return new Date(b.date).getTime() - new Date(a.date).getTime();
+            });
+            return posts;
+          })
+        );
+      }),
+      catchError(error => {
+        console.error('Error fetching blog posts:', error);
+        return of([]);
+      })
+    );
+  }
+
+  private fetchBlogPost(file: any): Observable<BlogPost> {
+    const contentUrl = file.download_url;
+    
+    return this.http.get(contentUrl, { responseType: 'text' }).pipe(
+      map(content => this.parseMarkdownFile(file.name, content)),
+      catchError(error => {
+        console.error(`Error fetching content for ${file.name}:`, error);
+        return of(this.createEmptyBlogPost(file.name));
+      })
+    );
+  }
+
+  private parseMarkdownFile(filename: string, content: string): BlogPost {
+    const slug = filename.replace('.md', '');
+    const lines = content.split('\n');
+    
+    // Extract frontmatter
+    let metadata: BlogPostMetadata = {
+      title: slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+      description: '',
+      date: new Date().toISOString(),
+      tags: [],
+      pinned: false,
+      author: 'Cheng'
+    };
+
+    if (lines[0] === '---') {
+      const frontmatterEnd = lines.findIndex((line, index) => index > 0 && line === '---');
+      if (frontmatterEnd > 0) {
+        const frontmatterLines = lines.slice(1, frontmatterEnd);
+        const frontmatterContent = frontmatterLines.join('\n');
+        
+        try {
+          // Simple frontmatter parser
+          const frontmatter = this.parseFrontmatter(frontmatterContent);
+          metadata = { ...metadata, ...frontmatter };
+        } catch (error) {
+          console.warn('Error parsing frontmatter:', error);
+        }
+      }
+    }
+
+    // Extract content (everything after frontmatter)
+    const contentStart = lines[0] === '---' ? lines.findIndex((line, index) => index > 0 && line === '---') + 1 : 0;
+    const markdownContent = lines.slice(contentStart).join('\n');
+
+    // Calculate reading time (average 200 words per minute)
+    const wordCount = markdownContent.split(/\s+/).length;
+    const readingTime = Math.ceil(wordCount / 200);
+
+    return {
+      slug,
+      title: metadata.title,
+      description: metadata.description,
+      content: markdownContent,
+      date: metadata.date,
+      tags: metadata.tags,
+      pinned: metadata.pinned,
+      author: metadata.author,
+      readingTime
+    };
+  }
+
+  private parseFrontmatter(content: string): Partial<BlogPostMetadata> {
+    const metadata: Partial<BlogPostMetadata> = {};
+    const lines = content.split('\n');
+    
+    lines.forEach(line => {
+      const [key, ...valueParts] = line.split(':');
+      if (key && valueParts.length > 0) {
+        const value = valueParts.join(':').trim();
+        const cleanKey = key.trim().toLowerCase();
+        
+        switch (cleanKey) {
+          case 'title':
+            metadata.title = value.replace(/['"]/g, '');
+            break;
+          case 'description':
+            metadata.description = value.replace(/['"]/g, '');
+            break;
+          case 'date':
+            metadata.date = value.replace(/['"]/g, '');
+            break;
+          case 'tags':
+            metadata.tags = value.replace(/['"]/g, '').split(',').map(tag => tag.trim());
+            break;
+          case 'pinned':
+            metadata.pinned = value.toLowerCase() === 'true';
+            break;
+          case 'author':
+            metadata.author = value.replace(/['"]/g, '');
+            break;
+        }
+      }
+    });
+    
+    return metadata;
+  }
+
+  private createEmptyBlogPost(filename: string): BlogPost {
+    const slug = filename.replace('.md', '');
+    return {
+      slug,
+      title: slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+      description: 'Blog post content could not be loaded.',
+      content: 'Sorry, this blog post could not be loaded at this time.',
+      date: new Date().toISOString(),
+      tags: [],
+      pinned: false,
+      author: 'Cheng',
+      readingTime: 1
+    };
+  }
+
+  getPinnedPosts(): Observable<BlogPost[]> {
+    return this.blogPosts$.pipe(
+      map(posts => posts.filter(post => post.pinned))
+    );
+  }
+
+  getPostBySlug(slug: string): Observable<BlogPost | undefined> {
+    return this.blogPosts$.pipe(
+      map(posts => posts.find(post => post.slug === slug))
+    );
+  }
+
+  refreshPosts(): void {
+    this.loadBlogPosts();
+  }
+}
+

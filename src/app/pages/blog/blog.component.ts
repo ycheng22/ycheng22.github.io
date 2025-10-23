@@ -1,0 +1,172 @@
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { BlogService } from '../../services/blog.service';
+import { BlogPost } from '../../models/blog-post.model';
+import { BlogCardComponent } from '../../components/blog-card/blog-card.component';
+
+@Component({
+  selector: 'app-blog',
+  standalone: true,
+  imports: [CommonModule, FormsModule, BlogCardComponent],
+  template: `
+    <div class="min-h-screen bg-gray-50">
+      <!-- Header -->
+      <div class="bg-white border-b border-gray-200">
+        <div class="container-custom py-12">
+          <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Blog
+            </h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+              Thoughts on software engineering, technology, and continuous learning. 
+              Sharing experiences and insights from my journey in tech.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog Posts -->
+      <div class="container-custom py-12">
+        <div class="max-w-6xl mx-auto">
+          <!-- Search and Filter -->
+          <div class="mb-8">
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+              <div class="flex-1 max-w-md">
+                <div class="relative">
+                  <input type="text" 
+                         [(ngModel)]="searchTerm"
+                         (input)="filterPosts()"
+                         placeholder="Search posts..."
+                         class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                  <svg class="absolute left-3 top-2.5 h-5 w-5 text-gray-400" 
+                       fill="none" 
+                       stroke="currentColor" 
+                       viewBox="0 0 24 24">
+                    <path stroke-linecap="round" 
+                          stroke-linejoin="round" 
+                          stroke-width="2" 
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                  </svg>
+                </div>
+              </div>
+              
+              <div class="flex gap-2">
+                <button (click)="toggleFilter('pinned')" 
+                        [class.bg-primary-600]="showPinnedOnly"
+                        [class.text-white]="showPinnedOnly"
+                        [class.bg-gray-200]="!showPinnedOnly"
+                        [class.text-gray-700]="!showPinnedOnly"
+                        class="px-4 py-2 rounded-lg font-medium transition-colors">
+                  📌 Pinned
+                </button>
+                <button (click)="toggleFilter('all')" 
+                        [class.bg-primary-600]="!showPinnedOnly"
+                        [class.text-white]="!showPinnedOnly"
+                        [class.bg-gray-200]="showPinnedOnly"
+                        [class.text-gray-700]="showPinnedOnly"
+                        class="px-4 py-2 rounded-lg font-medium transition-colors">
+                  All Posts
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Posts Grid -->
+          <div *ngIf="filteredPosts$ | async as posts; else loadingTemplate">
+            <div *ngIf="posts.length > 0; else noPostsTemplate" 
+                 class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <app-blog-card *ngFor="let post of posts" 
+                             [blogPost]="post">
+              </app-blog-card>
+            </div>
+            
+            <ng-template #noPostsTemplate>
+              <div class="text-center py-12">
+                <div class="text-6xl mb-4">📝</div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  {{ showPinnedOnly ? 'No pinned posts found' : 'No posts match your search' }}
+                </h3>
+                <p class="text-gray-600">
+                  {{ showPinnedOnly ? 'Try viewing all posts instead.' : 'Try adjusting your search terms.' }}
+                </p>
+                <button *ngIf="showPinnedOnly" 
+                        (click)="toggleFilter('all')"
+                        class="mt-4 btn-primary">
+                  View All Posts
+                </button>
+              </div>
+            </ng-template>
+          </div>
+
+          <ng-template #loadingTemplate>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div *ngFor="let i of [1,2,3,4,5,6]" class="card animate-pulse">
+                <div class="h-4 bg-gray-200 rounded mb-3"></div>
+                <div class="h-3 bg-gray-200 rounded mb-2"></div>
+                <div class="h-3 bg-gray-200 rounded mb-4"></div>
+                <div class="h-3 bg-gray-200 rounded w-1/2"></div>
+              </div>
+            </div>
+          </ng-template>
+
+          <!-- Load More Button (if needed in future) -->
+          <div *ngIf="(filteredPosts$ | async) as posts" 
+               class="text-center mt-12">
+            <p class="text-gray-600">
+              Showing {{ posts.length }} posts
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  `,
+  styles: []
+})
+export class BlogComponent implements OnInit {
+  allPosts$: Observable<BlogPost[]>;
+  filteredPosts$: Observable<BlogPost[]>;
+  searchTerm = '';
+  showPinnedOnly = false;
+
+  constructor(private blogService: BlogService) {
+    this.allPosts$ = this.blogService.blogPosts$;
+    this.filteredPosts$ = this.allPosts$;
+  }
+
+  ngOnInit(): void {
+    // Component initialization
+  }
+
+  filterPosts(): void {
+    this.filteredPosts$ = this.allPosts$.pipe(
+      map(posts => {
+        let filtered = posts;
+        
+        // Apply pinned filter
+        if (this.showPinnedOnly) {
+          filtered = filtered.filter(post => post.pinned);
+        }
+        
+        // Apply search filter
+        if (this.searchTerm.trim()) {
+          const searchLower = this.searchTerm.toLowerCase();
+          filtered = filtered.filter(post => 
+            post.title.toLowerCase().includes(searchLower) ||
+            post.description.toLowerCase().includes(searchLower) ||
+            post.tags.some(tag => tag.toLowerCase().includes(searchLower))
+          );
+        }
+        
+        return filtered;
+      })
+    );
+  }
+
+  toggleFilter(filter: 'all' | 'pinned'): void {
+    this.showPinnedOnly = filter === 'pinned';
+    this.filterPosts();
+  }
+}

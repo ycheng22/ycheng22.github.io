@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* GitHub-style markdown */
+.markdown-body {
+  @apply text-gray-800 leading-relaxed;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  @apply font-semibold text-gray-900 mt-6 mb-4;
+}
+
+.markdown-body h1 {
+  @apply text-3xl border-b border-gray-200 pb-2;
+}
+
+.markdown-body h2 {
+  @apply text-2xl border-b border-gray-200 pb-2;
+}
+
+.markdown-body h3 {
+  @apply text-xl;
+}
+
+.markdown-body h4 {
+  @apply text-lg;
+}
+
+.markdown-body p {
+  @apply mb-4;
+}
+
+.markdown-body code {
+  @apply bg-gray-100 text-gray-800 px-1 py-0.5 rounded text-sm font-mono;
+}
+
+.markdown-body pre {
+  @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto mb-4;
+}
+
+.markdown-body pre code {
+  @apply bg-transparent text-gray-100 p-0;
+}
+
+.markdown-body blockquote {
+  @apply border-l-4 border-gray-300 pl-4 italic text-gray-600 mb-4;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  @apply mb-4 pl-6;
+}
+
+.markdown-body li {
+  @apply mb-2;
+}
+
+.markdown-body a {
+  @apply text-primary-600 hover:text-primary-700 underline;
+}
+
+.markdown-body table {
+  @apply w-full border-collapse border border-gray-300 mb-4;
+}
+
+.markdown-body th,
+.markdown-body td {
+  @apply border border-gray-300 px-3 py-2 text-left;
+}
+
+.markdown-body th {
+  @apply bg-gray-100 font-semibold;
+}
+
