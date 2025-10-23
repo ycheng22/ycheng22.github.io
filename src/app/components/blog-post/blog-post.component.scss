@@ -1,0 +1,284 @@
+/* Blog post component styles */
+.blog-post {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  background-color: white;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+}
+
+.post-header {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.post-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #111827;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.post-description {
+  color: #6b7280;
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.post-meta svg {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.25rem;
+}
+
+.separator {
+  margin: 0 0.75rem;
+}
+
+.post-tags {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.post-tags span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: #f3e8ff;
+  color: #6b21a8;
+}
+
+.post-content {
+  max-width: none;
+  color: #374151;
+  line-height: 1.7;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+  color: #111827;
+  font-weight: bold;
+}
+
+.post-content h1 {
+  font-size: 1.875rem;
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+}
+
+.post-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+}
+
+.post-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.post-content p {
+  color: #374151;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.post-content a {
+  color: #9333ea;
+  text-decoration: underline;
+}
+
+.post-content a:hover {
+  color: #6b21a8;
+}
+
+.post-content code {
+  background-color: #f3f4f6;
+  color: #9333ea;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.post-content pre {
+  background-color: #111827;
+  color: #f3f4f6;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.post-content pre code {
+  background-color: transparent;
+  color: #f3f4f6;
+  padding: 0;
+}
+
+.post-content blockquote {
+  border-left: 4px solid #9333ea;
+  padding-left: 1rem;
+  font-style: italic;
+  color: #6b7280;
+  margin: 1rem 0;
+}
+
+.post-content ul,
+.post-content ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.post-content li {
+  margin-bottom: 0.5rem;
+}
+
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #d1d5db;
+  margin-bottom: 1rem;
+}
+
+.post-content th,
+.post-content td {
+  border: 1px solid #d1d5db;
+  padding: 0.5rem 1rem;
+  text-align: left;
+}
+
+.post-content th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin: 1rem 0;
+}
+
+.post-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  color: #9333ea;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: #6b21a8;
+}
+
+.back-link svg {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.25rem;
+}
+
+.share-link {
+  display: inline-flex;
+  align-items: center;
+  color: #6b7280;
+  transition: color 0.2s ease;
+}
+
+.share-link:hover {
+  color: #374151;
+}
+
+.share-link svg {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.25rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .blog-post {
+    padding: 2rem 1rem;
+  }
+  
+  .post-title {
+    font-size: 1.875rem;
+  }
+  
+  .post-description {
+    font-size: 1rem;
+  }
+  
+  .post-meta {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .separator {
+    display: none;
+  }
+  
+  .post-content {
+    font-size: 0.875rem;
+  }
+  
+  .post-content h1 {
+    font-size: 1.5rem;
+  }
+  
+  .post-content h2 {
+    font-size: 1.25rem;
+  }
+  
+  .post-content h3 {
+    font-size: 1.125rem;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .blog-post {
+    box-shadow: none;
+  }
+  
+  .post-footer {
+    display: none;
+  }
+}
