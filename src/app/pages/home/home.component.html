@@ -463,17 +463,14 @@
           </p>
         </div>
         
+        <!-- Blog Preview Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          <app-blog-card *ngFor="let post of pinnedPosts$ | async" 
+          <app-blog-card *ngFor="let post of recentPosts$ | async" 
                          [blogPost]="post">
           </app-blog-card>
         </div>
         
         <div class="text-center">
-          <!-- Featured latest post preview -->
-          <div *ngIf="latestPost$ | async as latest" class="mb-8 max-w-xl mx-auto">
-            <app-blog-card [blogPost]="latest" variant="featured"></app-blog-card>
-          </div>
           <a routerLink="/blog" 
              class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold rounded-full hover:from-purple-700 hover:to-purple-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

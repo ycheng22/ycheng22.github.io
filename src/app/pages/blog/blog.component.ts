@@ -17,12 +17,21 @@ import { BlogCardComponent } from '../../components/blog-card/blog-card.componen
 export class BlogComponent {
   allPosts$: Observable<BlogPost[]>;
   filteredPosts$: Observable<BlogPost[]>;
+  availableTags$: Observable<string[]>;
   searchTerm = '';
-  showPinnedOnly = false;
+  selectedTag = 'all';
 
   constructor(private readonly blogService: BlogService) {
     this.allPosts$ = this.blogService.blogPosts$;
     this.filteredPosts$ = this.allPosts$;
+    
+    // Extract unique tags from all posts
+    this.availableTags$ = this.allPosts$.pipe(
+      map(posts => {
+        const allTags = posts.flatMap(post => post.tags);
+        return [...new Set(allTags)].sort();
+      })
+    );
   }
 
   filterPosts(): void {
@@ -30,9 +39,11 @@ export class BlogComponent {
       map(posts => {
         let filtered = posts;
         
-        // Apply pinned filter
-        if (this.showPinnedOnly) {
-          filtered = filtered.filter(post => post.pinned);
+        // Apply tag filter
+        if (this.selectedTag !== 'all') {
+          filtered = filtered.filter(post => 
+            post.tags.includes(this.selectedTag)
+          );
         }
         
         // Apply search filter
@@ -50,8 +61,8 @@ export class BlogComponent {
     );
   }
 
-  toggleFilter(filter: 'all' | 'pinned'): void {
-    this.showPinnedOnly = filter === 'pinned';
+  filterByTag(tag: string): void {
+    this.selectedTag = tag;
     this.filterPosts();
   }
 }

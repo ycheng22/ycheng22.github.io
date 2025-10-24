@@ -17,11 +17,15 @@ import { BlogCardComponent } from '../../components/blog-card/blog-card.componen
 export class HomeComponent {
   pinnedPosts$: Observable<BlogPost[]>;
   latestPost$: Observable<BlogPost | undefined>;
+  recentPosts$: Observable<BlogPost[]>;
 
   constructor(private readonly blogService: BlogService) {
     this.pinnedPosts$ = this.blogService.getPinnedPosts();
     this.latestPost$ = this.blogService.blogPosts$.pipe(
       map(posts => posts?.[0])
+    );
+    this.recentPosts$ = this.blogService.blogPosts$.pipe(
+      map(posts => posts?.slice(0, 3) || [])
     );
   }
 

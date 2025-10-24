@@ -104,6 +104,29 @@ export class BlogService {
     const contentStart = lines[0] === '---' ? lines.findIndex((line, index) => index > 0 && line === '---') + 1 : 0;
     const markdownContent = lines.slice(contentStart).join('\n');
 
+    // Generate description if not provided in frontmatter
+    let description = metadata.description;
+    if (!description || description.trim() === '') {
+      // Extract first paragraph or first few sentences as description
+      const cleanContent = markdownContent
+        .replace(/^#+\s+/gm, '') // Remove markdown headers
+        .replace(/\*\*(.*?)\*\*/g, '$1') // Remove bold formatting
+        .replace(/\*(.*?)\*/g, '$1') // Remove italic formatting
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Remove markdown links
+        .replace(/`([^`]+)`/g, '$1') // Remove inline code
+        .replace(/\n+/g, ' ') // Replace newlines with spaces
+        .trim();
+      
+      // Take first 150 characters and ensure it ends at a sentence
+      description = cleanContent.substring(0, 150);
+      const lastSentenceEnd = Math.max(description.lastIndexOf('.'), description.lastIndexOf('!'), description.lastIndexOf('?'));
+      if (lastSentenceEnd > 50) {
+        description = description.substring(0, lastSentenceEnd + 1);
+      } else {
+        description = description + '...';
+      }
+    }
+
     // Calculate reading time (average 200 words per minute)
     const wordCount = markdownContent.split(/\s+/).length;
     const readingTime = Math.ceil(wordCount / 200);
@@ -111,7 +134,7 @@ export class BlogService {
     return {
       slug,
       title: metadata.title,
-      description: metadata.description,
+      description: description,
       content: markdownContent,
       date: metadata.date,
       tags: metadata.tags,
