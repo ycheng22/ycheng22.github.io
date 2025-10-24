@@ -124,6 +124,9 @@ dist
 tmp/
 temp/
 
+# Allow GitHub Pages build directory to be committed
+!docs/
+
 # Logs
 logs
 *.log

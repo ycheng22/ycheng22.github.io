@@ -1,0 +1,68 @@
+<div class="min-h-screen bg-gray-50">
+  <!-- Back Navigation -->
+  <div class="bg-white border-b border-gray-200">
+    <div class="container-custom py-4">
+      <div class="max-w-4xl mx-auto">
+        <a routerLink="/blog" 
+           class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium transition-colors">
+          <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Back to Blog
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blog Post Content -->
+  <div class="container-custom py-8">
+    <div class="max-w-4xl mx-auto">
+      <div *ngIf="blogPost$ | async as post; else loadingTemplate" 
+           class="bg-white rounded-lg shadow-sm border border-gray-200 p-8 md:p-12">
+        <app-blog-post [blogPost]="post"></app-blog-post>
+      </div>
+      
+      <ng-template #loadingTemplate>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-8 md:p-12">
+          <div class="animate-pulse">
+            <div class="h-8 bg-gray-200 rounded mb-4"></div>
+            <div class="h-4 bg-gray-200 rounded mb-2"></div>
+            <div class="h-4 bg-gray-200 rounded mb-2"></div>
+            <div class="h-4 bg-gray-200 rounded mb-8"></div>
+            <div class="h-32 bg-gray-200 rounded"></div>
+          </div>
+        </div>
+      </ng-template>
+
+      <!-- Post Not Found -->
+      <div *ngIf="postNotFound" 
+           class="bg-white rounded-lg shadow-sm border border-gray-200 p-8 md:p-12 text-center">
+        <div class="text-6xl mb-4">📄</div>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Post Not Found</h2>
+        <p class="text-gray-600 mb-6">
+          The blog post you're looking for doesn't exist or has been moved.
+        </p>
+        <a routerLink="/blog" class="btn-primary">
+          Back to Blog
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Related Posts (Future Enhancement) -->
+  <div class="container-custom pb-12">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">
+          More Posts
+        </h3>
+        <p class="text-gray-600">
+          Check out more of my writing on the 
+          <a routerLink="/blog" class="text-primary-600 hover:text-primary-700 font-medium">
+            blog page
+          </a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
