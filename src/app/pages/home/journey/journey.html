@@ -4,7 +4,7 @@
     <div class="max-w-6xl mx-auto">
       <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
-          <h1 class="text-5xl font-bold text-slate-900 mb-4">Education Journey</h1>
+          <h1 class="text-4xl font-bold text-slate-900 mb-4">Education Journey</h1>
         </div>
 
         <div class="relative overflow-x-auto pb-8">
@@ -142,7 +142,7 @@
                       <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
                       <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                     </svg>
-                    <p>Operating System, Deep Learning, Information Security, Graduate Algorithm</p>
+                    <p>OS, Deep Learning, Information Security, Graduate Algorithm</p>
                   </div>
                 </div>
               </div>
@@ -151,29 +151,31 @@
         </div>
     </div>
     
-    <!-- Interactive Map (full-bleed) -->
+    <!-- Interactive Map (full-bleed, responsive, circles stay round) -->
     <div class="relative mb-16 -mx-6 sm:-mx-8 lg:-mx-20">
-      <!-- remove outer padding so SVG can use full inner width of the rounded box -->
       <div class="bg-white rounded-2xl shadow-xl mx-auto max-w-none">
-        <!-- Title kept in a padded block so the heading aligns with other content -->
         <div class="p-8">
           <div class="pt-6 text-center">
-            <h3 class="text-3xl font-bold text-gray-800 mb-2">My Global Journey</h3>
+            <h3 class="text-5xl font-bold text-gray-800 mb-2">My Global Journey</h3>
           </div>
         </div>
 
-        <div class="relative h-64 bg-gradient-to-r from-blue-100 to-purple-100 rounded-b-2xl overflow-hidden">
-          <!-- Map Background: SVG uses a 1000-wide coordinate system so the path/pins span the full width -->
-          <div class="absolute inset-0 opacity-60">
-            <svg viewBox="0 0 1000 300" preserveAspectRatio="none" class="w-full h-full">
-              <!-- Simplified world map (stretches full width) -->
-              <path d="M0 150 Q250 120 500 150 Q750 130 1000 150" 
-                    stroke="#9333ea" stroke-width="3" fill="none" stroke-dasharray="5,5"
-                    style="animation: pulse 2s infinite;">
-                <animate attributeName="stroke-dashoffset" values="0;10" dur="2s" repeatCount="indefinite"/>
+        <!-- Map Area: use a container aspect-ratio that matches the SVG viewBox so the SVG scales uniformly and circles stay round -->
+        <div class="relative w-full bg-gradient-to-r from-blue-100 to-purple-100 rounded-b-2xl overflow-hidden" style="aspect-ratio: 1000/300;">
+          <div class="absolute inset-0 opacity-70">
+            <svg 
+              viewBox="0 0 1000 300" 
+              preserveAspectRatio="xMidYMid meet"
+              class="w-full h-full">
+
+              <!-- Dashed World Path -->
+              <path d="M0 150 Q250 120 500 150 Q750 130 1000 150"
+                    stroke="#9333ea" stroke-width="3" fill="none"
+                    stroke-dasharray="6,6" class="animate-pulse">
+                <animate attributeName="stroke-dashoffset" values="0;12" dur="2s" repeatCount="indefinite"/>
               </path>
 
-              <!-- Location Pins (coordinates scaled to 0..1000) -->
+              <!-- Location Pins -->
               <g font-family="Inter, Arial, sans-serif" font-size="14" fill="#374151">
                 <!-- Beijing -->
                 <circle cx="250" cy="130" r="8" fill="#ef4444">
@@ -187,21 +189,20 @@
                 </circle>
                 <text x="375" y="130" text-anchor="middle">Houston, TX</text>
 
-                <!-- Atlanta / South Carolina -->
+                <!-- South Carolina -->
                 <circle cx="562" cy="140" r="8" fill="#10b981">
                   <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
                 </circle>
                 <text x="562" y="120" text-anchor="middle">South Carolina</text>
 
                 <!-- Earth Icon -->
-                <text x="750" y="160" text-anchor="middle" font-size="48">🌍</text>
+                <text x="750" y="160" text-anchor="middle" font-size="64" opacity-70>🌍</text>
               </g>
             </svg>
           </div>
         </div>
       </div>
     </div>
-
       
     <!-- Work Experience -->
     <div>
