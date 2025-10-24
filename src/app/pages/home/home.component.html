@@ -167,12 +167,12 @@
         <!-- Interactive Map -->
         <div class="relative mb-16">
           <div class="bg-white rounded-2xl shadow-xl p-8">
-            <div class="relative h-96 bg-gradient-to-r from-blue-100 to-purple-100 rounded-xl overflow-hidden">
+            <div class="relative h-64 bg-gradient-to-r from-blue-100 to-purple-100 rounded-xl overflow-hidden">
               <!-- Map Background -->
               <div class="absolute inset-0 opacity-20">
-                <svg viewBox="0 0 800 400" class="w-full h-full">
+                <svg viewBox="0 0 800 300" class="w-full h-full">
                   <!-- Simplified world map -->
-                  <path d="M100 200 Q200 150 300 200 Q400 180 500 200 Q600 190 700 200" 
+                  <path d="M100 150 Q200 120 300 150 Q400 130 500 150 Q600 140 700 150" 
                         stroke="#9333ea" stroke-width="3" fill="none" stroke-dasharray="5,5" 
                         class="animate-pulse">
                     <animate attributeName="stroke-dashoffset" values="0;10" dur="2s" repeatCount="indefinite"/>
@@ -181,22 +181,22 @@
                   <!-- Location Pins -->
                   <g>
                     <!-- Beijing -->
-                    <circle cx="200" cy="180" r="8" fill="#ef4444" class="animate-bounce">
+                    <circle cx="200" cy="130" r="8" fill="#ef4444" class="animate-bounce">
                       <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
                     </circle>
-                    <text x="200" y="160" text-anchor="middle" class="text-sm font-semibold fill-gray-700">Beijing</text>
+                    <text x="200" y="110" text-anchor="middle" class="text-sm font-semibold fill-gray-700">Beijing</text>
                     
                     <!-- Houston -->
-                    <circle cx="300" cy="200" r="8" fill="#3b82f6" class="animate-bounce" style="animation-delay: 0.5s">
+                    <circle cx="300" cy="150" r="8" fill="#3b82f6" class="animate-bounce" style="animation-delay: 0.5s">
                       <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
                     </circle>
-                    <text x="300" y="180" text-anchor="middle" class="text-sm font-semibold fill-gray-700">Houston</text>
+                    <text x="300" y="130" text-anchor="middle" class="text-sm font-semibold fill-gray-700">Houston</text>
                     
                     <!-- Atlanta -->
-                    <circle cx="400" cy="190" r="8" fill="#10b981" class="animate-bounce" style="animation-delay: 1s">
+                    <circle cx="400" cy="140" r="8" fill="#10b981" class="animate-bounce" style="animation-delay: 1s">
                       <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
                     </circle>
-                    <text x="400" y="170" text-anchor="middle" class="text-sm font-semibold fill-gray-700">Atlanta</text>
+                    <text x="400" y="120" text-anchor="middle" class="text-sm font-semibold fill-gray-700">Atlanta</text>
                   </g>
                 </svg>
               </div>
@@ -204,8 +204,8 @@
               <!-- Journey Path -->
               <div class="absolute inset-0 flex items-center justify-center">
                 <div class="text-center">
-                  <div class="text-6xl mb-4">🌍</div>
-                  <h3 class="text-2xl font-bold text-gray-800 mb-2">My Global Journey</h3>
+                  <div class="text-5xl mb-3">🌍</div>
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">My Global Journey</h3>
                   <p class="text-gray-600">From China to the USA, pursuing knowledge and growth</p>
                 </div>
               </div>
@@ -213,48 +213,103 @@
           </div>
         </div>
         
-        <!-- Education Timeline -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <!-- Beijing -->
-          <div class="text-center">
-            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">Beijing, China</h3>
-            <p class="text-gray-600 mb-4">Undergraduate Studies</p>
-            <p class="text-sm text-gray-500">
-              Foundation in physics and mathematics, developing analytical thinking and problem-solving skills.
-            </p>
+        <!-- Education Journey -->
+        <div class="mb-16">
+          <div class="text-center mb-12">
+            <h3 class="text-3xl font-bold text-gray-900 mb-4">Education Journey</h3>
+            <p class="text-lg text-gray-600">Academic foundation and specialized knowledge</p>
           </div>
           
-          <!-- Houston -->
-          <div class="text-center">
-            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-              </svg>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Beijing -->
+            <div class="text-center">
+              <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+              </div>
+              <h4 class="text-xl font-semibold text-gray-900 mb-2">Beijing, China</h4>
+              <p class="text-gray-600 mb-3 font-medium">Undergraduate Studies</p>
+              <p class="text-sm text-gray-500">
+                Foundation in physics and mathematics, developing analytical thinking and problem-solving skills.
+              </p>
             </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">Houston, Texas</h3>
-            <p class="text-gray-600 mb-4">Ph.D. in Physics</p>
-            <p class="text-sm text-gray-500">
-              Advanced research in protein crystal phase retrieval, mastering algorithms and computational methods.
-            </p>
+            
+            <!-- Houston -->
+            <div class="text-center">
+              <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                </svg>
+              </div>
+              <h4 class="text-xl font-semibold text-gray-900 mb-2">Houston, Texas</h4>
+              <p class="text-gray-600 mb-3 font-medium">Ph.D. in Physics</p>
+              <p class="text-sm text-gray-500">
+                Advanced research in protein crystal phase retrieval, mastering algorithms and computational methods.
+              </p>
+            </div>
+            
+            <!-- Atlanta -->
+            <div class="text-center">
+              <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+              </div>
+              <h4 class="text-xl font-semibold text-gray-900 mb-2">Atlanta, Georgia</h4>
+              <p class="text-gray-600 mb-3 font-medium">Master's in Computer Science</p>
+              <p class="text-sm text-gray-500">
+                Transitioning to software engineering, learning modern web technologies and cloud computing.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Work Experience -->
+        <div>
+          <div class="text-center mb-12">
+            <h3 class="text-3xl font-bold text-gray-900 mb-4">Work Experience</h3>
+            <p class="text-lg text-gray-600">Professional growth and industry expertise</p>
           </div>
           
-          <!-- Atlanta -->
-          <div class="text-center">
-            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-              </svg>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Software Engineer -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                  <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-900">Software Engineer</h4>
+                  <p class="text-gray-600">Full-Stack Development</p>
+                </div>
+              </div>
+              <p class="text-sm text-gray-500">
+                Building scalable web applications using Angular, .NET, and cloud technologies. 
+                Focus on microservices architecture and modern development practices.
+              </p>
             </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">Atlanta, Georgia</h3>
-            <p class="text-gray-600 mb-4">Master's in Computer Science</p>
-            <p class="text-sm text-gray-500">
-              Transitioning to software engineering, learning modern web technologies and cloud computing.
-            </p>
+            
+            <!-- Research Experience -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                  <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-900">Research Scientist</h4>
+                  <p class="text-gray-600">Physics & Computational Methods</p>
+                </div>
+              </div>
+              <p class="text-sm text-gray-500">
+                Conducted advanced research in protein crystal phase retrieval, developing algorithms 
+                and computational methods for scientific data analysis.
+              </p>
+            </div>
           </div>
         </div>
         
@@ -385,6 +440,72 @@
                   <span class="text-sm text-gray-500">2024</span>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Languages Section -->
+  <section class="py-20 bg-gradient-to-br from-gray-50 to-purple-50">
+    <div class="container-custom">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            Languages I Speak
+          </h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Multilingual communication skills that help me connect with diverse teams and global opportunities
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Chinese -->
+          <div class="text-center group">
+            <div class="w-20 h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+              <span class="text-3xl">🇨🇳</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Chinese</h3>
+            <p class="text-sm text-gray-600 mb-2">Native Speaker</p>
+            <div class="flex justify-center space-x-1">
+              <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+              <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+              <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+              <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+              <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+            </div>
+          </div>
+          
+          <!-- English -->
+          <div class="text-center group">
+            <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+              <span class="text-3xl">🇺🇸</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">English</h3>
+            <p class="text-sm text-gray-600 mb-2">Fluent</p>
+            <div class="flex justify-center space-x-1">
+              <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+              <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+              <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+              <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+              <div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+            </div>
+          </div>
+          
+          <!-- French -->
+          <div class="text-center group">
+            <div class="w-20 h-20 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+              <span class="text-3xl">🇫🇷</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">French</h3>
+            <p class="text-sm text-gray-600 mb-2">Conversational</p>
+            <div class="flex justify-center space-x-1">
+              <div class="w-3 h-3 bg-indigo-500 rounded-full"></div>
+              <div class="w-3 h-3 bg-indigo-500 rounded-full"></div>
+              <div class="w-3 h-3 bg-indigo-500 rounded-full"></div>
+              <div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+              <div class="w-3 h-3 bg-gray-300 rounded-full"></div>
             </div>
           </div>
         </div>
