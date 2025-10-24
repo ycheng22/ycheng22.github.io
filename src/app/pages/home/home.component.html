@@ -27,7 +27,7 @@
         
         <!-- Social Links -->
         <div class="flex justify-center space-x-6 mb-0">
-          <a href="https://github.com/ycheng22" 
+          <a href="{{ urls.github }}" 
              target="_blank" 
              rel="noopener noreferrer"
              class="w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 group">
@@ -36,7 +36,7 @@
             </svg>
           </a>
           
-          <a href="https://www.linkedin.com/in/yunpeng-cheng-aa8142127/" 
+          <a href="{{ urls.linkedIn }}" 
              target="_blank" 
              rel="noopener noreferrer"
              class="w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 group">
@@ -57,9 +57,31 @@
           <h2 class="text-5xl font-bold text-gray-900 mb-4">
             Technical Expertise
           </h2>
-          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            Modern technologies and frameworks I use to build exceptional digital experiences
-          </p>
+          <!-- Tech icons row -->
+          <div class="mt-8 flex flex-wrap justify-center items-center gap-4">
+            <img src="https://img.icons8.com/cotton/64/000000/computer.png" alt="computer" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+            <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="github" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+            <img src="https://img.icons8.com/color/48/000000/python.png" alt="python" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+            <img src="https://img.icons8.com/cute-clipart/64/000000/r--v1.png" alt="R" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+            <img src="https://img.icons8.com/plasticine/100/000000/oracle-pl-sql--v3.png" alt="database" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+            <img src="https://img.icons8.com/fluent/48/000000/matlab.png" alt="matlab" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+            <img src="https://img.icons8.com/ios-filled/50/000000/javascript.png" alt="JS" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+            <img src="https://img.icons8.com/ios-filled/50/000000/c-plus-plus-logo.png" alt="c++" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+            <img src="https://img.icons8.com/ios-filled/50/000000/c-sharp-logo.png" alt="csharp" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+            <img src="https://img.icons8.com/external-tal-revivo-shadow-tal-revivo/24/000000/external-net-or-dot-net-a-software-framework-developed-by-microsoft-logo-shadow-tal-revivo.png" alt="dotnet" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+            <img src="https://img.icons8.com/officel/16/000000/react.png" alt="React" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+            <img src="https://img.icons8.com/color/48/000000/angularjs.png" alt="Angular" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+            <img src="https://img.icons8.com/color/48/tailwindcss.png" alt="TailwindCss" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+            <img src="https://img.icons8.com/color/48/000000/amazon-web-services.png" alt="AWS" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+            <img src="https://img.icons8.com/color/48/000000/tensorflow.png" alt="TensorFlow" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+            <img src="https://img.icons8.com/officel/16/000000/java-eclipse.png" alt="Java" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+            <img src="https://img.icons8.com/fluent/48/000000/spyder-ide.png" alt="Spyder" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+            <img src="https://img.icons8.com/fluency/48/000000/visual-studio.png" alt="VisualStudio" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+            <img src="https://www.vectorlogo.zone/logos/visualstudio_code/visualstudio_code-icon.svg" alt="VSCode" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+            <img src="https://img.icons8.com/color/48/000000/tableau-software.png" alt="Tableau" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+            <img src="https://www.vectorlogo.zone/logos/coursera/coursera-icon.svg" alt="Coursera" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+            <img src="https://img.icons8.com/external-tal-revivo-tritone-tal-revivo/32/external-udemycom-is-an-online-learning-and-teaching-platform-logo-tritone-tal-revivo.png" alt="Coursera" class="w-8 h-8 opacity-90 hover:opacity-100"/>
+          </div>
         </div>
         
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -171,7 +193,7 @@
         
         <div class="text-center">
           <a routerLink="/blog" 
-             class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold rounded-full hover:from-purple-700 hover:to-purple-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+             class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-sky-600 to-sky-700 text-white font-semibold rounded-full hover:from-sky-700 hover:to-sky-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
             </svg>
@@ -183,7 +205,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section class="py-20 bg-gradient-to-br from-purple-600 to-purple-800 text-white">
+  <section class="py-20 bg-gradient-to-br from-sky-600 via-blue-700 to-sky-800 text-white">
     <div class="container-custom">
       <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-4xl font-bold mb-6">
@@ -203,7 +225,7 @@
             Email Me
           </a>
           
-          <a href="https://linkedin.com/in/yunpeng-cheng" 
+          <a href="{{ urls.linkedIn }}" 
              target="_blank" 
              rel="noopener noreferrer"
              class="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-full hover:bg-white/20 transition-all duration-300">
@@ -213,7 +235,7 @@
             LinkedIn
           </a>
           
-          <a href="https://github.com/ycheng22" 
+          <a href="{{ urls.github }}" 
              target="_blank" 
              rel="noopener noreferrer"
              class="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-full hover:bg-white/20 transition-all duration-300">

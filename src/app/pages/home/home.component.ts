@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { BlogService } from '../../services/blog.service';
-import { BlogPost } from '../../models/blog-post.model';
+import { URLS } from 'src/app/models/url.constant';
 import { BlogCardComponent } from '../../components/blog-card/blog-card.component';
+import { BlogPost } from '../../models/blog-post.model';
+import { BlogService } from '../../services/blog.service';
 import { Journey } from './journey/journey';
 
 @Component({
@@ -19,6 +20,7 @@ export class HomeComponent {
   pinnedPosts$: Observable<BlogPost[]>;
   latestPost$: Observable<BlogPost | undefined>;
   recentPosts$: Observable<BlogPost[]>;
+  urls = URLS;
 
   constructor(private readonly blogService: BlogService) {
     this.pinnedPosts$ = this.blogService.getPinnedPosts();
