@@ -6,11 +6,12 @@ import { map } from 'rxjs/operators';
 import { BlogService } from '../../services/blog.service';
 import { BlogPost } from '../../models/blog-post.model';
 import { BlogCardComponent } from '../../components/blog-card/blog-card.component';
+import { Journey } from './journey/journey';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule, BlogCardComponent],
+  imports: [CommonModule, RouterModule, BlogCardComponent, Journey],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
