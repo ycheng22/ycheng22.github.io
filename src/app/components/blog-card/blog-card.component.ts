@@ -12,6 +12,7 @@ import { BlogPost } from '../../models/blog-post.model';
 })
 export class BlogCardComponent {
   @Input() blogPost!: BlogPost;
+  @Input() variant: 'default' | 'featured' | 'compact' = 'default';
 
   formatDate(dateString: string): string {
     const date = new Date(dateString);

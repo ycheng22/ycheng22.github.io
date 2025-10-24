@@ -1,5 +1,9 @@
-<article class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden group">
-  <div class="p-6">
+<article [ngClass]="{
+            'bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden group': variant === 'default',
+            'bg-white rounded-lg shadow-xl overflow-hidden lg:flex lg:items-stretch': variant === 'featured',
+            'bg-white rounded-lg shadow-sm overflow-hidden': variant === 'compact'
+          }">
+  <div [ngClass]="{ 'p-6': variant !== 'featured', 'p-0': variant === 'featured' }">
     <!-- Header -->
     <div class="flex items-start justify-between mb-4">
       <div class="flex-1">
@@ -28,8 +32,8 @@
       </span>
     </div>
     
-    <!-- Footer -->
-    <div class="flex items-center justify-between text-sm text-gray-500">
+  <!-- Footer -->
+  <div class="flex items-center justify-between text-sm text-gray-500">
       <div class="flex items-center space-x-4">
         <span class="flex items-center">
           <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -45,7 +49,7 @@
         </span>
       </div>
       <a [routerLink]="['/blog', blogPost.slug]" 
-         class="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium transition-colors duration-200">
+         [ngClass]="{ 'inline-flex items-center text-purple-600 hover:text-purple-800 font-medium transition-colors duration-200': true, 'px-4 py-2 bg-white rounded-md shadow-sm': variant==='compact' }">
         Read More
         <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
