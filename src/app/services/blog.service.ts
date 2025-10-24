@@ -26,33 +26,36 @@ export class BlogService {
   }
 
   private fetchBlogPosts(): Observable<BlogPost[]> {
-    const url = `${this.GITHUB_API_BASE}/${this.BLOG_REPO_OWNER}/${this.BLOG_REPO_NAME}/contents`;
-    
-    return this.http.get<any[]>(url).pipe(
-      map(files => files.filter(file => file.name.endsWith('.md'))),
+    // Load posts from local static folder (blogs-repo) included in the build output.
+    const localIndexUrl = '/blogs-repo/index.json';
+
+    return this.http.get<any[]>(localIndexUrl).pipe(
+      map(files => files.filter(file => file?.name?.endsWith?.('.md'))),
       switchMap(mdFiles => {
-        if (mdFiles.length === 0) {
-          return of([]);
-        }
-        
-        const postObservables = mdFiles.map(file => this.fetchBlogPost(file));
-        return forkJoin(postObservables).pipe(
-          map(posts => {
-            // Sort by date (newest first) and pinned posts first
-            posts.sort((a, b) => {
-              if (a.pinned && !b.pinned) return -1;
-              if (!a.pinned && b.pinned) return 1;
-              return new Date(b.date).getTime() - new Date(a.date).getTime();
-            });
-            return posts;
-          })
-        );
+        if (mdFiles.length === 0) return of([]);
+
+        const postObservables = mdFiles.map(file => {
+          const localFile = { name: file.name, download_url: `/blogs-repo/${file.name}` };
+          return this.fetchBlogPost(localFile);
+        });
+
+        return forkJoin(postObservables).pipe(map(posts => this.sortPosts(posts)));
       }),
       catchError(error => {
-        console.error('Error fetching blog posts:', error);
+        console.error('Error fetching local blog index:', error);
         return of([]);
       })
     );
+  }
+
+  // Extracted helper for sorting posts
+  private sortPosts(posts: BlogPost[]): BlogPost[] {
+    posts.sort((a, b) => {
+      if (a.pinned && !b.pinned) return -1;
+      if (!a.pinned && b.pinned) return 1;
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
+    return posts;
   }
 
   private fetchBlogPost(file: any): Observable<BlogPost> {

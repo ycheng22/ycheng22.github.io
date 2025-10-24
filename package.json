@@ -4,6 +4,8 @@
   "scripts": {
   "ng": "ng",
   "start": "ng serve",
+  "prebuild": "node ./scripts/generate-blog-index.js",
+  "gen-index": "node ./scripts/generate-blog-index.js",
   "build": "ng build --configuration production --output-path docs --base-href /",
   "build:dev": "ng build --configuration development --output-path docs --base-href /",
   "watch": "ng build --watch --configuration development",

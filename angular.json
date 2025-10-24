@@ -27,7 +27,12 @@
             "inlineStyleLanguage": "css",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "blogs-repo",
+                "output": "/blogs-repo"
+              }
             ],
             "styles": [
               "src/styles.css"
