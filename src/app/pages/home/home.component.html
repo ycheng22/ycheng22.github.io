@@ -45,31 +45,12 @@
             </svg>
           </a>
         </div>
-        
-        <!-- CTA Buttons -->
-        <!-- <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a routerLink="/blog" 
-             class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-semibold rounded-full hover:from-yellow-500 hover:to-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-            </svg>
-            View My Work
-          </a>
-          
-          <a href="mailto:ycheng22@hotmail.com" 
-             class="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-full hover:bg-white/20 transition-all duration-300">
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-            </svg>
-            Get In Touch
-          </a>
-        </div> -->
       </div>
     </div>
   </section>
 
   <!-- Skills Section -->
-  <section class="py-20 bg-white">
+  <section class="py-20 bg-white rounded-2xl shadow-xl">
     <div class="container-custom">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
@@ -128,71 +109,43 @@
 
   <app-journey></app-journey>
 
-  <!-- Languages Section -->
-  <section class="py-20 bg-gradient-to-br from-gray-50 to-purple-50">
+  <!-- Languages Section (replaced with card UI) -->
+  <div class="py-20 bg-white rounded-2xl shadow-xl">
     <div class="container-custom">
-      <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold text-gray-900 mb-4">
-            Languages I Speak
-          </h2>
-          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            Multilingual communication skills that help me connect with diverse teams and global opportunities
-          </p>
+      <div class="">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-gray-900 mb-2">Languages I Speak</h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">Multilingual communication skills that help me connect with diverse teams and global opportunities</p>
         </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Chinese -->
-          <div class="text-center group">
-            <div class="w-20 h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-              <span class="text-3xl">🇨🇳</span>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div class="bg-white rounded-2xl shadow p-6 text-center">
+            <div class="w-20 h-20 rounded-full bg-rose-50 flex items-center justify-center mx-auto mb-4">
+              <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-2xl">🇨🇳</div>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Chinese</h3>
-            <p class="text-sm text-gray-600 mb-2">Native Speaker</p>
-            <div class="flex justify-center space-x-1">
-              <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-              <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-              <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-              <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-              <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-            </div>
+            <h3 class="text-xl font-semibold text-gray-900">Chinese</h3>
+            <p class="text-sm text-gray-500">中文</p>
           </div>
-          
-          <!-- English -->
-          <div class="text-center group">
-            <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-              <span class="text-3xl">🇺🇸</span>
+
+          <div class="bg-white rounded-2xl shadow p-6 text-center">
+            <div class="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-4">
+              <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-2xl">��</div>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">English</h3>
-            <p class="text-sm text-gray-600 mb-2">Fluent</p>
-            <div class="flex justify-center space-x-1">
-              <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
-              <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
-              <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
-              <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
-              <div class="w-3 h-3 bg-gray-300 rounded-full"></div>
-            </div>
+            <h3 class="text-xl font-semibold text-gray-900">English</h3>
+            <p class="text-sm text-gray-500">English</p>
           </div>
-          
-          <!-- French -->
-          <div class="text-center group">
-            <div class="w-20 h-20 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-              <span class="text-3xl">🇫🇷</span>
+
+          <div class="bg-white rounded-2xl shadow p-6 text-center">
+            <div class="w-20 h-20 rounded-full bg-indigo-50 flex items-center justify-center mx-auto mb-4">
+              <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-2xl">🇫🇷</div>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">French</h3>
-            <p class="text-sm text-gray-600 mb-2">Conversational</p>
-            <div class="flex justify-center space-x-1">
-              <div class="w-3 h-3 bg-indigo-500 rounded-full"></div>
-              <div class="w-3 h-3 bg-indigo-500 rounded-full"></div>
-              <div class="w-3 h-3 bg-indigo-500 rounded-full"></div>
-              <div class="w-3 h-3 bg-gray-300 rounded-full"></div>
-              <div class="w-3 h-3 bg-gray-300 rounded-full"></div>
-            </div>
+            <h3 class="text-xl font-semibold text-gray-900">French</h3>
+            <p class="text-sm text-gray-500">Français</p>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
   
 

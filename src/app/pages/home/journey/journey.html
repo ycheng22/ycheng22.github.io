@@ -1,13 +1,59 @@
 <!-- My Journey Section -->
-<section class="py-20 bg-gradient-to-br from-gray-50 to-purple-50">
+<section class="py-6 bg-gradient-to-br from-gray-50 to-purple-50 rounded-2xl">
   <div class="container-custom">
-    <div class="max-w-6xl mx-auto">
-      <div class="max-w-7xl mx-auto px-6">
+    <div class="w-full flex flex-col ">
+      <div class="bg-gradient-to-r from-blue-100 to-purple-100 rounded-2xl shadow-xl">
+        <div class="text-center py-4">
+          <h3 class="text-5xl font-bold text-gray-800 mb-0">My Global Journey</h3>
+        </div>
+
+        <!-- Map Area: use a container aspect-ratio that matches the SVG viewBox so the SVG scales uniformly and circles stay round -->
+        <div class="relative w-full h-60 bg-gradient-to-r from-blue-100 to-purple-100 rounded-b-2xl overflow-hidden" style="aspect-ratio: 1000/300;">
+          <div class="absolute inset-0 opacity-70">
+            <svg 
+              viewBox="0 0 1000 300" 
+              preserveAspectRatio="xMidYMid meet"
+              class="w-full h-full">
+
+              <!-- Dashed World Path -->
+              <path d="M0 150 Q250 120 500 150 Q750 130 1000 150"
+                    stroke="#9333ea" stroke-width="3" fill="none"
+                    stroke-dasharray="6,6" class="animate-pulse">
+                <animate attributeName="stroke-dashoffset" values="0;12" dur="2s" repeatCount="indefinite"/>
+              </path>
+
+              <!-- Location Pins -->
+              <g font-family="Inter, Arial, sans-serif" font-size="14" fill="#374151">
+                <!-- Beijing -->
+                <circle cx="250" cy="130" r="8" fill="#ef4444">
+                  <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <text x="250" y="110" text-anchor="middle">Beijing</text>
+
+                <!-- Houston -->
+                <circle cx="375" cy="150" r="8" fill="#3b82f6">
+                  <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <text x="375" y="130" text-anchor="middle">Houston, TX</text>
+
+                <!-- South Carolina -->
+                <circle cx="562" cy="140" r="8" fill="#10b981">
+                  <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <text x="562" y="120" text-anchor="middle">South Carolina</text>
+
+                <!-- Earth Icon -->
+                <text x="750" y="160" text-anchor="middle" font-size="64" opacity-70>🌍</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
         <div class="text-center mb-16">
           <h1 class="text-4xl font-bold text-slate-900 mb-4">Education Journey</h1>
         </div>
 
-        <div class="relative overflow-x-auto pb-8">
+        <div class="flex overflow-x-auto items-center justify-center pb-8">
           <div class="flex items-start gap-8 min-w-max px-8">
             <!-- Education Item 1: Geophysics -->
             <div class="relative flex flex-col items-center w-80">
@@ -149,69 +195,13 @@
             </div>
           </div>
         </div>
-    </div>
-    
-    <!-- Interactive Map (full-bleed, responsive, circles stay round) -->
-    <div class="relative mb-16 -mx-6 sm:-mx-8 lg:-mx-20">
-      <div class="bg-white rounded-2xl shadow-xl mx-auto max-w-none">
-        <div class="p-8">
-          <div class="pt-6 text-center">
-            <h3 class="text-5xl font-bold text-gray-800 mb-2">My Global Journey</h3>
-          </div>
+
+        <div class="text-center mb-12">
+          <h3 class="text-4xl font-bold text-gray-900 mb-4">Work Experience</h3>
+          <p class="text-lg text-gray-600">Professional growth and industry expertise</p>
         </div>
 
-        <!-- Map Area: use a container aspect-ratio that matches the SVG viewBox so the SVG scales uniformly and circles stay round -->
-        <div class="relative w-full bg-gradient-to-r from-blue-100 to-purple-100 rounded-b-2xl overflow-hidden" style="aspect-ratio: 1000/300;">
-          <div class="absolute inset-0 opacity-70">
-            <svg 
-              viewBox="0 0 1000 300" 
-              preserveAspectRatio="xMidYMid meet"
-              class="w-full h-full">
-
-              <!-- Dashed World Path -->
-              <path d="M0 150 Q250 120 500 150 Q750 130 1000 150"
-                    stroke="#9333ea" stroke-width="3" fill="none"
-                    stroke-dasharray="6,6" class="animate-pulse">
-                <animate attributeName="stroke-dashoffset" values="0;12" dur="2s" repeatCount="indefinite"/>
-              </path>
-
-              <!-- Location Pins -->
-              <g font-family="Inter, Arial, sans-serif" font-size="14" fill="#374151">
-                <!-- Beijing -->
-                <circle cx="250" cy="130" r="8" fill="#ef4444">
-                  <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
-                </circle>
-                <text x="250" y="110" text-anchor="middle">Beijing</text>
-
-                <!-- Houston -->
-                <circle cx="375" cy="150" r="8" fill="#3b82f6">
-                  <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
-                </circle>
-                <text x="375" y="130" text-anchor="middle">Houston, TX</text>
-
-                <!-- South Carolina -->
-                <circle cx="562" cy="140" r="8" fill="#10b981">
-                  <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
-                </circle>
-                <text x="562" y="120" text-anchor="middle">South Carolina</text>
-
-                <!-- Earth Icon -->
-                <text x="750" y="160" text-anchor="middle" font-size="64" opacity-70>🌍</text>
-              </g>
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-      
-    <!-- Work Experience -->
-    <div>
-      <div class="text-center mb-12">
-        <h3 class="text-3xl font-bold text-gray-900 mb-4">Work Experience</h3>
-        <p class="text-lg text-gray-600">Professional growth and industry expertise</p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pb-8 px-4">
         <!-- Software Engineer -->
         <div class="bg-white rounded-xl shadow-lg p-6">
           <div class="flex items-center mb-4">
@@ -250,10 +240,12 @@
           </p>
         </div>
       </div>
+      </div>
+      
     </div>
       
     <!-- Certifications Grid -->
-    <div class="bg-white rounded-2xl shadow-xl p-8">
+    <div class="bg-white rounded-2xl shadow-xl p-8 mt-10">
       <div class="text-center mb-12">
         <h3 class="text-3xl font-bold text-gray-900 mb-4">Professional Certifications</h3>
         <p class="text-lg text-gray-600">Technical expertise meets financial knowledge</p>
@@ -309,13 +301,13 @@
               </div>
             </div>
             <div class="flex items-center justify-between">
-              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
                 <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                In Progress
+                Certified
               </span>
-              <span class="text-sm text-gray-500">2024</span>
+              <span class="text-sm text-gray-500">2023</span>
             </div>
           </div>
         </div>
@@ -346,13 +338,13 @@
               </div>
             </div>
             <div class="flex items-center justify-between">
-              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
                 <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                In Progress
+                Passed
               </span>
-              <span class="text-sm text-gray-500">2024</span>
+              <span class="text-sm text-gray-500">2019</span>
             </div>
           </div>
           
@@ -370,18 +362,17 @@
               </div>
             </div>
             <div class="flex items-center justify-between">
-              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
                 <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                In Progress
+                Passed
               </span>
-              <span class="text-sm text-gray-500">2024</span>
+              <span class="text-sm text-gray-500">2020</span>
             </div>
           </div>
         </div>
       </div>
     </div>
     </div>
-  </div>
 </section>
