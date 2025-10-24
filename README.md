@@ -35,205 +35,122 @@ src/
 │   │   ├── home/          # Home page
 │   │   ├── blog/          # Blog listing page
 │   │   └── blog-post/     # Individual blog post page
-│   ├── services/          # Angular services
-│   │   └── blog.service.ts # Blog data service
-│   ├── models/            # TypeScript interfaces
-│   │   └── blog-post.model.ts
-│   ├── app.component.ts   # Root component
-│   └── app.routes.ts      # Application routes
-├── styles.css             # Global styles and TailwindCSS
-└── main.ts               # Application bootstrap
+```markdown
+# Cheng - Personal Website
+
+A modern, responsive personal website built with Angular 20 and TailwindCSS. The site uses a local `blogs-repo` (copied into the build) and a small Node script to generate a blog index from markdown files.
+
+## 🚀 Highlights
+
+- Modern responsive UI (TailwindCSS)
+- Static blog pipeline: markdown files in `blogs-repo/` are shipped with the site and indexed by `scripts/generate-blog-index.js`
+- Builds output to `docs/` so the repo can be hosted on GitHub Pages
+- GitHub Actions configured to build feature branches and deploy when code lands on `gh-pages`
+
+## 🛠️ Tech Stack
+
+- Frontend: Angular 20
+- Styling: TailwindCSS
+- Markdown rendering: ngx-markdown + Prism.js
+- CI/CD: GitHub Actions → GitHub Pages
+
+## 📁 Project Structure (important parts)
+
+```
+./
+├── blogs-repo/                # Markdown blog posts (copied into site build)
+├── docs/                     # Production build output (generated)
+├── scripts/                  # Utility scripts (e.g. generate-blog-index.js)
+├── src/
+│   └── app/                  # Angular app
+└── .github/workflows/        # CI workflow for builds and Pages deployment
 ```
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ 
-- npm or yarn
+- Node.js 18+
+- npm
 
-### Installation
+### Install and run locally
 
-1. Clone the repository:
-```bash
+```powershell
 git clone https://github.com/ycheng22/ycheng22.github.io.git
 cd ycheng22.github.io
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Start the development server:
-```bash
+npm ci
 npm start
+
+# open http://localhost:4200
 ```
 
-4. Open your browser and navigate to `http://localhost:4200`
+### Build for production (local)
 
-### Building for Production
+This project builds into `./docs` so the output can be committed or published to Pages.
 
-```bash
-npm run build:prod
+```powershell
+# regenerate blog index from markdown
+npm run gen-index
+
+# build (production) -> output in ./docs
+npm run build
 ```
 
-## 📝 Blog Setup
+## 📝 Blog authoring
 
-### Creating a Blog Repository
+- Place markdown files in `blogs-repo/` (frontmatter at the top). The repository contains example posts in `sample-blogs/`.
+- The generator `scripts/generate-blog-index.js` creates `blogs-repo/index.json` (README.md is excluded) and is run in CI and as a prebuild step locally when you run `npm run build`.
 
-1. Create a new GitHub repository for your blog posts (e.g., `blog-posts`)
-2. Add markdown files with frontmatter metadata
-3. Update the blog service configuration
+### Frontmatter example
 
-### Blog Post Format
-
-Create markdown files with the following frontmatter structure:
-
-```markdown
+```yaml
 ---
-title: "Your Blog Post Title"
-description: "A brief description of your post"
+title: "My Post Title"
+description: "Short summary"
 date: "2024-01-15"
-tags: ["angular", "typescript", "web-development"]
-pinned: true
+tags: ["angular","web"]
+pinned: false
 author: "Cheng"
 ---
-
-# Your Blog Post Content
-
-Write your blog post content here using standard markdown syntax.
-
-## Code Examples
-
-```typescript
-// Your code examples will be syntax highlighted
-const example = 'Hello World';
 ```
 
-## Lists and More
+## 🚀 Deployment / GitHub Pages
 
-- Bullet points
-- More content
-- And so on...
-```
+This repo's CI is configured to:
 
-### Frontmatter Fields
+- Run builds for branches matching `feature/**` (preview builds) and for `gh-pages`.
+- For feature branches the workflow builds the site and uploads the `./docs` output as an artifact and sets a commit status (`CI/build`) on the commit so you can see whether the build passed.
+- When you merge a feature branch into `gh-pages`, the workflow will download the previously produced artifact (or rebuild on `gh-pages`), and deploy `./docs` to GitHub Pages using the official Pages deploy actions. This avoids committing build artifacts back to the branch.
 
-- `title`: The blog post title
-- `description`: Brief description for previews
-- `date`: Publication date (YYYY-MM-DD format)
-- `tags`: Array of tags for categorization
-- `pinned`: Boolean to feature the post
-- `author`: Author name
+Pages configuration options:
 
-### Updating Blog Configuration
+- Recommended (current): Use the `gh-pages` branch and set Pages to serve from the root `/`.
+- Alternative: Serve from `main` (or `gh-pages`) `docs/` directory — if you prefer this, set Pages source to the branch + `/docs` folder in repository settings.
 
-Edit `src/app/services/blog.service.ts` and update:
+## 🔁 Typical workflow
 
-```typescript
-private readonly BLOG_REPO_OWNER = 'your-github-username';
-private readonly BLOG_REPO_NAME = 'your-blog-repo-name';
-```
+1. Work on a feature branch: `feature/xyz`
+2. Push your branch → CI runs a build and you'll see a `CI/build` status on the commit
+3. Create a PR to merge `feature/xyz` into `gh-pages`
+4. Merge the PR → CI deploys `./docs` to Pages
 
-## 🚀 Deployment
+## � CI notes
 
-### GitHub Pages Setup
+- The workflow is in `.github/workflows/deploy-pages.yml`.
+- If you encounter dependency or peer-dependency issues when running `npm ci` in CI, tell me and I can make the workflow use `npm install --legacy-peer-deps` or pin compatible package versions.
 
-1. Enable GitHub Pages in your repository settings
-2. Select "GitHub Actions" as the source
-3. Push to the `main` branch to trigger deployment
+## 📜 Other scripts
 
-### Manual Deployment
-
-```bash
-npm run build:prod
-# Upload the dist/angular-personal-website folder to your hosting provider
-```
-
-## 🎨 Customization
-
-### Colors and Theme
-
-Edit `tailwind.config.js` to customize colors:
-
-```javascript
-theme: {
-  extend: {
-    colors: {
-      primary: {
-        // Your custom color palette
-      }
-    }
-  }
-}
-```
-
-### Styling
-
-- Global styles: `src/styles.css`
-- Component styles: Inline with TailwindCSS classes
-- Custom CSS: Add to `src/styles.css` with `@layer` directives
-
-### Content
-
-- Home page content: `src/app/pages/home/home.component.ts`
-- Navigation: `src/app/components/navbar/navbar.component.ts`
-- Footer: `src/app/components/footer/footer.component.ts`
-
-## 📱 Features in Detail
-
-### Blog System
-- Fetches markdown files from GitHub repository via API
-- Parses frontmatter metadata
-- Supports pinned posts
-- Search and filter functionality
-- Responsive card layout
-
-### Markdown Rendering
-- GitHub-flavored markdown (GFM)
-- Syntax highlighting with Prism.js
-- Sanitized content for security
-- Custom styling to match GitHub's appearance
-
-### Responsive Design
-- Mobile-first approach
-- TailwindCSS utility classes
-- Custom breakpoints and spacing
-- Accessible navigation
-
-## 🔧 Development
-
-### Available Scripts
-
-- `npm start`: Start development server
-- `npm run build`: Build for development
-- `npm run build:prod`: Build for production
-- `npm test`: Run unit tests
-- `npm run watch`: Build and watch for changes
-
-### Code Style
-
-- TypeScript strict mode enabled
-- Angular standalone components
-- RxJS for reactive programming
-- TailwindCSS for styling
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
+- `npm run gen-index` — regenerate `blogs-repo/index.json` from markdown files (excludes README.md)
+- `npm run build` — build production site into `./docs`
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions welcome — open a PR. For content changes, add markdown files in `blogs-repo/` and run `npm run gen-index` before building.
 
-## 📞 Contact
+## 📄 License
 
-- **Email**: ycheng22@hotmail.com
-- **LinkedIn**: [linkedin.com/in/yunpeng-cheng](https://linkedin.com/in/yunpeng-cheng)
-- **GitHub**: [github.com/ycheng22](https://github.com/ycheng22)
+MIT
 
----
-
-Built with ❤️ using Angular 19 and TailwindCSS
-
+```
+### Colors and Theme
