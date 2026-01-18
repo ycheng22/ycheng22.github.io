@@ -7,7 +7,6 @@ background: ''
 pinned: false
 author: 'Cheng'
 ---
-
 # Machine Learning for Credit Risk Assessment: A Practical Approach
 
 Credit risk assessment is a critical component of financial institutions' decision-making processes. Traditional statistical methods are being increasingly supplemented and replaced by machine learning algorithms that can identify complex patterns in borrower data. In this post, I'll explore how to build a credit risk assessment system using various ML algorithms.
