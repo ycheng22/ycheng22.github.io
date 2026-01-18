@@ -13,6 +13,10 @@ permissions:
   pages: write
   id-token: write
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build:
     name: Build (all branches)
@@ -35,12 +39,15 @@ jobs:
       - name: Build (production)
         run: npm run build
 
+      - name: Create .nojekyll file
+        run: touch ./docs/.nojekyll
+
       - name: Upload build artifact (for later deploy)
-        if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
           name: docs-artifact
           path: ./docs
+          retention-days: 1
 
       - name: Report build success as commit status (feature branches)
         if: ${{ github.ref != 'refs/heads/gh-pages' }}
@@ -99,13 +106,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download build artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: docs-artifact
           path: ./docs
 
+      - name: Ensure .nojekyll exists
+        run: touch ./docs/.nojekyll
+
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./docs
 
@@ -114,6 +124,10 @@ jobs:
     needs: upload-pages-artifact
     if: ${{ github.ref == 'refs/heads/gh-pages' }}
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        id: deployment
+        uses: actions/deploy-pages@v4
