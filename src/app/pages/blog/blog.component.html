@@ -1,12 +1,12 @@
 <div class="min-h-screen bg-gray-50">
   <!-- Header -->
-  <div class="bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 text-white">
+  <div class="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white">
     <div class="container-custom py-16">
       <div class="max-w-4xl mx-auto text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-6">
           Technical Blog
         </h1>
-        <p class="text-xl text-purple-100 max-w-3xl mx-auto leading-relaxed">
+        <p class="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
           Insights, tutorials, and thoughts on software engineering, web development, and modern technologies. 
           Join me as I share my experiences and learnings.
         </p>
@@ -23,7 +23,7 @@
                  [(ngModel)]="searchTerm"
                  (input)="filterPosts()"
                  placeholder="Search articles..."
-                 class="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-lg">
+                 class="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg">
           <svg class="absolute left-4 top-4 h-6 w-6 text-gray-400" 
                fill="none" 
                stroke="currentColor" 
@@ -44,20 +44,20 @@
       <div class="max-w-6xl mx-auto">
         <div class="flex flex-wrap gap-3 justify-center">
           <button (click)="filterByTag('all')" 
-                  [class.bg-purple-600]="selectedTag === 'all'"
+                  [class.bg-blue-600]="selectedTag === 'all'"
                   [class.text-white]="selectedTag === 'all'"
                   [class.bg-gray-100]="selectedTag !== 'all'"
                   [class.text-gray-700]="selectedTag !== 'all'"
-                  class="px-4 py-2 rounded-lg font-medium transition-colors hover:bg-purple-100 hover:text-purple-800">
+                  class="px-4 py-2 rounded-lg font-medium transition-colors hover:bg-blue-100 hover:text-blue-800">
             All
           </button>
           <button *ngFor="let tag of availableTags$ | async" 
                   (click)="filterByTag(tag)"
-                  [class.bg-purple-600]="selectedTag === tag"
+                  [class.bg-blue-600]="selectedTag === tag"
                   [class.text-white]="selectedTag === tag"
                   [class.bg-gray-100]="selectedTag !== tag"
                   [class.text-gray-700]="selectedTag !== tag"
-                  class="px-4 py-2 rounded-lg font-medium transition-colors hover:bg-purple-100 hover:text-purple-800">
+                  class="px-4 py-2 rounded-lg font-medium transition-colors hover:bg-blue-100 hover:text-blue-800">
             {{ tag }}
           </button>
         </div>
@@ -88,7 +88,7 @@
               Try adjusting your search terms or selecting a different tag.
             </p>
             <button (click)="filterByTag('all')"
-                    class="mt-4 px-6 py-3 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition-colors duration-200">
+                    class="mt-4 px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200">
               View All Posts
             </button>
           </div>
