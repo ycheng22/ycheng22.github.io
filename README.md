@@ -1,6 +1,11 @@
+# Dev notes
+-  npm run build
+-  git add , commit, push
+
 # Cheng - Personal Website
 
 A modern, responsive personal website built with Angular 20 and TailwindCSS, featuring a blog system that fetches content from a separate GitHub repository.
+
 
 ## 🚀 Features
 

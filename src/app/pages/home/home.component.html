@@ -131,43 +131,78 @@
 
   <app-journey></app-journey>
 
-  <!-- Languages Section (replaced with card UI) -->
-  <div class="py-20 bg-white rounded-2xl shadow-xl">
+  <!-- Languages Section -->
+  <section class="py-6 bg-gradient-to-br from-gray-50 to-purple-50 rounded-2xl">
     <div class="container-custom">
-      <div class="">
+      <div class="bg-white rounded-2xl shadow-xl p-8">
         <div class="text-center mb-12">
-          <h2 class="text-4xl font-bold text-gray-900 mb-2">Languages I Speak</h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">Multilingual communication skills that help me connect with diverse teams and global opportunities</p>
+          <div class="w-16 h-16 bg-gradient-to-br from-sky-100 to-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+            </svg>
+          </div>
+          <h3 class="text-3xl font-bold text-gray-900 mb-4">Languages I Speak</h3>
+          <p class="text-lg text-gray-600">Multilingual communication skills for global collaboration</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div class="bg-white rounded-2xl shadow p-6 text-center">
-            <div class="w-20 h-20 rounded-full bg-rose-50 flex items-center justify-center mx-auto mb-4">
-              <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-2xl">🇨🇳</div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <!-- Chinese -->
+          <div class="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-6 border border-red-200 hover:shadow-lg transition-shadow duration-300">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full overflow-hidden mr-4 shadow-md border-2 border-white">
+                <img src="https://flagcdn.com/w80/cn.png" alt="China Flag" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <h5 class="text-lg font-semibold text-gray-900">Chinese</h5>
+                <p class="text-sm text-gray-600">中文</p>
+              </div>
             </div>
-            <h3 class="text-xl font-semibold text-gray-900">Chinese</h3>
-            <p class="text-sm text-gray-500">中文</p>
+            <div class="flex items-center justify-between">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800">
+                Native
+              </span>
+            </div>
           </div>
 
-          <div class="bg-white rounded-2xl shadow p-6 text-center">
-            <div class="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-4">
-              <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-2xl">��</div>
+          <!-- English -->
+          <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200 hover:shadow-lg transition-shadow duration-300">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full overflow-hidden mr-4 shadow-md border-2 border-white">
+                <img src="https://flagcdn.com/w80/us.png" alt="USA Flag" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <h5 class="text-lg font-semibold text-gray-900">English</h5>
+                <p class="text-sm text-gray-600">English</p>
+              </div>
             </div>
-            <h3 class="text-xl font-semibold text-gray-900">English</h3>
-            <p class="text-sm text-gray-500">English</p>
+            <div class="flex items-center justify-between">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                Fluent
+              </span>
+            </div>
           </div>
 
-          <div class="bg-white rounded-2xl shadow p-6 text-center">
-            <div class="w-20 h-20 rounded-full bg-indigo-50 flex items-center justify-center mx-auto mb-4">
-              <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-2xl">🇫🇷</div>
+          <!-- French -->
+          <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-6 border border-indigo-200 hover:shadow-lg transition-shadow duration-300">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full overflow-hidden mr-4 shadow-md border-2 border-white">
+                <img src="https://flagcdn.com/w80/fr.png" alt="France Flag" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <h5 class="text-lg font-semibold text-gray-900">French</h5>
+                <p class="text-sm text-gray-600">Français</p>
+              </div>
             </div>
-            <h3 class="text-xl font-semibold text-gray-900">French</h3>
-            <p class="text-sm text-gray-500">Français</p>
+            <div class="flex items-center justify-between">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
+                Intermediate
+              </span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
   
 
