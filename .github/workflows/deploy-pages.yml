@@ -8,6 +8,11 @@ on:
       - 'gh-pages'
   workflow_dispatch: {}
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build:
     name: Build (all branches)
@@ -22,7 +27,7 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Generate blog index
         run: npm run gen-index
@@ -52,6 +57,40 @@ jobs:
               description: `Build succeeded for ${context.ref.replace('refs/heads/','')}`,
               target_url: `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
             });
+
+  merge-to-gh-pages:
+    name: Merge to gh-pages (feature branches only)
+    needs: build
+    if: ${{ github.ref != 'refs/heads/gh-pages' && github.event_name == 'push' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Checkout gh-pages branch or create it
+        run: |
+          if git ls-remote --heads origin gh-pages | grep -q gh-pages; then
+            git fetch origin gh-pages:gh-pages || true
+            git checkout gh-pages
+            git pull origin gh-pages || true
+          else
+            git checkout --orphan gh-pages
+            git rm -rf . || true
+          fi
+
+      - name: Merge feature branch into gh-pages
+        run: |
+          BRANCH_NAME="${{ github.ref_name }}"
+          git merge origin/$BRANCH_NAME --no-edit --allow-unrelated-histories || git merge origin/$BRANCH_NAME --no-edit
+          git push origin gh-pages
 
   upload-pages-artifact:
     name: Prepare Pages artifact (gh-pages only)
