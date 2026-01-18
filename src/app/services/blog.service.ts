@@ -146,13 +146,15 @@ export class BlogService {
 
   private parseFrontmatter(content: string): Partial<BlogPostMetadata> {
     const metadata: Partial<BlogPostMetadata> = {};
-    const lines = content.split('\n');
+    const lines = content.split('\n').filter(line => line.trim().length > 0);
     
     lines.forEach(line => {
-      const [key, ...valueParts] = line.split(':');
-      if (key && valueParts.length > 0) {
-        const value = valueParts.join(':').trim();
-        const cleanKey = key.trim().toLowerCase();
+      const trimmedLine = line.trim();
+      const colonIndex = trimmedLine.indexOf(':');
+      if (colonIndex > 0) {
+        const key = trimmedLine.substring(0, colonIndex).trim();
+        const value = trimmedLine.substring(colonIndex + 1).trim();
+        const cleanKey = key.toLowerCase();
         
         switch (cleanKey) {
           case 'title':
@@ -181,7 +183,9 @@ export class BlogService {
             }
             break;
           case 'pinned':
-            metadata.pinned = value.toLowerCase() === 'true';
+            // Handle boolean: true, false, "true", "false", True, False, etc.
+            const normalizedValue = value.replace(/['"]/g, '').toLowerCase().trim();
+            metadata.pinned = normalizedValue === 'true';
             break;
           case 'author':
             metadata.author = value.replace(/['"]/g, '');
