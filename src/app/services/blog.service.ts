@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, forkJoin, map, Observable, of, switchMap } from 'rxjs';
+import { computed, Injectable, signal } from '@angular/core';
+import { catchError, forkJoin, map, Observable, of, switchMap } from 'rxjs';
 import { BlogPost, BlogPostMetadata } from '../models/blog-post.model';
 
 @Injectable({
@@ -11,8 +11,8 @@ export class BlogService {
   private readonly BLOG_REPO_OWNER = 'ycheng22'; // Update this with your GitHub username
   private readonly BLOG_REPO_NAME = 'blog-posts'; // Update this with your blog repository name
 
-  private blogPostsSubject = new BehaviorSubject<BlogPost[]>([]);
-  public blogPosts$ = this.blogPostsSubject.asObservable();
+  private blogPostsSignal = signal<BlogPost[]>([]);
+  public blogPosts = this.blogPostsSignal.asReadonly();
 
   constructor(private http: HttpClient) {
     this.loadBlogPosts();
@@ -20,7 +20,7 @@ export class BlogService {
 
   private loadBlogPosts(): void {
     this.fetchBlogPosts().subscribe({
-      next: (posts) => this.blogPostsSubject.next(posts),
+      next: (posts) => this.blogPostsSignal.set(posts),
       error: (error) => console.error('Error loading blog posts:', error),
     });
   }
@@ -322,12 +322,10 @@ export class BlogService {
     };
   }
 
-  getPinnedPosts(): Observable<BlogPost[]> {
-    return this.blogPosts$.pipe(map((posts) => posts.filter((post) => post.pinned)));
-  }
+  getPinnedPosts = computed(() => this.blogPosts().filter((post) => post.pinned));
 
-  getPostBySlug(slug: string): Observable<BlogPost | undefined> {
-    return this.blogPosts$.pipe(map((posts) => posts.find((post) => post.slug === slug)));
+  getPostBySlug(slug: string) {
+    return computed(() => this.blogPosts().find((post) => post.slug === slug));
   }
 
   refreshPosts(): void {

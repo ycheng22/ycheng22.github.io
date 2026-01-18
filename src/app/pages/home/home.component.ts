@@ -1,11 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, computed } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { URLS } from 'src/app/models/url.constant';
 import { BlogCardComponent } from '../../components/blog-card/blog-card.component';
-import { BlogPost } from '../../models/blog-post.model';
 import { BlogService } from '../../services/blog.service';
 import { Journey } from './journey/journey';
 
@@ -14,23 +11,19 @@ import { Journey } from './journey/journey';
   standalone: true,
   imports: [CommonModule, RouterModule, BlogCardComponent, Journey],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  pinnedPosts$: Observable<BlogPost[]>;
-  latestPost$: Observable<BlogPost | undefined>;
-  recentPosts$: Observable<BlogPost[]>;
-  urls = URLS;
+  readonly blogPosts = this.blogService.blogPosts;
+  readonly urls = URLS;
 
-  constructor(private readonly blogService: BlogService) {
-    this.pinnedPosts$ = this.blogService.getPinnedPosts();
-    this.latestPost$ = this.blogService.blogPosts$.pipe(
-      map(posts => posts?.[0])
-    );
-    this.recentPosts$ = this.blogService.blogPosts$.pipe(
-      map(posts => posts?.slice(0, 3) || [])
-    );
-  }
+  readonly pinnedPosts = computed(() => this.blogPosts().filter((post) => post.pinned));
+
+  readonly latestPost = computed(() => this.blogPosts()?.[0]);
+
+  readonly recentPosts = computed(() => this.blogPosts()?.slice(0, 3) || []);
+
+  constructor(private readonly blogService: BlogService) {}
 
   scrollToSection(sectionId: string): void {
     const element = document.getElementById(sectionId);
@@ -38,5 +31,4 @@ export class HomeComponent {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
-
 }

@@ -1,10 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { BlogCardComponent } from '../../components/blog-card/blog-card.component';
-import { BlogPost } from '../../models/blog-post.model';
 import { BlogService } from '../../services/blog.service';
 
 @Component({
@@ -15,68 +12,50 @@ import { BlogService } from '../../services/blog.service';
   styleUrls: ['./blog.component.scss'],
 })
 export class BlogComponent {
-  allPosts$: Observable<BlogPost[]>;
-  filteredPosts$: Observable<BlogPost[]>;
-  availableTags$: Observable<string[]>;
-  searchTerm = '';
-  selectedTag = 'all';
-  showPinned = false;
+  readonly allPosts = this.blogService.blogPosts;
+  readonly searchTerm = signal('');
+  readonly selectedTag = signal('all');
+  readonly showPinned = signal(false);
 
-  constructor(private readonly blogService: BlogService) {
-    this.allPosts$ = this.blogService.blogPosts$;
-    this.filteredPosts$ = this.allPosts$;
+  readonly availableTags = computed(() => {
+    const allTags = this.allPosts().flatMap((post) => post.tags || []);
+    return [...new Set(allTags)].sort();
+  });
 
-    // Extract unique tags from all posts
-    this.availableTags$ = this.allPosts$.pipe(
-      map((posts) => {
-        debugger;
-        const allTags = posts.flatMap((post) => post.tags || []);
-        const uniqueTags = [...new Set(allTags)].sort();
-        console.log('Available tags:', uniqueTags); // Debug log
-        return uniqueTags;
-      }),
-    );
-  }
+  readonly filteredPosts = computed(() => {
+    let filtered = this.allPosts();
 
-  filterPosts(): void {
-    this.filteredPosts$ = this.allPosts$.pipe(
-      map((posts) => {
-        let filtered = posts;
+    // Apply pinned filter (only when explicitly requested)
+    if (this.showPinned()) {
+      filtered = filtered.filter((post) => post.pinned);
+    }
 
-        // Apply pinned filter (only when explicitly requested)
-        if (this.showPinned) {
-          filtered = filtered.filter((post) => post.pinned);
-        }
-        // When showPinned is false, show all posts (no filter applied)
+    // Apply tag filter
+    if (this.selectedTag() !== 'all') {
+      filtered = filtered.filter((post) => post.tags && post.tags.includes(this.selectedTag()));
+    }
 
-        // Apply tag filter
-        if (this.selectedTag !== 'all') {
-          filtered = filtered.filter((post) => post.tags && post.tags.includes(this.selectedTag));
-        }
+    // Apply search filter
+    const searchLower = this.searchTerm().trim().toLowerCase();
+    if (searchLower) {
+      filtered = filtered.filter(
+        (post) =>
+          post.title.toLowerCase().includes(searchLower) ||
+          post.description.toLowerCase().includes(searchLower) ||
+          (post.tags && post.tags.some((tag) => tag.toLowerCase().includes(searchLower))),
+      );
+    }
 
-        // Apply search filter
-        if (this.searchTerm.trim()) {
-          const searchLower = this.searchTerm.toLowerCase();
-          filtered = filtered.filter(
-            (post) =>
-              post.title.toLowerCase().includes(searchLower) ||
-              post.description.toLowerCase().includes(searchLower) ||
-              (post.tags && post.tags.some((tag) => tag.toLowerCase().includes(searchLower))),
-          );
-        }
+    return filtered;
+  });
 
-        return filtered;
-      }),
-    );
-  }
+  constructor(private readonly blogService: BlogService) {}
 
   filterByTag(tag: string): void {
-    this.selectedTag = tag;
-    this.filterPosts();
+    this.selectedTag.set(tag);
   }
 
   filterByPinned(showPinned: boolean): void {
-    this.showPinned = showPinned;
-    this.filterPosts();
+    this.showPinned.set(showPinned);
   }
 }

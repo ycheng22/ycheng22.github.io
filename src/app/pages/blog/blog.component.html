@@ -3,12 +3,10 @@
   <div class="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white">
     <div class="container-custom py-16">
       <div class="max-w-4xl mx-auto text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">
-          Technical Blog
-        </h1>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">Technical Blog</h1>
         <p class="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-          Insights, tutorials, and thoughts on software engineering, web development, and modern technologies. 
-          Join me as I share my experiences and learnings.
+          Insights, tutorials, and thoughts on software engineering, web development, and modern
+          technologies. Join me as I share my experiences and learnings.
         </p>
       </div>
     </div>
@@ -21,39 +19,49 @@
         <!-- Search Bar -->
         <div class="flex-1 max-w-md">
           <div class="relative">
-            <input type="text" 
-                   [(ngModel)]="searchTerm"
-                   (input)="filterPosts()"
-                   placeholder="Search posts..."
-                   class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-            <svg class="absolute left-4 top-3.5 h-5 w-5 text-gray-400" 
-                 fill="none" 
-                 stroke="currentColor" 
-                 viewBox="0 0 24 24">
-              <path stroke-linecap="round" 
-                    stroke-linejoin="round" 
-                    stroke-width="2" 
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            <input
+              type="text"
+              [value]="searchTerm()"
+              (input)="searchTerm.set($any($event).target.value)"
+              placeholder="Search posts..."
+              class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+            <svg
+              class="absolute left-4 top-3.5 h-5 w-5 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
             </svg>
           </div>
         </div>
 
         <!-- Filter Buttons -->
         <div class="flex gap-3">
-          <button (click)="filterByPinned(true)"
-                  [class.bg-blue-600]="showPinned"
-                  [class.text-white]="showPinned"
-                  [class.bg-gray-100]="!showPinned"
-                  [class.text-gray-700]="!showPinned"
-                  class="px-4 py-3 rounded-lg font-medium transition-colors flex items-center gap-2">           
-                  📌 Pinned
+          <button
+            (click)="filterByPinned(true)"
+            [class.bg-blue-600]="showPinned()"
+            [class.text-white]="showPinned()"
+            [class.bg-gray-100]="!showPinned()"
+            [class.text-gray-700]="!showPinned()"
+            class="px-4 py-3 rounded-lg font-medium transition-colors flex items-center gap-2"
+          >
+            📌 Pinned
           </button>
-          <button (click)="filterByPinned(false)"
-                  [class.bg-blue-600]="!showPinned"
-                  [class.text-white]="!showPinned"
-                  [class.bg-gray-100]="showPinned"
-                  [class.text-gray-700]="showPinned"
-                  class="px-4 py-3 rounded-lg font-medium transition-colors">
+          <button
+            (click)="filterByPinned(false)"
+            [class.bg-blue-600]="!showPinned()"
+            [class.text-white]="!showPinned()"
+            [class.bg-gray-100]="showPinned()"
+            [class.text-gray-700]="showPinned()"
+            class="px-4 py-3 rounded-lg font-medium transition-colors"
+          >
             All Posts
           </button>
         </div>
@@ -66,23 +74,28 @@
     <div class="container-custom py-6">
       <div class="max-w-6xl mx-auto">
         <div class="flex flex-wrap gap-3 justify-center">
-          <button (click)="filterByTag('all')" 
-                  [class.bg-blue-600]="selectedTag === 'all'"
-                  [class.text-white]="selectedTag === 'all'"
-                  [class.bg-gray-100]="selectedTag !== 'all'"
-                  [class.text-gray-700]="selectedTag !== 'all'"
-                  class="px-4 py-2 rounded-lg font-medium transition-colors hover:bg-blue-100 hover:text-blue-800">
+          <button
+            (click)="filterByTag('all')"
+            [class.bg-blue-600]="selectedTag() === 'all'"
+            [class.text-white]="selectedTag() === 'all'"
+            [class.bg-gray-100]="selectedTag() !== 'all'"
+            [class.text-gray-700]="selectedTag() !== 'all'"
+            class="px-4 py-2 rounded-lg font-medium transition-colors hover:bg-blue-100 hover:text-blue-800"
+          >
             All
           </button>
-          <button *ngFor="let tag of availableTags$ | async" 
-                  (click)="filterByTag(tag)"
-                  [class.bg-blue-600]="selectedTag === tag"
-                  [class.text-white]="selectedTag === tag"
-                  [class.bg-gray-100]="selectedTag !== tag"
-                  [class.text-gray-700]="selectedTag !== tag"
-                  class="px-4 py-2 rounded-lg font-medium transition-colors hover:bg-blue-100 hover:text-blue-800">
+          @for (tag of availableTags(); track tag) {
+          <button
+            (click)="filterByTag(tag)"
+            [class.bg-blue-600]="selectedTag() === tag"
+            [class.text-white]="selectedTag() === tag"
+            [class.bg-gray-100]="selectedTag() !== tag"
+            [class.text-gray-700]="selectedTag() !== tag"
+            class="px-4 py-2 rounded-lg font-medium transition-colors hover:bg-blue-100 hover:text-blue-800"
+          >
             {{ tag }}
           </button>
+          }
         </div>
       </div>
     </div>
@@ -91,53 +104,43 @@
   <!-- Blog Posts -->
   <div class="container-custom py-12">
     <div class="max-w-6xl mx-auto">
-
       <!-- Posts Grid -->
-      <div *ngIf="filteredPosts$ | async as posts; else loadingTemplate">
-        <div *ngIf="posts.length > 0; else noPostsTemplate" 
-             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <app-blog-card *ngFor="let post of posts" 
-                         [blogPost]="post">
-          </app-blog-card>
-        </div>
-        
-        <ng-template #noPostsTemplate>
-          <div class="text-center py-12">
-            <div class="flex justify-center mb-4">
-              <svg class="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-              </svg>
-              <svg class="w-10 h-10 text-orange-500 -ml-8 mt-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.84 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/>
-              </svg>
-            </div>
-            <h3 class="text-2xl font-semibold text-gray-900 mb-2">
-              No posts match your search
-            </h3>
-            <p class="text-gray-600 mb-6">
-              Try adjusting your search terms.
-            </p>
-          </div>
-        </ng-template>
+      @if (filteredPosts(); as posts) { @if (posts.length > 0) {
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        @for (post of posts; track post.slug) {
+        <app-blog-card [blogPost]="post"></app-blog-card>
+        }
       </div>
-
-      <ng-template #loadingTemplate>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div *ngFor="let i of [1,2,3,4,5,6]" class="card animate-pulse">
-            <div class="h-4 bg-gray-200 rounded mb-3"></div>
-            <div class="h-3 bg-gray-200 rounded mb-2"></div>
-            <div class="h-3 bg-gray-200 rounded mb-4"></div>
-            <div class="h-3 bg-gray-200 rounded w-1/2"></div>
-          </div>
+      } @else {
+      <div class="text-center py-12">
+        <div class="flex justify-center mb-4">
+          <svg
+            class="w-16 h-16 text-gray-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            />
+          </svg>
+          <svg class="w-10 h-10 text-orange-500 -ml-8 mt-6" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.84 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"
+            />
+          </svg>
         </div>
-      </ng-template>
+        <h3 class="text-2xl font-semibold text-gray-900 mb-2">No posts match your search</h3>
+        <p class="text-gray-600 mb-6">Try adjusting your search terms.</p>
+      </div>
+      } }
 
       <!-- Load More Button (if needed in future) -->
-      <div *ngIf="(filteredPosts$ | async) as posts" 
-           class="text-center mt-12">
-        <p class="text-gray-600">
-          Showing {{ posts.length }} posts
-        </p>
+      <div class="text-center mt-12">
+        <p class="text-gray-600">Showing {{ filteredPosts().length }} posts</p>
       </div>
     </div>
   </div>

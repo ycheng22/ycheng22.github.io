@@ -1,37 +1,34 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, computed, effect, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
-import { BlogService } from '../../services/blog.service';
-import { BlogPost } from '../../models/blog-post.model';
+import { map } from 'rxjs/operators';
 import { BlogPostComponent } from '../../components/blog-post/blog-post.component';
+import { BlogService } from '../../services/blog.service';
 
 @Component({
   selector: 'app-blog-post-page',
   standalone: true,
   imports: [CommonModule, RouterModule, BlogPostComponent],
   templateUrl: './blog-post.component.html',
-  styleUrls: ['./blog-post.component.scss']
+  styleUrls: ['./blog-post.component.scss'],
 })
-export class BlogPostPageComponent implements OnInit {
-  blogPost$: Observable<BlogPost | undefined>;
-  postNotFound = false;
+export class BlogPostPageComponent {
+  readonly postNotFound = signal(false);
 
-  constructor(
-    private readonly route: ActivatedRoute,
-    private readonly blogService: BlogService
-  ) {
-    this.blogPost$ = this.route.params.pipe(
-      map(params => params['slug']),
-      switchMap(slug => this.blogService.getPostBySlug(slug))
-    );
-  }
+  private readonly slugSignal = toSignal(this.route.params.pipe(map((params) => params['slug'])), {
+    initialValue: '',
+  });
 
-  ngOnInit(): void {
-    this.blogPost$.subscribe(post => {
-      this.postNotFound = post === undefined;
+  readonly blogPost = computed(() => {
+    const slug = this.slugSignal();
+    if (!slug) return undefined;
+    return this.blogService.getPostBySlug(slug)();
+  });
+
+  constructor(private readonly route: ActivatedRoute, private readonly blogService: BlogService) {
+    effect(() => {
+      this.postNotFound.set(this.blogPost() === undefined);
     });
   }
 }
-

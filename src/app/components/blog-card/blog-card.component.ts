@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { BlogPost } from '../../models/blog-post.model';
 
@@ -8,7 +8,7 @@ import { BlogPost } from '../../models/blog-post.model';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './blog-card.component.html',
-  styleUrls: ['./blog-card.component.scss']
+  styleUrls: ['./blog-card.component.scss'],
 })
 export class BlogCardComponent {
   @Input() blogPost!: BlogPost;
@@ -21,7 +21,7 @@ export class BlogCardComponent {
     return date.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'short',
-      day: 'numeric'
+      day: 'numeric',
     });
   }
 
@@ -32,7 +32,7 @@ export class BlogCardComponent {
   getBlogIcon(): string {
     const icons = ['💻', '🚀', '⚡', '🔧', '📚', '🌟', '🎯', '💡'];
     const hash = this.blogPost.slug.split('').reduce((a, b) => {
-      a = ((a << 5) - a) + b.charCodeAt(0);
+      a = (a << 5) - a + b.charCodeAt(0);
       return a & a;
     }, 0);
     return icons[Math.abs(hash) % icons.length];
