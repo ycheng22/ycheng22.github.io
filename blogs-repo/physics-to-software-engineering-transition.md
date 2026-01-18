@@ -5,6 +5,7 @@ date: '2024-01-05'
 tags: ['career', 'transition', 'physics', 'software-engineering', 'personal']
 background: '/blogs-repo/images/test_img.png'
 pinned: true
+numberOfLike: 128
 author: 'Cheng'
 ---
 

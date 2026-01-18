@@ -7,6 +7,7 @@ export interface BlogPost {
   tags: string[];
   pinned: boolean;
   author: string;
+  numberOfLike?: number;
   readingTime?: number;
   background?: string;
 }
@@ -18,5 +19,6 @@ export interface BlogPostMetadata {
   tags: string[];
   pinned: boolean;
   author: string;
+  numberOfLike?: number;
   background?: string;
 }

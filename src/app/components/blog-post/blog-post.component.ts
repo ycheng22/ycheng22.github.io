@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
 import { BlogPost } from '../../models/blog-post.model';
@@ -12,9 +12,17 @@ import { ScrollNavigationComponent } from '../scroll-navigation/scroll-navigatio
   templateUrl: './blog-post.component.html',
   styleUrls: ['./blog-post.component.scss'],
 })
-export class BlogPostComponent implements AfterViewInit {
+export class BlogPostComponent implements AfterViewInit, OnInit {
   @Input() blogPost!: BlogPost;
   @ViewChild('markdownContent', { static: false }) markdownContent!: ElementRef;
+
+  isLiked = false;
+  showShareMessage = false;
+  likesCount = 0;
+
+  ngOnInit() {
+    this.likesCount = this.blogPost?.numberOfLike || 0;
+  }
 
   formatDate(dateString: string): string {
     const date = new Date(dateString);
@@ -110,5 +118,27 @@ export class BlogPostComponent implements AfterViewInit {
       document.execCommand('copy');
       document.body.removeChild(textarea);
     }
+  }
+
+  async onShare() {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      this.showShareMessage = true;
+      setTimeout(() => {
+        this.showShareMessage = false;
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy link:', err);
+    }
+  }
+
+  onLike() {
+    this.isLiked = !this.isLiked;
+    if (this.isLiked) {
+      this.likesCount++;
+    } else {
+      this.likesCount--;
+    }
+    // Note: In a real app, you would call a service to persist this to a database
   }
 }

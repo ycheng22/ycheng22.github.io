@@ -84,6 +84,7 @@ export class BlogService {
       tags: [],
       pinned: false,
       author: 'Cheng',
+      numberOfLike: 0,
       background: '/blogs-repo/images/default_img.png',
     };
 
@@ -154,6 +155,7 @@ export class BlogService {
       tags: metadata.tags || [],
       pinned: metadata.pinned,
       author: metadata.author,
+      numberOfLike: metadata.numberOfLike || 0,
       readingTime,
       background:
         metadata.background && !metadata.background.includes('default_img')
@@ -164,89 +166,6 @@ export class BlogService {
     // console.log(`[${filename}] Final BlogPost:`, result);
     return result;
   }
-
-  // private parseMarkdownFile(filename: string, content: string): BlogPost {
-  //   const slug = filename.replace('.md', '');
-  //   const lines = content.split('\n');
-
-  //   // Extract frontmatter
-  //   let metadata: BlogPostMetadata = {
-  //     title: slug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase()),
-  //     description: '',
-  //     date: new Date().toISOString(),
-  //     tags: [],
-  //     pinned: false,
-  //     author: 'Cheng',
-  //   };
-
-  //   if (lines[0] === '---') {
-  //     const frontmatterEnd = lines.findIndex((line, index) => index > 0 && line === '---');
-  //     if (frontmatterEnd > 0) {
-  //       const frontmatterLines = lines.slice(1, frontmatterEnd);
-  //       const frontmatterContent = frontmatterLines.join('\n');
-  //       console.log(`[${filename}] Frontmatter content:`, frontmatterContent);
-
-  //       try {
-  //         // Simple frontmatter parser
-  //         const frontmatter = this.parseFrontmatter(frontmatterContent);
-  //         console.log(`[${filename}] Parsed frontmatter:`, frontmatter);
-  //         metadata = { ...metadata, ...frontmatter };
-  //       } catch (error) {
-  //         console.warn('Error parsing frontmatter:', error);
-  //       }
-  //     }
-  //   }
-
-  //   // Extract content (everything after frontmatter)
-  //   const contentStart =
-  //     lines[0] === '---' ? lines.findIndex((line, index) => index > 0 && line === '---') + 1 : 0;
-  //   const markdownContent = lines.slice(contentStart).join('\n');
-
-  //   // Generate description if not provided in frontmatter
-  //   let description = metadata.description;
-  //   if (!description || description.trim() === '') {
-  //     // Extract first paragraph or first few sentences as description
-  //     const cleanContent = markdownContent
-  //       .replace(/^#+\s+/gm, '') // Remove markdown headers
-  //       .replace(/\*\*(.*?)\*\*/g, '$1') // Remove bold formatting
-  //       .replace(/\*(.*?)\*/g, '$1') // Remove italic formatting
-  //       .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Remove markdown links
-  //       .replace(/`([^`]+)`/g, '$1') // Remove inline code
-  //       .replace(/\n+/g, ' ') // Replace newlines with spaces
-  //       .trim();
-
-  //     // Take first 150 characters and ensure it ends at a sentence
-  //     description = cleanContent.substring(0, 150);
-  //     const lastSentenceEnd = Math.max(
-  //       description.lastIndexOf('.'),
-  //       description.lastIndexOf('!'),
-  //       description.lastIndexOf('?'),
-  //     );
-  //     if (lastSentenceEnd > 50) {
-  //       description = description.substring(0, lastSentenceEnd + 1);
-  //     } else {
-  //       description = description + '...';
-  //     }
-  //   }
-
-  //   // Calculate reading time (average 200 words per minute)
-  //   const wordCount = markdownContent.split(/\s+/).length;
-  //   const readingTime = Math.ceil(wordCount / 200);
-
-  //   const result = {
-  //     slug,
-  //     title: metadata.title,
-  //     description: description,
-  //     content: markdownContent,
-  //     date: metadata.date,
-  //     tags: metadata.tags || [],
-  //     pinned: metadata.pinned,
-  //     author: metadata.author,
-  //     readingTime,
-  //   };
-  //   console.log(`[${filename}] Final BlogPost:`, result);
-  //   return result;
-  // }
 
   private parseFrontmatter(content: string): Partial<BlogPostMetadata> {
     const metadata: Partial<BlogPostMetadata> = {};
@@ -305,6 +224,9 @@ export class BlogService {
           case 'author':
             metadata.author = value.replace(/['"]/g, '');
             break;
+          case 'numberoflike':
+            metadata.numberOfLike = parseInt(value.replace(/['"]/g, ''), 10) || 0;
+            break;
           case 'background':
             metadata.background = value.replace(/['"]/g, '');
             break;
@@ -326,6 +248,7 @@ export class BlogService {
       tags: [],
       pinned: false,
       author: 'Cheng',
+      numberOfLike: 0,
       readingTime: 1,
       background: '../../../../blogs-repo/images/default_img.png',
     };
