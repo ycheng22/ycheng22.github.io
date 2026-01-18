@@ -8,6 +8,7 @@ export interface BlogPost {
   pinned: boolean;
   author: string;
   readingTime?: number;
+  background?: string;
 }
 
 export interface BlogPostMetadata {
@@ -17,5 +18,5 @@ export interface BlogPostMetadata {
   tags: string[];
   pinned: boolean;
   author: string;
+  background?: string;
 }
-

@@ -84,6 +84,7 @@ export class BlogService {
       tags: [],
       pinned: false,
       author: 'Cheng',
+      background: '/blogs-repo/images/default_img.png',
     };
 
     // FIX: Use .trim() to ensure we match '---' even if there are invisible chars
@@ -154,6 +155,10 @@ export class BlogService {
       pinned: metadata.pinned,
       author: metadata.author,
       readingTime,
+      background:
+        metadata.background && !metadata.background.includes('default_img')
+          ? `${metadata.background}`
+          : '/blogs-repo/images/default_img.png',
     };
 
     // console.log(`[${filename}] Final BlogPost:`, result);
@@ -300,6 +305,9 @@ export class BlogService {
           case 'author':
             metadata.author = value.replace(/['"]/g, '');
             break;
+          case 'background':
+            metadata.background = value.replace(/['"]/g, '');
+            break;
         }
       }
     });
@@ -319,6 +327,7 @@ export class BlogService {
       pinned: false,
       author: 'Cheng',
       readingTime: 1,
+      background: '../../../../blogs-repo/images/default_img.png',
     };
   }
 

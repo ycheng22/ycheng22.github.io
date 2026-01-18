@@ -1,10 +1,11 @@
 ---
-title: "From Physics to Software Engineering: My Career Transition"
-description: "Reflecting on my journey from a Ph.D. in Physics to becoming a software engineer, and the valuable skills that transferred between fields."
-date: "2024-01-05"
-tags: ["career", "transition", "physics", "software-engineering", "personal"]
+title: 'From Physics to Software Engineering: My Career Transition'
+description: 'Reflecting on my journey from a Ph.D. in Physics to becoming a software engineer, and the valuable skills that transferred between fields.'
+date: '2024-01-05'
+tags: ['career', 'transition', 'physics', 'software-engineering', 'personal']
+background: '/blogs-repo/images/test_img.png'
 pinned: true
-author: "Cheng"
+author: 'Cheng'
 ---
 
 # From Physics to Software Engineering: My Career Transition
@@ -34,28 +35,36 @@ This realization led me to pursue a Master's in Computer Science at Georgia Tech
 ## Skills That Transferred
 
 ### 1. Mathematical Thinking
+
 Physics taught me to think in terms of mathematical models and abstractions. This translates directly to:
+
 - Algorithm design and analysis
 - Understanding computational complexity
 - Data structure optimization
 - System architecture design
 
 ### 2. Problem-Solving Approach
+
 Physics research involves breaking down complex problems into manageable components:
+
 - **Hypothesis Formation**: Similar to requirement gathering
 - **Experimental Design**: Like designing test cases
 - **Data Analysis**: Translates to debugging and performance optimization
 - **Iterative Improvement**: Continuous refinement of solutions
 
 ### 3. Research Skills
+
 The ability to learn new concepts quickly and deeply:
+
 - Reading technical documentation
 - Understanding complex systems
 - Staying current with technology trends
 - Independent learning and self-teaching
 
 ### 4. Programming Experience
+
 My physics research involved significant programming:
+
 - Python for data analysis and visualization
 - Parallel computing on clusters
 - Algorithm implementation
@@ -64,21 +73,27 @@ My physics research involved significant programming:
 ## Challenges I Faced
 
 ### 1. Industry Knowledge Gap
+
 While I had strong technical skills, I lacked industry-specific knowledge:
+
 - Software development methodologies (Agile, Scrum)
 - Industry best practices and design patterns
 - Business context and user experience considerations
 - Team collaboration tools and processes
 
 ### 2. Technology Stack Learning
+
 I needed to learn technologies not commonly used in academic research:
+
 - Web development frameworks (Angular, .NET)
 - Cloud platforms (AWS)
 - DevOps practices and tools
 - Database design and optimization
 
 ### 3. Career Transition
+
 Moving from academia to industry required:
+
 - Building a professional network
 - Understanding different career paths
 - Developing soft skills for corporate environments
@@ -87,21 +102,27 @@ Moving from academia to industry required:
 ## How I Bridged the Gap
 
 ### 1. Formal Education
+
 Georgia Tech's Computer Science program provided:
+
 - Structured learning of core CS concepts
 - Exposure to industry-relevant technologies
 - Networking opportunities with industry professionals
 - Capstone projects with real-world applications
 
 ### 2. Hands-on Projects
+
 I built several projects to demonstrate my skills:
+
 - Web applications using modern frameworks
 - Cloud-based solutions with AWS
 - Data analysis and visualization tools
 - Open-source contributions
 
 ### 3. Continuous Learning
+
 I maintained a learning mindset:
+
 - Online courses and certifications
 - Technical blogs and documentation
 - Conference attendance and networking
@@ -110,6 +131,7 @@ I maintained a learning mindset:
 ## Current Role: Software Engineer
 
 Today, I work as a Software Engineer at American Credit Acceptance, where I:
+
 - Build micro-frontend applications used by 300+ agents
 - Develop full-stack solutions with .NET and Angular
 - Implement CI/CD pipelines and DevOps practices
@@ -118,18 +140,23 @@ Today, I work as a Software Engineer at American Credit Acceptance, where I:
 ## Lessons Learned
 
 ### 1. Embrace the Learning Curve
+
 Transitioning fields requires patience and persistence. Every new concept builds on previous knowledge.
 
 ### 2. Leverage Transferable Skills
+
 Don't underestimate the value of skills from your previous field. Mathematical thinking, problem-solving, and research skills are highly valuable in software engineering.
 
 ### 3. Build a Portfolio
+
 Practical experience matters more than theoretical knowledge. Build projects that demonstrate your capabilities.
 
 ### 4. Network and Seek Mentorship
+
 Connect with professionals in your target field. Their guidance can accelerate your learning and career growth.
 
 ### 5. Stay Curious
+
 The technology landscape changes rapidly. Maintain a curious mindset and continuous learning habit.
 
 ## Advice for Career Changers

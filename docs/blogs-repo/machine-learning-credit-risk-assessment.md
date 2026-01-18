@@ -1,10 +1,11 @@
 ---
-title: "Machine Learning for Credit Risk Assessment: A Practical Approach"
-description: "Exploring how machine learning algorithms can be used to predict credit default risk, with practical implementation examples and performance comparisons."
-date: "2023-12-20"
-tags: ["machine-learning", "credit-risk", "python", "data-science", "finance"]
+title: 'Machine Learning for Credit Risk Assessment: A Practical Approach'
+description: 'Exploring how machine learning algorithms can be used to predict credit default risk, with practical implementation examples and performance comparisons.'
+date: '2023-12-20'
+tags: ['machine-learning', 'credit-risk', 'python', 'data-science', 'finance']
+background: 'test_image.png'
 pinned: false
-author: "Cheng"
+author: 'Cheng'
 ---
 
 # Machine Learning for Credit Risk Assessment: A Practical Approach
@@ -18,6 +19,7 @@ Credit risk refers to the potential loss that a lender faces when a borrower fai
 ## Dataset Overview
 
 For this project, I used a synthetic credit dataset with the following features:
+
 - **Demographic**: Age, income, employment length
 - **Financial**: Debt-to-income ratio, credit utilization
 - **Historical**: Payment history, number of accounts
@@ -37,17 +39,17 @@ def handle_missing_values(df):
     missing_data = df.isnull().sum()
     print("Missing values per column:")
     print(missing_data[missing_data > 0])
-    
+
     # Use KNN imputation for numerical features
     numerical_features = df.select_dtypes(include=[np.number]).columns
     imputer = KNNImputer(n_neighbors=5)
     df[numerical_features] = imputer.fit_transform(df[numerical_features])
-    
+
     # Use mode imputation for categorical features
     categorical_features = df.select_dtypes(include=['object']).columns
     for feature in categorical_features:
         df[feature].fillna(df[feature].mode()[0], inplace=True)
-    
+
     return df
 ```
 
@@ -57,22 +59,22 @@ def handle_missing_values(df):
 def create_features(df):
     # Create debt-to-income ratio
     df['debt_to_income'] = df['total_debt'] / df['annual_income']
-    
+
     # Create credit utilization ratio
     df['credit_utilization'] = df['credit_used'] / df['credit_limit']
-    
+
     # Create account age in years
     df['account_age_years'] = df['account_age_months'] / 12
-    
+
     # Create payment history score
     df['payment_score'] = (
-        df['on_time_payments'] / 
+        df['on_time_payments'] /
         (df['on_time_payments'] + df['late_payments'])
     )
-    
+
     # Create income stability score
     df['income_stability'] = df['employment_length'] / df['age']
-    
+
     return df
 ```
 
@@ -89,17 +91,17 @@ def prepare_data(df, target_column='default'):
     # Separate features and target
     X = df.drop(target_column, axis=1)
     y = df[target_column]
-    
+
     # Split the data
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2, random_state=42, stratify=y
     )
-    
+
     # Scale the features
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
-    
+
     return X_train_scaled, X_test_scaled, y_train, y_test, scaler
 ```
 
@@ -122,24 +124,24 @@ def compare_models(X_train, X_test, y_train, y_test):
         'LightGBM': LGBMClassifier(random_state=42),
         'SVM': SVC(random_state=42, probability=True)
     }
-    
+
     results = {}
-    
+
     for name, model in models.items():
         # Train the model
         model.fit(X_train, y_train)
-        
+
         # Make predictions
         y_pred = model.predict(X_test)
         y_pred_proba = model.predict_proba(X_test)[:, 1]
-        
+
         # Calculate metrics
         accuracy = accuracy_score(y_test, y_pred)
         precision = precision_score(y_test, y_pred)
         recall = recall_score(y_test, y_pred)
         f1 = f1_score(y_test, y_pred)
         auc = roc_auc_score(y_test, y_pred_proba)
-        
+
         results[name] = {
             'accuracy': accuracy,
             'precision': precision,
@@ -147,14 +149,14 @@ def compare_models(X_train, X_test, y_train, y_test):
             'f1': f1,
             'auc': auc
         }
-        
+
         print(f"\n{name} Results:")
         print(f"Accuracy: {accuracy:.4f}")
         print(f"Precision: {precision:.4f}")
         print(f"Recall: {recall:.4f}")
         print(f"F1-Score: {f1:.4f}")
         print(f"AUC: {auc:.4f}")
-    
+
     return results
 ```
 
@@ -170,17 +172,17 @@ def tune_xgboost(X_train, y_train):
         'learning_rate': [0.01, 0.1, 0.2],
         'subsample': [0.8, 0.9, 1.0]
     }
-    
+
     xgb = XGBClassifier(random_state=42)
     grid_search = GridSearchCV(
         xgb, param_grid, cv=5, scoring='roc_auc', n_jobs=-1
     )
-    
+
     grid_search.fit(X_train, y_train)
-    
+
     print("Best parameters:", grid_search.best_params_)
     print("Best score:", grid_search.best_score_)
-    
+
     return grid_search.best_estimator_
 ```
 
@@ -194,14 +196,14 @@ from sklearn.metrics import roc_curve, auc
 
 def plot_roc_curves(models, X_test, y_test):
     plt.figure(figsize=(10, 8))
-    
+
     for name, model in models.items():
         y_pred_proba = model.predict_proba(X_test)[:, 1]
         fpr, tpr, _ = roc_curve(y_test, y_pred_proba)
         roc_auc = auc(fpr, tpr)
-        
+
         plt.plot(fpr, tpr, label=f'{name} (AUC = {roc_auc:.3f})')
-    
+
     plt.plot([0, 1], [0, 1], 'k--', label='Random Classifier')
     plt.xlim([0.0, 1.0])
     plt.ylim([0.0, 1.05])
@@ -218,7 +220,7 @@ def plot_roc_curves(models, X_test, y_test):
 def plot_feature_importance(model, feature_names):
     importance = model.feature_importances_
     indices = np.argsort(importance)[::-1]
-    
+
     plt.figure(figsize=(10, 8))
     plt.title("Feature Importance")
     plt.bar(range(len(importance)), importance[indices])
@@ -243,28 +245,28 @@ class CreditRiskPredictor:
             'age', 'annual_income', 'debt_to_income', 'credit_utilization',
             'payment_score', 'income_stability', 'account_age_years'
         ]
-    
+
     def predict(self, data):
         # Ensure data is in correct format
         if isinstance(data, dict):
             data = pd.DataFrame([data])
-        
+
         # Select and order features
         data = data[self.feature_names]
-        
+
         # Scale the data
         data_scaled = self.scaler.transform(data)
-        
+
         # Make prediction
         probability = self.model.predict_proba(data_scaled)[:, 1]
         prediction = self.model.predict(data_scaled)
-        
+
         return {
             'prediction': prediction[0],
             'probability': probability[0],
             'risk_level': self._get_risk_level(probability[0])
         }
-    
+
     def _get_risk_level(self, probability):
         if probability < 0.3:
             return 'Low Risk'
@@ -302,12 +304,12 @@ After training and evaluating multiple models, here are the key findings:
 
 ### Model Performance Comparison
 
-| Model | Accuracy | Precision | Recall | F1-Score | AUC |
-|-------|----------|-----------|--------|----------|-----|
-| Logistic Regression | 0.8234 | 0.7891 | 0.7456 | 0.7668 | 0.8567 |
-| Random Forest | 0.8456 | 0.8123 | 0.7891 | 0.8005 | 0.8923 |
-| XGBoost | 0.8567 | 0.8234 | 0.8012 | 0.8121 | 0.9012 |
-| LightGBM | 0.8523 | 0.8198 | 0.7956 | 0.8076 | 0.8967 |
+| Model               | Accuracy | Precision | Recall | F1-Score | AUC    |
+| ------------------- | -------- | --------- | ------ | -------- | ------ |
+| Logistic Regression | 0.8234   | 0.7891    | 0.7456 | 0.7668   | 0.8567 |
+| Random Forest       | 0.8456   | 0.8123    | 0.7891 | 0.8005   | 0.8923 |
+| XGBoost             | 0.8567   | 0.8234    | 0.8012 | 0.8121   | 0.9012 |
+| LightGBM            | 0.8523   | 0.8198    | 0.7956 | 0.8076   | 0.8967 |
 
 ### Key Insights
 
@@ -319,21 +321,25 @@ After training and evaluating multiple models, here are the key findings:
 ## Best Practices
 
 ### 1. Data Quality
+
 - Ensure data completeness and accuracy
 - Handle outliers appropriately
 - Validate data distributions
 
 ### 2. Model Validation
+
 - Use stratified sampling for imbalanced datasets
 - Implement cross-validation
 - Monitor for data drift
 
 ### 3. Ethical Considerations
+
 - Avoid discriminatory features
 - Ensure model fairness across demographic groups
 - Maintain transparency in decision-making
 
 ### 4. Production Considerations
+
 - Implement model monitoring
 - Set up automated retraining pipelines
 - Maintain model versioning
