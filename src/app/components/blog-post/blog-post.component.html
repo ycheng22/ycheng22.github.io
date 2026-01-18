@@ -1,4 +1,7 @@
 <article class="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+  <!-- Scroll Navigation Component -->
+  <app-scroll-navigation></app-scroll-navigation>
+
   <!-- Header -->
   <header class="mb-12 text-center">
     <h1 class="text-5xl font-bold text-gray-900 leading-tight mb-6">
@@ -63,12 +66,13 @@
     </div>
 
     <div class="flex flex-wrap justify-center gap-2">
+      @for (tag of blogPost.tags; track tag) {
       <span
-        *ngFor="let tag of blogPost.tags"
         class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-200"
       >
         #{{ tag }}
       </span>
+      }
     </div>
   </header>
 

@@ -1,0 +1,49 @@
+<ng-container *ngIf="showScrollButtons">
+  <div class="fixed right-8 bottom-8 flex flex-col gap-3 z-50 animate-fade-in">
+    <!-- Scroll to Top Button -->
+    <button
+      (click)="scrollToTop()"
+      class="group relative w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center justify-center"
+      title="Back to Top"
+    >
+      <svg
+        class="w-6 h-6 group-hover:-translate-y-1 transition-transform"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V15a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"
+          clip-rule="evenodd"
+        />
+      </svg>
+      <span
+        class="absolute right-full mr-3 bg-gray-900 text-white text-xs px-3 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+        >Top</span
+      >
+    </button>
+
+    <!-- Scroll to Bottom Button -->
+    <button
+      (click)="scrollToBottom()"
+      class="group relative w-14 h-14 bg-gradient-to-br from-indigo-500 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center justify-center"
+      title="Go to Bottom"
+    >
+      <svg
+        class="w-6 h-6 group-hover:translate-y-1 transition-transform"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V5a1 1 0 012 0v9.586l4.293-4.293a1 1 0 011.414 0z"
+          clip-rule="evenodd"
+        />
+      </svg>
+      <span
+        class="absolute right-full mr-3 bg-gray-900 text-white text-xs px-3 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+        >Bottom</span
+      >
+    </button>
+  </div>
+</ng-container>
