@@ -161,6 +161,7 @@ export class BlogService {
         metadata.background && !metadata.background.includes('default_img')
           ? `${metadata.background}`
           : '/blogs-repo/images/default_img.png',
+      showBackground: metadata.showBackground || false,
     };
 
     // console.log(`[${filename}] Final BlogPost:`, result);
@@ -229,6 +230,11 @@ export class BlogService {
             break;
           case 'background':
             metadata.background = value.replace(/['"]/g, '');
+            break;
+          case 'showbackground':
+            // Handle boolean: true, false, "true", "false", True, False, etc.
+            const bgValue = value.replace(/['"]/g, '').toLowerCase().trim();
+            metadata.showBackground = bgValue === 'true';
             break;
         }
       }

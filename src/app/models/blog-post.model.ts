@@ -10,6 +10,7 @@ export interface BlogPost {
   numberOfLike?: number;
   readingTime?: number;
   background?: string;
+  showBackground?: boolean;
 }
 
 export interface BlogPostMetadata {
@@ -21,4 +22,5 @@ export interface BlogPostMetadata {
   author: string;
   numberOfLike?: number;
   background?: string;
+  showBackground?: boolean;
 }

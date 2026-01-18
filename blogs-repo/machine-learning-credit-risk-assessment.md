@@ -4,10 +4,12 @@ description: 'Exploring how machine learning algorithms can be used to predict c
 date: '2023-12-20'
 tags: ['machine-learning', 'credit-risk', 'python', 'data-science', 'finance']
 background: ''
+showBackground: true
 pinned: false
 numberOfLike: 42
 author: 'Cheng'
 ---
+
 # Machine Learning for Credit Risk Assessment: A Practical Approach
 
 Credit risk assessment is a critical component of financial institutions' decision-making processes. Traditional statistical methods are being increasingly supplemented and replaced by machine learning algorithms that can identify complex patterns in borrower data. In this post, I'll explore how to build a credit risk assessment system using various ML algorithms.

@@ -4,6 +4,7 @@ description: 'Reflecting on my journey from a Ph.D. in Physics to becoming a sof
 date: '2024-01-05'
 tags: ['career', 'transition', 'physics', 'software-engineering', 'personal']
 background: '/blogs-repo/images/test_img.png'
+showBackground: true
 pinned: true
 numberOfLike: 128
 author: 'Cheng'

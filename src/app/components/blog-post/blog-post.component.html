@@ -1,6 +1,14 @@
-<article class="blog-post-container mx-auto py-8 px-4 sm:px-6 lg:px-8">
+<article class="blog-post-container mx-auto py-4 px-4 sm:px-6 lg:px-8">
   <!-- Scroll Navigation Component -->
   <app-scroll-navigation></app-scroll-navigation>
+
+  <!-- Background Image -->
+  @if (blogPost.showBackground && blogPost.background) {
+  <div
+    class="blog-post-background rounded-lg overflow-hidden shadow-lg"
+    [style.backgroundImage]="'url(' + blogPost.background + ')'"
+  ></div>
+  }
 
   <!-- Header -->
   <header class="mb-12 text-center">
