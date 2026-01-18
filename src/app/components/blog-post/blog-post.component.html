@@ -1,4 +1,4 @@
-<article class="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+<article class="blog-post-container mx-auto py-8 px-4 sm:px-6 lg:px-8">
   <!-- Scroll Navigation Component -->
   <app-scroll-navigation></app-scroll-navigation>
 
@@ -77,7 +77,7 @@
   </header>
 
   <!-- Content -->
-  <div class="markdown-content">
+  <div class="markdown-content" #markdownContent>
     <markdown [data]="blogPost.content"> </markdown>
   </div>
 
