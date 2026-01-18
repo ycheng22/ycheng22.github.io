@@ -32,6 +32,11 @@
                 "glob": "**/*",
                 "input": "blogs-repo",
                 "output": "/blogs-repo"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/app/img",
+                "output": "/img"
               }
             ],
             "styles": [
