@@ -32,11 +32,11 @@
   </div>
 
   <div [ngClass]="{ 'p-6': variant !== 'featured', 'p-0': variant === 'featured' }">
-    <!-- Tag -->
-    <div class="mb-3">
-      <span *ngIf="blogPost.tags.length > 0" 
+    <!-- Tags -->
+    <div class="mb-3 flex flex-wrap gap-2">
+      <span *ngFor="let tag of blogPost.tags" 
             class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-200 text-gray-700">
-        {{ blogPost.tags[0] }}
+        {{ tag }}
       </span>
     </div>
     

@@ -20,6 +20,7 @@ export class BlogComponent {
   availableTags$: Observable<string[]>;
   searchTerm = '';
   selectedTag = 'all';
+  showPinned = false;
 
   constructor(private readonly blogService: BlogService) {
     this.allPosts$ = this.blogService.blogPosts$;
@@ -28,7 +29,7 @@ export class BlogComponent {
     // Extract unique tags from all posts
     this.availableTags$ = this.allPosts$.pipe(
       map(posts => {
-        const allTags = posts.flatMap(post => post.tags);
+        const allTags = posts.flatMap(post => post.tags || []);
         return [...new Set(allTags)].sort();
       })
     );
@@ -39,10 +40,15 @@ export class BlogComponent {
       map(posts => {
         let filtered = posts;
         
+        // Apply pinned filter
+        if (this.showPinned) {
+          filtered = filtered.filter(post => post.pinned);
+        }
+        
         // Apply tag filter
         if (this.selectedTag !== 'all') {
           filtered = filtered.filter(post => 
-            post.tags.includes(this.selectedTag)
+            post.tags && post.tags.includes(this.selectedTag)
           );
         }
         
@@ -52,7 +58,7 @@ export class BlogComponent {
           filtered = filtered.filter(post => 
             post.title.toLowerCase().includes(searchLower) ||
             post.description.toLowerCase().includes(searchLower) ||
-            post.tags.some(tag => tag.toLowerCase().includes(searchLower))
+            (post.tags && post.tags.some(tag => tag.toLowerCase().includes(searchLower)))
           );
         }
         
@@ -63,6 +69,11 @@ export class BlogComponent {
 
   filterByTag(tag: string): void {
     this.selectedTag = tag;
+    this.filterPosts();
+  }
+
+  filterByPinned(showPinned: boolean = true): void {
+    this.showPinned = showPinned;
     this.filterPosts();
   }
 }

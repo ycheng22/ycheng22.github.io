@@ -165,7 +165,20 @@ export class BlogService {
             metadata.date = value.replace(/['"]/g, '');
             break;
           case 'tags':
-            metadata.tags = value.replace(/['"]/g, '').split(',').map(tag => tag.trim());
+            // Handle JSON array format: ["tag1", "tag2"] or comma-separated string: tag1, tag2
+            const trimmedValue = value.trim();
+            if (trimmedValue.startsWith('[') && trimmedValue.endsWith(']')) {
+              // JSON array format
+              try {
+                metadata.tags = JSON.parse(trimmedValue);
+              } catch (e) {
+                // Fallback to comma-separated parsing if JSON parse fails
+                metadata.tags = trimmedValue.replace(/[\[\]'"]/g, '').split(',').map(tag => tag.trim()).filter(tag => tag.length > 0);
+              }
+            } else {
+              // Comma-separated string format
+              metadata.tags = value.replace(/['"]/g, '').split(',').map(tag => tag.trim()).filter(tag => tag.length > 0);
+            }
             break;
           case 'pinned':
             metadata.pinned = value.toLowerCase() === 'true';
