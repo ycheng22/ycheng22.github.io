@@ -9,6 +9,7 @@ interface Experience {
   highlights: string[];
   tags: string[];
   icon: 'work' | 'research' | 'intern';
+  logo?: string;
 }
 
 @Component({
@@ -43,23 +44,25 @@ export class WorkExpComponent {
       role: 'Software Engineer',
       period: 'Jul 2022 – Current',
       highlights: [
-        'Architected a micro-frontend application used by 300+ agents, directly increasing loan collections and generating over $1M in business value.',
-        'Optimized and maintained a mobile payment application to streamline payment collection workflows, resulting in an additional $1M+ in business value.',
+        'Implemented a micro-frontend application used by <b>300+ agents</b>, directly increasing loan collections and generating over <b>$1.7M</b> in business value.',
+        'Optimized and maintained a mobile payment application to streamline payment collection workflows, resulting in an additional <b>$1.1M</b> in business value.',
         'Engineered a full-stack real-time dashboard to track agent performance, providing live, actionable feedback and custom coaching tips.',
       ],
-      tags: ['AWS', 'Angular', '.NET', 'SQL', 'CI/CD', 'Docker'],
+      tags: ['AWS', 'Angular', '.NET', 'SQL', 'CI/CD', 'Atlassian'],
       icon: 'work',
+      logo: '/img/aca_logo.png',
     },
     {
       company: 'University of Houston',
       role: 'Research Assistant',
       period: 'May 2017 – May 2022',
       highlights: [
-        'Engineered a Python-based solution to reconstruct protein phases from X-ray crystallography data using iterative direct phasing methods.',
-        'Orchestrated high-performance computing scripts on computer clusters, significantly improving convergence rates by implementing a novel data weighting strategy.',
+        'Developed a Python-based solution to reconstruct protein phases from X-ray crystallography data using iterative direct phasing methods.',
+        'Orchestrated high-performance computing scripts on computer clusters.',
       ],
-      tags: ['Python', 'HPC', 'Data Analysis'],
+      tags: ['Python', 'Matlab', 'HPC', 'Linux'],
       icon: 'research',
+      logo: '/img/uh_logo.png',
     },
     {
       company: 'Accenture',
@@ -69,8 +72,9 @@ export class WorkExpComponent {
         'Implemented a risk-based security assessment for power networks, designing automated alert systems for critical risk thresholds.',
         'Utilized Monte Carlo simulations to model stochastic load variations, accurately calculating security indices under iterative random load conditions.',
       ],
-      tags: ['Security', 'Monte Carlo', 'Modeling'],
+      tags: ['Python', 'Simulation'],
       icon: 'intern',
+      logo: '/img/accenture_logo.png',
     },
   ];
 }
