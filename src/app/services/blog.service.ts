@@ -43,6 +43,13 @@ export class BlogService {
       }),
       catchError((error) => {
         console.error('Error fetching local blog index:', error);
+        console.error('Failed URL:', localIndexUrl);
+        console.error('Error details:', {
+          status: error?.status,
+          statusText: error?.statusText,
+          message: error?.message,
+          url: error?.url
+        });
         return of([]);
       }),
     );
@@ -84,6 +91,13 @@ export class BlogService {
       }),
       catchError((error) => {
         console.error(`Error fetching content for ${file.name}:`, error);
+        console.error('Failed URL:', contentUrl);
+        console.error('Error details:', {
+          status: error?.status,
+          statusText: error?.statusText,
+          message: error?.message,
+          url: error?.url
+        });
         return of(this.createEmptyBlogPost(file.name));
       }),
     );

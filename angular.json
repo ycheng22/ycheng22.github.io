@@ -37,6 +37,11 @@
                 "glob": "**/*",
                 "input": "src/app/img",
                 "output": "/img"
+              },
+              {
+                "glob": ".nojekyll",
+                "input": ".",
+                "output": "/"
               }
             ],
             "styles": [
