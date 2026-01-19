@@ -1,5 +1,5 @@
 ---
-title: 'Machine Learning for Credit Risk Assessment: A Practical Approach'
+title: '[TEST] Machine Learning for Credit Risk Assessment: A Practical Approach'
 description: 'Exploring how machine learning algorithms can be used to predict credit default risk, with practical implementation examples and performance comparisons.'
 date: '2023-12-20'
 tags: ['machine-learning', 'credit-risk', 'python', 'data-science', 'finance']

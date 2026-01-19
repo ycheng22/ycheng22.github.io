@@ -5,7 +5,7 @@
   <!-- Background Image -->
   @if (blogPost.showBackground && blogPost.background) {
   <div
-    class="blog-post-background rounded-lg overflow-hidden shadow-lg"
+    class="blog-post-background rounded-lg max-h-96 overflow-hidden shadow-lg"
     [style.backgroundImage]="'url(' + blogPost.background + ')'"
   ></div>
   }
