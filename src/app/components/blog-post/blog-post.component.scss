@@ -33,7 +33,8 @@
   }
 }
 
-:host ::ng-deep .markdown-content {
+:host ::ng-deep .markdown-content,
+:host ::ng-deep .notebook-content {
   max-width: none;
   color: #374151;
   line-height: 1.7;

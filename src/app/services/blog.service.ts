@@ -62,7 +62,26 @@ export class BlogService {
     const contentUrl = file.download_url;
 
     return this.http.get(contentUrl, { responseType: 'text' }).pipe(
-      map((content) => this.parseMarkdownFile(file.name, content)),
+      switchMap((content) => {
+        const blogPost = this.parseMarkdownFile(file.name, content);
+        
+        // If it's a notebook, load the .ipynb file
+        if (blogPost.isNotebook) {
+          const notebookUrl = contentUrl.replace('.md', '.ipynb');
+          return this.http.get(notebookUrl, { responseType: 'json' }).pipe(
+            map((notebookData) => ({
+              ...blogPost,
+              notebookData: notebookData
+            })),
+            catchError((error) => {
+              console.error(`Error fetching notebook for ${file.name}:`, error);
+              return of(blogPost); // Return blog post without notebook data
+            })
+          );
+        }
+        
+        return of(blogPost);
+      }),
       catchError((error) => {
         console.error(`Error fetching content for ${file.name}:`, error);
         return of(this.createEmptyBlogPost(file.name));
@@ -162,6 +181,7 @@ export class BlogService {
           ? `${metadata.background}`
           : '/blogs-repo/images/default_img.png',
       showBackground: metadata.showBackground || false,
+      isNotebook: metadata.isNotebook || false,
     };
 
     // console.log(`[${filename}] Final BlogPost:`, result);
@@ -235,6 +255,11 @@ export class BlogService {
             // Handle boolean: true, false, "true", "false", True, False, etc.
             const bgValue = value.replace(/['"]/g, '').toLowerCase().trim();
             metadata.showBackground = bgValue === 'true';
+            break;
+          case 'isnotebook':
+            // Handle boolean: true, false, "true", "false", True, False, etc.
+            const notebookValue = value.replace(/['"]/g, '').toLowerCase().trim();
+            metadata.isNotebook = notebookValue === 'true';
             break;
         }
       }

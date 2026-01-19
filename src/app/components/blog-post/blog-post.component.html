@@ -85,9 +85,15 @@
   </header>
 
   <!-- Content -->
-  <div class="markdown-content" #markdownContent>
-    <markdown [data]="blogPost.content"> </markdown>
-  </div>
+  @if (blogPost.isNotebook && blogPost.notebookData) {
+    <div class="notebook-content">
+      <app-jupyter-viewer [notebookData]="blogPost.notebookData"></app-jupyter-viewer>
+    </div>
+  } @else {
+    <div class="markdown-content" #markdownContent>
+      <markdown [data]="blogPost.content"> </markdown>
+    </div>
+  }
 
   <!-- Footer -->
   <footer class="mt-16 pt-8 border-t border-gray-200">

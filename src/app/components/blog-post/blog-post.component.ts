@@ -4,11 +4,12 @@ import { RouterModule } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
 import { BlogPost } from '../../models/blog-post.model';
 import { ScrollNavigationComponent } from '../scroll-navigation/scroll-navigation.component';
+import { JupyterViewerComponent } from '../jupyter-viewer/jupyter-viewer.component';
 
 @Component({
   selector: 'app-blog-post',
   standalone: true,
-  imports: [CommonModule, RouterModule, MarkdownModule, ScrollNavigationComponent],
+  imports: [CommonModule, RouterModule, MarkdownModule, ScrollNavigationComponent, JupyterViewerComponent],
   templateUrl: './blog-post.component.html',
   styleUrls: ['./blog-post.component.scss'],
 })

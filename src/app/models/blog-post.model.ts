@@ -11,6 +11,8 @@ export interface BlogPost {
   readingTime?: number;
   background?: string;
   showBackground?: boolean;
+  isNotebook?: boolean;
+  notebookData?: any;
 }
 
 export interface BlogPostMetadata {
@@ -23,4 +25,5 @@ export interface BlogPostMetadata {
   numberOfLike?: number;
   background?: string;
   showBackground?: boolean;
+  isNotebook?: boolean;
 }
