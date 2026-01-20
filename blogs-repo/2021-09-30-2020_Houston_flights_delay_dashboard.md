@@ -2,7 +2,7 @@
 title: '2020 Houston Flights Delay Dashboard'
 description: 'Create standalone Bokeh dashboard.This blog is about Bokeh `CustomJS` method'
 date: '2021-09-30'
-tags: ['python', 'Bokeh']
+tags: ['python', 'Bokeh', 'Visualization']
 background: '/blogs-repo/images/Hou_flights_delay/flight_map.png'
 showBackground: true
 pinned: false

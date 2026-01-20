@@ -5,7 +5,7 @@ date: '2021-04-10'
 tags: ['Tableau', 'Visualization']
 background: 'blogs-repo/images/texas_outage/texas_outage.png'
 showBackground: true
-pinned: true
+pinned: false
 numberOfLike: 0
 author: 'Cheng'
 ---

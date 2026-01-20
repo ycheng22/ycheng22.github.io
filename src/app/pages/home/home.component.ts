@@ -21,14 +21,21 @@ export class HomeComponent {
 
   readonly latestPost = computed(() => this.blogPosts()?.[0]);
 
-  readonly recentPosts = computed(() => this.blogPosts()?.slice(0, 3) || []);
+  readonly recentPosts = computed(() => this.blogPosts()?.slice(0, 6) || []);
 
   constructor(private readonly blogService: BlogService) {}
 
   scrollToSection(sectionId: string): void {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const offset = 80; // Offset for any fixed headers or spacing
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   }
 }
