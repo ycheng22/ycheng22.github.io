@@ -44,9 +44,10 @@ export class WorkExpComponent {
       role: 'Software Engineer',
       period: 'Jul 2022 – Current',
       highlights: [
-        'Implemented a micro-frontend application used by <b>300+ agents</b>, directly increasing loan collections and generating over <b>$1.7M</b> in business value.',
-        'Optimized and maintained a mobile payment application to streamline payment collection workflows, resulting in an additional <b>$1.1M</b> in business value.',
-        'Engineered a full-stack real-time dashboard to track agent performance, providing live, actionable feedback and custom coaching tips.',
+        '<b>Micro-frontend Negotiation Platform for FinTech:</b> Developed a full-stack micro-frontend application for <b>350+ agents</b>, integrating Speedpay, SendGrid, and SMS solution (Solution By Text) to optimize payment workflows; this initiative increased loan collections and generated over <b>$1.7M</b> in business value.',
+        '<b>Mobile-First Loan Payment Portal:</b> Optimized and maintained a mobile-first web application backed by <b>.NET APIs</b> to streamline payment collection workflows. Enabled customer self-service features for auto-pay enrollment, payment extensions, and history checks, resulting in an additional <b>$1.1M</b> in business value.',
+        '<b>Performance Dashboard:</b> Engineered a full-stack <b>Angular/.NET</b> dashboard to track agent performance, providing live, actionable feedback and custom coaching tips. Integrated <b>AWS Step Functions</b> and eliminated system bottlenecks by refactoring queries and implementing <b>Redis cache</b>.',
+        '<b>Vehicle Repossession System:</b> Optimized and maintained a critical suite of <b>.NET worker</b> services hosted on <b>on-premise infrastructure</b>. Enhanced backend performance to ensure the reliable processing of high-volume repossession data, directly mitigating credit risk.'
       ],
       tags: ['AWS', 'Angular', '.NET', 'SQL', 'CI/CD', 'Atlassian'],
       icon: 'work',
@@ -57,8 +58,8 @@ export class WorkExpComponent {
       role: 'Research Assistant',
       period: 'May 2017 – May 2022',
       highlights: [
-        'Developed a Python-based solution to reconstruct protein phases from X-ray crystallography data using iterative direct phasing methods.',
-        'Orchestrated high-performance computing scripts on computer clusters.',
+        'Developed advanced Python algorithms to retrieve protein phases from X-ray data using iterative direct phasing methods.',
+        'Designed and executed automated scripts for high-performance cluster computing.',
       ],
       tags: ['Python', 'Matlab', 'HPC', 'Linux'],
       icon: 'research',
