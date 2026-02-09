@@ -30,6 +30,33 @@
     "name": "2024-08-15-SCSS_Notes.md"
   },
   {
+    "name": "crewai_01_entry_level_crewai.md"
+  },
+  {
+    "name": "crewai_02_middle_level_crewai.md"
+  },
+  {
+    "name": "crewai_03_advanced_level_crewai.md"
+  },
+  {
+    "name": "crewai_04_specialty_level_crewai.md"
+  },
+  {
+    "name": "langchain_01_entry_level_langchain_basics.md"
+  },
+  {
+    "name": "langchain_02_intermediate_langchain_langgraph.md"
+  },
+  {
+    "name": "openai_01_entry_level_openai_api.md"
+  },
+  {
+    "name": "openai_02_middle_level_openai_api.md"
+  },
+  {
+    "name": "openai_03_advanced_level_openai_api.md"
+  },
+  {
     "name": "test_ipynb.md"
   }
 ]
