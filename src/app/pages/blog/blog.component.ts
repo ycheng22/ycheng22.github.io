@@ -1,3 +1,4 @@
+import { NgClass } from '@angular/common';
 import { Component, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BlogCardComponent } from '../../components/blog-card/blog-card.component';
@@ -6,7 +7,7 @@ import { BlogService } from '../../services/blog.service';
 @Component({
   selector: 'app-blog',
   standalone: true,
-  imports: [FormsModule, BlogCardComponent],
+  imports: [NgClass, FormsModule, BlogCardComponent],
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.scss'],
 })

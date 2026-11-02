@@ -1,3 +1,4 @@
+import { NgClass } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
@@ -9,7 +10,7 @@ import { JupyterViewerComponent } from '../jupyter-viewer/jupyter-viewer.compone
 @Component({
   selector: 'app-blog-post',
   standalone: true,
-  imports: [RouterModule, MarkdownModule, ScrollNavigationComponent, JupyterViewerComponent],
+  imports: [NgClass, RouterModule, MarkdownModule, ScrollNavigationComponent, JupyterViewerComponent],
   templateUrl: './blog-post.component.html',
   styleUrls: ['./blog-post.component.scss'],
 })

@@ -88,18 +88,18 @@
 }
 
 :host ::ng-deep .markdown-content a {
-  color: #9333ea;
+  color: #4f46e5;
   text-decoration: underline;
   transition: color 0.2s ease;
 }
 
 :host ::ng-deep .markdown-content a:hover {
-  color: #6b21a8;
+  color: #4338ca;
 }
 
 :host ::ng-deep .markdown-content code {
   background-color: #f3f4f6;
-  color: #9333ea;
+  color: #4f46e5;
   padding: 0.125rem 0.375rem;
   border-radius: 0.25rem;
   font-size: 0.875rem;
@@ -134,7 +134,7 @@
 }
 
 :host ::ng-deep .markdown-content blockquote {
-  border-left: 4px solid #9333ea;
+  border-left: 4px solid #6366f1;
   padding: 1rem 1.5rem;
   margin: 1.5rem 0;
   background-color: #f8fafc;
@@ -356,7 +356,7 @@
   font-size: 0.875rem;
   font-weight: 500;
   background-color: #f3e8ff;
-  color: #6b21a8;
+  color: #4338ca;
 }
 
 .post-content {
@@ -400,17 +400,17 @@
 }
 
 .post-content a {
-  color: #9333ea;
+  color: #4f46e5;
   text-decoration: underline;
 }
 
 .post-content a:hover {
-  color: #6b21a8;
+  color: #4338ca;
 }
 
 .post-content code {
   background-color: #f3f4f6;
-  color: #9333ea;
+  color: #4f46e5;
   padding: 0.125rem 0.25rem;
   border-radius: 0.25rem;
   font-size: 0.875rem;
@@ -432,7 +432,7 @@
 }
 
 .post-content blockquote {
-  border-left: 4px solid #9333ea;
+  border-left: 4px solid #6366f1;
   padding-left: 1rem;
   font-style: italic;
   color: #6b7280;
@@ -491,12 +491,12 @@
 .back-link {
   display: inline-flex;
   align-items: center;
-  color: #9333ea;
+  color: #4f46e5;
   transition: color 0.2s ease;
 }
 
 .back-link:hover {
-  color: #6b21a8;
+  color: #4338ca;
 }
 
 .back-link svg {
@@ -591,4 +591,51 @@
 
 .animate-fade-in-up {
   animation: fadeInUp 0.3s ease-out forwards;
+}
+
+/* Dark mode for rendered post content */
+:host-context(.dark) ::ng-deep .markdown-content,
+:host-context(.dark) ::ng-deep .notebook-content,
+:host-context(.dark) ::ng-deep .markdown-content p,
+:host-context(.dark) ::ng-deep .markdown-content th {
+  color: #cbd5e1;
+}
+
+:host-context(.dark) ::ng-deep .markdown-content h1,
+:host-context(.dark) ::ng-deep .markdown-content h2,
+:host-context(.dark) ::ng-deep .markdown-content h3,
+:host-context(.dark) ::ng-deep .markdown-content h4,
+:host-context(.dark) ::ng-deep .markdown-content h5,
+:host-context(.dark) ::ng-deep .markdown-content h6 {
+  color: #f8fafc;
+  border-color: #1e293b;
+}
+
+:host-context(.dark) ::ng-deep .markdown-content a {
+  color: #818cf8;
+}
+
+:host-context(.dark) ::ng-deep .markdown-content a:hover {
+  color: #a5b4fc;
+}
+
+:host-context(.dark) ::ng-deep .markdown-content :not(pre) > code {
+  background-color: #1e293b;
+  color: #a5b4fc;
+}
+
+:host-context(.dark) ::ng-deep .markdown-content blockquote {
+  background-color: #0f172a;
+  color: #94a3b8;
+}
+
+:host-context(.dark) ::ng-deep .markdown-content table,
+:host-context(.dark) ::ng-deep .markdown-content th,
+:host-context(.dark) ::ng-deep .markdown-content td {
+  border-color: #334155;
+}
+
+:host-context(.dark) ::ng-deep .markdown-content th,
+:host-context(.dark) ::ng-deep .markdown-content tr:nth-child(even) {
+  background-color: #0f172a;
 }
