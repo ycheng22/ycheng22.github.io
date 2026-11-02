@@ -7,6 +7,7 @@
     "prebuild": "node ./scripts/generate-blog-index.js",
     "gen-index": "node ./scripts/generate-blog-index.js",
     "build": "ng build",
+    "postbuild": "node ./scripts/generate-seo-pages.js",
     "build:dev": "ng build --configuration development",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
