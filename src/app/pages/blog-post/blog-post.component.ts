@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, effect, signal } from '@angular/core';
+import { Component, computed, effect } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { map, startWith, switchMap } from 'rxjs/operators';
 import { BlogPostComponent } from '../../components/blog-post/blog-post.component';
+import { BlogPost } from '../../models/blog-post.model';
 import { BlogService } from '../../services/blog.service';
 
 @Component({
@@ -14,21 +16,27 @@ import { BlogService } from '../../services/blog.service';
   styleUrls: ['./blog-post.component.scss'],
 })
 export class BlogPostPageComponent {
-  readonly postNotFound = signal(false);
+  // undefined = loading, null = not found
+  private readonly postState = toSignal(
+    this.route.params.pipe(
+      map((params) => params['slug'] as string),
+      switchMap((slug) => this.blogService.loadPost(slug).pipe(startWith(undefined))),
+    ),
+    { initialValue: undefined as BlogPost | null | undefined },
+  );
 
-  private readonly slugSignal = toSignal(this.route.params.pipe(map((params) => params['slug'])), {
-    initialValue: '',
-  });
+  readonly blogPost = computed(() => this.postState() ?? undefined);
+  readonly loading = computed(() => this.postState() === undefined);
+  readonly postNotFound = computed(() => this.postState() === null);
 
-  readonly blogPost = computed(() => {
-    const slug = this.slugSignal();
-    if (!slug) return undefined;
-    return this.blogService.getPostBySlug(slug)();
-  });
-
-  constructor(private readonly route: ActivatedRoute, private readonly blogService: BlogService) {
+  constructor(
+    private readonly route: ActivatedRoute,
+    private readonly blogService: BlogService,
+    title: Title,
+  ) {
     effect(() => {
-      this.postNotFound.set(this.blogPost() === undefined);
+      const post = this.blogPost();
+      if (post) title.setTitle(`${post.title} — Cheng`);
     });
   }
 }

@@ -28,7 +28,7 @@
       <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-2 md:p-2">
         <app-blog-post [blogPost]="post"></app-blog-post>
       </div>
-      } @else {
+      } @else if (loading()) {
       <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-2 md:p-2">
         <div class="animate-pulse">
           <div class="h-8 bg-gray-200 rounded mb-4"></div>

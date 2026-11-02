@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { BlogPost } from '../../models/blog-post.model';
+import { BlogPostSummary } from '../../models/blog-post.model';
 
 @Component({
   selector: 'app-blog-card',
@@ -11,7 +11,7 @@ import { BlogPost } from '../../models/blog-post.model';
   styleUrls: ['./blog-card.component.scss'],
 })
 export class BlogCardComponent {
-  @Input() blogPost!: BlogPost;
+  @Input() blogPost!: BlogPostSummary;
   @Input() variant: 'default' | 'featured' | 'compact' = 'default';
 
   constructor(private router: Router) {}

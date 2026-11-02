@@ -1,311 +1,62 @@
 import { HttpClient } from '@angular/common/http';
-import { computed, Injectable, signal } from '@angular/core';
-import { catchError, forkJoin, map, Observable, of, switchMap } from 'rxjs';
-import { BlogPost, BlogPostMetadata } from '../models/blog-post.model';
+import { Injectable, signal } from '@angular/core';
+import { catchError, map, Observable, of, switchMap } from 'rxjs';
+import { BlogPost, BlogPostSummary } from '../models/blog-post.model';
+
+const BLOGS_BASE = '/blogs-repo';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BlogService {
-  private readonly GITHUB_API_BASE = 'https://api.github.com/repos';
-  private readonly BLOG_REPO_OWNER = 'ycheng22'; // Update this with your GitHub username
-  private readonly BLOG_REPO_NAME = 'blog-posts'; // Update this with your blog repository name
-
-  private blogPostsSignal = signal<BlogPost[]>([]);
+  private blogPostsSignal = signal<BlogPostSummary[]>([]);
+  // Post metadata only, already sorted (pinned first, newest first) by the build script
   public blogPosts = this.blogPostsSignal.asReadonly();
 
+  private index$: Observable<BlogPostSummary[]>;
+
   constructor(private http: HttpClient) {
-    this.loadBlogPosts();
-  }
-
-  private loadBlogPosts(): void {
-    this.fetchBlogPosts().subscribe({
-      next: (posts) => this.blogPostsSignal.set(posts),
-      error: (error) => console.error('Error loading blog posts:', error),
-    });
-  }
-
-  private fetchBlogPosts(): Observable<BlogPost[]> {
-    // Load posts from local static folder (blogs-repo) included in the build output.
-    const localIndexUrl = '/blogs-repo/index.json';
-
-    return this.http.get<any[]>(localIndexUrl).pipe(
-      map((files) => files.filter((file) => file?.name?.endsWith?.('.md'))),
-      switchMap((mdFiles) => {
-        if (mdFiles.length === 0) return of([]);
-
-        const postObservables = mdFiles.map((file) => {
-          const localFile = { name: file.name, download_url: `/blogs-repo/${file.name}` };
-          return this.fetchBlogPost(localFile);
-        });
-
-        return forkJoin(postObservables).pipe(map((posts) => this.sortPosts(posts)));
-      }),
+    this.index$ = this.http.get<BlogPostSummary[]>(`${BLOGS_BASE}/index.json`).pipe(
       catchError((error) => {
-        console.error('Error fetching local blog index:', error);
-        console.error('Failed URL:', localIndexUrl);
-        console.error('Error details:', {
-          status: error?.status,
-          statusText: error?.statusText,
-          message: error?.message,
-          url: error?.url
-        });
+        console.error('Error loading blog index:', error?.message ?? error);
         return of([]);
       }),
     );
+    this.index$.subscribe((posts) => this.blogPostsSignal.set(posts));
   }
 
-  // Extracted helper for sorting posts
-  private sortPosts(posts: BlogPost[]): BlogPost[] {
-    posts.sort((a, b) => {
-      if (a.pinned && !b.pinned) return -1;
-      if (!a.pinned && b.pinned) return 1;
-      return new Date(b.date).getTime() - new Date(a.date).getTime();
-    });
-    return posts;
-  }
+  // Full post (markdown body, plus notebook JSON for notebook posts); null if missing
+  loadPost(slug: string): Observable<BlogPost | null> {
+    const cached = this.blogPosts().find((post) => post.slug === slug);
+    const summary$ = cached ? of(cached) : this.index$.pipe(map((posts) => posts.find((p) => p.slug === slug)));
 
-  private fetchBlogPost(file: any): Observable<BlogPost> {
-    const contentUrl = file.download_url;
+    return summary$.pipe(
+      switchMap((summary) => {
+        if (!summary) return of(null);
+        const mdUrl = `${BLOGS_BASE}/${summary.file}`;
 
-    return this.http.get(contentUrl, { responseType: 'text' }).pipe(
-      switchMap((content) => {
-        const blogPost = this.parseMarkdownFile(file.name, content);
-        
-        // If it's a notebook, load the .ipynb file
-        if (blogPost.isNotebook) {
-          const notebookUrl = contentUrl.replace('.md', '.ipynb');
-          return this.http.get(notebookUrl, { responseType: 'json' }).pipe(
-            map((notebookData) => ({
-              ...blogPost,
-              notebookData: notebookData
-            })),
-            catchError((error) => {
-              console.error(`Error fetching notebook for ${file.name}:`, error);
-              return of(blogPost); // Return blog post without notebook data
-            })
-          );
-        }
-        
-        return of(blogPost);
+        return this.http.get(mdUrl, { responseType: 'text' }).pipe(
+          map((raw): BlogPost => ({ ...summary, content: stripFrontmatter(raw) })),
+          switchMap((post) => {
+            if (!post.isNotebook) return of(post);
+            return this.http.get(mdUrl.replace(/\.md$/, '.ipynb')).pipe(
+              map((notebookData) => ({ ...post, notebookData })),
+              catchError(() => of(post)),
+            );
+          }),
+        );
       }),
       catchError((error) => {
-        console.error(`Error fetching content for ${file.name}:`, error);
-        console.error('Failed URL:', contentUrl);
-        console.error('Error details:', {
-          status: error?.status,
-          statusText: error?.statusText,
-          message: error?.message,
-          url: error?.url
-        });
-        return of(this.createEmptyBlogPost(file.name));
+        console.error(`Error loading post ${slug}:`, error?.message ?? error);
+        return of(null);
       }),
     );
   }
+}
 
-  private parseMarkdownFile(filename: string, content: string): BlogPost {
-    const slug = filename.replace('.md', '');
-
-    // FIX: Split by regex to handle both \r\n (Windows) and \n (Unix) line endings
-    const lines = content.split(/\r?\n/);
-
-    // Extract frontmatter
-    let metadata: BlogPostMetadata = {
-      title: slug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase()),
-      description: '',
-      date: new Date().toISOString(),
-      tags: [],
-      pinned: false,
-      author: 'Cheng',
-      numberOfLike: 0,
-      background: '/blogs-repo/images/default_img.png',
-    };
-
-    // FIX: Use .trim() to ensure we match '---' even if there are invisible chars
-    if (lines[0].trim() === '---') {
-      const frontmatterEnd = lines.findIndex((line, index) => index > 0 && line.trim() === '---');
-
-      if (frontmatterEnd > 0) {
-        const frontmatterLines = lines.slice(1, frontmatterEnd);
-        const frontmatterContent = frontmatterLines.join('\n');
-        // console.log(`[${filename}] Frontmatter content:`, frontmatterContent);
-
-        try {
-          const frontmatter = this.parseFrontmatter(frontmatterContent);
-          // console.log(`[${filename}] Parsed frontmatter:`, frontmatter);
-          metadata = { ...metadata, ...frontmatter };
-        } catch (error) {
-          console.warn('Error parsing frontmatter:', error);
-        }
-      }
-    }
-
-    // Extract content (everything after frontmatter)
-    const contentStart =
-      lines[0].trim() === '---'
-        ? lines.findIndex((line, index) => index > 0 && line.trim() === '---') + 1
-        : 0;
-
-    const markdownContent = lines.slice(contentStart).join('\n');
-
-    // Generate description if not provided in frontmatter
-    let description = metadata.description;
-    if (!description || description.trim() === '') {
-      // Extract first paragraph or first few sentences as description
-      const cleanContent = markdownContent
-        .replace(/^#+\s+/gm, '') // Remove markdown headers
-        .replace(/\*\*(.*?)\*\*/g, '$1') // Remove bold formatting
-        .replace(/\*(.*?)\*/g, '$1') // Remove italic formatting
-        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Remove markdown links
-        .replace(/`([^`]+)`/g, '$1') // Remove inline code
-        .replace(/\n+/g, ' ') // Replace newlines with spaces
-        .trim();
-
-      // Take first 150 characters and ensure it ends at a sentence
-      description = cleanContent.substring(0, 150);
-      const lastSentenceEnd = Math.max(
-        description.lastIndexOf('.'),
-        description.lastIndexOf('!'),
-        description.lastIndexOf('?'),
-      );
-      if (lastSentenceEnd > 50) {
-        description = description.substring(0, lastSentenceEnd + 1);
-      } else {
-        description = description + '...';
-      }
-    }
-
-    // Calculate reading time (average 200 words per minute)
-    const wordCount = markdownContent.split(/\s+/).length;
-    const readingTime = Math.ceil(wordCount / 200);
-
-    const result = {
-      slug,
-      title: metadata.title,
-      description: description,
-      content: markdownContent,
-      date: metadata.date,
-      tags: metadata.tags || [],
-      pinned: metadata.pinned,
-      author: metadata.author,
-      numberOfLike: metadata.numberOfLike || 0,
-      readingTime,
-      background:
-        metadata.background && !metadata.background.includes('default_img')
-          ? `${metadata.background}`
-          : '/blogs-repo/images/default_img.png',
-      showBackground: metadata.showBackground || false,
-      isNotebook: metadata.isNotebook || false,
-    };
-
-    // console.log(`[${filename}] Final BlogPost:`, result);
-    return result;
-  }
-
-  private parseFrontmatter(content: string): Partial<BlogPostMetadata> {
-    const metadata: Partial<BlogPostMetadata> = {};
-    const lines = content.split('\n');
-
-    lines.forEach((line) => {
-      const trimmedLine = line.trim();
-      if (trimmedLine.length === 0) return; // Skip empty lines
-
-      const colonIndex = trimmedLine.indexOf(':');
-      if (colonIndex > 0) {
-        const key = trimmedLine.substring(0, colonIndex).trim();
-        const value = trimmedLine.substring(colonIndex + 1).trim();
-        const cleanKey = key.toLowerCase();
-
-        switch (cleanKey) {
-          case 'title':
-            metadata.title = value.replace(/['"]/g, '');
-            break;
-          case 'description':
-            metadata.description = value.replace(/['"]/g, '');
-            break;
-          case 'date':
-            metadata.date = value.replace(/['"]/g, '');
-            break;
-          case 'tags':
-            // Handle JSON array format: ["tag1", "tag2"] or comma-separated string: tag1, tag2
-            const trimmedValue = value.trim();
-            if (trimmedValue.startsWith('[') && trimmedValue.endsWith(']')) {
-              // JSON array format
-              try {
-                metadata.tags = JSON.parse(trimmedValue);
-              } catch (e) {
-                console.warn('Failed to parse tags as JSON:', trimmedValue, e);
-                // Fallback to comma-separated parsing if JSON parse fails
-                metadata.tags = trimmedValue
-                  .replace(/[\[\]'"]/g, '')
-                  .split(',')
-                  .map((tag) => tag.trim())
-                  .filter((tag) => tag.length > 0);
-              }
-            } else {
-              // Comma-separated string format
-              metadata.tags = value
-                .replace(/['"]/g, '')
-                .split(',')
-                .map((tag) => tag.trim())
-                .filter((tag) => tag.length > 0);
-            }
-            break;
-          case 'pinned':
-            // Handle boolean: true, false, "true", "false", True, False, etc.
-            const normalizedValue = value.replace(/['"]/g, '').toLowerCase().trim();
-            metadata.pinned = normalizedValue === 'true';
-            break;
-          case 'author':
-            metadata.author = value.replace(/['"]/g, '');
-            break;
-          case 'numberoflike':
-            metadata.numberOfLike = parseInt(value.replace(/['"]/g, ''), 10) || 0;
-            break;
-          case 'background':
-            metadata.background = value.replace(/['"]/g, '');
-            break;
-          case 'showbackground':
-            // Handle boolean: true, false, "true", "false", True, False, etc.
-            const bgValue = value.replace(/['"]/g, '').toLowerCase().trim();
-            metadata.showBackground = bgValue === 'true';
-            break;
-          case 'isnotebook':
-            // Handle boolean: true, false, "true", "false", True, False, etc.
-            const notebookValue = value.replace(/['"]/g, '').toLowerCase().trim();
-            metadata.isNotebook = notebookValue === 'true';
-            break;
-        }
-      }
-    });
-
-    return metadata;
-  }
-
-  private createEmptyBlogPost(filename: string): BlogPost {
-    const slug = filename.replace('.md', '');
-    return {
-      slug,
-      title: slug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase()),
-      description: 'Blog post content could not be loaded.',
-      content: 'Sorry, this blog post could not be loaded at this time.',
-      date: new Date().toISOString(),
-      tags: [],
-      pinned: false,
-      author: 'Cheng',
-      numberOfLike: 0,
-      readingTime: 1,
-      background: '../../../../blogs-repo/images/default_img.png',
-    };
-  }
-
-  getPinnedPosts = computed(() => this.blogPosts().filter((post) => post.pinned));
-
-  getPostBySlug(slug: string) {
-    return computed(() => this.blogPosts().find((post) => post.slug === slug));
-  }
-
-  refreshPosts(): void {
-    this.loadBlogPosts();
-  }
+function stripFrontmatter(raw: string): string {
+  const lines = raw.split(/\r?\n/);
+  if (lines[0]?.trim() !== '---') return lines.join('\n');
+  const end = lines.findIndex((line, i) => i > 0 && line.trim() === '---');
+  return end < 0 ? lines.join('\n') : lines.slice(end + 1).join('\n');
 }
