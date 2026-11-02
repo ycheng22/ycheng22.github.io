@@ -1,6 +1,6 @@
 import { Component, computed } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { URLS } from 'src/app/models/url.constant';
+import { PROFILE } from '../../data/profile';
 import { BlogCardComponent } from '../../components/blog-card/blog-card.component';
 import { BlogService } from '../../services/blog.service';
 import { Journey } from './journey/journey';
@@ -14,7 +14,7 @@ import { Journey } from './journey/journey';
 })
 export class HomeComponent {
   readonly blogPosts = this.blogService.blogPosts;
-  readonly urls = URLS;
+  readonly urls = PROFILE.links;
 
   readonly pinnedPosts = computed(() => this.blogPosts().filter((post) => post.pinned));
 
