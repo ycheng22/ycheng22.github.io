@@ -12,7 +12,9 @@
   <div class="relative h-48 overflow-hidden bg-slate-200 dark:bg-slate-700">
     <img
       [src]="blogPost.background"
-      alt="Blog Post Cover"
+      [alt]="blogPost.title + ' cover image'"
+      loading="lazy"
+      decoding="async"
       class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
     />
 

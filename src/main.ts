@@ -1,19 +1,9 @@
 import { provideHttpClient } from '@angular/common/http';
-import { importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
+import { provideZoneChangeDetection } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter, withInMemoryScrolling } from '@angular/router';
-import { MarkdownModule } from 'ngx-markdown';
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
-
-// Import Prism for syntax highlighting
-import 'prismjs';
-import 'prismjs/components/prism-bash';
-import 'prismjs/components/prism-javascript';
-import 'prismjs/components/prism-json';
-import 'prismjs/components/prism-python';
-import 'prismjs/components/prism-sql';
-import 'prismjs/components/prism-typescript';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -23,6 +13,5 @@ bootstrapApplication(AppComponent, {
       withInMemoryScrolling({ anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled' }),
     ),
     provideHttpClient(),
-    importProvidersFrom(MarkdownModule.forRoot()),
   ],
 }).catch((err) => console.error(err));

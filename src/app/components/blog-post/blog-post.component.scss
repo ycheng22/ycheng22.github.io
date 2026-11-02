@@ -639,3 +639,19 @@
 :host-context(.dark) ::ng-deep .markdown-content tr:nth-child(even) {
   background-color: #0f172a;
 }
+
+/* Narrow screens: wrap long URLs, scroll wide code/tables inside their box */
+:host ::ng-deep .markdown-content {
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+:host ::ng-deep .markdown-content pre,
+:host ::ng-deep .markdown-content table {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+:host ::ng-deep .markdown-content table {
+  display: block;
+}

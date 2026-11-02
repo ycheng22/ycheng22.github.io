@@ -83,6 +83,23 @@ declare var Prism: any;
       width: 100%;
     }
 
+    /* Let wide code scroll inside its box instead of widening the page */
+    .cell-content > *,
+    .code-row,
+    .markdown {
+      min-width: 0;
+    }
+
+    .markdown {
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 640px) {
+      .prompt {
+        display: none;
+      }
+    }
+
     .prompt {
       width: 76px;
       font-family: monospace;

@@ -1,6 +1,7 @@
 <div class="min-h-screen flex flex-col">
   <app-navbar></app-navbar>
-  <main class="flex-1">
+  <!-- min-h-screen keeps the footer below the fold while a lazy route loads (avoids layout shift) -->
+  <main class="flex-1 min-h-screen">
     <router-outlet></router-outlet>
   </main>
   <app-footer></app-footer>

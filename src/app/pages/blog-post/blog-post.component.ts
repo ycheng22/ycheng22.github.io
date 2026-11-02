@@ -1,3 +1,4 @@
+import '../../markdown/prism';
 import { Component, computed, effect } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
