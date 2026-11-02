@@ -36,6 +36,11 @@
               "src/favicon.ico",
               {
                 "glob": "**/*",
+                "input": "src/icons",
+                "output": "/"
+              },
+              {
+                "glob": "**/*",
                 "input": "blogs-repo",
                 "output": "/blogs-repo"
               },
