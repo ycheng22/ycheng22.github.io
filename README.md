@@ -1,161 +1,77 @@
-# Dev notes
--  npm run build
--  git add , commit, push
+# Cheng — Personal Website
 
-# Cheng - Personal Website
+Source for **[ycheng22.github.io](https://ycheng22.github.io)**: a personal site and technical blog built with Angular and Tailwind CSS, deployed to GitHub Pages by GitHub Actions.
 
-A modern, responsive personal website built with Angular 20 and TailwindCSS, featuring a blog system that fetches content from a separate GitHub repository.
+## Tech stack
 
+- **Angular 20** (standalone components, signals), built with the esbuild `application` builder
+- **Tailwind CSS 3**
+- **ngx-markdown + Prism.js** for posts, **notebook-viewer-ts** for Jupyter notebook posts
+- **GitHub Actions → GitHub Pages** for deploys
 
-## 🚀 Features
+## Local development
 
-- **Modern Design**: Clean, responsive design with TailwindCSS
-- **Blog System**: Fetches markdown blog posts from a separate GitHub repository
-- **GitHub-Style Markdown**: Renders markdown with syntax highlighting and GitHub-flavored markdown
-- **Pinned Posts**: Support for featured/pinned blog posts
-- **Search & Filter**: Search through blog posts and filter by pinned status
-- **GitHub Pages Ready**: Configured for deployment to GitHub Pages
-- **SEO Optimized**: Proper meta tags and structured data
-- **Mobile First**: Responsive design that works on all devices
+Requires Node.js 22.
 
-## 🛠️ Tech Stack
-
-- **Frontend**: Angular 20 with standalone components
-- **Styling**: TailwindCSS with custom components
-- **Markdown**: ngx-markdown with Prism.js syntax highlighting
-- **Routing**: Angular Router with withHashLocation for GitHub Pages
-- **Deployment**: GitHub Actions + GitHub Pages
-
-## 📁 Project Structure
-
-```
-src/
-├── app/
-│   ├── components/          # Reusable UI components
-│   │   ├── navbar/         # Navigation component
-│   │   ├── footer/        # Footer component
-│   │   ├── blog-card/     # Blog post card component
-│   │   └── blog-post/     # Individual blog post component
-│   ├── pages/             # Page components
-│   │   ├── home/          # Home page
-│   │   ├── blog/          # Blog listing page
-│   │   └── blog-post/     # Individual blog post page
-```markdown
-# Cheng - Personal Website
-
-A modern, responsive personal website built with Angular 20 and TailwindCSS. The site uses a local `blogs-repo` (copied into the build) and a small Node script to generate a blog index from markdown files.
-
-## 🚀 Highlights
-
-- Modern responsive UI (TailwindCSS)
-- Static blog pipeline: markdown files in `blogs-repo/` are shipped with the site and indexed by `scripts/generate-blog-index.js`
-- Builds output to `docs/` so the repo can be hosted on GitHub Pages
-- GitHub Actions configured to build feature branches and deploy when code lands on `gh-pages`
-
-## 🛠️ Tech Stack
-
-- Frontend: Angular 20
-- Styling: TailwindCSS
-- Markdown rendering: ngx-markdown + Prism.js
-- CI/CD: GitHub Actions → GitHub Pages
-
-## 📁 Project Structure (important parts)
-
-```
-./
-├── blogs-repo/                # Markdown blog posts (copied into site build)
-├── docs/                     # Production build output (generated)
-├── scripts/                  # Utility scripts (e.g. generate-blog-index.js)
-├── src/
-│   └── app/                  # Angular app
-└── .github/workflows/        # CI workflow for builds and Pages deployment
-```
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js 18+
-- npm
-
-### Install and run locally
-
-```powershell
-git clone https://github.com/ycheng22/ycheng22.github.io.git
-cd ycheng22.github.io
+```bash
 npm ci
-npm start
-
-# open http://localhost:4200
+npm start          # http://localhost:4200
 ```
 
-### Build for production (local)
+Production build and local preview:
 
-This project builds into `./docs` so the output can be committed or published to Pages.
-
-```powershell
-# regenerate blog index from markdown
-npm run gen-index
-
-# build (production) -> output in ./docs
-npm run build
+```bash
+npm run build                 # output in dist/
+npx serve@14 dist -l 8080     # http://localhost:8080 (behaves like GitHub Pages)
 ```
 
-## 📝 Blog authoring
+`npm run build` runs three steps:
 
-- Place markdown files in `blogs-repo/` (frontmatter at the top). The repository contains example posts in `sample-blogs/`.
-- The generator `scripts/generate-blog-index.js` creates `blogs-repo/index.json` (README.md is excluded) and is run in CI and as a prebuild step locally when you run `npm run build`.
+1. `prebuild`: `scripts/generate-blog-index.js` reads every post's frontmatter and writes `blogs-repo/index.json`.
+2. `ng build`: compiles the app into `dist/` and copies `blogs-repo/` and `src/app/img/` alongside it.
+3. `postbuild`: `scripts/generate-seo-pages.js` writes a page for each route (`/blog/`, `/blog/<slug>/`) with its own title, description and Open Graph tags, plus `sitemap.xml`, `robots.txt`, `feed.xml` and `404.html`.
 
-### Frontmatter example
+## Writing a post
+
+1. Add `blogs-repo/<slug>.md`. The file name (without `.md`) becomes the URL: `/blog/<slug>`.
+2. Put images under `blogs-repo/images/<post-folder>/` and reference them with absolute paths: `![alt](/blogs-repo/images/<post-folder>/pic.png)`.
+3. Start the file with frontmatter:
 
 ```yaml
 ---
-title: "My Post Title"
-description: "Short summary"
-date: "2024-01-15"
-tags: ["angular","web"]
+title: 'My Post Title'
+description: 'One or two sentences shown on cards, in search results, and in link previews'
+date: '2026-01-15'
+tags: ['Angular', 'Web']
 pinned: false
-author: "Cheng"
+author: 'Cheng'
+background: '/blogs-repo/images/my-post/cover.png'   # optional card / preview image
+showBackground: true
+isNotebook: false   # true: also loads blogs-repo/<slug>.ipynb and renders it
 ---
 ```
 
-## 🚀 Deployment / GitHub Pages
+If `description` is left out, it's generated from the first sentences of the post. `index.json` is generated, so don't edit or commit it.
 
-This repo's CI is configured to:
+## Deploying
 
-- Run builds for branches matching `feature/**` (preview builds) and for `gh-pages`.
-- For feature branches the workflow builds the site and uploads the `./docs` output as an artifact and sets a commit status (`CI/build`) on the commit so you can see whether the build passed.
-- When you merge a feature branch into `gh-pages`, the workflow will download the previously produced artifact (or rebuild on `gh-pages`), and deploy `./docs` to GitHub Pages using the official Pages deploy actions. This avoids committing build artifacts back to the branch.
+Push to `main`. The workflow in `.github/workflows/deploy-pages.yml` runs `npm ci && npm run build` and publishes `dist/` to GitHub Pages. Build output isn't committed.
 
-Pages configuration options:
+Older links like `/#/blog/<slug>` are redirected to `/blog/<slug>` automatically.
 
-- Recommended (current): Use the `gh-pages` branch and set Pages to serve from the root `/`.
-- Alternative: Serve from `main` (or `gh-pages`) `docs/` directory — if you prefer this, set Pages source to the branch + `/docs` folder in repository settings.
+## Project layout
 
-## 🔁 Typical workflow
-
-1. Work on a feature branch: `feature/xyz`
-2. Push your branch → CI runs a build and you'll see a `CI/build` status on the commit
-3. Create a PR to merge `feature/xyz` into `gh-pages`
-4. Merge the PR → CI deploys `./docs` to Pages
-
-## � CI notes
-
-- The workflow is in `.github/workflows/deploy-pages.yml`.
-- If you encounter dependency or peer-dependency issues when running `npm ci` in CI, tell me and I can make the workflow use `npm install --legacy-peer-deps` or pin compatible package versions.
-
-## 📜 Other scripts
-
-- `npm run gen-index` — regenerate `blogs-repo/index.json` from markdown files (excludes README.md)
-- `npm run build` — build production site into `./docs`
-
-## 🤝 Contributing
-
-Contributions welcome — open a PR. For content changes, add markdown files in `blogs-repo/` and run `npm run gen-index` before building.
-
-## 📄 License
-
-MIT
-
+```text
+blogs-repo/            Blog posts (.md, .ipynb) and their images
+scripts/               Build-time scripts (blog index, SEO pages)
+src/app/
+  components/          Navbar, footer, blog card, post renderer, notebook viewer
+  pages/               Home (+ journey/experience), blog list, blog post, 404
+  services/            BlogService: loads index.json and individual posts
+  img/                 Logos and certificate images (served at /img)
+.github/               Deploy workflow and Dependabot config
 ```
-### Colors and Theme
+
+## License
+
+Code is MIT-licensed. Blog content in `blogs-repo/` is all rights reserved. See [LICENSE](LICENSE).
