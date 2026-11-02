@@ -138,7 +138,9 @@ declare var Prism: any;
       font-size: 0.9rem;
     }
 
-    .hidden {
+    /* Scoped: with ViewEncapsulation.None a bare .hidden would override Tailwind's
+       "hidden md:flex" elsewhere on the page (e.g. the desktop navbar) */
+    #notebook .hidden {
       display: none !important;
     }
 
