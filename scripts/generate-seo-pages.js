@@ -44,8 +44,10 @@ function renderPage(template, meta) {
     throw new Error('dist/index.html is missing the <!-- seo:start --> ... <!-- seo:end --> block');
   }
   return template
-    .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(meta.title)}</title>`)
-    .replace(/<!-- seo:start[\s\S]*?<!-- seo:end -->/, seoBlock(meta));
+    // Function replacers so "$" in titles/descriptions is never read as a replacement pattern
+    .replace(/<title>[\s\S]*?<\/title>/, () => `<title>${escapeHtml(meta.title)}</title>`)
+    .replace(/<!-- seo:start[\s\S]*?<!-- seo:end -->/, () => seoBlock(meta))
+    .replace(/\s*<!-- jsonld:start[\s\S]*?<!-- jsonld:end -->/, () => '');
 }
 
 function writeFile(relPath, content) {
@@ -127,7 +129,7 @@ function main() {
   }
 
   // GitHub Pages serves 404.html for unknown paths; the app then shows its own not-found page
-  writeFile('404.html', template);
+  writeFile('404.html', template.replace(/\s*<!-- jsonld:start[\s\S]*?<!-- jsonld:end -->/, () => ''));
   writeFile('sitemap.xml', sitemap(posts));
   writeFile('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
   writeFile('feed.xml', rss(posts));
