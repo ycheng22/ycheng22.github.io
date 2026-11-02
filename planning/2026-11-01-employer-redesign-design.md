@@ -21,10 +21,11 @@ The site is used both for active applications (linked from applications) and pas
 | Work AI platform | **Confidential.** One deliberately vague bullet, no stack or numbers beyond "100+ users" |
 | Title at ACA | Stays "Software Engineer" |
 | Privacy | Public name **"Cheng"** only, everywhere (copy, meta, JSON-LD) |
+| Logo | User-supplied orbit mark (cyan → blue → violet). Already live as the favicon set (`src/favicon.ico`, `src/icons/`). Also used in the navbar next to "Cheng" |
 
 ## Page structure (home, top to bottom)
 
-1. **Navbar:** "Cheng" left. Right: Projects · Experience · Blog · About (in-page anchors; Blog routes to `/blog`), dark-mode toggle, **LinkedIn** button. Collapses to a menu on mobile.
+1. **Navbar:** logo mark (28px, `/icon-192.png`) + "Cheng" left. Right: Projects · Experience · Blog · About (in-page anchors; Blog routes to `/blog`), dark-mode toggle, **LinkedIn** button. Collapses to a menu on mobile.
 2. **Hero:** "I'm Cheng 👋" (wave kept). Headline **AI Engineer**.
    - Tagline: *"I build LLM agents, retrieval systems, and model post-training pipelines — and measure whether they work."*
    - Credentials line: *Ph.D. Physics · M.S. CS (Georgia Tech) · Ph.D. AI (in progress) · 4+ years of production software in auto finance*
@@ -87,7 +88,7 @@ Footer: "© 2026 Cheng", LinkedIn and GitHub icons.
 
 ## Visual system
 
-- **Palette:** slate neutrals and **one indigo accent** for primary buttons, links and metric badges. No multi-color gradients. Hero: slate-50 background with a soft indigo radial glow (dark: slate-950 with the same glow).
+- **Palette:** slate neutrals and **one indigo accent** (`#4f46e5`, between the logo's blue and violet) for primary buttons, links and metric badges. No multi-color gradients in UI elements; the logo is the only gradient. Hero: slate-50 background with a soft indigo/cyan radial glow echoing the logo (dark: slate-950 with the same glow).
 - **Type:** Inter. Hero headline 56px desktop / 40px mobile, section titles 30px, lead 18px, body 16px. JetBrains Mono for metrics and code.
 - **Layout:** content max width 1100px, uniform section padding (96px desktop / 64px mobile), cards with the same radius (`rounded-xl`) and a 1px border. Single column under 768px.
 - **Metric badge:** mono-font pill, indigo-tinted background, e.g. `NDCG@10 0.417 → 0.581`.
