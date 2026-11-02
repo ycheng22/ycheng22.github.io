@@ -124,8 +124,6 @@ dist
 tmp/
 temp/
 
-# Allow GitHub Pages build directory to be committed
-!docs/
 
 # Logs
 logs
@@ -144,3 +142,7 @@ lerna-debug.log*
 ehthumbs.db
 Thumbs.db
 
+
+# Local tooling
+.playwright-mcp/
+.superpowers/

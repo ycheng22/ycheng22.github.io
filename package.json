@@ -6,11 +6,10 @@
     "start": "ng serve",
     "prebuild": "node ./scripts/generate-blog-index.js",
     "gen-index": "node ./scripts/generate-blog-index.js",
-    "build": "ng build --configuration production --output-path docs --base-href /",
-    "build:dev": "ng build --configuration development --output-path docs --base-href /",
+    "build": "ng build",
+    "build:dev": "ng build --configuration development",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:prod": "ng build --configuration production --output-path docs --base-href /",
     "format": "prettier --write \"src/**/*.{ts,html,scss,css,json,md}\"",
     "format:check": "prettier --check \"src/**/*.{ts,html,scss,css,json,md}\""
   },

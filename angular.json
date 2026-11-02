@@ -15,19 +15,22 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "docs",
+            "outputPath": {
+              "base": "dist",
+              "browser": ""
+            },
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "css",
+            "allowedCommonJsDependencies": ["prismjs", "ansi-to-html"],
             "assets": [
               "src/favicon.ico",
-              "src/assets",
               {
                 "glob": "**/*",
                 "input": "blogs-repo",
@@ -37,11 +40,6 @@
                 "glob": "**/*",
                 "input": "src/app/img",
                 "output": "/img"
-              },
-              {
-                "glob": ".nojekyll",
-                "input": ".",
-                "output": "/"
               }
             ],
             "styles": [
@@ -59,16 +57,14 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "10kb",
+                  "maximumError": "20kb"
                 }
               ],
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true

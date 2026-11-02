@@ -1,9 +1,9 @@
+@import 'prismjs/themes/prism-tomorrow.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Prism syntax highlighting styles */
-@import 'prismjs/themes/prism-tomorrow';
 
 @layer base {
   html {
