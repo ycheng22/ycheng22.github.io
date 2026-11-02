@@ -4,7 +4,7 @@ Source for **[ycheng22.github.io](https://ycheng22.github.io)**: a personal site
 
 ## Tech stack
 
-- **Angular 20** (standalone components, signals), built with the esbuild `application` builder
+- **Angular 21** (standalone components, signals), built with the esbuild `application` builder
 - **Tailwind CSS 3**
 - **ngx-markdown + Prism.js** for posts, **notebook-viewer-ts** for Jupyter notebook posts
 - **GitHub Actions → GitHub Pages** for deploys

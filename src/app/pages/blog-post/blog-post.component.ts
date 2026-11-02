@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, computed, effect } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
@@ -11,7 +10,7 @@ import { BlogService } from '../../services/blog.service';
 @Component({
   selector: 'app-blog-post-page',
   standalone: true,
-  imports: [CommonModule, RouterModule, BlogPostComponent],
+  imports: [RouterModule, BlogPostComponent],
   templateUrl: './blog-post.component.html',
   styleUrls: ['./blog-post.component.scss'],
 })

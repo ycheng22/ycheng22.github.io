@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, computed } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { URLS } from 'src/app/models/url.constant';
@@ -9,7 +8,7 @@ import { Journey } from './journey/journey';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule, BlogCardComponent, Journey],
+  imports: [RouterModule, BlogCardComponent, Journey],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
@@ -34,7 +33,7 @@ export class HomeComponent {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   }

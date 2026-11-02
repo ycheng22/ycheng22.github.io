@@ -1,10 +1,9 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-scroll-navigation',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './scroll-navigation.component.html',
   styleUrls: ['./scroll-navigation.component.scss'],
 })
