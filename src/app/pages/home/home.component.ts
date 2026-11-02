@@ -4,11 +4,13 @@ import { PROFILE } from '../../data/profile';
 import { BlogCardComponent } from '../../components/blog-card/blog-card.component';
 import { BlogService } from '../../services/blog.service';
 import { Journey } from './journey/journey';
+import { HeroComponent } from './sections/hero/hero.component';
+import { ProjectsComponent } from './sections/projects/projects.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterModule, BlogCardComponent, Journey],
+  imports: [RouterModule, BlogCardComponent, Journey, HeroComponent, ProjectsComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
