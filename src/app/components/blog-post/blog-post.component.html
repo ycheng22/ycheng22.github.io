@@ -87,7 +87,12 @@
   <!-- Content -->
   @if (blogPost.isNotebook && blogPost.notebookData) {
     <div class="notebook-content">
-      <app-jupyter-viewer [notebookData]="blogPost.notebookData"></app-jupyter-viewer>
+      <!-- Notebook renderer (with its katex/highlight deps) loads only for notebook posts -->
+      @defer (on immediate) {
+        <app-jupyter-viewer [notebookData]="blogPost.notebookData"></app-jupyter-viewer>
+      } @placeholder {
+        <div class="h-32 bg-gray-100 rounded animate-pulse"></div>
+      }
     </div>
   } @else {
     <div class="markdown-content" #markdownContent (click)="onContentClick($event)">
