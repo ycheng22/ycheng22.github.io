@@ -99,7 +99,7 @@ Hardware:
 
 Download [Cuda](https://developer.nvidia.com/cuda-downloads).
 
-![name](blogs-repo/images/20211205_gpu_blog/download_cuda.png)
+![name](/blogs-repo/images/20211205_gpu_blog/download_cuda.png)
 
 Version: `cuda_11.5.1_496.13_windows`.
 
@@ -128,7 +128,7 @@ C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.5\cudnn-windows-x86_64-8.
 
 Open command window and type: `nvcc --V`
 
-![name](blogs-repo/images/20211205_gpu_blog/nvcc.png)
+![name](/blogs-repo/images/20211205_gpu_blog/nvcc.png)
 
 The above figure means Cuda and Cudnn have been installed successfully.
 
@@ -153,7 +153,7 @@ The above figure means Cuda and Cudnn have been installed successfully.
   tf.config.list_physical_devices('GPU')
   ```
 
-  ![name](blogs-repo/images/20211205_gpu_blog/tfgpu.png)
+  ![name](/blogs-repo/images/20211205_gpu_blog/tfgpu.png)
 
 ## 5. Creating pytorch-gpu virtual environment and testing
 
@@ -169,7 +169,7 @@ The above figure means Cuda and Cudnn have been installed successfully.
 
   `conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch`
 
-  ![name](blogs-repo/images/20211205_gpu_blog/pytorch.png)
+  ![name](/blogs-repo/images/20211205_gpu_blog/pytorch.png)
 
   Note that the cuda version 10.2 was selected, because cuda 11.5 is not available, which could be a problem.
 
@@ -180,7 +180,7 @@ The above figure means Cuda and Cudnn have been installed successfully.
   print(torch.cuda.is_available())
   ```
 
-  ![name](blogs-repo/images/20211205_gpu_blog/pt.png)
+  ![name](/blogs-repo/images/20211205_gpu_blog/pt.png)
 
 ## 6. Adding virtual env to notebook
 
@@ -202,7 +202,7 @@ The above figure means Cuda and Cudnn have been installed successfully.
 
   Now the new virtual env will be available in notebook
 
-  ![name](blogs-repo/images/20211205_gpu_blog/select_kernel.png)
+  ![name](/blogs-repo/images/20211205_gpu_blog/select_kernel.png)
   
   *Note:*
   If you forgot to activating new env, and adding the new env to jupyter kernel, you could meet the error: 
@@ -223,7 +223,7 @@ The above figure means Cuda and Cudnn have been installed successfully.
 
   Note: since jupyter hasn't been installed in new virtual env, I run above command under `base` environment. 
 
-  ![name](blogs-repo/images/20211205_gpu_blog/kernel_list.png)
+  ![name](/blogs-repo/images/20211205_gpu_blog/kernel_list.png)
 
 - Removing virutal env from notebook
   

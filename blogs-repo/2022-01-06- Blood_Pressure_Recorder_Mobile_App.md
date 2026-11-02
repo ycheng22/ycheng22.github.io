@@ -35,10 +35,10 @@ In this repo, I developed a mobile APP to recognize picture of blood pressure mo
 In my experience, taking a picture is the easiest way to record important information, such as recording blood pressure, recording logs on the running machine.
 
 <p align="center">
-  <img src="blogs-repo/images/20220106_BP_APP/IMG_20210806_191237.jpg" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/IMG_20210806_191237.jpg" width="30%" height="100%"/>
 </p>
 <p align="center">
-  <img src="blogs-repo/images/20220106_BP_APP/run.jpg" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/run.jpg" width="30%" height="100%"/>
 </p>
 
 **About the files:**
@@ -67,7 +67,7 @@ There are three screens:
 In home screen, all records are shown in scatter plot
 
 <p align="center">
-  <img src="blogs-repo/images/20220106_BP_APP/home_screen.png" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/home_screen.png" width="30%" height="100%"/>
 </p>
 
 When new record is inserted or deleted, the figure will be updated.
@@ -78,8 +78,8 @@ The third creen is Viewing and editting screen, it lists all records ordered by 
 
 In the below picture, the record with id 15 is deleted.
 <p align="center">
-  <img src="blogs-repo/images/20220106_BP_APP/before_del.png" width="30%" height="100%"/>
-  <img src="blogs-repo/images/20220106_BP_APP/after_del.png" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/before_del.png" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/after_del.png" width="30%" height="100%"/>
 </p>
 
 **left**: before deletion     **right**: after deletion
@@ -92,8 +92,8 @@ Below is the base interface of the middle screen.
 - left one is the base interface
 - right one the the camera screen when clicking camera icon
 <p align="center">
-  <img src="blogs-repo/images/20220106_BP_APP/add_screen.png" width="30%" height="100%"/>
-  <img src="blogs-repo/images/20220106_BP_APP/camera_screen.png" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/add_screen.png" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/camera_screen.png" width="30%" height="100%"/>
 </p>
 
 Explaination of the icons:
@@ -109,8 +109,8 @@ Explaination of the icons:
 Below is the date picker window(left) and time picker window(right).
 
 <p align="center">
-  <img src="blogs-repo/images/20220106_BP_APP/date_picker.png" width="30%" height="100%"/>
-  <img src="blogs-repo/images/20220106_BP_APP/time_picker.png" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/date_picker.png" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/time_picker.png" width="30%" height="100%"/>
 </p>
 
 ### 4.2 Adding records by hand
@@ -123,9 +123,9 @@ In the following pictures:
 - right one shows the added result in list
   
 <p align="center">
-  <img src="blogs-repo/images/20220106_BP_APP/by_hand_1.png" width="30%" height="100%"/>
-  <img src="blogs-repo/images/20220106_BP_APP/by_hand_add.png" width="30%" height="100%"/>
-  <img src="blogs-repo/images/20220106_BP_APP/by_hand_list.png" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/by_hand_1.png" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/by_hand_add.png" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/by_hand_list.png" width="30%" height="100%"/>
 </p>
 
 ### 4.3 Adding records by file chooser
@@ -134,14 +134,14 @@ The user can add record by choosing photo from local folder.
 By clicking the `upload` icon, a folder explorer window will pop up, user can choose photo. Below are some results:
 
 <p align="center">
-  <img src="blogs-repo/images/20220106_BP_APP/by_file_suc_1.png" width="30%" height="100%"/>
-  <img src="blogs-repo/images/20220106_BP_APP/by_file_suc_4.png" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/by_file_suc_1.png" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/by_file_suc_4.png" width="30%" height="100%"/>
 </p>
 
 Below pictures show the second added results in scatter plot and list.
 <p align="center">
-  <img src="blogs-repo/images/20220106_BP_APP/by_file_suc_4_plot.png" width="30%" height="100%"/>
-  <img src="blogs-repo/images/20220106_BP_APP/by_file_suc_4_list.png" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/by_file_suc_4_plot.png" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/by_file_suc_4_list.png" width="30%" height="100%"/>
 </p>
 
 The App recognizes the pressure value correctly, it also extracts the date and time information from the file with the help of library `exifread`.
@@ -158,8 +158,8 @@ Below are the results:
 **Note:** By using `iVCam`, I can use my cellphone's camera when coding on PC. 
 
 <p align="center">
-  <img src="blogs-repo/images/20220106_BP_APP/by_camera_1.png" width="30%" height="100%"/>
-  <img src="blogs-repo/images/20220106_BP_APP/by_camera_2.png" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/by_camera_1.png" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/by_camera_2.png" width="30%" height="100%"/>
 </p>
 
 We can see that the App recognizes the pressure value correctly, and sets current time as it's date and time.
@@ -175,7 +175,7 @@ The back-end code is in files:
 The digit on the blood pressure monitor is seven segment digits, which are not always easy to recognize. 
 
 <p align="center">
-  <img src="blogs-repo/images/20220106_BP_APP/ssd_encode.png" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/ssd_encode.png" width="30%" height="100%"/>
 </p>
 
 
@@ -185,8 +185,8 @@ Both of them can detect the words in the photo except the large digits in the mi
 
 Below are the text detection results, left is result of EasyOCR, right is result of EAST.
 <p align="center">
-  <img src="blogs-repo/images/20220106_BP_APP/easyocr_recog.png" width="30%" height="100%"/>
-  <img src="blogs-repo/images/20220106_BP_APP/EAST_detect.png" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/easyocr_recog.png" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/EAST_detect.png" width="30%" height="100%"/>
 </p>
 
 Both of them are powerful tool in text detection and/or recognition. But in my case, they don't work.
@@ -211,33 +211,33 @@ The whole process go in this way:
 
 1. Read image, apply `Gaussian Blur` to clear out noise, apply `Canny` method to get the contours in the image. Used `cv2.GaussianBlur, cv2.Canny`.
   <p align="center">
-  <img src="blogs-repo/images/20220106_BP_APP/canny.png" width="30%" height="100%"/>
+  <img src="/blogs-repo/images/20220106_BP_APP/canny.png" width="30%" height="100%"/>
     </p>
 
 2. Sort the contours by length, the first four contours shoulb be the outline of the LED screen. Used `cv2.findContours, cv2.arcLength, cv2.approxPolyDP`.
    <p align="center">
-    <img src="blogs-repo/images/20220106_BP_APP/led_creen.png" width="30%" height="100%"/>
+    <img src="/blogs-repo/images/20220106_BP_APP/led_creen.png" width="30%" height="100%"/>
     </p>
 3. Convert the image to white-black picture, used `cv2.threshold`
    <p align="center">
-    <img src="blogs-repo/images/20220106_BP_APP/led_binary.png" width="30%" height="100%"/>
+    <img src="/blogs-repo/images/20220106_BP_APP/led_binary.png" width="30%" height="100%"/>
     </p>
 4. Apply `Opening` method to decrease noise again, used `cv2.getStructuringElement`, `cv2.morphologyEx`
 5. Setmenting the digits horizontally and vertically
    <p align="center">
-    <img src="blogs-repo/images/20220106_BP_APP/led_horizon.png" width="30%" height="100%"/>
-    <img src="blogs-repo/images/20220106_BP_APP/led_vertic.png" width="30%" height="100%"/>
+    <img src="/blogs-repo/images/20220106_BP_APP/led_horizon.png" width="30%" height="100%"/>
+    <img src="/blogs-repo/images/20220106_BP_APP/led_vertic.png" width="30%" height="100%"/>
     </p>
 6. Extracting each digit by checking each segment's area
    Take number 2 as example,its seven segments matrix is [1, 0, 1, 1, 1, 0, 1], by checking the above `DIGITS_LOOKUP` matrix, it's recognized as 2.
    The seven recognized digits are as follows:1,2,8, ,9,7
     <p align="center">
-    <img src="blogs-repo/images/20220106_BP_APP/num1.png" width="15%" height="100%"/>
-    <img src="blogs-repo/images/20220106_BP_APP/num2.png" width="15%" height="100%"/>
-    <img src="blogs-repo/images/20220106_BP_APP/num3.png" width="15%" height="100%"/>
-    <img src="blogs-repo/images/20220106_BP_APP/num4.png" width="15%" height="100%"/>
-    <img src="blogs-repo/images/20220106_BP_APP/num5.png" width="15%" height="100%"/>
-    <img src="blogs-repo/images/20220106_BP_APP/num6.png" width="15%" height="100%"/>
+    <img src="/blogs-repo/images/20220106_BP_APP/num1.png" width="15%" height="100%"/>
+    <img src="/blogs-repo/images/20220106_BP_APP/num2.png" width="15%" height="100%"/>
+    <img src="/blogs-repo/images/20220106_BP_APP/num3.png" width="15%" height="100%"/>
+    <img src="/blogs-repo/images/20220106_BP_APP/num4.png" width="15%" height="100%"/>
+    <img src="/blogs-repo/images/20220106_BP_APP/num5.png" width="15%" height="100%"/>
+    <img src="/blogs-repo/images/20220106_BP_APP/num6.png" width="15%" height="100%"/>
     </p>
 
 The details are in the file `seg_image.ipynb`.

@@ -56,7 +56,7 @@ outage = pd.read_excel('outage_feb1019.xlsx', sheet_name='OutageData')
 print(f'Outage size: {outage.shape}')
 outage.head(3)
 ```
-![name](blogs-repo/images/texas_outage/outage_print.png)
+![name](/blogs-repo/images/texas_outage/outage_print.png)
 
 ```python
 outage['FUEL TYPE'].unique()
@@ -71,7 +71,7 @@ print(f'County size: {cnty.shape}')
 cnty.head(3)
 ```
 `County size: (254, 8)`
-![name](blogs-repo/images/texas_outage/county_data.png)
+![name](/blogs-repo/images/texas_outage/county_data.png)
 
 ### 2.3 Weather history data
 
@@ -127,7 +127,7 @@ hourly_data.reset_index(drop=True, inplace=True)
 hourly_data.to_csv('hourly_data.csv')
 hourly_data.head(3)
 ```
-![name](blogs-repo/images/texas_outage/wea_data.png)
+![name](/blogs-repo/images/texas_outage/wea_data.png)
 
 ## 3. Data processing
 
@@ -152,7 +152,7 @@ print(f'weather_cut shape: {weather_cut.shape}')
 weather_cut.head(3)
 ```
 `weather_cut shape: (59760, 9)`
-![name](blogs-repo/images/texas_outage/wea_use.png)
+![name](/blogs-repo/images/texas_outage/wea_use.png)
 
 ### 3.2 Picking useful features from the outage data
 
@@ -161,7 +161,7 @@ outage_cut = outage.drop(['STATION LONG NAME', 'UNIT NAME', 'RESOURCE ENTITY'], 
 outage_cut.rename(columns={'SEASONAL MAX MW (HSL)': 'MAX_MW', 'AVAILABLE MW AFTER OUTAGE/DERATE': 'AVAI_MW', 'MW REDUCTION FROM OUTAGE/DERATE': 'REDU_MW'}, inplace=True)
 outage_cut.head(3)
 ```
-![name](blogs-repo/images/texas_outage/out_cut.png)
+![name](/blogs-repo/images/texas_outage/out_cut.png)
 
 ### 3.3 Adding outage info to weather_cut_drop.
 
@@ -208,37 +208,37 @@ Import `cnty_weather_out_v2.csv` to Tableau and visualize the data.
 
 The slider can help user select time.
 
-![name](blogs-repo/images/texas_outage/preview1.png)
+![name](/blogs-repo/images/texas_outage/preview1.png)
 
 ### 4.2 Comparing the evolution in one map
 
 The color represents the temperature, the size of dot represents the total reduced power. The slider can help user select time.
 
-![name](blogs-repo/images/texas_outage/preview2.png)
+![name](/blogs-repo/images/texas_outage/preview2.png)
 
 ### 4.3 Heatmap of counties' total reduced power at each time
 
-![name](blogs-repo/images/texas_outage/preview3.png)
+![name](/blogs-repo/images/texas_outage/preview3.png)
 
 ### 4.4 Heatmap of counties' temperature at each time
 
-![name](blogs-repo/images/texas_outage/preview4.png)
+![name](/blogs-repo/images/texas_outage/preview4.png)
 
 ### 4.5 Line chart of each county's temperature and reduced power
 
 In drop-down menu, the user can select county.
 
-![name](blogs-repo/images/texas_outage/preview5.png)
+![name](/blogs-repo/images/texas_outage/preview5.png)
 
 ### 4.6 Total reduced power by fuel type
 
-![name](blogs-repo/images/texas_outage/preview6.png)
+![name](/blogs-repo/images/texas_outage/preview6.png)
 
 ### 4.7 Top X counties suffer power outage at each time
 
 The slider can help user select time. User can set X in the text box.
 
-![name](blogs-repo/images/texas_outage/preview7.png)
+![name](/blogs-repo/images/texas_outage/preview7.png)
 
 
 

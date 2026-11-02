@@ -50,23 +50,23 @@ Overview of folder structure:
 
 `./templates/index.html`
 
-![name](blogs-repo/images/20210912_web_app_pythonanywhere/index.png)
+![name](/blogs-repo/images/20210912_web_app_pythonanywhere/index.png)
 
 `./templates/success.html`
 
-![name](blogs-repo/images/20210912_web_app_pythonanywhere/suc_code.png)
+![name](/blogs-repo/images/20210912_web_app_pythonanywhere/suc_code.png)
 
 Main page: 
 
-![name](blogs-repo/images/20210912_web_app_pythonanywhere/pythonanywhere_image.png)
+![name](/blogs-repo/images/20210912_web_app_pythonanywhere/pythonanywhere_image.png)
 
 Main page when input duplicated email:
 
-![name](blogs-repo/images/20210912_web_app_pythonanywhere/duplicate_.png)
+![name](/blogs-repo/images/20210912_web_app_pythonanywhere/duplicate_.png)
 
 Success page:
 
-![name](blogs-repo/images/20210912_web_app_pythonanywhere/success.png)
+![name](/blogs-repo/images/20210912_web_app_pythonanywhere/success.png)
 
 ## 3. Creating virtual environment 
 
@@ -129,7 +129,7 @@ db.session.commit()
 
 The created table:
 
-![name](blogs-repo/images/20210912_web_app_pythonanywhere/pdAdmin.png)
+![name](/blogs-repo/images/20210912_web_app_pythonanywhere/pdAdmin.png)
 
 ## 5. Send email to the participant
 
@@ -219,14 +219,14 @@ if __name__ == '__main__':
 - The web address will be: [ycheng.pythonanywhere.com](http://ycheng.pythonanywhere.com/)
 - Go to `Files`, under folder `mysite`, upload files:
   
-  ![name](blogs-repo/images/20210912_web_app_pythonanywhere/mysite.png)
+  ![name](/blogs-repo/images/20210912_web_app_pythonanywhere/mysite.png)
 
   - `flask_app.py` will hold the code we typed in `app.py`.
   - Click `New directory` to create `templates` folder, `static` folder, and upload files. 
 - Go to `Web`
-  ![name](blogs-repo/images/20210912_web_app_pythonanywhere/web.png)
+  ![name](/blogs-repo/images/20210912_web_app_pythonanywhere/web.png)
 - Go to `Database`, create and connect to `MySQL` database
-  ![name](blogs-repo/images/20210912_web_app_pythonanywhere/db.png)
+  ![name](/blogs-repo/images/20210912_web_app_pythonanywhere/db.png)
   - create database, name is `height_collector`
   - set password
 - Click the `Start a console on:ycheng$height_collector` to go to MySQL commnd
@@ -234,7 +234,7 @@ if __name__ == '__main__':
   
     `CREATE TABLE data (id SERIAL PRIMARY KEY, email_ VARCHAR(120), height_ INT);`
 
-    ![name](blogs-repo/images/20210912_web_app_pythonanywhere/create_table.png)
+    ![name](/blogs-repo/images/20210912_web_app_pythonanywhere/create_table.png)
 - Connect to the database, snippet of `flask_app.py`: 
   ```python
   from flask import Flask, render_template, request
@@ -250,5 +250,5 @@ if __name__ == '__main__':
 - Go to webs, reload web, go the web address, it should work now.
 - Go to `Web`, open `Error Log` to debug
 - 
-![name](blogs-repo/images/20210912_web_app_pythonanywhere/debug.png)
+![name](/blogs-repo/images/20210912_web_app_pythonanywhere/debug.png)
 

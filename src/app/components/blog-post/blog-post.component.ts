@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
+import { addHeadingIds } from '../../markdown/heading-ids';
 import { BlogPost } from '../../models/blog-post.model';
 import { ScrollNavigationComponent } from '../scroll-navigation/scroll-navigation.component';
 import { JupyterViewerComponent } from '../jupyter-viewer/jupyter-viewer.component';
@@ -119,6 +120,26 @@ export class BlogPostComponent implements AfterViewInit, OnInit {
       document.execCommand('copy');
       document.body.removeChild(textarea);
     }
+  }
+
+  onMarkdownReady(): void {
+    if (!this.markdownContent?.nativeElement) return;
+    addHeadingIds(this.markdownContent.nativeElement);
+    // Honor deep links like /blog/<slug>#some-heading once headings exist
+    const id = decodeURIComponent(location.hash.slice(1));
+    if (id) document.getElementById(id)?.scrollIntoView({ block: 'start' });
+  }
+
+  // Keep in-post "#heading" links on this page (with <base href="/"> they would resolve to "/#heading")
+  onContentClick(event: MouseEvent): void {
+    const link = (event.target as HTMLElement).closest('a');
+    const href = link?.getAttribute('href');
+    if (!href || !href.startsWith('#') || href.length < 2) return;
+
+    event.preventDefault();
+    const id = decodeURIComponent(href.slice(1));
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.replaceState(history.state, '', `${location.pathname}#${encodeURIComponent(id)}`);
   }
 
   async onShare() {

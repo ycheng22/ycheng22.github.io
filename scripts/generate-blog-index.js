@@ -11,6 +11,11 @@ function titleFromSlug(slug) {
   return slug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
 }
 
+// Site-relative asset paths must start with "/" so they work from /blog/<slug>
+function toAbsolute(url) {
+  return /^(https?:)?\/\//.test(url) || url.startsWith('/') ? url : `/${url}`;
+}
+
 // First sentence(s) of the body, stripped of markdown, ~150 chars
 function descriptionFromBody(body) {
   const clean = body
@@ -49,7 +54,7 @@ function buildEntry(file) {
     author: data.author || DEFAULT_AUTHOR,
     readingTime: Math.max(1, Math.ceil(body.split(/\s+/).filter(Boolean).length / 200)),
     numberOfLike: data.numberOfLike || 0,
-    background: data.background && !data.background.includes('default_img') ? data.background : DEFAULT_BACKGROUND,
+    background: data.background && !data.background.includes('default_img') ? toAbsolute(data.background) : DEFAULT_BACKGROUND,
     showBackground: data.showBackground || false,
     isNotebook: data.isNotebook || false,
   };

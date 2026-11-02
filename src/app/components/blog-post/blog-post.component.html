@@ -90,8 +90,8 @@
       <app-jupyter-viewer [notebookData]="blogPost.notebookData"></app-jupyter-viewer>
     </div>
   } @else {
-    <div class="markdown-content" #markdownContent>
-      <markdown [data]="blogPost.content"> </markdown>
+    <div class="markdown-content" #markdownContent (click)="onContentClick($event)">
+      <markdown [data]="blogPost.content" (ready)="onMarkdownReady()"> </markdown>
     </div>
   }
 
