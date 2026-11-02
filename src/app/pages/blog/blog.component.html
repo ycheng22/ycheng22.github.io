@@ -1,10 +1,10 @@
-<div class="min-h-screen bg-slate-50 dark:bg-slate-950">
+<div class="min-h-screen bg-gray-50">
   <!-- Header -->
-  <div class="bg-gradient-to-br from-accent-600 via-accent-700 to-accent-800 text-white">
+  <div class="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white">
     <div class="container-custom py-16">
       <div class="max-w-4xl mx-auto text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-6">Technical Blog</h1>
-        <p class="text-xl text-accent-100 max-w-3xl mx-auto leading-relaxed">
+        <p class="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
           Insights, tutorials, and thoughts on software engineering, web development, and modern
           technologies. Join me as I share my experiences and learnings.
         </p>
@@ -13,7 +13,7 @@
   </div>
 
   <!-- Search and Filter Bar -->
-  <div class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+  <div class="bg-white border-b border-gray-200">
     <div class="container-custom py-6">
       <div class="max-w-6xl mx-auto flex items-center justify-between gap-4">
         <!-- Search Bar -->
@@ -24,10 +24,10 @@
               [value]="searchTerm()"
               (input)="searchTerm.set($any($event).target.value)"
               placeholder="Search posts..."
-              class="w-full pl-12 pr-4 py-3 border border-slate-300 dark:border-slate-700 rounded-lg bg-white text-slate-900 placeholder-slate-400 dark:bg-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-accent-500 focus:border-transparent"
+              class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
             <svg
-              class="absolute left-4 top-3.5 h-5 w-5 text-slate-400 dark:text-slate-500"
+              class="absolute left-4 top-3.5 h-5 w-5 text-gray-400"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -46,18 +46,20 @@
         <div class="flex gap-3">
           <button
             (click)="filterByPinned(true)"
-            [class.bg-accent-600]="showPinned()"
+            [class.bg-blue-600]="showPinned()"
             [class.text-white]="showPinned()"
-            [ngClass]="{ 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300': !showPinned() }"
+            [class.bg-gray-100]="!showPinned()"
+            [class.text-gray-700]="!showPinned()"
             class="px-4 py-3 rounded-lg font-medium transition-colors flex items-center gap-2"
           >
             📌 Pinned
           </button>
           <button
             (click)="filterByPinned(false)"
-            [class.bg-accent-600]="!showPinned()"
+            [class.bg-blue-600]="!showPinned()"
             [class.text-white]="!showPinned()"
-            [ngClass]="{ 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300': showPinned() }"
+            [class.bg-gray-100]="showPinned()"
+            [class.text-gray-700]="showPinned()"
             class="px-4 py-3 rounded-lg font-medium transition-colors"
           >
             All Posts
@@ -68,26 +70,28 @@
   </div>
 
   <!-- Tags Filter -->
-  <div class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+  <div class="bg-white border-b border-gray-200">
     <div class="container-custom py-6">
       <div class="max-w-6xl mx-auto">
         <div class="flex flex-wrap gap-3 justify-center">
           <button
             (click)="filterByTag('all')"
-            [class.bg-accent-600]="selectedTag() === 'all'"
+            [class.bg-blue-600]="selectedTag() === 'all'"
             [class.text-white]="selectedTag() === 'all'"
-            [ngClass]="{ 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300': selectedTag() !== 'all' }"
-            class="px-4 py-2 rounded-lg font-medium transition-colors hover:bg-accent-100 dark:hover:bg-accent-500/20 hover:text-accent-800 dark:hover:text-accent-300"
+            [class.bg-gray-100]="selectedTag() !== 'all'"
+            [class.text-gray-700]="selectedTag() !== 'all'"
+            class="px-4 py-2 rounded-lg font-medium transition-colors hover:bg-blue-100 hover:text-blue-800"
           >
             All
           </button>
           @for (tag of availableTags(); track tag) {
           <button
             (click)="filterByTag(tag)"
-            [class.bg-accent-600]="selectedTag() === tag"
+            [class.bg-blue-600]="selectedTag() === tag"
             [class.text-white]="selectedTag() === tag"
-            [ngClass]="{ 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300': selectedTag() !== tag }"
-            class="px-4 py-2 rounded-lg font-medium transition-colors hover:bg-accent-100 dark:hover:bg-accent-500/20 hover:text-accent-800 dark:hover:text-accent-300"
+            [class.bg-gray-100]="selectedTag() !== tag"
+            [class.text-gray-700]="selectedTag() !== tag"
+            class="px-4 py-2 rounded-lg font-medium transition-colors hover:bg-blue-100 hover:text-blue-800"
           >
             {{ tag }}
           </button>
@@ -111,7 +115,7 @@
       <div class="text-center py-12">
         <div class="flex justify-center mb-4">
           <svg
-            class="w-16 h-16 text-slate-400 dark:text-slate-500"
+            class="w-16 h-16 text-gray-400"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -129,14 +133,14 @@
             />
           </svg>
         </div>
-        <h3 class="text-2xl font-semibold text-slate-900 dark:text-white mb-2">No posts match your search</h3>
-        <p class="text-slate-600 dark:text-slate-400 mb-6">Try adjusting your search terms.</p>
+        <h3 class="text-2xl font-semibold text-gray-900 mb-2">No posts match your search</h3>
+        <p class="text-gray-600 mb-6">Try adjusting your search terms.</p>
       </div>
       } }
 
       <!-- Load More Button (if needed in future) -->
       <div class="text-center mt-12">
-        <p class="text-slate-600 dark:text-slate-400">Showing {{ filteredPosts().length }} posts</p>
+        <p class="text-gray-600">Showing {{ filteredPosts().length }} posts</p>
       </div>
     </div>
   </div>

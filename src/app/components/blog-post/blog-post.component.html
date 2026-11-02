@@ -12,17 +12,17 @@
 
   <!-- Header -->
   <header class="mb-12 text-center">
-    <h1 class="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white leading-tight mb-6 break-words [overflow-wrap:anywhere]">
+    <h1 class="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-6 break-words [overflow-wrap:anywhere]">
       {{ blogPost.title }}
     </h1>
 
     <div class="mb-8 max-w-3xl mx-auto">
       <div
-        class="bg-gradient-to-r from-accent-50 dark:from-slate-900 to-indigo-50 dark:to-slate-900 border-l-4 border-accent-500 rounded-lg px-6 py-5 shadow-sm hover:shadow-md transition-shadow duration-300"
+        class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500 rounded-lg px-6 py-5 shadow-sm hover:shadow-md transition-shadow duration-300"
       >
-        <p class="text-lg text-slate-700 dark:text-slate-300 italic font-medium leading-relaxed">
+        <p class="text-lg text-gray-700 italic font-medium leading-relaxed">
           <svg
-            class="w-5 h-5 text-accent-500 inline-block mr-3 mb-1"
+            class="w-5 h-5 text-blue-500 inline-block mr-3 mb-1"
             fill="currentColor"
             viewBox="0 0 20 20"
           >
@@ -37,7 +37,7 @@
       </div>
     </div>
 
-    <div class="flex items-center justify-center text-slate-500 dark:text-slate-400 text-sm mb-6">
+    <div class="flex items-center justify-center text-gray-500 text-sm mb-6">
       <div class="flex items-center mr-6">
         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
@@ -76,7 +76,7 @@
     <div class="flex flex-wrap justify-center gap-2">
       @for (tag of blogPost.tags; track tag) {
       <span
-        class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-accent-100 dark:hover:bg-accent-500/20 hover:text-accent-800 dark:hover:text-accent-300 transition-colors duration-200"
+        class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-200"
       >
         #{{ tag }}
       </span>
@@ -91,7 +91,7 @@
       @defer (on immediate) {
         <app-jupyter-viewer [notebookData]="blogPost.notebookData"></app-jupyter-viewer>
       } @placeholder {
-        <div class="h-32 bg-slate-100 dark:bg-slate-800 rounded animate-pulse"></div>
+        <div class="h-32 bg-gray-100 rounded animate-pulse"></div>
       }
     </div>
   } @else {
@@ -101,11 +101,11 @@
   }
 
   <!-- Footer -->
-  <footer class="mt-16 pt-8 border-t border-slate-200 dark:border-slate-800">
+  <footer class="mt-16 pt-8 border-t border-gray-200">
     <div class="flex items-center justify-between">
       <a
         routerLink="/blog"
-        class="inline-flex items-center px-6 py-3 bg-accent-600 text-white font-medium rounded-lg hover:bg-accent-700 transition-colors duration-200"
+        class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
       >
         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
@@ -122,7 +122,7 @@
         <div class="relative">
           <button
             (click)="onShare()"
-            class="inline-flex items-center px-4 py-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors duration-200"
+            class="inline-flex items-center px-4 py-2 text-gray-500 hover:text-gray-700 transition-colors duration-200"
           >
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -136,7 +136,7 @@
           </button>
           @if (showShareMessage) {
           <div
-            class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-slate-800 text-white text-xs rounded shadow-lg whitespace-nowrap animate-fade-in-up"
+            class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-white text-xs rounded shadow-lg whitespace-nowrap animate-fade-in-up"
           >
             Link copied!
           </div>
@@ -146,7 +146,10 @@
         <button
           (click)="onLike()"
           class="inline-flex items-center px-4 py-2 transition-colors duration-200"
-          [ngClass]="isLiked ? 'text-red-500 hover:text-red-600' : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200'"
+          [class.text-red-500]="isLiked"
+          [class.text-gray-500]="!isLiked"
+          [class.hover:text-red-600]="isLiked"
+          [class.hover:text-gray-700]="!isLiked"
         >
           <svg
             class="w-4 h-4 mr-2"

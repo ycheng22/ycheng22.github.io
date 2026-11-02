@@ -1,0 +1,135 @@
+<div id="work-experience" class="py-16 overflow-hidden relative">
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="text-center mb-20">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Work Experience
+      </h1>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+        A timeline of my professional journey in software engineering and research.
+      </p>
+    </div>
+
+    <div class="relative" [@listAnimation]="experiences.length">
+      <div
+        class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-blue-500 via-teal-400 to-slate-200 rounded-full"
+      ></div>
+
+      @for (exp of experiences; track exp; let i = $index; let isEven = $even) {
+      <div class="timeline-item relative mb-12 last:mb-0 md:mb-24">
+        <div
+          class="flex flex-col md:flex-row items-center gap-8"
+          [ngClass]="{'md:flex-row-reverse': !isEven}"
+        >
+          <div class="w-full md:w-1/2" [ngClass]="{'md:pr-12': isEven, 'md:pl-12': !isEven}">
+            <div
+              class="group relative bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-md hover:shadow-2xl border border-slate-200 transition-all duration-300 hover:-translate-y-2"
+            >
+              <div class="mb-6 border-b border-slate-200 pb-4">
+                <span
+                  class="inline-block py-1.5 px-4 rounded-full bg-gradient-to-r from-blue-50 to-teal-50 text-blue-700 text-xs font-bold uppercase tracking-wider mb-3 shadow-sm border border-blue-100"
+                >
+                  {{ exp.period }}
+                </span>
+                <h3 class="text-2xl md:text-3xl font-bold text-slate-900 mb-1">{{ exp.role }}</h3>
+                <h4 class="text-lg md:text-xl font-semibold text-slate-600">{{ exp.company }}</h4>
+              </div>
+              <ul class="space-y-3.5 mb-6 list-none pl-0">
+                @for (highlight of exp.highlights; track $index) {
+                <li
+                  class="text-slate-700 leading-relaxed flex items-start gap-3 text-sm md:text-base"
+                >
+                  <span class="text-blue-500 mt-1.5 flex-shrink-0 font-bold text-lg">•</span>
+                  <span class="flex-1" [innerHTML]="highlight"></span>
+                </li>
+                }
+              </ul>
+              <div class="flex flex-wrap gap-2 pt-2">
+                @for (tag of exp.tags; track tag) {
+                <span
+                  class="px-3 py-1.5 bg-gradient-to-r from-slate-50 to-slate-100 text-slate-700 text-xs font-semibold rounded-lg border border-slate-200 transition-all duration-200 group-hover:from-blue-50 group-hover:to-teal-50 group-hover:text-blue-700 group-hover:border-blue-200 group-hover:shadow-sm"
+                >
+                  {{ tag }}
+                </span>
+                }
+              </div>
+              <div
+                class="hidden md:block absolute top-12 h-0.5 w-12 bg-gradient-to-r from-blue-400 to-teal-400 transition-all group-hover:from-blue-500 group-hover:to-teal-500 group-hover:w-16 rounded-full"
+                [ngClass]="{'right-[-3rem]': isEven, 'left-[-3rem]': !isEven}"
+              ></div>
+            </div>
+          </div>
+          <div
+            class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center"
+          >
+            <div
+              class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white flex items-center justify-center shadow-xl ring-4 ring-white z-10 transition-all duration-300 hover:scale-110 hover:shadow-2xl overflow-hidden border-2 border-slate-100"
+            >
+              @if (exp.logo) {
+              <img
+                loading="lazy"
+                decoding="async"
+                [src]="exp.logo"
+                [alt]="exp.company + ' logo'"
+                class="w-full h-full object-contain p-2"
+              />
+              } @if (!exp.logo) { @switch (exp.icon) { @case ('work') {
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 md:h-8 md:w-8 text-blue-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+              } @case ('research') {
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 md:h-8 md:w-8 text-teal-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 14l9-5-9-5-9 5 9 5z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+                />
+              </svg>
+              } @case ('intern') {
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 md:h-8 md:w-8 text-purple-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                />
+              </svg>
+              } } }
+            </div>
+          </div>
+          <div class="hidden md:block md:w-1/2"></div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>
